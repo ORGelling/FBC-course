@@ -28,7 +28,9 @@ A2- Libraries - These will be used when the compiler links the object files
     everything has to work and as such the relevant libraries will be used.
 
 Q4- Is a library an object module? Explain as open question
-A4- 
+A4- A library contains object modules. It might be possible to argue that a 
+    library that contains only one object module could be seen as such, but it 
+    is better to say that it is simply a library and keep the distinction.
 
 Q5- Why is an object file compiled from a source containing int main() not an
     executable program?
