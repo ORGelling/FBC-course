@@ -1,1 +1,11 @@
 Exercise 4 information
+
+We choose a special combination for the parentheses to differentiate them from
+the )" that shows up in the string literal, which would otherwise close our 
+string. We can pick any unique combination of keys with the parenthesis, and it
+will then only look for that combination of keys inbetween the ) and "
+
+example:
+R"veryuniquesetofcharacters(  raw string here  )veryuniquesetofcharacters"
+
+We used R"special(  ...  )special"
