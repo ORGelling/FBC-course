@@ -1,1 +1,25 @@
 Exercise 6
+
+We must use all the different operators ONCE to check if a number is even or 
+odd 6 times. We base this heavily off of the fact that true and false are also
+represented as 1 (or any nonzero value) and 0 respectively, to simplify the 
+code.
+
+Our first method simply uses modulo 2 to check if the answer is 0 (false/even)
+or 1 (true/odd).
+
+Our second uses the bitwise OR operator to compare the LSB to the number 1. If 
+the LSB of our input value is the same we have an odd number, else we are odd. 
+This gives us a clear even and odd check.
+
+Our third bitshifts the number one step to the right and then back to the left
+and compares it to the initial input value. If they are different the LSB was 1
+and was replaced by a 0 due to the bitshift back.
+
+Our fourth divides by two and then multiplies by two, and then checks if the 
+number has changed from the input. If it has we have lost 0.5 due to this type
+not carying decimals. It will then be an odd number
+
+Our fifth
+
+Our sixth
