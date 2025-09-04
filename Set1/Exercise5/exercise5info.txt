@@ -1,1 +1,7 @@
-Exercise 5
+Exercise 5: Submit an overview of standard escape sequences in table format
+
+Esc seq | Short description
+\       | 
+
+What happens if another character is written as an escape sequence?
+Provide example using a cout statement.

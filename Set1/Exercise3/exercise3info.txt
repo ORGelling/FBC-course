@@ -1,1 +1,1 @@
-Exercise 3 information
+Exercise 3: Describe six major differences between c and c++
