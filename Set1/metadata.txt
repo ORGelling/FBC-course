@@ -4,8 +4,8 @@ Authors: Olivier Gelling, Leon Lan, Mohammad Habibi
 
 Rater: 
 
-Exercise 1 - almost done
-Exercise 2 - almost done
+Exercise 1 - done
+Exercise 2 - could use some feedback (Q5 especially)
 Exercise 3 - 
 Exercise 4 - done
 Exercise 5 - 
