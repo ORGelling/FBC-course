@@ -15,3 +15,15 @@ structures that often come with classes and such.
 
 The executable file on the other hand is the complete set of functional 
 instructions that the computer must follow to run the program. It 
+
+The commands used for this exercise:
+g++ -c hello.cc -Wall -Werror
+to compile it, and 
+g++ hello.o -o hello -s -Wall -Werror
+to link it
+
+The sizes of our files in bytes:
+hello.cc:   232
+hello.o:    1520
+hello:      14368
+iostream:   3074
