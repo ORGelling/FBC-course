@@ -1,3 +1,5 @@
 exercise1info.txt
 hello.cc
 output
+-iostream
+-hello.o
