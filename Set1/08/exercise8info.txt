@@ -33,5 +33,5 @@ getting large numbers for the outputs of the three righter octets.
 
 The outputs with 20 and 16 common bits are the same because the third octet is 
 simply the number 3. It will have been cut off by the time only 20 bits are 
-read. If the third octet has been a longer nuber more of it will survive the 20
-bit mask.
+read. If the third octet had been a longer nuber more of it would have survived
+the 20 bit mask.

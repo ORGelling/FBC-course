@@ -3,29 +3,24 @@ Exercise 2
 This question consists of multiple subquestions
 
 Q1- In C++, what is the difference between a declaration and a definition?
-A - A declaration merely "declares" that something exists. One can declare 
-    functions in a class in a header without actually giving them a body, and 
-    one can declare variables and their types without assigning anything 
-    specific to them yet. They can then be recognised by other parts of the 
-    program, but do not actually contain information yet. Definitions, however,
-    specify the object in full, giving functions a body, or variables a value.
+A - A declaration merely "declares" that something exists, like declaring 
+    functions in a class in a header without actually giving them a body, so 
+    they can then be recognised and used elsewhere but do not actually contain 
+    information yet. Definitions, on the other hand, actually specify the 
+    object in full, giving functions a body, or variables a value.
 
 Q2- What are header files used for?
 A - Header files are used to provide declarations of functions in the encom-
     panying files/classes etc. They serve as an overview of the usable parts of
-    that they "head". 
+    that they "head" so that their contents can be called elsewhere easily. 
 
 Q3- When does a compiler use a header file, and when a library?
-A1- Header files - The compiler will use header files when it encounters their 
-    declarations. This usually means it will use them when compiling the source 
-    files as this is where the header files will be declared and thus written. 
-    If I am not mistaken, declaring a header file in your source file will 
-    basically just make the compiler exchange the declaration for that header 
-    file in full, in that place. As such this is when it will be used.
+A1- Header files - The compiler will use header files when it compiles, either 
+    by them being manually specified or due to being declared in source files 
 A2- Libraries - These will be used when the compiler links the object files 
     together into a working executable program. Until this point external 
     references are just left as-is, wheras now that the program is being linked
-    everything has to work and as such the relevant libraries will be used.
+    everything has to work and as such the relevant libraries will be needed.
 
 Q4- Is a library an object module? Explain as open question
 A4- A library contains object modules. It might be possible to argue that a 
