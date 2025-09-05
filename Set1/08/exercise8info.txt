@@ -27,10 +27,9 @@ mask is 0 will be suppressed.
 
 We do the a similar thing when we want to read the octets again in cout. We 
 shift the octets back to the right so that they can be read as the lowest 8 
-bits. we then apply the mask '& 0xFF'. Which is a bitstring of eight 1's. This 
+bits. we then apply the mask '& 255'. Which is a bitstring of eight 1's. This 
 allows us to read only the current rightmost 8 bits, and thus keeps us from 
-getting large numbers for the outputs of the three righter octets. 0xFF is 
-hexadecimal, and the number 255 can just as well be used. We find this clearer.
+getting large numbers for the outputs of the three righter octets.
 
 The outputs with 20 and 16 common bits are the same because the third octet is 
 simply the number 3. It will have been cut off by the time only 20 bits are 

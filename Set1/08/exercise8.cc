@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
     & ~0UL << (32 - stoul(argv[5]));            // apply mask
 
     cout << ((ip4 >> 24)) << '.'                // read first octet
-         << ((ip4 >> 16) & 0xFF) << '.'         // read second
-         << ((ip4 >> 8) & 0xFF) << '.'          // read third
-         << (ip4 & 0xFF)                        // read fourth
+         << ((ip4 >> 16) & 255) << '.'          // read second
+         << ((ip4 >> 8) & 255) << '.'           // read third
+         << (ip4 & 255)                         // read fourth
          << '\n';                               // We mask them with 0xFF
                                                 // to only read those 8 bits
 }
