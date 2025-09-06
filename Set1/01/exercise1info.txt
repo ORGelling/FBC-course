@@ -5,7 +5,7 @@ compiled file, and then link that object into an executable.
 
 The object (hello.o) file serves as a compiled version of this file without 
 being turned into a full working executable program. This makes it easier
-to work with large programs where multiple sourve files are used. Changes
+to work with large programs where multiple source files are used. Changes
 made to a single source file then do not require a complete recompilation of 
 the entire program, instead the specific source file can be recompiled, and
 the rest of the (already) "pre-"compiled files can simply be linked by the
