@@ -1,0 +1,7 @@
+exercise8info.txt
+exercise8.cc
+output16
+output20
+output24
+output28
+output32
