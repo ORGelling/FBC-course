@@ -1,4 +1,4 @@
 exercise1info.txt
 hello.cc
-output
+output.txt
 -hello.o

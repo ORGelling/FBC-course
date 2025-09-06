@@ -1,7 +1,7 @@
 exercise8info.txt
 exercise8.cc
-output16
-output20
-output24
-output28
-output32
+output16.txt
+output20.txt
+output24.txt
+output28.txt
+output32.txt
