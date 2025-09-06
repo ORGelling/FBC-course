@@ -17,3 +17,4 @@ Still need to improve certain things for the mail handler, like adding txt
 files that specify the order in which the files of each exercise should be 
 read.
 
+Test addition
