@@ -1,38 +1,38 @@
 Exercise 7:
 
-Using command line arguments: Write single expression a program that outputs 
-"hello" along with a specific coomand line argument or "world"
+Using command line arguments: Write single expression a program that outputs
+"hello" along with a specific command line argument or "world"
 
-We use two nested ternary statements to distinguish between the three versions
-of the program's output:
+We use two nested ternary statements to distinguish between the three 
+versions of the program's output:
 1 - only the program is called. We want to output simply "hello world" here 
 2 - one argument is passed along. We want to output "hello [argument]'
 3 - multiple arguments are passed along. We want to use the first argument as
-    an index for which of the arguments is printed after "helo".
+    an index for which of the arguments is printed after "hello".
 
-The first ternary operator statement filters out argc == 1; only the program is
-called and no command line arguments are. The "else" clause then gets another 
-nested ternary operator statement to distinguish between argc == 2, which means
-one argument is passed along, and argc > 2.
+The first ternary operator statement filters out argc == 1; only the program
+is called and no command line arguments are. The "else" clause then gets 
+another nested ternary operator statement to distinguish between argc == 2, 
+which means one argument is passed along, and argc > 2.
 
-We mimic exercise 6's format somewhat, where the ternary statements are nested
-inside cout, inserting whatever is selected due to the arg count after 
+We mimic exercise 6's format somewhat, where the ternary statements are 
+nested inside cout, inserting whatever is selected due to the arg count after
 "hello ". This way we don't get errors concatenating the raw string with 
 *argv[]'s character pointers. 
 
-selecting argv[1] to insert into cout is then not very hard, but we need, as 
-the hint shows, stoul() (string to unsigned long) to turn argv[1]'s input into
-a usable index for argv[] for the final output case.
+Selecting argv[1] to insert into cout is then not very hard, but we need, as 
+the hint shows, stoul() (string to unsigned long) to turn argv[1]'s input 
+into a usable index for argv[] for the final output case.
 
-Noteworthy is when an index larger than the argument list length is given. The
-first argument beyond the given list will simply be empty (and no endline
+Noteworthy is when an index larger than the argument list length is given. 
+The first argument beyond the given list will simply be empty (and no endline
 will be registered), then it starts printing path variables, like SHELL, 
 SESSION_MANAGER, etc. I am not sure if this is an error in my program, or a 
-general issue with writing a program like this without any safeguards for the 
+general issue with writing a program like this without any safeguards for the
 index argument being longer than argv[]
 
 If we want the program to display the first argument while still handing it 
 more than one we can set the first argument to be "1". This will cause it to 
 output "hello 1". It seems that this also works with any first argument that
-starts with a "1" too. If we call "./a.out 1ooh lala chachacha" our output is 
+starts with a "1" too. If we call "./a.out 1ooh lala chachacha" our output is
 "hello 1ooh"
