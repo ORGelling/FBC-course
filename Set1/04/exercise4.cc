@@ -5,7 +5,7 @@ using namespace std;
 namespace {                         // anonymous namespace
 
 // We use R"special( and )special" to denote the start and end of string
-const char wifiPattern[] = 
+char const wifiPattern[] = 
 R"special(^\s+Encryption key:(\w+)
 ^\s+Quality=(\d+)
 ^\s+E?SSID:"([[:print:]]+)"
