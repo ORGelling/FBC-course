@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: check-line-width
+        name: Check line width ≤78
+        entry: python3 rules/max_line_width.py 78
+        language: system
+        files: \.(txt|cpp|cc|h|hpp)$  # text, source, headers
