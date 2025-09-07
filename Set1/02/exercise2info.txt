@@ -3,31 +3,35 @@ Exercise 2
 This question consists of multiple subquestions
 
 Q1- In C++, what is the difference between a declaration and a definition?
-A - A declaration merely "declares" that something exists, like declaring 
-    functions in a class in a header without actually giving them a body, so 
-    they can then be recognised and used elsewhere but do not actually contain 
-    information yet. Definitions, on the other hand, actually specify the 
-    object in full, giving functions a body, or variables a value.
+A - A declaration provides identifiers, like for classes or functions, which 
+    can be referred to in other files. A declaration does not contsain a code 
+    implementation yet. Definitions, on the other hand, actually specify the 
+    declared symbols in full, for example, giving functions a body, or 
+    variables a value.
 
 Q2- What are header files used for?
-A - Header files are used to provide declarations of functions in the encom-
-    panying files/classes etc. They serve as an overview of the usable parts of
-    that they "head" so that their contents can be called elsewhere easily. 
+A - Header files are used to provide declarations in the encompanying files. 
+    They serve as an overview of the usable parts of that they "head" so that 
+    their contents can be referred to elsewhere easily. 
 
 Q3- When does a compiler use a header file, and when a library?
-A1- Header files - The compiler will use header files when it compiles, either 
-    by them being manually specified or due to being declared in source files 
+A1- Header files - The compiler uses the header files in the preprocessing 
+    phase. It does so when preprocessing a source file, where any #include 
+    <header> directive is replaced with the contents of the header file.
+ 
 A2- Libraries - These will be used when the compiler links the object files 
-    together into a working executable program. Until this point external 
-    references are just left as-is, wheras now that the program is being linked
-    everything has to work and as such the relevant libraries will be needed.
+    together into a working executable program. Until this point object files 
+    contain unresolved references. The linking phase resolves these references
+    by linking the object files against the relevant libraries.
 
 Q4- Is a library an object module? Explain as open question
-A4- A library contains object modules. It might be possible to argue that a 
-    library that contains only one object module could be seen as such, but it 
-    is better to say that it is simply a library and keep the distinction.
+A4- An object module is the product of an assembler or compiler, whereas a 
+    library contains object modules, but also header files, as such it is not
+    simply an object module.
 
 Q5- Why is an object file compiled from a source containing int main() not an
     executable program?
-A5- Because an object file on its own is not an executable program. (Not 
-    finished)
+A5- An object file is not compiled as an executable program on its own because 
+    it is not linked and as such does not have its external references resolved
+    that otherwise would be in the linking phase. It will thus not be able to 
+    run.
