@@ -14,7 +14,7 @@ R"special(^\s+Encryption key:(\w+)
 
 };                                  // end of namespace
 
-int main()
+int main ()
 {
     cout << wifiPattern;
 }
