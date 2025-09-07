@@ -4,15 +4,6 @@ Authors: Olivier Gelling, Leon Lan, Mohammad Habibi
 
 Rater: 
 
-Exercise 1 - done
-Exercise 2 - could use some feedback (Q5 especially)
-Exercise 3 - 
-Exercise 4 - done
-Exercise 5 - 
-Exercise 6 - done
-Exercise 7 - done
-Exercise 8 - done
-
-Still need to improve certain things for the mail handler, like adding txt 
-files that specify the order in which the files of each exercise should be 
-read.
+To do:
+Exercise 3
+Exercise 5
