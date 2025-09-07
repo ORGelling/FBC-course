@@ -2,7 +2,7 @@
 
 using namespace std;                    // adding namespace for ease
 
-int main ()                             // args not needed explicitly
+int main()                              // args not needed explicitly
 {
     cout << "Hello World" << '\n';
 }

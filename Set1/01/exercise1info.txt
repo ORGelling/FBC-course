@@ -23,7 +23,7 @@ g++ hello.o -o hello -s -Wall -Werror
 to link it
 
 The sizes of our files in bytes:
-hello.cc:   238
+hello.cc:   256
 hello.o:    1632
 hello:      14376
 iostream:   3074
