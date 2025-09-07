@@ -1,6 +1,8 @@
 repos:
-  - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v21.1.0
+  - repo: local
     hooks:
-      - id: clang-format
-        files: \.(h|hpp|cc|cpp|txt)$  # header, source and text
+      - id: check-line-width
+        name: Check line width ≤78
+        entry: python3 rules/max_line_width.py 78
+        language: system
+        files: \.(txt|cpp|cc|h|hpp)$  # text, source, headers
