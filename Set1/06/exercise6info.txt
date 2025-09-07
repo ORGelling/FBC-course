@@ -22,7 +22,7 @@ should be the same. Otherwise integer division truncates the intermediate
 value towards 0, losing the decimal. If we then multiply it by two again we 
 end up with a different value.
 
-Our fifth uses bitwise OR to see if the last bit stays the same (if it is 1)
+Our fifth uses bitwise OR to see if the LSB stays the same (if it was a 1)
 or if it flips (when it is 0). If the new value is the same as the input we 
 have an odd number, else even.
 

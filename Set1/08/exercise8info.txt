@@ -6,32 +6,32 @@ a fifth to define the netmask.
 We define a single size_t and initialise it by taking the four commandline 
 octet values, casting them to unsigned longs with stoul, and then shifting 
 their bit values up the size_t. The first octet gets shifted 24 bits to the 
-left, so as to take the leftmost 8 bits (32 - 24), the second gets shifted 16,
-the third 8, and the fourth none. This way the size_t's bits are divided into 
-4 sections of 8 bits that each store an octet.
+left, so as to take the leftmost 8 bits (32 - 24), the second gets shifted 
+16, the third 8, and the fourth none. This way the size_t's bits are divided
+into 4 sections of 8 bits that each store an octet.
 
 To do this we use bitwise OR: |. This operator lets us combine these octets 
-after shifting them easily, by comparing the bits. It keeps the already stored
-values and is a useful and safe way to combine data in this way.
+after shifting them easily, by comparing the bits. It keeps the already 
+stored values and is a useful and safe way to combine data in this way.
 
-Noteworthy is that due to our expectation that input values will be correct we
-can just use + here, but it seems that | is the norm for actions like these. 
-As such we have decided to use this format.
+Noteworthy is that due to our expectation that input values will be correct 
+we can just use + here, but it seems that | is the norm for actions like 
+these. As such we have decided to use this format.
 
 We apply the mask right away. We use ~0UL, which in practice is a bitstring 
 with all the bits set to 1. We shift this mask to the left by (32 - 'common 
 bits') where common bits is the netmask given as fifth commandline argument. 
-This way there will be 0s on the rightmost bits. We then use bitwise AND/& to 
+This way there will be 0s on the rightmost bits. We then use bitwise AND/& to
 filter out only the relevant values from the IP address, the ones where the 
 mask is 0 will be suppressed. 
 
 We do the a similar thing when we want to read the octets again in cout. We 
 shift the octets back to the right so that they can be read as the lowest 8 
-bits. we then apply the mask '& 255'. Which is a bitstring of eight 1's. This 
+bits. we then apply the mask '& 255'. Which is a bitstring of eight 1's. This
 allows us to read only the current rightmost 8 bits, and thus keeps us from 
 getting large numbers for the outputs of the three righter octets.
 
-The outputs with 20 and 16 common bits are the same because the third octet is 
-simply the number 3. It will have been cut off by the time only 20 bits are 
-read. If the third octet had been a longer nuber more of it would have survived
-the 20 bit mask.
+The outputs with 20 and 16 common bits are the same because the third octet 
+is simply the number 3. It will have been cut off by the time only 20 bits 
+are read. If the third octet had been a longer nuber more of it would have 
+survived the 20 bit mask.

@@ -17,6 +17,6 @@ int main(int argc, char *argv[])
          << ((ip4 >> 16) & 255) << '.'          // read second
          << ((ip4 >> 8) & 255) << '.'           // read third
          << (ip4 & 255)                         // read fourth
-         << '\n';                               // We mask them with 0xFF
+         << '\n';                               // We mask them with '255'
                                                 // to only read those 8 bits
 }
