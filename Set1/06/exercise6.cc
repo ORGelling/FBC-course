@@ -2,10 +2,9 @@
 
 using namespace std;
 
-int main ()
+int main()
 {
     size_t value;
-
     cin >> value;
 
     // Simple modulo 2. 0 should give false and any nonzero value true
