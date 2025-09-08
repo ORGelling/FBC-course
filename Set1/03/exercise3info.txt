@@ -29,7 +29,7 @@ Exercise 3: Describe six major differences between c and c++
     arguments, either by type, by amount, or a combination of both. Even 
     const can be used for overloading.
 
-6 - Clsses, objects, inheritance
+6 - Calsses, objects, inheritance
     C++ allows for classes, objects, inheritance, and other functionalities. 
     Many of these are connected to defining and using classes, or classes 
     inheriting functionalities from others. C simply has no classes to begin
@@ -37,6 +37,7 @@ Exercise 3: Describe six major differences between c and c++
     on them.
 
 We recognise that the last two answers are not part of the covered topics, 
-but found it a bit underwhelming to split cout, cin, and cerr into three 
-answers. We hope that this is not an issue for a theory bound question like
-this one.
+but found them interesting enough to use. We can also add differences in
+structs, RSL's, and general additions to C's grammar instead on the final 
+hand-in. We hope though that this isn't an issue for a theory bound question 
+like this one.
