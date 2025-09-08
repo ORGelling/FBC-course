@@ -1,1 +1,42 @@
 Exercise 3: Describe six major differences between c and c++
+
+1 - const usage
+    Like C++, C has the const keyword, but its function and uses are greatly
+    extended, as it now works on member functions, objects, and references, 
+    and functions can even be overloaded with const. Const is more rigorously 
+    enforced by the compiler with stricter rules, and embedded in its 
+    standard libraries.
+    
+2 - Namespaces
+    C++ allows for the use of namespaces, which C does not have. Namespaces 
+    allow for defining symbols in a specific context, without running into 
+    name conflicts.
+
+3 - Scope resolution operator ::
+    The scope operator is newly introduced for C++, and allows for 
+    distinguishing between global and local variables with the same name. It 
+    is used to call class-bound function members or specify which namespace
+    is being drawn from. 
+
+4 - cout, cin, cerr
+    C++ uses in and output streams similar to C's functions stdout, stdin, 
+    and stderr, but in C++ these are now stream objects (cout, cin, and 
+    cerr), rather than functions (like printf) that encompany file pointers.
+
+5 - Function overloading
+    Contrarily to C, C++ allows functions to be overloaded, meaning that 
+    multiple functions can have the same name as long as they take different
+    arguments, either by type, by amount, or a combination of both. Even 
+    const can be used for overloading.
+
+6 - Clsses, objects, inheritance
+    C++ allows for classes, objects, inheritance, and other functionalities. 
+    Many of these are connected to defining and using classes, or classes 
+    inheriting functionalities from others. C simply has no classes to begin
+    with, so cannot allow for any of the complexer functionalities that build
+    on them.
+
+We recognise that the last two answers are not part of the covered topics, 
+but found it a bit underwhelming to split cout, cin, and cerr into three 
+answers. We hope that this is not an issue for a theory bound question like
+this one.
