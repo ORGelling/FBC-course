@@ -4,7 +4,7 @@ This question consists of multiple subquestions
 
 Q1- In C++, what is the difference between a declaration and a definition?
 A - A declaration provides identifiers, like for classes or functions, which 
-    can be referred to in other files. A declaration does not contsain a code
+    can be referred to in other files. A declaration does not contain a code
     implementation yet. Definitions, on the other hand, actually specify the 
     declared symbols in full, for example, giving functions a body, or 
     variables a value.
