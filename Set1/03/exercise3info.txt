@@ -1,6 +1,6 @@
 Exercise 3: Describe six major differences between c and c++
 
-1 - const usage
+1 - const usage // Const also exists in C. Pick something else
     Like C++, C has the const keyword, but its function and uses are greatly
     extended, as it now works on member functions, objects, and references, 
     and functions can even be overloaded with const. Const is more rigorously 
@@ -18,7 +18,7 @@ Exercise 3: Describe six major differences between c and c++
     is used to call class-bound function members or specify which namespace
     is being drawn from. 
 
-4 - cout, cin, cerr
+4 - cout, cin, cerr  // Libraries might differ in languages. Pick s.e.
     C++ uses in and output streams similar to C's functions stdout, stdin, 
     and stderr, but in C++ these are now stream objects (cout, cin, and 
     cerr), rather than functions (like printf) that encompany file pointers.
