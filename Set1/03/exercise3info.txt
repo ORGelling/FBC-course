@@ -29,7 +29,7 @@ Exercise 3: Describe six major differences between c and c++
     arguments, either by type, by amount, or a combination of both. Even 
     const can be used for overloading.
 
-6 - Calsses, objects, inheritance
+6 - Classes, objects, inheritance
     C++ allows for classes, objects, inheritance, and other functionalities. 
     Many of these are connected to defining and using classes, or classes 
     inheriting functionalities from others. C simply has no classes to begin
