@@ -7,8 +7,8 @@ Esc seq | Short description
 %       | Can be used in the same way as \ for dates and newlines
 \n      | New line. Terminates current line.
 \\      | A backslash: \
-\'      | A single quote: "
-\"      | A double quote: '
+\'      | A single quote: '
+\"      | A double quote: "
 \?      | A question mark: ?
 \a      | An audible alert bell
 \b      | A backspace
