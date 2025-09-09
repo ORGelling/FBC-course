@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.c": "c",
+        "*.cpp": "cpp",
+        "*.h": "cpp",
+        "*.hpp": "cpp",
+        "*.ih": "cpp",
+        "*.cc": "cpp",
+        "*.hh": "cpp",
+        "*.lc3": "wat",
+        "iostream": "cpp"
+    }
+}

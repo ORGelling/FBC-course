@@ -1,0 +1,65 @@
+Exercise 5: Submit an overview of standard escape sequences in table format
+
+Esc seq | Short description
+-----------------------------------------------------------------------------
+\       | The escape sequence (ES) initialiser. Is not actually a "sequence"
+        | by itself, but effects the 'escaping' 
+%       | Can be used in the same way as \ for dates and newlines
+\n      | New line. Terminates current line.
+\\      | A backslash: \
+\'      | A single quote: '
+\"      | A double quote: "
+\?      | A question mark: ?
+\a      | An audible alert bell
+\b      | A backspace
+\f      | Form feed, or new page
+\r      | Carriage return, returns to beginning of current line
+\t      | Horizontal tab
+\v      | Vertical tab
+-----------------------------------------------------------------------------
+\nnn    | Arbitrary octal value, using base 8 rather than 10. Is converted ->
+\o{n...}| -> to ASCII, so \125 becomes U, and \101 'A' etc
+\0      | Octal terminating null character
+\xn...  | Arbitrary hexadecimal value, works similarly to octals above.
+\x{n...}| 
+-----------------------------------------------------------------------------
+\c      | Conditional, implementation defined ES. Does not work for most 
+        | versions.
+-----------------------------------------------------------------------------
+\unnnn    | Arbitrary unicode value, in UTF-16 encoding
+\u{n...}  |
+\Unnnnnnnn| Arbitrary unicode character, in UTF-32 encoding
+\N{NAME}  | Arbitrary unicode character by character name
+-----------------------------------------------------------------------------
+
+What happens if another character is written as an escape sequence?
+Provide example using a cout statement.
+
+We write some code to show how this works:
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "new line: " << '\n';                   // Reference 
+    cout << "random character: " << '\q' << '\n';   // Testing false ES 
+}
+
+If we try to write an escape sequence with a character for which no escape
+sequence is known to the compiler, like \q, it will throw a warning, like so:
+
+exercise5.cc:8:37: warning: unknown escape sequence: ‘\q’
+    8 |     cout << "random character :" << '\q';
+      |                                     ^~~~
+
+This will still compile if we do not have -Werror set though. if we run it
+we get:
+
+new line: 
+random character: q
+
+It seems that the escape sequence is annulled, and the character is simply
+read as is. We have added more tests to the encompanying exercise5.cc source
+file to see how specific escape sequences work.
