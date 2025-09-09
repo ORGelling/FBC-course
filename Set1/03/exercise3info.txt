@@ -1,6 +1,6 @@
 Exercise 3: Describe six major differences between c and c++
 
-1 - Strict type checking // Amended
+1 - Strict type checking // Amended // Change to References!
     As opposed to C, the C++ compiler is very strict with type checking, and
     will not compile if a prototype is not known for each function. As an 
     example, implicit type conversion is not allowed in C++, whereas it is 
