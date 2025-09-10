@@ -1,0 +1,36 @@
+Exercise 09: Visiting all info in a file
+
+We must write a program that accepts a txt file and searches through it to 
+count a's, e's, and i's, independent from capitalisation.
+
+We cannot use <fstream>, so loading the file into the 
+program must be done with cin. We use redirection as the program is being 
+called from the commandline, like so:
+
+./a.out < flow.txt
+
+The program reads a word from the file each time cin is called. We do this 
+inside a for loop, initialising the word inside the condition to keep it 
+in as small a scope as possible. We then use another for loop to go through
+the contents of this word, again initialising the looping variable inside 
+the for's condition for minimal scope. We are not allowed to use functions 
+outside the 'scope' of the covered material, so a second for loop seems most
+fitting. 
+
+A switch statement directs our counts to increase when a countable letter is 
+found encountered. Cases are present for both LC and UC letters, serving as
+dual entrypoints to the relevant count increasing. There is no default case 
+since we don't need anything to happen for any of the other characters that
+come by.
+
+We note that it could be posisble to use strcasecmp() to compare without 
+having to consider the casing, or tolower() or toupper() to set all the 
+received letters to a specific case, but that would require using C's cstring
+library, which we can easily avoid using dual entry points. We could also use
+multiple sequenced if statements that check for the lower or upper case 
+letters, but this looks much tidier and more readable to us.
+
+Finally we use cout to show our answer, and have redirected into a file like
+such:
+
+./a.out < flow.txt > output.txt
