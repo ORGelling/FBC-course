@@ -1,0 +1,40 @@
+Exercise 11: Integer types in non-canonical loops
+
+We make a program using iostream and string headers. String will be useful 
+for creating the output bit representation and component sum. We could 
+possibly have simply used chars but string comes with to_string and easy
+concatenation with +, and is now part of the course's scope.
+
+We ask for an input, which is stored in a  signed long long int (which is
+simply long long). We output the int into cout for the return statement. We 
+do this here because we will be operating on our input value. Then we declare
+two string variables, namely "binary", and "values", which will hold the bit
+representation and the sum of numbers that we want out program to output. We
+declare these in this scope because they need to survive operations before 
+being returned to cout in full.
+
+The we run a for loop over the bitsize of our input number, which we get with
+sizeof(input)*8. This for loop stores the binary value of the rightmost bit
+in the "binary" string, adds the binary value of that bit (if it is 1) to
+the "values" string, by taking the number 1 and bitshifting it left by the 
+current index, and then bitshifts our input number one step to the right.
+
+Sadly, we cannot use += for these operations as it will append the new values
+at the end of the current string, rather than at the beginning. We could use
+a string member function to do this, but simple concatenated assignment is 
+clear and readable.
+
+Finally we output the rest of the required information: "binary" and 
+"values".
+
+We note that no static_cast() has been necessary for our program, even though
+we were intending to use it. It seems that the way we store our component 
+value into the "values" string already takes care of the leftmost bit being
+the negative component. We simply take the number 1, which is interpreted as
+a (signed) int, and shift it leftwards. This could lead to issues if we shift
+it left too far, but when using -Wall --std=c++26 and having the program
+receive a long long seems to work just fine! 
+
+We are not sure why bitshifting here does not automatically cast our signed
+operands into unsigned ones. It might be because both operands it gets are 
+signed, and as such no conversion takes place?
