@@ -1,0 +1,36 @@
+Exercise 12: Write a program that determines whether a very large number is
+divisible by 3.
+
+As required, we hand an input value to an initialised string. We open a do-
+while loop because we want our operation to run at least once. We use a while
+loop because we cannot be exactly sure how often this loop must run to reduce
+our value to 1 digit. We know do-while is somewhat frowned upon, but using 
+the usual form of the while loop makes our solution here doable, but messier,
+and a lot less readable.
+
+Then inside it we loop through the contents of our input value, character by
+character. We then store the new value, of all the summed digits, as a 
+string, in input. We do not need the input variable anymore and since it is
+already a string, and since we need our sum to be a string to properly loop 
+through it, this seems like an efficient solution.
+
+The while statement then checks if the length of our, newly reassigned, input
+variable is longer than 1. If so we must do this process again until only one
+digit remains of our recursively summed digits.
+
+When this is the case the loop breaks. We then use cout to write whether our
+input was divisible by three on the screen. We use a ternary operator 
+statement to distinguish between "not divisible" and "divisible" by testing 
+whether our, now single-digit sum value, can be found in string{3, 6, 9}. If
+not, find() returns npos, which we use as the other end of our comparison.
+
+We note that we do not store sum exactly in the way the question asks of us, 
+but do follow along with its requirements in spirit, putting the step where
+sum is converted to a string at the end of the while loop. We use our input
+value to store the string of characters that represents the sum value. So we 
+can iterate through it again in the next loop of the while statement.
+
+Noteworthy is that the characters from string{3, 6, 9} do not actually show 
+up in our cout if we hand them directly to it. Since they are non-printable 
+control characters. However, during the comparison they simply function as 
+bytes with those values respectively. Thus they will compare just fine.
