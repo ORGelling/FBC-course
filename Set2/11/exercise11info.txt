@@ -27,6 +27,10 @@ clear and readable.
 Finally we output the rest of the required information: "binary" and 
 "values".
 
+Our source file is called "exercise11.cc", and we cannot hand in an 
+executable program, but for this to be called as ./complement we must simply 
+compile it with the -o complement command added.
+
 We note that no static_cast() has been necessary for our program, even though
 we were intending to use it. It seems that the way we store our component 
 value into the "values" string already takes care of the leftmost bit being
