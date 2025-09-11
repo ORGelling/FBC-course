@@ -14,8 +14,12 @@ inside a for loop, initialising the word inside the condition to keep it
 in as small a scope as possible. We then use another for loop to go through
 the contents of this word, again initialising the looping variable inside 
 the for's condition for minimal scope. We are not allowed to use functions 
-outside the 'scope' of the covered material, so a second for loop seems most
-fitting. 
+outside the 'scope' (ha) of the covered material, so a second for loop seems 
+most fitting. 
+
+We know that getline can also be used here, but as it would still require two
+nested for loops we do not see much distinction between parsing the file per
+line or per word.
 
 A switch statement directs our counts to increase when a countable letter is 
 found encountered. Cases are present for both LC and UC letters, serving as
