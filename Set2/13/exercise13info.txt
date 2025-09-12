@@ -5,9 +5,10 @@ if (first == test1) if (second == test2) value = 5; else value = 6;
 
 Q1: Describe how the compiler interprets this statement
 A1: The compiler will throw a -Wdangling-else warning because this statement
-is ambiguous. It suggests adding explicit braces to avoid this. If we write 
-this out in code in full, and set our first, second, and test values, we can
-see what is happening.
+is ambiguous. It suggests adding explicit braces to avoid this. We know that
+the compiler will interpret the else as belonging to the nearest if, but we
+can check this to be sure: If we write this out in code in full, and set our
+first, second, and test values, we can see what is happening.
 
 Let's say we choose our test values such that the first if statement's 
 condition is false, then, if it is seen as the first's complement, the else
