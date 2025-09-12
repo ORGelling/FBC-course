@@ -1,0 +1,37 @@
+Exercise 15: Applying standard types in non-standard ways
+
+We must write a program that shows all possible combinations of input 
+arguments. To do this we make use of the bit structure of an iterating int.
+
+If we look at our input arguments and the structure of the output, we will 
+see quickly that it looks similar to the bits of a binary number. Using 1s to
+show the array value, and 0s to hide it. If we iterate through a number and
+show its bits we see (only showing the last 4 bits):
+0: 000
+1: 001
+2: 010
+3: 011
+4: 100
+5: 101
+and so on. This is exactly how we want to show the argv[] array's contents! 
+As such we will write a program with two nested for loops, one to iterate 
+through our binary output show/hide selector, and one to loop through the 
+input arguments and add them to the output stream.
+
+Thus takes shape our source file. First we define two constant size_t's to 
+store our input argument count (--argc, since we don't count the program
+name), and or total of different  combinations (2 to the power of our input 
+argument count, which we compute simply by using 1 << count). We define 
+specific variables and make them const to avoid unnecessary repeated 
+evaluations here. Then we increment argv to skip outputting the program 
+title.
+
+Now come the nested for loops. First we have the outer one, which defines the
+different lines of the iteration, and then the inner one, which prints the 
+arguments. For this one we take the value 1 and bitshift it left by our 
+current inner loop's index. If the resulting bitvalue returns 1 when used as
+a bitmask over the bitvalue of our outer loop's iterator, we are looking at 
+one of the arguments that should be shown this go around, and as such send it
+into the output stream. We then repeat this process until we are through all
+the arguments, output a newline character, and then go on to the next 
+permutation. 
