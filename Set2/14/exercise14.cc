@@ -31,5 +31,5 @@ int main()
         }
         
         cout << "sqrt(" << input << ") is " << xZero << '\n';
-    }                                   // Show result when done
+    }                                       // Show result when done
 }
