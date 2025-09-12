@@ -5,15 +5,17 @@ is set to true, as we will break out of it manually with a selected break
 command, to keep the loop from running once more after the exit command is 
 given.
 
-Inside this while loop we prompt for input and store it in a double. When we 
-initialise two more doubles for the calculation steps and termination check,
-and one size_t to keep track of the current computation iteration.
+Inside this while loop we prompt for input and store it in a double. Then we 
+initialise a double for the calculation step, and a size_t to keep track of 
+the current computation iteration.
 
 We then open a while loop similar to the global one, with condition 'true'.
-The algorithm runs and assigns xOne its current value. Then an if statement 
-checks whether xOne and xZero are the same, and if so breaks out of the 
-computation. If not we output our current step's values, reassign xOne's 
-value to xZero, increment count, and return to the top of the while loop.
+The algorithm runs and assigns newly declared variable xOne the algorithm's
+value. xOne is declared here since it is not needed outside of this while.
+Then an if statement checks whether xOne and xZero are the same, and if so 
+breaks out of the computation. If not we output our current step's values, 
+reassign xOne's value to xZero, increment count, and return to the top of the
+while loop.
 
 After the computation we output the result, and then find ourselves back
 at the top of the "global" while, which will prompt us for another input 
