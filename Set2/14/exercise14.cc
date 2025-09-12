@@ -12,7 +12,7 @@ int main()
         
         if (input <= 0) break;              // Program's exit condition
         
-        double xZero = 1;                   // Initialising calculation args
+        double xZero = 1;                   // Initialising calculation arg
         
         size_t count = 1;                   // Starting our loop count
         while (true)
