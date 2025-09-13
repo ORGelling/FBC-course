@@ -10,3 +10,8 @@ substring inbetween the leading and trailing blanks.
 
 This is enclosed in a backquote and a single quote, and finished with a new
 line character.
+
+Noteworthy is that, for us, this compiles and runs even if we don't include 
+<string>. This is likely due to it being included along with the iostream 
+header. We have left this inclusion in for safety, as it will likely be 
+guarded from double inclusion.
