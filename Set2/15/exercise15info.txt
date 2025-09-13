@@ -27,11 +27,14 @@ evaluations here. Then we increment argv to skip outputting the program
 title.
 
 Now come the nested for loops. First we have the outer one, which defines the
-different lines of the iteration, and then the inner one, which prints the 
-arguments. For this one we take the value 1 and bitshift it left by our 
-current inner loop's index. If the resulting bitvalue returns 1 when used as
-a bitmask over the bitvalue of our outer loop's iterator, we are looking at 
-one of the arguments that should be shown this go around, and as such send it
-into the output stream. We then repeat this process until we are through all
-the arguments, output a newline character, and then go on to the next 
-permutation. 
+different lines, or combinations of the iteration, and then the inner one, 
+which checks the arguments for printing and does so if they need to be. To do
+this we use a bitmask with a single 1 and shift it left as we move up the 
+arguments, comparing them to the bit value of the current line's combination.
+On line 1 (bit combination 0000) we show no arguments, on line 2 we only show
+the first (0001), on line 5 we show the first and third (0101), etc. Our 
+bitmask will return 1 if the bits of the line/selection index are 1 there, 
+and 0 if not. Thus this is the condition we use to check whether this current
+argument must be printed. We loop over all the arguments each line, output a
+newline character, and then repeat this process until we are through all of 
+the permutations. 
