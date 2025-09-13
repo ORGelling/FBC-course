@@ -18,7 +18,8 @@ statement to distinguish between "not divisible" and "divisible" by testing
 whether our, now single-digit sum value, can be found in string{3, 6, 9}. 
 Again shifting it by '0' to correct the value. If none of the characters
 correspond find() returns npos, which stands at the other end of our 
-comparison condition.
+comparison condition. We could simply have used modulo 3 in this part, but as
+the exercise hints for us to use this method we have elected to do so.
 
 Noteworthy is that the characters from string{3, 6, 9} do not actually show 
 up in our cout if we hand them directly to it. Since they are non-printable 
