@@ -11,9 +11,11 @@ called from the commandline, like so:
 
 The program reads a word from the file each time cin is called. We do this 
 inside a for loop, initialising the word inside the condition to keep it 
-in as small a scope as possible. We then use another for loop to go through
-the contents of this word, again initialising the looping variable inside 
-the for's condition for minimal scope. We are not allowed to use functions 
+in as small a scope as possible. We use a reference to minimise memory usage.
+Instead of making a copy of each letter we use a reference to the original 
+character in the string. We then use another for loop to go through the 
+contents of this word, again initialising the looping variable inside the 
+for's condition for minimal scope. We are not allowed to use functions 
 outside the 'scope' (ha) of the covered material, so a second for loop seems 
 most fitting. 
 
