@@ -1,36 +1,36 @@
 Exercise 3: Describe six major differences between c and c++
 
-1 - References/Aliases // Amended //
+1 - References/Aliases //// Amended ////
     In C, references only exist in the form of pointers, which can point to
     another variable's memory address, while in C++ references are a instead 
     aliases for existing variables, through which one can directly reach and
     change those referenced variables. They cannot be reseated or reference
     null, and are often used to be more efficient with memory.
 
-2 - Namespaces
+2 - Namespaces // Already graded //
     C++ allows for the use of namespaces, which C does not have. Namespaces 
     allow for defining symbols in a specific context, without running into 
     name conflicts.
 
-3 - Scope resolution operator ::
+3 - Scope resolution operator :: // Already graded //
     The scope operator is newly introduced for C++, and allows for 
     distinguishing between global and local variables with the same name. It 
     is used to call class-bound function members or specify which namespace
     is being drawn from. 
 
-4 - Default function arguments  // Amended //
+4 - Default function arguments  //// Amended ////
     As opposed to C, in C++ a function can be defined with default arguments,
     if done so the compiler will provide the argument for the function even
     if no arguments are specified when it is called. Handing the function an
     argument when calling it will then override this default.
 
-5 - Function overloading
+5 - Function overloading // Already graded //
     Contrarily to C, C++ allows functions to be overloaded, meaning that 
     multiple functions can have the same name as long as they take different
     arguments, either by type, by amount, or a combination of both. Even 
     const can be used for overloading.
 
-6 - Classes, objects, inheritance
+6 - Classes, objects, inheritance // Already graded //
     C++ allows for classes, objects, inheritance, and other functionalities. 
     Many of these are connected to defining and using classes, or classes 
     inheriting functionalities from others. C simply has no classes to begin
