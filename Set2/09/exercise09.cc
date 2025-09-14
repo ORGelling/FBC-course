@@ -11,7 +11,7 @@ int main()
     
     for (string word; cin >> word;)     // Looping through words in file
     {
-        for (char &letter : word)        // Loopqng through letters in word
+        for (char &letter : word)       // Loopqng through letters in word
         {
             switch (letter)             // Use letters to count iterators
             {
