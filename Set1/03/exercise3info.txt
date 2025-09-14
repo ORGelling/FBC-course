@@ -1,10 +1,11 @@
 Exercise 3: Describe six major differences between c and c++
 
-1 - Strict type checking // Amended // Change to References!
-    As opposed to C, the C++ compiler is very strict with type checking, and
-    will not compile if a prototype is not known for each function. As an 
-    example, implicit type conversion is not allowed in C++, whereas it is 
-    often in C.
+1 - References/Aliases // Amended //
+    In C, references only exist in the form of pointers, which can point to
+    another variable's memory address, while in C++ references are a instead 
+    aliases for existing variables, through which one can directly reach and
+    change those referenced variables. They cannot be reseated or reference
+    null, and are often used to be more efficient with memory.
 
 2 - Namespaces
     C++ allows for the use of namespaces, which C does not have. Namespaces 
@@ -17,7 +18,7 @@ Exercise 3: Describe six major differences between c and c++
     is used to call class-bound function members or specify which namespace
     is being drawn from. 
 
-4 - Default function arguments  // Amended
+4 - Default function arguments  // Amended //
     As opposed to C, in C++ a function can be defined with default arguments,
     if done so the compiler will provide the argument for the function even
     if no arguments are specified when it is called. Handing the function an
