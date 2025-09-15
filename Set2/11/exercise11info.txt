@@ -29,16 +29,11 @@ Finally we output the rest of the required information: "binary" and
 
 Our source file is called "exercise11.cc", and we cannot hand in an 
 executable program, but for this to be called as ./complement we must simply 
-compile it with the -o complement command added.
+compile it with the "-o complement" command added.
 
 We note that no static_cast() has been necessary for our program, even though
-we were intending to use it. It seems that the way we store our component 
-value into the "values" string already takes care of the leftmost bit being
-the negative component. We simply take the number 1, which is interpreted as
-a (signed) int, and shift it leftwards. This could lead to issues if we shift
-it left too far, but when using -Wall --std=c++26 and having the program
-receive a long long seems to work just fine! 
-
-We are not sure why bitshifting here does not automatically cast our signed
-operands into unsigned ones. It might be because both operands it gets are 
-signed, and as such no conversion takes place?
+we intended to use it. We found online that since c++20 bitshifting signed 
+ints is well defined, and as such the issues that the hints of this question
+mention are no longer as pertinent as seemed. Since we are specifically told
+to compile our programs with std=c++26 we do not think this should not 
+be an issue.
