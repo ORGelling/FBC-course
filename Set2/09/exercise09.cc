@@ -9,12 +9,15 @@ int main()
     size_t echars = 0;                  // scope since they must survive
     size_t ichars = 0;                  // the for loops
     
-    for (string word; cin >> word;)     // Looping through words in file
-        for (auto const &letter : word) // Looping through letters in word
-            switch (letter)             // Use letters to count iterators
+    string word;
+    while (cin >> word)                 // Looping through words in file
+    {
+        for (char const &letter : word) // Looping through letters in word
+        {
+            switch (letter)             // Use letter to select iterators
             {
                 case 'a':               // merged entrypoint for LC and UC
-                case 'A':               // so no falling through
+                case 'A':               // so intentional falling through
                     ++achars;           // Count a's
                 break;                  
                 case 'e':               // Repeat for e's
@@ -26,7 +29,8 @@ int main()
                     ++ichars;
                 break;
             }                           // No default case needed
-    
+        }
+    }
     cout << "# a-chars: " << achars 
         << " # e-chars: " << echars 
         << " # i-chars: " << ichars 

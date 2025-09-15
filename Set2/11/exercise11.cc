@@ -38,3 +38,7 @@ int main()
 // HB: hint: mask
 // 
 // I think we can use the mask itself as the iterator?
+// 
+// HB: Do not operate on the input!
+// 
+// HB: Reverse the loop for the sizes?
