@@ -1,0 +1,33 @@
+Exercise 16:
+
+Write a program that can output the reverse of a line of UTF-8 characters.
+
+We use the fact that UTF-8 characters that consist of multiple bytes have a 1
+on the MSB of each byte, but a 0 on the one to the right, except for the 
+leftmost byte, which has as many 1s as there are bytes read for this 
+character.
+
+We an outer for loop in case we want to send through a file that has multiple
+lines, rather than just one. This can be done away with and replaced simply 
+by the initialisations inside the loop and a cin to receive the input.
+
+We open a for loop to run through the contents of the input line in reverse,
+and inside it we initialise a byte counter.
+
+Then inside this loop we run a while, that breaks when the MSB of a byte is 
+1, but the next-MSB is no longer 0. This means this is the terminal byte of 
+the UTF-8 character. Inside this while we decrement index, and add an extra
+byte to the count, until we reach our terminal byte and know how long this 
+UTF-8 character's byte sequence is.
+
+We then output a substring of our line, starting at the current value of  
+index, -1 since arrays start at 0 (same for the while loop's condition), and 
+has the length of the amount of bytes we counted. It will always be 1 for 
+standard ASCII characters.
+
+Thus we have it. We do note that there is some finnicky behaviour with 
+newline characters, as executing cat utf-8-input.txt shows a newline at the 
+end of this file, but that is cut off by our getline function. We assume this
+behaviour is fine, and output a newline character at the end of our outermost
+for loop. If we pipe the input file through our program twice and write it to
+an output file we get the exact same now!

@@ -1,0 +1,44 @@
+Exercise 14: Implement an interative algorithm to compute a value
+
+We write a program that opens up with a while loop right away. Its condition
+is set to true, as we will break out of it manually with a selected break 
+command, to keep the loop from running once more after the exit command is 
+given.
+
+Inside this while loop we prompt for input and store it in a double. Then we 
+initialise a double for the calculation step, and a size_t to keep track of 
+the current computation iteration.
+
+We then open a while loop similar to the global one, with condition 'true'.
+The algorithm runs and assigns newly declared variable xOne the algorithm's
+value. xOne is declared here since it is not needed outside of this while.
+Then an if statement checks whether xOne and xZero are the same, and if so 
+breaks out of the computation. If not we output our current step's values, 
+reassign xOne's value to xZero, increment count, and return to the top of the
+while loop.
+
+After the computation we output the result, and then find ourselves back
+at the top of the "global" while, which will prompt us for another input 
+value.
+
+We note that we do not show the final step of the algorithm's calculation, as
+it is already shown in the final output that presents the result. This way we
+also align nicely with the example given in the exercise.
+
+We also note that this algorithm will keep looping for very long if certain 
+values are entered. We tried the number 12345, and found it would not break
+out of its loop. We can define an epsilon value to represent the accuracy we
+strive for, and break out of the loop when the difference between xOne and 
+xZero is smaller than epsilon, but this seemed outside of the scope of this 
+exercise.
+// HB: not at all: it's essential your program terminates and gives a result, even if it is imprecise,
+// HB: and especially if the termination is conditional on the input!
+// HB: (of course floating points represent arbitary square roots imprecisely anyway)
+// HB: since you noticed the issue and suggested the fix here, I'll give you full points anyway :)
+
+A simpler but cruder way to keep the infinite loop from happening would be to
+replace the inner while loop with a for loop, still have the computation 
+break out of it when it reaches its target, but also have it simply end after
+a maximum amount of cycles.
+// HB: also completely fine, but probably not as prefered
+// HB: fun fact: this is what NASA uses for all its while-loops to make sure their rovers don't get bricked

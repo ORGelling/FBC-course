@@ -1,0 +1,4 @@
+exercise16info.txt
+-utf8input.txt
+-utf8output.txt
+exercise16.cc

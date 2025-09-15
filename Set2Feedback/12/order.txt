@@ -1,0 +1,2 @@
+exercise12info.txt
+exercise12.cc

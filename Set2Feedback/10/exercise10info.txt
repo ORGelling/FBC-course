@@ -1,0 +1,26 @@
+Exercise 10: Acquire familiarity with std::string objects
+
+We make a basic function that defines string line and asks for an input with
+getline(). We then use a single cout statement where we create a substring
+of our input line. We use line.first_not_of() to find the first nonblank 
+character, and set that as the starting position for our substring. We then
+use this same value and the result of line.find_last_not_of(), which finds 
+the position of the last nonblank character, to find the length of the 
+substring inbetween the leading and trailing blanks.
+// HB: SF
+
+This is enclosed in a backquote and a single quote, and finished with a new
+line character.
+// HB: SF
+
+Noteworthy is that, for us, this compiles and runs even if we don't include 
+<string>.  This is likely due to it being included along with the iostream 
+header. We have left this inclusion in for safety, as it will likely be 
+guarded from double inclusion.
+// HB: good thinking: the inclusion of string in iostream isn't guaranteed (I think),
+// HB: so keeping it there for safety is probably smart.
+// HB:
+// HB: that being said: double inclusion is not prevented, but that's not that big
+// HB: of a deal since it is only declarations: if it wasn't, double inclusion would
+// HB: give a compiler error due to the ODR
+// HB:
