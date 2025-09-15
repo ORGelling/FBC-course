@@ -11,7 +11,7 @@ int main()
     while (input.length() > 1)          // Loop sum until 1 digit left
     {
         size_t sum = 0;                 // Reset sum every loop
-        for (char& c : input)           // Loop through input per character
+        for (char const &c : input)     // Loop through input per character
             sum += c - '0';             // Sum value of current character
         input = to_string(sum);         // Use 'input' to store 'sum'
     }
