@@ -5,9 +5,9 @@ using namespace std;
 
 int main()
 {
-    size_t achars = 0;                  // Declaring counters in main 
-    size_t echars = 0;                  // scope since they must survive
-    size_t ichars = 0;                  // the for loops
+    size_t aCount = 0; 
+    size_t eCount = 0;
+    size_t iCount = 0;
     
     string word;
     while (cin >> word)                 // Looping through words in file
@@ -16,23 +16,23 @@ int main()
         {
             switch (letter)             // Use letter to select iterators
             {
-                case 'a':               // merged entrypoint for LC and UC
+                case 'a':               // Merged entrypoint for LC and UC
                 case 'A':               // so intentional falling through
-                    ++achars;           // Count a's
+                    ++aCount;           // Count a's
                 break;                  
                 case 'e':               // Repeat for e's
                 case 'E':
-                    ++echars;
+                    ++eCount;
                 break;
                 case 'i':               // Repeat for i's
                 case 'I':
-                    ++ichars;
+                    ++iCount;
                 break;
             }                           // No default case needed
         }
     }
-    cout << "# a-chars: " << achars 
-        << " # e-chars: " << echars 
-        << " # i-chars: " << ichars 
+    cout << "# a-chars: " << aCount 
+        << " # e-chars: " << eCount 
+        << " # i-chars: " << iCount 
         << '\n';                        // Showing results
 }
