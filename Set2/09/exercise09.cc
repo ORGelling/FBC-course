@@ -10,7 +10,7 @@ int main()
     size_t ichars = 0;                  // the for loops
     
     for (string word; cin >> word;)     // Looping through words in file
-        for (char &letter : word)       // Loopqng through letters in word
+        for (auto const &letter : word) // Looping through letters in word
             switch (letter)             // Use letters to count iterators
             {
                 case 'a':               // merged entrypoint for LC and UC
