@@ -15,7 +15,8 @@ int main()
     //if (true)                             // This one has no else now
     //    if (false)                        // This leads to the else
     //        value = 5; 
-    //    else value = 6;
+    //    else 
+    //        value = 6;
     
     //if (false)                            // Now this one does
     //{
@@ -27,9 +28,8 @@ int main()
     
     if (true)
     {
-        if (false)                          // Now this one leads to the else
-            value = 5; 
-        else value = 6;
+        if (false) value = 5;               // Now this one leads to the else 
+        else value = 6;                     // without warnings
     }
     
     cout << value << '\n';

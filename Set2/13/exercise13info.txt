@@ -16,15 +16,13 @@ will act on value. It does not. If we make condition 1 true but condition 2
 false we see that value *is* reassigned. Thus the statement is interpreted:
 
 if (first == test1) 
-    if (second == test2) 
-        value = 5;
+    if (second == test2) value = 5;
     else value = 6;
 
 Q2: Rewrite the statement using the correct layout.
 A2:
 if (first == test1) 
-    if (second == test2) 
-        value = 5; 
+    if (second == test2) value = 5; 
     else value = 6;
 
 Would be the correct layout, but curly braces are required to keep the 
@@ -35,13 +33,11 @@ Q3: Rewrite this statement to represent the 'non-default' form
 A3:
 if (first == test1) 
 {
-    if (second == test2) 
-        value = 5; 
+    if (second == test2) value = 5; 
 }
-else 
-    value = 6;
+else value = 6;
 
-Would work for the alternate form. Compiles without errors or warnings
+Would work for the alternate form. Compiles without errors or warnings.
 
 Q4: Describe how this new statement is interpreted
 A4: The curly braces signify to the compiler that the else statement is the 
@@ -56,12 +52,15 @@ best friend, we do not wish to concern it! Thus we change the whole piece to:
 
 if (first == test1) 
 {
-    if (second == test2) 
-        value = 5; 
-    else 
-        value = 6;
+    if (second == test2) value = 5; 
+    else value = 6;
 }
 
 Such that no ambiguity emerges, and the initial purpose of this code is 
 executed. Regardless, this form is frowned upon as it isn't very pretty, and 
-can usually be avoided.
+can usually be avoided. Another way to fix the issue here would be using an 
+else-if instead, like so:
+
+if (first == test1 && second == test2) value = 5; 
+else if (first == test1) value = 6;
+
