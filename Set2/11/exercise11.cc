@@ -12,33 +12,22 @@ int main()
 
     string binary;
     string values;
-    int const bitSize = sizeof(input)*8;
-    for (size_t index = 0; index != bitSize; ++index)
-    {                   // Use const variable or ANS enums for bitSize!!!
-        string const bitValue = to_string(input & 1);  // Store current bit
-        binary = bitValue + binary;  // Prepend to binary repr.
-        if (result)
+    
+    unsigned long long mask = 1ULL << (sizeof(input) * 8 - 1);
+                                        // Initialising here for readability
+    for (; mask != 0; mask >>= 1)
+    {
+        long long const bitValue = input & mask;      // Store current bit
+        if (bitValue)
         {
-            values = to_string(1 << index)      // Store numerical value
-                + (values.empty() ?" + " : "")  // with or without " + "
-                + values;                       // Prepend previous values
-        }
-        input = input >> 1;                     // Move on to next bit
+            binary += "1";                            // store binary
+            values += (values.empty() ?  "" : " + ")  // with or without "+"
+                        + to_string(static_cast<long long>(mask));
+        }                                             // return signedness
+        else
+            binary += "0";
     }
-    cout << binary << " = " << values << '\n';  // Showing information
-} // HB: Add 0 as a special case
-
-// Lots of CC
-
-// HB: if you do this every iteration, put it in the for incrementor 
-// HB: statement, but:
-// HB: notice how you're changing both index and input every iterations?
-// HB: it's not only inefficient, but also makes the code harder to read.
-// HB: can you solve it while keeping the input const?
-// HB: hint: mask
-// 
-// I think we can use the mask itself as the iterator?
-// 
-// HB: Do not operate on the input!
-// 
-// HB: Reverse the loop for the sizes?
+    if (values.empty())                     // Lest 0 return an empty string
+        values = "0";
+    cout << binary << " = " << values << '\n';
+}
