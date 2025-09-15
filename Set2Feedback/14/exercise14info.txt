@@ -31,14 +31,18 @@ out of its loop. We can define an epsilon value to represent the accuracy we
 strive for, and break out of the loop when the difference between xOne and 
 xZero is smaller than epsilon, but this seemed outside of the scope of this 
 exercise.
-// HB: not at all: it's essential your program terminates and gives a result, even if it is imprecise,
+// HB: not at all: it's essential your program terminates and gives a result, 
+// HB: even if it is imprecise,
 // HB: and especially if the termination is conditional on the input!
-// HB: (of course floating points represent arbitary square roots imprecisely anyway)
-// HB: since you noticed the issue and suggested the fix here, I'll give you full points anyway :)
+// HB: (of course floating points represent arbitary square roots imprecisely
+// HB: anyway)
+// HB: since you noticed the issue and suggested the fix here, I'll give you
+// HB: full points anyway :)
 
 A simpler but cruder way to keep the infinite loop from happening would be to
 replace the inner while loop with a for loop, still have the computation 
 break out of it when it reaches its target, but also have it simply end after
 a maximum amount of cycles.
 // HB: also completely fine, but probably not as prefered
-// HB: fun fact: this is what NASA uses for all its while-loops to make sure their rovers don't get bricked
+// HB: fun fact: this is what NASA uses for all its while-loops to make sure
+// HB: their rovers don't get bricked

@@ -16,7 +16,8 @@ representation and the sum of numbers that we want out program to output. We
 declare these in this scope because they need to survive operations before 
 being returned to cout in full.
 // HB: SF
-// HB: you probably don't want to operate on the input value for clarity: see .cc
+// HB: you probably don't want to operate on the input value for clarity: see
+// HB: .cc
 
 The we run a for loop over the bitsize of our input number, which we get with
 sizeof(input)*8. This for loop stores the binary value of the rightmost bit
