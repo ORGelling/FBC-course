@@ -74,3 +74,7 @@ if (first == test1 && second == test2)
 else if (first == test1) 
     value = 6;
 
+// Not correct, it's not about the layout or structure
+// hint: What does the inner if-else do?
+
+// Possible solution: Ternary statement?

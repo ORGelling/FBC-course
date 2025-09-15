@@ -10,10 +10,10 @@ int main()
     
     while (input.length() > 1)          // Loop sum until 1 digit left
     {
-        size_t sum = 0;                 // Reset sum every loop
-        for (char const &c : input)     // Loop through input per character
-            sum += c - '0';             // Sum value of current character
-        input = to_string(sum);         // Use 'input' to store 'sum'
+        size_t sum = 0;                     // Reset sum every loop
+        for (char const &letter : input)    // Loop over character
+            sum += letter - '0';            // Sum numerical value
+        input = to_string(sum);             // Use 'input' to store 'sum'
     }
     
     cout << "\""
