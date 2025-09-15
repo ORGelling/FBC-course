@@ -6,15 +6,15 @@ int main(int argc, char const *argv[])
 {
     ++argv;                                 // Skip the program name
     size_t const nrArgs = --argc;
-    size_t const nrPerms = (1 << count);
+    size_t const nrPermutations = (1 << nrArgs);
     
-    for (size_t argSet = 0; argSet != total; ++argSet)
+    for (size_t argSelect = 0; argSelect != nrPermutations; ++argSelect)
     {                                       // Output permutation number
-        cout << argSet + 1 << ":";
+        cout << argSelect + 1 << ":";
                                             // Cycle through input args
-        for (size_t argIdx = 0; argIdx < count; ++argIdx)
+        for (size_t argIdx = 0; argIdx != nrArgs; ++argIdx)
         {
-            if (argSet & (1 << argIdx)) 
+            if (argSelect & (1 << argIdx)) 
                 cout << " " << argv[argIdx];
         }                                   // We filter which args to show
         cout << '\n';                       // using a bitshifted mask

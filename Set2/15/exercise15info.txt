@@ -18,25 +18,8 @@ As such we will write a program with two nested for loops, one to iterate
 through our binary output show/hide selector, and one to loop through the 
 input arguments and add them to the output stream.
 
-Thus takes shape our source file. First increment argv to skip the program 
-name. then we declare two constant size_t's to store our input argument count 
-(--argc, since we don't count the program name), and our total of different 
-combination permutations (2 to the power of our input argument count, which 
-we compute simply by using 1 << count). We define specific variables and make
-them const to avoid unnecessary evaluations. 
-
-Now come the nested for loops. First we have the outer one, which defines the
-different lines, or permutations of the iteration, and then the inner one, 
-which checks the arguments for printing and does so if they need to be. To do
-this we use a bitmask with a single 1 and shift it left as we move up the 
-arguments, comparing them to the bit value of the current line's permutation
-representation. Our bitmask will return 1 if the bits of the line/selection 
-index are 1 there, and 0 if not. Thus this is the condition we use to check 
-whether this current argument must be printed, and then print the value of 
-argv with the current index. We loop over all the arguments each line, output
-a newline character, and then repeat this process until we are through all of
-the permutations. 
-
-We note of course that our argSet, the bit-representation of the current 
-permutation, is offset by 1 in our line number, as we want to have the first
-line have number 1, even though it shows the combination 0000!
+Thus takes shape our source file. We initialise our usable variables and nest
+two for loops together to be able to output both the arguments (horizontal)
+for all of the different permutations (vertical). We use a mask shifting over
+the current permutation bit by bit by to check whether the corresponding 
+value should be shown, and then move on to the next permutation.
