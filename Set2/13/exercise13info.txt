@@ -52,29 +52,15 @@ first if's statement. If the first condition one is false then the else is
 executed in its stead, rather than in stead of the second if-statement.
 
 Q5: Fix the flaw in the original statement not related to layout
-A5: There is always going to be a warning here until we add a set of curly
-braces. The compiler does not like dangling elses, and as the compiler is our
-best friend, we do not wish to concern it! Thus we change the whole piece to:
+A5: If we are not simply setting curly braces to get rid of the dangling else
+issue we can replace the inner if-else clause with a ternary operator, like 
+so:
 
 if (first == test1) 
-{
-    if (second == test2) 
-        value = 5; 
-    else 
-        value = 6;
-}
+    value = (second == test2 ? 5 : 6);
 
 Such that no ambiguity emerges, and the initial purpose of this code is 
-executed. Regardless, this form is frowned upon as it isn't very pretty, and 
-can usually be avoided. Another way to fix the issue here would be using an 
-else-if instead, like so:
-
-if (first == test1 && second == test2) 
-    value = 5; 
-else if (first == test1) 
-    value = 6;
+executed. 
 
 // Not correct, it's not about the layout or structure
 // hint: What does the inner if-else do?
-
-// Possible solution: Ternary statement?
