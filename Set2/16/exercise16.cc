@@ -5,18 +5,22 @@ using namespace std;
 
 int main()
 {
-    for (string line; getline(cin, line);)      // Read line from input
+    string line;
+    while (getline(cin, line))                  // Read line from input
     {                                           // For in case of file
-        for (size_t index = line.size(); index > 0; --index)
+        for (size_t chIndex = line.size(); chIndex != 0; --chIndex)
         {                                       // Loop over all characters 
-            size_t bytes = 1;                   // # bytes read
-            while ((line[index - 1] & 192) == 128)  // Check if MSB is set
-            {                                       // but next one is not
-                --index;                        // Move to next byte
-                ++bytes;                        // Store extra byte #
+            size_t nrBytesRead = 1;
+            while ((line[chIndex - 1] & 192) == 128)  // Check if MSB is set
+            {                                         // but next one is not
+                --chIndex;                          // Move to next byte
+                ++nrBytesRead;                      // Store extra byte #
             }
-            cout << line.substr(index - 1, bytes);  // Show character without
-        }                                           // truncating bytes
+            cout << line.substr(chIndex - 1, nrBytesRead);
+        }                       // Show characters without truncating bytes
     cout << '\n';
     }
 }
+
+// Use while loops for all three
+// Two instances of NMN for bitmasks

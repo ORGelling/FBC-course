@@ -2,13 +2,13 @@
 
 using namespace std;
 
-int main(int argc, char const* argv[])
+int main(int argc, char const *argv[])
 {
     ++argv;                                 // Skip the program name
-    size_t const nrArgs = --argc;           // Store # of input arguments
-    size_t const nrPerms = (1 << count);    // Find # of permutations
+    size_t const nrArgs = --argc;
+    size_t const nrPerms = (1 << count);
     
-    for (size_t argSet = 0; argSet < total; ++argSet)
+    for (size_t argSet = 0; argSet != total; ++argSet)
     {                                       // Output permutation number
         cout << argSet + 1 << ":";
                                             // Cycle through input args
