@@ -18,13 +18,13 @@ contents of this word, again initialising the looping variable inside the
 for's condition for minimal scope. We are not allowed to use functions 
 outside the 'scope' (ha) of the covered material, so a second for loop seems 
 most fitting. 
-// HB: this explanation is SF: it is obvious to us that you're avoiding a copy
-// HB: or restricting a variables scope from the code itself
+// HB: this explanation is SF: it is obvious to us that you're avoiding a 
+// HB: copy or restricting a variables scope from the code itself
 
 We know that getline can also be used here, but as it would still require two
 nested for loops we do not see much distinction between parsing the file per
 line or per word.
-// HB: although in this case it doesn't matter much, explaining design choices
+// HB: although in this case it doesn't matter much, explaining designchoices
 // HB: like these can help us see you understood the material and helps us be
 // HB: way more lenient, so it's good you thought of mentioning
 // HB: (we do indeed use getline in our solution)
@@ -42,8 +42,8 @@ received letters to a specific case, but that would require using C's cstring
 library, which we can easily avoid using dual entry points. We could also use
 multiple sequenced if statements that check for the lower or upper case 
 letters, but this looks much tidier and more readable to us.
-// HB: agreed. in fact, I find the difference in tidiness large enough to mark
-// HB: people down for not using a switch here
+// HB: agreed. in fact, I find the difference in tidiness large enough to 
+// HB: mark people down for not using a switch here
 
 Finally we use cout to show our answer, and have redirected into a file like
 such:

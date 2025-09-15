@@ -17,10 +17,10 @@ Noteworthy is that, for us, this compiles and runs even if we don't include
 <string>.  This is likely due to it being included along with the iostream 
 header. We have left this inclusion in for safety, as it will likely be 
 guarded from double inclusion.
-// HB: good thinking: the inclusion of string in iostream isn't guaranteed (I think),
-// HB: so keeping it there for safety is probably smart.
+// HB: good thinking: the inclusion of string in iostream isn't guaranteed
+// HB: (I think), so keeping it there for safety is probably smart.
 // HB:
-// HB: that being said: double inclusion is not prevented, but that's not that big
-// HB: of a deal since it is only declarations: if it wasn't, double inclusion would
-// HB: give a compiler error due to the ODR
+// HB: that being said: double inclusion is not prevented, but that's not 
+// HB: that big of a deal since it is only declarations: if it wasn't, double
+// HB: inclusions would give a compiler error due to the ODR
 // HB:
