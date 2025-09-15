@@ -2,7 +2,7 @@ Exercise 3: Describe six major differences between c and c++
 
 1 - References/Aliases //// Amended ////
     In C, references only exist in the form of pointers, which can point to
-    another variable's memory address, while in C++ references are a instead 
+    another variable's memory address, while in C++ references are instead 
     aliases for existing variables, through which one can directly reach and
     change those referenced variables. They cannot be reseated or reference
     null, and are often used to be more efficient with memory.
