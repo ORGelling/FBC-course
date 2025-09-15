@@ -14,8 +14,9 @@ int main()
     string values;
     for (size_t index = 0; index < (sizeof(input)*8); ++index)
     {
-        binary = to_string(input & 1) + binary; // Store current bit
-        if (input & 1)
+        auto const result = input & 1;          // Store current bit
+        binary = to_string(result) + binary;    // Append to binary repr.
+        if (result)
             values = to_string(1 << index)      // Store numerical value
                 + (values != "" ?" + " : "")    // with or without " + "
                 + values;                       // Append previous values
