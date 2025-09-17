@@ -1,6 +1,6 @@
-#include <SumHeader>
+#include "ex17.ih"
 
-int sum(int argc, char const *argv[], initialiser_list<int> intList)
+int sum(int argc, char const *argv[], initializer_list<int> intList)
 {
     int intSumValue = 0;
     for (int argument : intList)

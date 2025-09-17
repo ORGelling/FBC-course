@@ -1,4 +1,4 @@
-#include <SumHeader>
+#include "ex17.ih"
 
 double sum(int argc, char const *argv[], initializer_list<double> doubleList)
 {
