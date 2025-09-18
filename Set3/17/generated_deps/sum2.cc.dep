@@ -1,0 +1,1 @@
+sum2.cc.o: sum2.cc ex17.ih SumHeader.h

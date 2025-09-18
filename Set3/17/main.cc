@@ -2,16 +2,21 @@
 
 int main(int argc, char const *argv[])
 {
-    string argList;
+    bool findDouble = false;
     for (int argIdx = 1; argIdx != argc; ++argIdx)
     {
-        //argList += (argList.empty() ? "" : ", ") + 
-        cout << argv[argIdx] << '\n';
+        string argument = argv[argIdx];
+        if (argument.find(".") != string::npos)
+        {
+            findDouble = true;
+            break;                              // One double is enough
+        }
     }
-    cout << argList << '\n';
+    double sumValue = 0;
+    if (findDouble)
+        sumValue = sum(argc, argv, "Doubles");
+    else
+        sumValue = sum(argc, argv);
     
-    int intSum = sum(argc, argv, { 5, 8, 3, 6, 12, 182 });
-    double doubleSum = sum(argc, argv, { 8.37, 3.332, 8.0008, 15.1515 });
-    
-    cout << "ints: " << intSum << "\ndoubles: " << doubleSum << '\n';
+    cout << sumValue << '\n';
 }

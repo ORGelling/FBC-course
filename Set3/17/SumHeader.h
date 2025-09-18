@@ -1,20 +1,17 @@
 #ifndef SUM_HEADER
 #define SUM_HEADER
 
-#include <initializer_list>
-
 int sum
     (
         int argc, 
-        char const *argv[], 
-        std::initializer_list<int> intList
+        char const *argv[]
     );
 
 double sum
     (
         int argc, 
         char const *argv[], 
-        std::initializer_list<double> doubleList
+        char const *pickDouble
     );
 
 #endif
