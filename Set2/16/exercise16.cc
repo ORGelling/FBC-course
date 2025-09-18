@@ -5,7 +5,7 @@ using namespace std;
 
 namespace {
     enum { 
-        UTF8_CONT_SEQ = 0b11000000,     // MSB+1, or 192
+        UTF8_CONT_SEQ = 0b11000000,     // First two MSBs, or 192
         UTF8_END_SEQ = 0b10000000       // Only MSB, or 128
     };
 }

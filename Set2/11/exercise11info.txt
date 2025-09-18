@@ -12,11 +12,11 @@ step to the right. We start here to more easily concatenate our binary and
 numerical values strings. 
 
 Inside the for loop we store the value of the currently checked bit, and 
-then, if it is nonzero, appends it to the string that stores the values and 
-appends a 1 to the binary output string. If it is zero a 0 is added to the 
+then, if it is nonzero, append it to the string that stores the values and 
+append a 1 to the binary output string. If it is zero a 0 is added to the 
 binary. If, after the loop, there was no value added, we set values to 0.
 
-To retreive the signedness of the MSB we cast it to long long as we are 
+To retrieve the signedness of the MSB we cast it to long long as we are 
 appending its value to the values string
 
 Finally we output the rest of the required information: "binary" and 
