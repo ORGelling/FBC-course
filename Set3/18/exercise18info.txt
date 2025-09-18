@@ -3,7 +3,10 @@ and whatever else needed.
 
 Functionalities like showing value output and the usage message are divided 
 out into extra functions. We implicitly cast our argc ints to size_t's by
-having all of our functions recieve size_t argc's. 
+having all of our functions recieve size_t argc's, like is recommended in the
+hints and tips.
+
+The program ////
 
 We note that calling ./main 0 gives us a segfault. Thus we have added a lower
 and upper limit to combine.cc

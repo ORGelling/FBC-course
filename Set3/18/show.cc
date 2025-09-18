@@ -3,5 +3,5 @@
 void show(ReturnValues showStruct)
 {
     cout << "Argument number: " << showStruct.nr 
-        << " Value: " << showStruct.value << '\n';
+        << " Argument value: " << showStruct.value << '\n';
 }
