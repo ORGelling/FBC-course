@@ -1,0 +1,2 @@
+exercise6info.txt
+exercise6.cc

@@ -1,0 +1,29 @@
+Exercise 1
+
+We must write a hello world program, compile it into an object, or a pre-
+compiled file, and then link that object into an executable.
+
+The object (hello.o) file serves as a compiled version of this file without 
+being turned into a full working executable program. This makes it easier
+to work with large programs where multiple source files are used. Changes
+made to a single source file then do not require a complete recompilation of
+the entire program, instead the specific source file can be recompiled, and
+the rest of the (already) "pre-"compiled files can simply be linked by the
+compiler. This saves a lot of time and computation power, and makes working 
+on large projects much more overseeable. It also ties in well with separate 
+file structures that often come with classes and such.
+
+The executable file on the other hand is the complete set of functional 
+instructions that the computer must follow to run the program. It 
+
+The commands used for this exercise:
+g++ -c hello.cc -Wall -Werror --std=c++26
+to compile it, and 
+g++ hello.o -o hello -s -Wall -Werror --std=c++26
+to link it
+
+The sizes of our files in bytes:
+hello.cc:   256
+hello.o:    1632
+hello:      14376
+iostream:   3074

@@ -1,0 +1,20 @@
+Exercise 4 information
+
+We choose a special combination for the start and end parentheses, used to 
+denote the start and end of a raw string literal, to differentiate them from
+the parentheses that show up in the contents of the string literal, which 
+would otherwise be interpreted as the ending sequence of our string literal.
+We can pick any unique combination of 'd-char's with the parenthesis of at 
+most 16 characters long, where a 'd-char' is a character from the basic 
+source character set (excluding parentheses, backslash and spaces). This will
+then only look for that combination of keys inbetween the ) and ".
+
+example:
+R"veryuniquesetofcharacters(  raw string here  )veryuniquesetofcharacters"
+
+We used R"special(  ...  )special"
+
+The rule would thus become:
+Use special parentheses when the content of the raw string literal contains 
+parentheses. Select special parentheses that do not appear in the content of
+the raw string literal.

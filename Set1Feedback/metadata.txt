@@ -1,0 +1,9 @@
+Set: Set 1
+
+Authors: Olivier Gelling, Leon Lan, Mohammad Habibi
+
+Rater: 
+
+To do:
+Exercise 3
+Exercise 5
