@@ -1,0 +1,14 @@
+#include "ex18header.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct ReturnValues
+{
+    bool ok;
+    size_t nr;
+    string value;
+};
+
+
