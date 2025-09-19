@@ -17,18 +17,18 @@ int main(int argc, char *argv[])
         case 'c':
             count = countChars();
             cout << "Amount of characters in file: ";
-            break;
+        break;
         case 'w':
             count = countWords();
             cout << "Amount of words in file: ";
-            break;
+        break;
         case 'l':
             count = countLines();
             cout << "Amount of lines in file: ";
-            break;
+        break;
         default:
             usage();
-            return 0;
+        return 0;
     }
     
     cout << count << '\n';
