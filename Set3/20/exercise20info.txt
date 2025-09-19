@@ -1,0 +1,4 @@
+Exercise 20: Make a wc program that counts lines, words, and characters 
+depending on what flag is set.
+
+
