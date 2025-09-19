@@ -1,1 +1,0 @@
-countWords.cc.o: countWords.cc main.ih ex20header.h
