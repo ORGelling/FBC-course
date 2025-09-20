@@ -14,7 +14,7 @@ int main()
     }
     quickSort(environ, 0, arraySize - 1);
     
-    cout << "new order:\n";
+    cout << "\nnew order:\n\n";
     
     for (size_t index = 0; index != arraySize; ++index)
         cout << environ[index] << '\n';

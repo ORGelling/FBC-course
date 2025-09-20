@@ -6,10 +6,11 @@ bool stringCompare(char *pivot, char *comparison)
     {
         char pivotChar = tolower(*pivot);
         char compareChar = tolower(*comparison);
+        
         if (pivotChar < compareChar)
-            return true;
-        if (pivotChar > compareChar)
             return false;
+        if (pivotChar > compareChar)
+            return true;
     }
     return tolower(*pivot) < tolower(*comparison);
 }
