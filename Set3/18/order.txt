@@ -1,11 +1,12 @@
 exercise18info.txt
 
 ex18header.h
+main.ih
+
 combine.cc
 structCall.cc
 boundCall.cc
 usage.cc
 show.cc
 
-main.ih
 main.cc
