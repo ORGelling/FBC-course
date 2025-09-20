@@ -2,7 +2,7 @@
 
 void quickSort(char *strArray[], size_t left, size_t right)
 {
-    if (left != right)
+    if (left < right)
     {
         size_t index = partition(strArray, left, right);
         

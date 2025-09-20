@@ -9,8 +9,8 @@ int main()
     
     while(env[arraySize] != nullptr)
     {
-        ++arraySize;
         cout << env[arraySize] << '\n';
+        ++arraySize;
     }
     quickSort(environ, 0, arraySize - 1);
     

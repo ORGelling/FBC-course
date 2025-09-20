@@ -1,0 +1,1 @@
+stringCompare.cc.o: stringCompare.cc main.ih
