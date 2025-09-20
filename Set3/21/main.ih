@@ -1,0 +1,10 @@
+#include <iostream>
+#include <string>
+#include <ctype.h>
+
+using namespace std;
+
+void quickSort(char *strArray[], size_t left, size_t right);
+size_t partition(char *strArray[], size_t left, size_t right);
+bool stringCompare(char *pivot, char *comparison);
+
