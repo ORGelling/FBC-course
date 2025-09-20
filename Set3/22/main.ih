@@ -1,0 +1,11 @@
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+
+using namespace std;
+
+void orderSort(string queue[], size_t queueSize);
+void generateQueue(string queue[], size_t queueSize, size_t colourChance);
+void showQueue(string queue[], size_t queueSize);
+void usage();
+
