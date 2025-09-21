@@ -1,5 +1,3 @@
-#include "ex18header.h"
-
 #include <iostream>
 #include <string>
 
@@ -12,4 +10,9 @@ struct ReturnValues
     string value;
 };
 
+ReturnValues combine(size_t argc, char *argv[]);
+bool structCall(size_t argc, char *argv[]);
+void boundCall(size_t argc, char *argv[]);
+void usage();
+void show(ReturnValues showStruct);
 
