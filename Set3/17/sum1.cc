@@ -1,9 +1,9 @@
-#include "ex17.ih"
+#include "main.ih"
 
-int sum(int argc, char const *argv[])
+int sum(size_t const argc, char const *argv[])
 {
     int intSumValue = 0;
-    for (int argIdx = 1; argIdx != argc; ++argIdx)
+    for (size_t argIdx = 1; argIdx != argc; ++argIdx)
     {
         int argument = stoi(argv[argIdx]);
         intSumValue += argument;

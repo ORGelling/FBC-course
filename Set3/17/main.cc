@@ -1,6 +1,6 @@
-#include "ex17.ih"
+#include "main.ih"
 
-int main(int argc, char const *argv[])
+int main(int const argc, char const *argv[])
 {
     bool findDouble = false;
     for (int argIdx = 1; argIdx != argc; ++argIdx)

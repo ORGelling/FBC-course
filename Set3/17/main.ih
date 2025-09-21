@@ -1,17 +1,18 @@
-#ifndef SUM_HEADER
-#define SUM_HEADER
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 int sum
     (
-        int argc, 
+        size_t const argc, 
         char const *argv[]
     );
 
 double sum
     (
-        int argc, 
+        size_t const argc, 
         char const *argv[], 
         char const *pickDouble
     );
 
-#endif
