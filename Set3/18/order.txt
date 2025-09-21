@@ -1,10 +1,8 @@
 ex18info.txt
-
+main.ih
+main.cc
 combine.cc
 structCall.cc
 boundCall.cc
-usage.cc
 show.cc
-
-main.ih
-main.cc
+usage.cc

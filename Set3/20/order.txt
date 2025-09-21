@@ -1,10 +1,7 @@
 ex20info.txt
-
+main.ih
+main.cc
 countChars.cc
 countWords.cc
 countLines.cc
 usage.cc
-
-main.ih
-main.cc
-

@@ -1,9 +1,6 @@
 exercise17info.txt
-
 SumHeader.h
 ex17.ih
-
+main.cc
 sum1.cc
 sum2.cc
-
-main.cc
