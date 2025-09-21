@@ -5,7 +5,7 @@ int main(int const argc, char const *argv[])
     bool findDouble = false;
     for (int argIdx = 1; argIdx != argc; ++argIdx)
     {
-        string argument = argv[argIdx];
+        string const argument = argv[argIdx];
         if (argument.find(".") != string::npos)
         {
             findDouble = true;
