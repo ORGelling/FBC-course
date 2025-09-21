@@ -3,16 +3,6 @@
 
 using namespace std;
 
-int sum
-    (
-        size_t const argc, 
-        char const *argv[]
-    );                                  // sum1.cc
-
-double sum
-    (
-        size_t const argc, 
-        char const *argv[], 
-        char const *pickDouble
-    );                                  // sum2.cc
-
+int sum(size_t const argc, char const *argv[]);         // sum1.cc
+double sum(size_t const argc, char const *argv[], char const *pickDouble);
+                                                        // sum2.cc
