@@ -10,25 +10,26 @@ int main(int argc, char *argv[])
     
     char const selector = argv[1][1];
     size_t count = 0;
+    string countType;
     
     switch (selector)
     {
         case 'c':
             count = countChars();
-            cout << "Amount of characters in file: ";
+            countType = "characters";
         break;
         case 'w':
             count = countWords();
-            cout << "Amount of words in file: ";
+            countType = "words";
         break;
         case 'l':
             count = countLines();
-            cout << "Amount of lines in file: ";
+            countType = "lines";
         break;
         default:
             usage();
         return 0;
     }
     
-    cout << count << '\n';
+    cout << "Amount of " << countType << " in file: " << count << '\n';
 }
