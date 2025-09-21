@@ -26,3 +26,9 @@ We also added the optional input argument to seed the random number
 generation, and added an option to select the distribution of blue and green
 eyes, just for fun. Neither have to be used, if the latter isn't selected the
 distribution is (close to) 50/50.
+
+We note that the const size_t's we hand off to our internal/member functions
+are not passed as references, even though that would save time copying the
+values. But since these are const size_t's using a reference will not spend
+much less memory or computation time, and can make the intent of the code a
+bit less obvious. We have elected to keep it as is for now.
