@@ -3,7 +3,7 @@
 int main()
 {
     indented_cout() << "unindented\n";
-
+    
     indent_less();
     indented_cout() << "still unindented\n";
     
