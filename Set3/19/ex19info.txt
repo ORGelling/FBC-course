@@ -15,8 +15,8 @@ int compareString
     char comparison
 )
 {
-    size_t locationOne = stringOne.find(comparison);
-    size_t locationTwo = stringTwo.find(comparison);
+    int locationOne = stringOne.find(comparison);
+    int locationTwo = stringTwo.find(comparison);
     int relativePlace = locationOne - locationTwo;
     return relativePlace;
 }
@@ -125,8 +125,8 @@ string object is defined within a function.
 
 std::string generateString(size_t size)
 {
-    std::string template = "lalalalalalalalalalalalalalala";
-    subString = template.substr(0, size);
+    std::string stringTemplate = "lalalalalalalalalalalalalalala";
+    std::string subString = stringTemplate.substr(0, size);
     return subString;
 }
 
@@ -155,25 +155,29 @@ std::string const &globalStringGetter()
 }
 
 15: Similar to the two above as well. It is appropriate to return a non-const
-reference to a simple data-type when we want to return a value that is 
-defined within this function but should persist, and that *can/should* be 
-operated on and changed.
+reference to a simple data-type when we want to return a value that should 
+persist beyond this function's return statement, like a static or member 
+variable, and that *can/should* be operated on and changed. We show this in 
+the following code by defining a static int that is handed off by the
+function as a reference.
 
 int &initialiseVariable()
 {
-    static int &initVariable = 42;
+    static int initVariable = 42;
     return initVariable;                    // not const, so can be changed!
 }
 
 16: It is appropriate to return a non-const reference to a std::string when
-we seek to initialise a member inside a function that persists beyond it and
-can be used and changed and operated on at will. In our example we show a
-string that is initialised and is returned non-const, such that one can append
-things to it or pop characters out, etc. (to fix typos for instance)
+we return a value that, again, persists after this function has returned it,
+again, like a member variable of a class or one that is statically declared 
+within the function, and that can/should be used and operated on at will. In 
+our example we show a string that is initialised and is returned non-const, 
+such that one can append things to it or pop characters out, etc. (to fix 
+typos for instance)
 
 std::string &initialiseString()
 {
-    static std::string &initString = "When is the meaning of lif"
+    static std::string initString = "When is the meaning of lif"
     return initString;
 }
 
