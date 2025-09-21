@@ -1,0 +1,13 @@
+Exercise 21: Make a quicksort function
+
+We have ended up making a quicksort function that uses Hoare's partition
+scheme. This function partitions an array of strings into two parts and
+compares all the strings of each array part with the leftmost member of that
+array. Anything that should be alphabetically aligned left of it will be
+swapped. It recursively calls itself over and over on the array parts left and
+right of this pivot until only very small array sections are left and 
+everything is sorted nicely. 
+
+As in other exercises this week, we have elected to leave const size_t's as
+is, and to not make them references, as doing so would not save memory or
+computation time, and leaves the intent of the code a bit clearer.

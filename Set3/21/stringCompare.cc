@@ -1,6 +1,6 @@
 #include "main.ih"
 
-bool stringCompare(char *pivot, char *comparison)
+bool stringCompare(char const *pivot, char const *comparison)
 {
     for (; *pivot && *comparison; ++pivot, ++comparison)
     {

@@ -1,6 +1,6 @@
 #include "main.ih"
 
-void quickSort(char *strArray[], size_t left, size_t right)
+void quickSort(char *strArray[], size_t const left, size_t const right)
 {
     if (left < right)
     {

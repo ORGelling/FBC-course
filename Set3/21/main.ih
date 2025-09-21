@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void quickSort(char *strArray[], size_t left, size_t right);
-size_t partition(char *strArray[], size_t left, size_t right);
-bool stringCompare(char *pivot, char *comparison);
+void quickSort(char *strArray[], size_t const left, size_t const right);
+size_t partition(char *strArray[], size_t const left, size_t const right);
+bool stringCompare(char const *pivot, char const *comparison);
 
