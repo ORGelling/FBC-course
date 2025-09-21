@@ -3,8 +3,8 @@
 namespace{
 
 char const usageMessage[] = 
-R"(This program counts files from the input stream
-
+R"(This program counts the number of characters, words, or lines from
+the input stream
 It must be called with one of the following flags,
 
 -c characters
