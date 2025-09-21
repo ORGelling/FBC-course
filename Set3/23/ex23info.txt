@@ -19,7 +19,10 @@ inside the ih, and the main header's function step_size also gets handed one.
 step_size is always called when indented_cout is called so it will set the
 step size as a static 4 spaces unless it is specified before that to be
 something different. This once again works due to the way static variables
-work.
+work. Both step_size and get_step_size have default arguments. The latter is
+called without an argument inside indented_cout, the former is only ever
+called to specifically set the step size, and thus will not generally be
+called without an argument. Even so, this doesn't seem to do any harm.
 
 We note that our indented_cout is not a fully functioning cout object. It can
 be given an input with the << operator *once* after which it ceases to work
