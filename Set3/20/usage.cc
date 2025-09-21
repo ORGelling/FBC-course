@@ -13,6 +13,7 @@ It must be called with one of the following flags,
 
 Thank you for using this program, and happy exercise rating!
 )";
+
 }
 
 void usage()
