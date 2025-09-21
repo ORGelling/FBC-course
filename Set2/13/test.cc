@@ -29,12 +29,7 @@ int main()
     //    value = 6;
     
     if (true)
-    {
-        if (false)                          // Now this one leads to the else 
-            value = 5;
-        else                                // without warnings
-            value = 6;
-    }
+        value = (true ? 5 : 6);
     
     cout << value << '\n';
 }

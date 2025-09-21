@@ -14,7 +14,7 @@ with and replaced simply by the getline inside the while condition.
 
 We have two nested while loops. One that runs over all the characters in the
 line, and one that checks if the character uses more than one byte to be
-represented. We use global constexpressions to represent the masks we need to
+represented. We use an anonymous namespace to store the masks we need to
 check if the MSB is 1 but the one to the right of that is 0, in which case we
 are looking at a byte that does not represent a character on its own. If MSB
 and the next one are both 1 we have reached the final byte of this character,
