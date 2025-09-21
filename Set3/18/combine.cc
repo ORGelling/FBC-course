@@ -1,6 +1,6 @@
 #include "main.ih"
 
-ReturnValues combine(size_t argc, char *argv[])
+ReturnValues const combine(size_t const argc, char const *argv[])
 {
     ReturnValues returnStruct;
     

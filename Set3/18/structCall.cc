@@ -1,6 +1,6 @@
 #include "main.ih"
 
-bool structCall(size_t argc, char *argv[])
+bool structCall(size_t const argc, char const *argv[])
 {
     ReturnValues localStruct = combine(argc, argv);
     

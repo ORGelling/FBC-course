@@ -1,6 +1,6 @@
 #include "main.ih"
 
-int main(int argc, char *argv[])
+int main(int const argc, char const *argv[])
 {
     if (argc == 1)
     {
