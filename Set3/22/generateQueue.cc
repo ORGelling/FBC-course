@@ -1,6 +1,11 @@
 #include "main.ih"
 
-void generateQueue(string queue[], size_t queueSize, size_t colourChance)
+void generateQueue
+(
+    string queue[], 
+    size_t const queueSize, 
+    size_t const colourChance
+)
 {
     for (size_t index = 0; index != queueSize; ++index)
     {

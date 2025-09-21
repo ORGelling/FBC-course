@@ -1,6 +1,6 @@
 #include "main.ih"
 
-void orderSort(string queue[], size_t queueSize)
+void orderSort(string queue[], size_t const queueSize)
 {
     for (size_t index = 0; index != queueSize - 1; ++index)
     {

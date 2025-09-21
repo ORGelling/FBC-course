@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
         return 0;
     }
     
-    size_t queueSize = stoul(argv[1]);
+    size_t const queueSize = stoul(argv[1]);
     
     if (argc > 2)
         srandom(stoul(argv[2]));

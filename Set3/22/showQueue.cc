@@ -1,6 +1,6 @@
 #include "main.ih"
 
-void showQueue(string queue[], size_t queueSize)
+void showQueue(string queue[], size_t const queueSize)
 {
     for (size_t index = 0; index != queueSize; ++index)
     {

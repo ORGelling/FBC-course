@@ -4,8 +4,13 @@
 
 using namespace std;
 
-void orderSort(string queue[], size_t queueSize);
-void generateQueue(string queue[], size_t queueSize, size_t colourChance);
-void showQueue(string queue[], size_t queueSize);
+void orderSort(string queue[], size_t const queueSize);
+void generateQueue
+(
+    string queue[], 
+    size_t const queueSize, 
+    size_t const colourChance
+);
+void showQueue(string queue[], size_t const queueSize);
 void usage();
 
