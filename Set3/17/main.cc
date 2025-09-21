@@ -12,11 +12,8 @@ int main(int const argc, char const *argv[])
             break;                              // One double is enough
         }
     }
-    double sumValue = 0;
     if (findDouble)
-        sumValue = sum(argc, argv, "Doubles");
+        cout << sum(argc, argv, "Doubles") << '\n';
     else
-        sumValue = sum(argc, argv);
-    
-    cout << sumValue << '\n';
+        cout << sum(argc, argv) << '\n';
 }
