@@ -12,5 +12,5 @@ bool stringCompare(char const *pivot, char const *comparison)
         if (pivotChar > compareChar)
             return true;
     }
-    return tolower(*pivot) < tolower(*comparison);
-}
+    return tolower(*pivot) > tolower(*comparison);
+}                                   // In case of same but partial 
