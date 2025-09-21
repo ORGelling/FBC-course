@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
         return 0;
     }
     
-    char selector = argv[1][1];
+    char const selector = argv[1][1];
     
     switch (selector)
     {
