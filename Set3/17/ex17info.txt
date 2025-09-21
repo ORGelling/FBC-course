@@ -10,12 +10,12 @@ is now part of the course's scope.
 
 Since we are not allowed to cast the arguments into int or double types 
 before we hand them to the sum function (which would still have been a 
-fitting way to overload our functions I think), we will do so instead by 
-overloading them by number of parameters. The sum that uses doubles will take
-an extra parameter, which is simply an NTBS saying "Doubles", the sum 
-function that uses ints will only recieve 2 arguments instead. This is 
-sufficient for overloading, but sadly does not use the same amount of 
-arguments that are distinct only by type. 
+fitting way to overload our functions I think, using auto and maybe
+initializer lists), we will do so instead byoverloading them by number of 
+parameters. The sum that uses doubles will take an extra parameter, which is 
+simply an NTBS saying "Doubles", the sum function that uses ints will only 
+recieve 2 arguments instead. This is sufficient for overloading, but sadly 
+does not use the same amount of arguments that are distinct only by type. 
 
 To call and store the value returned by our overloaded sum function we could
 use auto as type declaration, but since that is, for now, frowned upon, we
