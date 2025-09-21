@@ -2,8 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-    size_t count = 0;
-    
     if (argc == 1)
     {
         usage();
@@ -11,6 +9,7 @@ int main(int argc, char *argv[])
     }
     
     char const selector = argv[1][1];
+    size_t count = 0;
     
     switch (selector)
     {
