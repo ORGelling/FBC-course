@@ -1,4 +1,4 @@
-Exercise 16:
+Exercise 16: (left this as-is)
 
 Write a program that can output the reverse of a line of UTF-8 characters.
 

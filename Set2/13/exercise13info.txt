@@ -62,5 +62,3 @@ if (first == test1)
 Such that no ambiguity emerges, and the initial purpose of this code is 
 executed. 
 
-// Not correct, it's not about the layout or structure
-// hint: What does the inner if-else do?

@@ -3,10 +3,9 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-    long long input;
-    cin >> input;
+    long long input = stoll(argv[1]);   // assume input is given correctly
     
     cout << input << " = ";             // Outputting first part of return
 

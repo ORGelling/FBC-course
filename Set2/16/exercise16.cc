@@ -30,4 +30,3 @@ int main()
     cout << '\n';
     }
 }
-// Two instances of NMN for bitmasks. Global constexpressions?

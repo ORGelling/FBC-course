@@ -17,7 +17,7 @@ append a 1 to the binary output string. If it is zero a 0 is added to the
 binary. If, after the loop, there was no value added, we set values to 0.
 
 To retrieve the signedness of the MSB we cast it to long long as we are 
-appending its value to the values string
+appending its value to the values string.
 
 Finally we output the rest of the required information: "binary" and 
 "values".
