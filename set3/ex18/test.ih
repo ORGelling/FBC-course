@@ -1,0 +1,15 @@
+#pragma once
+#include <iostream>
+#include <string>
+
+// A simple bundle for multiple return values
+struct ReturnValues {
+    bool ok;
+    std::size_t nr;       
+    std::string value; 
+};
+
+ReturnValues combine(int argc, const char* argv[]);
+bool structCall(int argc, const char* argv[]);
+void boundCall(int argc, const char* argv[]);
+
