@@ -8,7 +8,7 @@ R"(Program usage:
 
 This program manages commandline input arguments. 
 Any amount of arguments can be specified, but the first argument should be a
-non-negative number. It will be used to select which argument to return.
+non-negative integer. It will be used to select which argument to return.
 
 The chosen argument will be shown. If no argument is available for that index
 this message will be shown.

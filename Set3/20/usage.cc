@@ -1,6 +1,7 @@
 #include "main.ih"
 
-namespace{
+namespace
+{
 
 char const usageMessage[] = 
 R"(This program counts the number of characters, words, or lines from
