@@ -8,7 +8,7 @@ int main(int const argc, char const *argv[])
         string const argument = argv[argIdx];
         if (argument.find(".") != string::npos)
         {
-            findDouble = true;
+            foundDouble = true;
             break;                              // One double is enough
         }
     }

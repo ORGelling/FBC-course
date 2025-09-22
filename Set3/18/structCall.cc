@@ -2,7 +2,7 @@
 
 bool structCall(size_t const argc, char const *argv[])
 {
-    ReturnValues localStruct = combine(argc, argv);
+    ReturnValues const localStruct = combine(argc, argv);
     
     if (localStruct.ok)
         show(localStruct);
