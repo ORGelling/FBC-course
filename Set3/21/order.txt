@@ -4,3 +4,4 @@ quickSort.cc
 partition.cc
 stringCompare.cc
 main.cc
+-Makefile

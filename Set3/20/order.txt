@@ -5,3 +5,4 @@ countWords.cc
 countLines.cc
 usage.cc
 main.cc
+-Makefile
