@@ -1,0 +1,17 @@
+#ifndef FERRY_EYES_H
+#define FERRY_EYES_H
+
+#include <vector>
+
+void seedRng(int argc, char* argv[]);
+
+std::vector<int> makeIds(int n);
+
+void shuffleIds(std::vector<int>& ids);
+
+int pickNumBrown(int n);
+
+void printQueue(const std::vector<int>& ids, int numBrown);
+
+#endif
+
