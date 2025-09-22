@@ -1,6 +1,7 @@
 #include "main.ih"
 
 namespace {
+
 char const usageMessage[] = 
 R"(Welcome to this puzzle solver!
 
@@ -15,6 +16,7 @@ added if so desired.
 
 Happy puzzling!
 )";
+
 }
 
 void usage()

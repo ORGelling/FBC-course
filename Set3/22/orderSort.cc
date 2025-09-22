@@ -14,7 +14,7 @@ void orderSort(string queue[], size_t const queueSize)
         string movingPerson = queue[0];     // Person in front moves behind
                                             // last bworn eyed queueer
         for (size_t moveIdx = 1; moveIdx != lastBrown + 1; ++moveIdx)
-            queue[moveIdx - 1] = queue[moveIdx];    // Everyone inbetween
+            queue[moveIdx - 1] = queue[moveIdx];    // Everyone in front
                                                     // moves 1 step up
         queue[lastBrown] = movingPerson;
     }

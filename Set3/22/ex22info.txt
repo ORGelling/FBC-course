@@ -12,15 +12,31 @@ to the back and cut into the queue just behind the last person with brown
 eyes, so as to have a self-sorting queue without any of these people needing
 to know their own eye colour. If they have brown eyes the next person will
 sort themselves behind them, if they have blue eyes the next one will sort in
-front of them.
+front of them. Everyone can see each other's eye colour, but not their own.
 
-We run the loop to do this by queueSize-1, since the last person in the queue
-does not actually need to move. They will either be the last person with brown
-eyes, or they will not. Either way the sorting works. We could even run the
-loop by the index number of the last person with brown eyes, but this works
-and is not necessarily much less efficient, unless the number of brown-eyed
-people is very low compared to the queue size, and they all start near the 
-beginning of the queue. We take this as an acceptable edge case.
+We run the loop to do this by queueSize - 1, since the last person in the 
+queue does not actually need to move. They will either be the last person
+with brown eyes, or they will not. Either way the sorting works. We could
+even run the loop by the index number of the last person with brown eyes, but
+the current solution works and is not necessarily much less efficient, unless
+the number of brown-eyed people is very low compared to the queue size, and 
+they all start near the beginning of the queue. We take this as an acceptable
+edge case. If it is not, we could simply loop through the queue once and store
+the last index of a Brown-eyed person, and then use that as the exit 
+condition.
+
+We could also have simplified the orderSort function somewhat. Maybe by having
+a subfunction that finds the last person with brown eyes and have it call
+first to find the max loops and then to see where the front person has to cut
+in line. However our implementation seems to work quite fine, does not take
+very long to run, even for long queues (10000) it is done within a couple of
+seconds. It would become necessary if we mean to use the LBEP (last brown eyed
+person) index consistently and repeatedly, or if we are expected to sort
+queues of 100000 or more, which now does take us a couple minutes. For now we
+think it works just fine to keep it as a direct implementation of the 
+orderSort() function and to loop through the entire queue each time someone
+looks to find the last brown eyed person (which does seem like it represents
+real life too!)
 
 We also added the optional input argument to seed the random number
 generation, and added an option to select the distribution of blue and green
@@ -30,5 +46,5 @@ distribution is (close to) 50/50.
 We note that the const size_t's we hand off to our internal/member functions
 are not passed as references, even though that would save time copying the
 values. But since these are const size_t's using a reference will not spend
-much less memory or computation time, and can make the intent of the code a
-bit less obvious. We have elected to keep it as is for now.
+much less memory or computation time, we believe, and can make the intent of 
+the code a bit less obvious. We have elected to keep it as is.
