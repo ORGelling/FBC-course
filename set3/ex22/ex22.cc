@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <utility>
-#include "ferry_eyes.h"
+#include "test.h"
 
 void seedRng(int argc, char* argv[])
 {
