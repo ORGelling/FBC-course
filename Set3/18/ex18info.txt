@@ -6,8 +6,9 @@ out into extra functions. We implicitly cast our argc ints to size_t's by
 having all of our functions recieve size_t argc's, like is recommended in the
 hints and tips.
 
-The program is not divided up into subdirectories yet. Would be nice.
+We run an initial check for the right amount of input arguments, and have
+combine check again for proper validation of the selected one, guarding for
+selecting argument 0 or any argument beyond existing ones.
 
-We note that calling ./main 0 gave us a segfault. Thus we have added a lower
-and upper limit to combine.cc
-
+The program is not divided up into subdirectories yet. Would be nice, but more
+fitting to do once we have classes to work with.

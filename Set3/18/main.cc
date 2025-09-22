@@ -4,14 +4,12 @@ int main(int const argc, char const *argv[])
 {
     if (argc == 1)
     {
-        usage();
+        usage();                            // Correct use validation
         return 0;
     }
     
-    bool check = structCall(argc, argv);
-    if (!check)                         // can just do if (!structCall)?
-        return 0;
+    if (!structCall(argc, argv))            // return 0 for false, else
+        return 0;                           // boundCall will break
     
     boundCall(argc, argv);
-    
 }
