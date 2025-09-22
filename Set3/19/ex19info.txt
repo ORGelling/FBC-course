@@ -95,8 +95,6 @@ void receiveInt(int &&value)
 int main()
 {
     receiveInt(18);
-    int value = 5;
-    receiveInt(value);
 }
 
 10: Similar to above but for class or struct members. If we hand a function
@@ -134,7 +132,7 @@ std::string generateString(size_t size)
 an int when the returned object is expected to live beyond the scope of the
 function returning it, but it is not meant to be operated on (through this
 alias). This is seen with functions that operate on variables that live 
-outside of their scope.
+outside of their scope or are statically declared inside it.
 
 int const &globalValueGetter()
 {
@@ -168,12 +166,12 @@ int &initialiseVariable()
 }
 
 16: It is appropriate to return a non-const reference to a std::string when
-we return a value that, again, persists after this function has returned it,
-again, like a member variable of a class or one that is statically declared 
-within the function, and that can/should be used and operated on at will. In 
-our example we show a string that is initialised and is returned non-const, 
-such that one can append things to it or pop characters out, etc. (to fix 
-typos for instance)
+we return a value that, again, persists after this function has returned it.
+Like a member variable of a class or one that is statically declared within 
+the function, and that can/should be used and operated on at will. In our 
+example we show a string that is initialised and is returned non-const, such 
+that one can append things to it or pop characters out, etc. (to fix typos 
+for instance)
 
 std::string &initialiseString()
 {

@@ -13,4 +13,4 @@ bool stringCompare(char const *pivot, char const *comparison)
             return true;
     }
     return tolower(*pivot) > tolower(*comparison);
-}                                   // In case of same but partial 
+}                                   // In case of comparion shorter substring

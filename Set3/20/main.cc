@@ -2,17 +2,17 @@
 
 int main(int argc, char *argv[])
 {
-    if (argc == 1)
+    if (argc == 1)                          // Info and correct usage check
     {
         usage();
         return 0;
     }
     
-    char const selector = argv[1][1];
+    char const inputFlag = argv[1][1];
     size_t count = 0;
-    string countType;
+    string countType;                       // auto initialised
     
-    switch (selector)
+    switch (inputFlag)
     {
         case 'c':
             count = countChars();

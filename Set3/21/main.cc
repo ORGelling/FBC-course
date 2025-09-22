@@ -1,18 +1,18 @@
 #include "main.ih"
 
-extern char **environ;
+extern char **environ;                          // For environment variables
 
 int main()
 {
-    size_t arraySize = 0;
+    size_t arraySize = 0;                       // For finding size
     char **env = environ;
-    
-    while(env[arraySize] != nullptr)
+
+    while(env[arraySize] != nullptr)            // Find size of environ array
     {
         cout << env[arraySize] << '\n';
         ++arraySize;
     }
-    quickSort(environ, 0, arraySize - 1);
+    quickSort(environ, 0, arraySize);           // Execute qs       
     
     cout << "\nnew order:\n\n";
     

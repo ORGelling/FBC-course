@@ -10,7 +10,7 @@ everything is sorted nicely.
 
 We grab the environ array as extern char, but note that it could also, in some
 implementations, be taken as the 3rd int main() argument. Since we are not
-sure if this compiles correctly we choose the safer option.
+sure if this compiles correctly elsewhere we choose the safer option.
 
 Our program finds the array size of our environ array by looping until it
 finds a null pointer, but it could also be done using sizeof(the array) /
