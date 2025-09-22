@@ -1,6 +1,5 @@
-exercise17info.txt
-SumHeader.h
-ex17.ih
-main.cc
+ex17info.txt
+main.ih
 sum1.cc
 sum2.cc
+main.cc

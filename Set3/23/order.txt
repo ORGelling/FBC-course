@@ -2,11 +2,6 @@ ex23info.txt
 
 indent.h
 indent.ih
-main.cc
-
-get_step_size.cc
-indentation_depth.cc
-change_indent.cc
 
 indented_cout.cc
 indent_less.cc
@@ -14,4 +9,8 @@ indent_more.cc
 reset_indentation.cc
 step_size.cc
 
--Makefile
+indentation_depth.cc
+change_indent.cc
+get_step_size.cc
+
+main.cc

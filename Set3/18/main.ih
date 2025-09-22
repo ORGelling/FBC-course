@@ -13,6 +13,6 @@ struct ReturnValues
 ReturnValues const combine(size_t const argc, char const *argv[]);
 bool structCall(size_t const argc, char const *argv[]);
 void boundCall(size_t const argc, char const *argv[]);
-void usage();
 void show(ReturnValues const &showStruct);
+void usage();
 
