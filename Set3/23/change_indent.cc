@@ -6,9 +6,10 @@ void indent_status::change_indent(int const change)
     switch (change)
     {
         case -1:
-            if (indentDepth == 0)
+            if (indentDepth == 0)           // Guard underflow
                 break;
-        case 1:
+        [[fallthrough]];                    // Subtraction and addition
+        case 1:                             // both handled by this case 
             indentDepth = indentDepth + change;
         break;
         case 0:

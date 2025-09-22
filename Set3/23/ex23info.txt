@@ -15,14 +15,12 @@ with a switch for the cases of increasing, decreasing, and resetting the
 indentation level.
 
 Our get_step_size function gets handed a default variable from its declaration
-inside the ih, and the main header's function step_size also gets handed one.
-step_size is always called when indented_cout is called so it will set the
-step size as a static 4 spaces unless it is specified before that to be
-something different. This once again works due to the way static variables
-work. Both step_size and get_step_size have default arguments. The latter is
-called without an argument inside indented_cout, the former is only ever
-called to specifically set the step size, and thus will not generally be
-called without an argument. Even so, this doesn't seem to do any harm.
+inside the ih. If it is not initially called with a different variable the
+default will be used and can from then on not be overridden. get_step_size is
+always called when indented_cout is called so it will set the step size as a 
+static 4 spaces. This once again works due to the way static variables work. 
+step_size() can be called in main if one seeks to set the indent size, if one
+does not there is no point in calling it, so it requires an argument.
 
 We note that our indented_cout is not a fully functioning cout object. It can
 be given an input with the << operator *once* after which it ceases to work
@@ -52,7 +50,7 @@ Now to answer the specific questions:
 A: We make sure none of the variables operating the mechanics are reachable
 from a global scope. They can only be set by the functions secifically made to
 set and handle them, which then also keep issues from popping up with
-validation tests.
+validation. They can only be changed through "legal" means.
 
 2: What could the user do to circumvent this?
 A: The user cannot directly modify these local static variables without
@@ -84,7 +82,7 @@ with make or icmake with the relevant settings on.
 
 7: Did we do this?
 A: Initially, no, not manually. The Makefile does do this automatically, and
-after we saw this question we went back, did it again, and added the manual
+after we saw this question we went back, did it again by hand, and added the
 command to precompile the header and ran the others afterwards. When a .h.gch
 file is present the compiler will use that instead of the .h, so in the end,
 yes we did! You can see from the command we added to our explanation!
