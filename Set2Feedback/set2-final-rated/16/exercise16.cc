@@ -9,8 +9,8 @@ namespace {
     enum { 
     // HB: L x2
         UTF8_CONT_SEQ = 0b11000000,     // First two MSBs, or 192
-        // HB: sure, it's sort of the contiuation sequence, but you're only using it as mask later on
-
+        // HB: sure, it's sort of the contiuation sequence, but you're only 
+        // using it as mask later on
         UTF8_END_SEQ = 0b10000000       // Only MSB, or 128
     };
 }
