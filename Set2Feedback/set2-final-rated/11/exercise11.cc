@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
             values += (values.empty() ?  "" : " + ")  // with or without "+"
                         + to_string(static_cast<long long>(mask));
         }                                             // return signedness
-        else // HB: FLOW: usually putting the shorter branch first is more intuitive
-            binary += "0";
+        else // HB: FLOW: usually putting the shorter branch first is more
+            binary += "0";                                      // intuitive
     }
     if (values.empty())                     // Lest 0 return an empty string
         values = "0";
