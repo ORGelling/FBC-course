@@ -1,0 +1,67 @@
+// HB: rating: 1
+// HB: LGTM
+
+Exercise 13: Fix this ambiguous if statement
+
+We are given this if statement:
+if (first == test1) if (second == test2) value = 5; else value = 6;
+
+Q1: Describe how the compiler interprets this statement
+A1: The compiler will throw a -Wdangling-else warning because this statement
+is ambiguous. It suggests adding explicit braces to avoid this. We know that
+the compiler will interpret the else as belonging to the nearest if, but we
+can check this to be sure: If we write this out in code in full, and set our
+first, second, and test values, we can see what is happening.
+
+Let's say we choose our test values such that the first if statement's 
+condition is false, then, if it is seen as the first's complement, the else
+will act on value. It does not. If we make condition 1 true but condition 2 
+false we see that value *is* reassigned. Thus the statement is interpreted:
+
+if (first == test1) 
+    if (second == test2) 
+        value = 5;
+    else 
+        value = 6;
+
+Q2: Rewrite the statement using the correct layout.
+A2:
+if (first == test1) 
+    if (second == test2) 
+        value = 5; 
+    else 
+        value = 6;
+
+Would be the correct layout, but curly braces are required to keep the 
+compiler from throwing a warning. We are not allowed to change the syntax 
+though, which means (we think) we are not allowed to add curly braces.
+
+Q3: Rewrite this statement to represent the 'non-default' form
+A3:
+if (first == test1) 
+{
+    if (second == test2) 
+        value = 5; 
+}
+else 
+    value = 6;
+
+Would work for the alternate form. Compiles without errors or warnings.
+
+Q4: Describe how this new statement is interpreted
+A4: The curly braces signify to the compiler that the else statement is the 
+complement to the first if-statement, and not supposed to be part of the 
+first if's statement. If the first condition one is false then the else is
+executed in its stead, rather than in stead of the second if-statement.
+
+Q5: Fix the flaw in the original statement not related to layout
+A5: If we are not simply setting curly braces to get rid of the dangling else
+issue we can replace the inner if-else clause with a ternary operator, like 
+so:
+
+if (first == test1) 
+    value = (second == test2 ? 5 : 6);
+
+Such that no ambiguity emerges, and the initial purpose of this code is 
+executed. 
+
