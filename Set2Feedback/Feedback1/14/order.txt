@@ -1,0 +1,3 @@
+exercise14info.txt
+exercise14.cc
+-alternate14.cc

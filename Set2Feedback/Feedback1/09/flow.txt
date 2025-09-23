@@ -1,0 +1,95 @@
+General Advice: Various standard C/C++  functions exist that may be used
+when completing exercises.
+
+    For such (standard) functions, the following simple rules apply:
+    * If an exercise explicitly tells you to use a particular function,
+        that function must (of course) be used to complete the exercise.
+
+    * For several tasks standard functions are available. Starting next
+        week we'll be able to define our own functions. When standard
+        functions exist you should em(not) develop comparable functions
+        yourself. Don't reinvent the wheel. Visit our lurl(manpages) overview
+        for an overview and description of functions that are useful for this
+        course (now or at some future moment in time). In the exercises we may
+        (once) suggest to use a particular standard function. Once a function
+        was suggested feel free to use it again in future exercises.
+
+    Some suggestions:
+    * When exercises contain sub-questions briefly summarize the
+sub-questions before adding your answers. E.g., if an exercise looks like
+this:
+    
+    * first sub-question plus details
+    * second sub-question plus details
+
+    then your answer should look like this:
+    * first sub-question
+
+        your answer to the first sub-question goes here
+        
+    * second sub-question
+
+        your answer to the second sub-question goes here
+
+    * String-operations should be performed using std::string
+      objects; 
+
+    * Standard C functions whose names start with is...(),
+may/should be used to find the category a certain character value belongs
+to. E.g., letters, digits, punctuation marks, white space (example:
+isspace);
+
+    * For input and output iostream objects must be used. For
+now, use cin for input, and cout for output. Do not use the
+C-functions printf, scanf or their family members.
+
+
+    To find out which (standard) functions exist, consult books, or use
+on-line manuals. On Unix systems you can use the man-pages or the
+info-reader. Other systems offer comparable documentation sources. Many
+man-pages are available at the course's restricted section: manpages. If
+you're considering a function that is not mentioned there, it's unlikely that
+you need it for this course.
+
+Experience shows that all reference information is already available on your
+computer; buying reference books therefore is something of the past.  Very
+good references can also be found on-line (e.g., cppreference). Sooner or
+later you develop a mental picture of available functions, and you only
+occasionally have to refer to their man-pages.
+
+    Be careful not to develop a brain-dead searching habit. Don't
+go to these references before you've studied the subject matter. First
+study the Annotations, then resort to references, if necessary.
+
+    The more up-to-date your mental picture is, the better and faster you can
+develop programs, as you will be able to use existing software, developed and
+debugged by others (be)for(e) you.  This philosophy is present in C++ even
+stronger than in C, so get used to it quickly.
+
+    * In programs developed during this part of the course, you don't need
+to consider erroneous input, unless the exercise explicitly asks you to do
+so. So, if a program expects a number, your code does not have to check for
+numeric input.
+
+    We know that the position we take here is dangerous, as many sources
+of errors in programs result from unchecked input and arguments. Although
+programs should rigorously check their input, doing so in the realm of our
+exercises often hides the actual purpose of the exercises.  Hence we usually
+do not require such checks, knowing that error handling is covered later in
+this course.
+
+    * Programs solving the exercises are usually fairly small. If you think
+You need many lines of code to solve a particular exercise, think again:
+you're probably doing something wrong.
+
+    * When writing programs reading text files you may assume that the last
+line is properly terminated by a newline character, unless explicitly
+indicated otherwise.
+
+    * Often we use objects from the so-called standard namespace (e.g.,
+std::cout, std::string). If your source files contain a line
+    using namespace std;
+    just before the actual source code starts, then the std:: prefixes may
+be omitted when referring to entities from that namespace. After this week
+we'll introduce another way to provide the compiler with this using-directive,
+but for now you can add it to your source files.

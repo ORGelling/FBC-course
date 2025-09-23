@@ -1,0 +1,27 @@
+Exercise 12: Write a program that determines whether a very large number is
+divisible by 3.
+
+We initialise a string and have it receive an input from the commandline. 
+Then we start a while loop that checks whether input.length() is longer than 
+1. If it is it will run a for loop over the different characters in the input
+string, summing up their numerical values into the size_t sum, which we 
+initialise *inside* the while loop since we do not need it outside of it. To
+sum over the numerical values of our string characters we offset each by '0'
+as per the hint from the exercise. This gives us the numerical value that 
+represents the number shown, rather than the ASCII character value we would 
+otherwise get. Then we store this sum back into our input variable as a 
+string, in case we have to loop over its characters again.
+
+When only one digit remains the loop breaks. We use cout to write whether our
+input was divisible by three on the screen. We use a ternary operator 
+statement to distinguish between "not divisible" and "divisible" by testing 
+whether our, now single-digit sum value, can be found in string{3, 6, 9}. 
+Again shifting it by '0' to correct the value. If none of the characters
+correspond find() returns npos, which stands at the other end of our 
+comparison condition. We could simply have used modulo 3 in this part, but as
+the exercise hints for us to use this method we have elected to do so.
+
+Noteworthy is that the characters from string{3, 6, 9} do not actually show 
+up in our cout if we hand them directly to it. Since they are non-printable 
+control characters. However, during the comparison they simply function as 
+bytes with those values respectively. Thus they will compare just fine.
