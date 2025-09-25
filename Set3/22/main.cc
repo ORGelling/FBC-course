@@ -1,4 +1,8 @@
-#include "main.ih"
+#include "orderSort.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -13,12 +17,12 @@ int main(int argc, char *argv[])
     if (argc > 2)
         srandom(stoul(argv[2]));
     
-    size_t colourChance = 50;
+    size_t colourPercentage = 50;
     if (argc > 3)
-        colourChance = stoul(argv[3]);
+        colourPercentage = stoul(argv[3]);
     
     string queue[queueSize];
-    generateQueue(queue, queueSize, colourChance);
+    generateQueue(queue, queueSize, colourPercentage);
     
     cout << "Queue before sorting:\n";
     showQueue(queue, queueSize);

@@ -1,0 +1,9 @@
+#include "orderSort.h"
+
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+
+using namespace std;
+
+size_t findLastBrown(string queue[], size_t const queueSize);
