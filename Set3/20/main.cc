@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         break;
         default:
             usage();
-        return 0;
+        return 1;
     }
     
     cout << "Number of " << countType << " in file: " << count << '\n';
