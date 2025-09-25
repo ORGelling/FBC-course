@@ -1,1 +1,0 @@
-orderSort.cc.o: orderSort.cc orderSort.ih orderSort.h
