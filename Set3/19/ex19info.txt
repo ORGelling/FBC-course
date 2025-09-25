@@ -3,46 +3,41 @@ Exercise 19: Distinguishing return types
 Explain briefly in what situations different (return) types are appropriate
 to use.
 
-1: It is appropriate to define an int type parameter when one is working with
-signed integral/integer values. These can be useful for a multitude of 
-things, from calculating sums to keeping counts. This is illustrated in the 
-code example by showing how we can store a signed number in an int for use.
+1: It is appropriate to use an int type parameter when one is working with
+signed integral/integer values that should not modify the original variable
+holding this value. In the code example, this is illustrated because we want
+to square the passed-in number.
 
-int compareString
-(
-    std::string stringOne,
-    std::string stringTwo, 
-    char comparison
-)
+int squared(int number)
 {
-    int locationOne = stringOne.find(comparison);
-    int locationTwo = stringTwo.find(comparison);
-    int relativePlace = locationOne - locationTwo;
-    return relativePlace;
+	return number * number;
 }
 
-2: It is appropriate to define a std::string type parameter when working with
-pieces of text or data upon which one wants to execute operations. 
-std::string is a class type with a bunch of built in functions, and even
-struct types have easily accessible data members which can be reached and
-changed. We illustrate this in the code below by showing how operations can
-be enacted on a string.
+2: It is appropriate to use a std::string type parameter when working with
+pieces of text or data that need to be passed by value. In the code example 
+this is illustrated because we don't want to modify the original name.
 
-std::string greeting = "Hello there dear rater";
-std::string greet = greeting.substr(0, 11);
+std::string capitalize(std::string name)
+{
+	name[0] = std::toupper(name[0]);
+	return name;
+}
 
 3: It is appropriate to define a const reference to an int, to not copy the 
-value when using it in a function, aka 'read-only access'. We show this in 
-our code example with a function that does not alter the int but does use it 
-for some purpose.
+value when using it in a function, aka 'read-only access'. In most use cases 
+it's better to pass-by-value for primitive types as it's cheaper to copy. We 
+show this in our code example with a function that does not alter the int but
+does use it for some purpose.
 
 void show(int const &number)
 {
     std::cout << number << '\n';
 }
 
-4: The same as above. One can define a reference to a const string to again 
-keep away from copying the contents when they are being passed to a function.
+4: It is appropriate to define a reference to a const string to again keep 
+away from copying the contents when they are being passed to a function. We
+show this in the following code that accepts a reference to a const string to
+use it for a read-only purpose.
 
 void show(string const &sentence)
 {
@@ -97,9 +92,11 @@ int main()
     receiveInt(18);
 }
 
-10: Similar to above but for class or struct members. If we hand a function
-simply "This is a string" as an argument we can best define the argument type
-as an rvalue-reference to a std::string. We illustrate this here:
+10: It is appropriate to define an rvalue reference to a std::string 
+parameter similar to above but for class or struct members. If we hand a 
+function simply "This is a string" as an argument we can best define the 
+argument type as an rvalue-reference to a std::string. We illustrate this 
+here:
 
 void receiveString(string &&anonymousString)
 {
@@ -116,10 +113,11 @@ operation has been done on its arguments and a new value or even type is
 returned. We refer back to the example from 1 here as well, as we show there
 exactly when it is useful to return an int.
 
-12: Similar to above. When a new class object (like a string) or struct is
-defined inside a function and that is handed back as its return it is best to
-do so in this manner. We illustrate this with the following code, where a new
-string object is defined within a function.
+12: It is appropriate to return a std::string in situations similar to above.
+When a new class object (like a string) or struct is defined inside a 
+function and that is handed back as its return it is best to do so in this 
+manner. We illustrate this with the following code, where a new string object
+is defined within a function. We illustrate this again similarly:
 
 std::string generateString(size_t size)
 {
@@ -183,5 +181,3 @@ std::string &initialiseString()
 to anything, const or not. Doing this will lead to problems with undefined 
 references once the function ends and its contents are removed from the stack.
 Instead, one should either return a type itself, or a reference to it.
-
-

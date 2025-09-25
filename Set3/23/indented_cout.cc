@@ -8,7 +8,7 @@ ostream &indented_cout()
             indentStep != indent_status::get_step_size(); 
             ++indentStep
         )
-        indentString += " ";
+        indentString += " ";                // Create indents
 
     string indentation = "";
     for (
@@ -16,7 +16,7 @@ ostream &indented_cout()
             steps != indent_status::indentation_depth(); 
             ++steps
         )
-        indentation += indentString;
+        indentation += indentString;        // Apply them
     
     cout << indentation;
     

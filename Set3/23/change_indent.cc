@@ -6,9 +6,10 @@ void indent_status::change_indent(int const change)
     switch (change)
     {
         case -1:
-            if (indentDepth == 0)
-                break;
-        case 1:
+            if (indentDepth == 0)           // Guard underflow and let
+                break;                      // next case handle mutation
+        [[fallthrough]];                    // So intentional fallthrough 
+        case 1: 
             indentDepth = indentDepth + change;
         break;
         case 0:
