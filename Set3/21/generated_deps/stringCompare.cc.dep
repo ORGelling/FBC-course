@@ -1,1 +1,0 @@
-stringCompare.cc.o: stringCompare.cc quicksort.ih

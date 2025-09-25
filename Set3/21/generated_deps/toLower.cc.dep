@@ -1,1 +1,0 @@
-toLower.cc.o: toLower.cc quicksort.ih
