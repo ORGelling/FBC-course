@@ -1,4 +1,4 @@
-#include "main.ih"
+#include "sum.ih"
 
 int sum(size_t const argc, char const *argv[])
 {

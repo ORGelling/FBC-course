@@ -1,4 +1,4 @@
-#include "main.ih"
+#include "sum.ih"
 
 double sum(size_t const argc, char const *argv[], char const *pickDouble)
 {
