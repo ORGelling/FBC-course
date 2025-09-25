@@ -1,11 +1,6 @@
 #include "quicksort.ih"
 
-size_t partition
-(
-    string strArray[], 
-    size_t const left, 
-    size_t const right
-)
+size_t partition(string strArray[], size_t const left, size_t const right)
 {
     string pivot = strArray[left];
     size_t pivotIdx = left;

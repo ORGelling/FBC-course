@@ -8,11 +8,11 @@ extern char const **environ;                    // For environment variables
 
 int main()
 {
-    char const **env = environ;
+    char const **env = environ;                 // Copy for safety
     size_t arraySize = envArraySize(env);       // For finding size
     
     string envArray[arraySize];
-    envStringArray(arraySize, envArray, env);
+    envStringArray(arraySize, envArray, env);   // Make string array
     
     quickSort(envArray, 0, arraySize);          // Execute qs       
     
