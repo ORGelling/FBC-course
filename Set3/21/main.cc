@@ -2,11 +2,13 @@
 #include "envconversion.h"
 #include <iostream>
 
-extern char **environ;                          // For environment variables
+using namespace std;
+
+extern char const **environ;                    // For environment variables
 
 int main()
 {
-    char **env = environ;
+    char const **env = environ;
     size_t arraySize = envArraySize(env);       // For finding size
     
     string envArray[arraySize];

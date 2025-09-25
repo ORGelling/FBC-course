@@ -2,6 +2,11 @@
 #define QUICKSORT_HEADER_
 #include <iosfwd>
 
-void quickSort(string envArray[], size_t const left, size_t const right);
+void quickSort
+(
+    std::string const envArray[], 
+    size_t const left, 
+    size_t const right
+);
 
 #endif
