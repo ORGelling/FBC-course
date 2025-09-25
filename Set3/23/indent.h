@@ -1,7 +1,7 @@
 #ifndef INDENT_H_
 #define INDENT_H_
 
-#include <iostream>
+#include <iosfwd>
 
 std::ostream &indented_cout();
 void indent_less();

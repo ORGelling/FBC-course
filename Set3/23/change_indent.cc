@@ -10,10 +10,10 @@ void indent_status::change_indent(int const change)
                 break;                      // next case handle mutation
         [[fallthrough]];                    // So intentional fallthrough 
         case 1: 
-            indentDepth = indentDepth + change;
+            indentDepth += change;
         break;
         case 0:
-            indentDepth = 0;
+            indentDepth = 0;                // Back to 0
         break;
     }
 }
