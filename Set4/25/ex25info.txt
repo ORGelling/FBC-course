@@ -29,12 +29,21 @@ fundamental forces of our universe:
 Class FundamentalForces
 {
     // data members: (private)
-    double  const d_weak;
-    double  const d_strong;
-    double  const d_electromagnetic;
-    double  const d_gravity;
+    double  const d_weak = 1.0e-7;
+    double  const d_strong = 1.0e-6;
+    double  const d_electromagnetic = 1.0;
+    double  const d_gravity = 9.81;
     
     public:             // member functions
+        FundamentalForces();
+        FundamentalForces
+        (
+            double weak, 
+            double strong, 
+            double electromagnetic,
+            double gravity
+        )
+    
         double calculateGravitationalForce(Particle &source);
         double calculateElectroMagneticForce(Particle &source);
         double calculateWeakForce(Particle &source);
@@ -43,12 +52,17 @@ Class FundamentalForces
 
 #endif
 
-Behold, our universe (approximately). We see the data members, d_weak,
-(...) d_gravity, which will, by the constructor, be initiated with their
-fundamental constants, are not settable, or changeable. We can however, look
-at particles and how they affect each other with all these different forces.
-One calles the calculate...() functions on an object with a source object as
-argument to find the force that particle (another class) enacts on it. These
-are being handed as references, since those particles in turn will also be
-acted upon. We can assume here there is a particle class that contains the
-location, mass, and spin, of particles as its data members.
+Behold, our (or a) universe (approximately). We see the data members, d_weak,
+(...), d_gravity, which will, by the constructor, be initiated with their
+fundamental constants. They are not settable or changeable. We can however, 
+look at particles and how they affect each other with all these different 
+forces. One calls the calculate...() functions on an object with a source 
+object as argument to find the force that particle (another class) enacts on 
+it. These are being handed as references, since those particles in turn will 
+also be acted upon. We can assume here there is a particle class that contains
+the location, mass, and spin, of particles as its data members.
+
+Any object of this class will represent the fundamental force-nature of a
+universe. Initialise it with the default constructor and you will (or should)
+get one not unlike our own. Initialise one with a custom set of forces, and
+you might find something very straneg indeed.
