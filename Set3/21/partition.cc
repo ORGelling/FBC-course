@@ -1,4 +1,4 @@
-#include "main.ih"
+#include "quicksort.ih"
 
 size_t partition(char *strArray[], size_t const left, size_t const right)
 {

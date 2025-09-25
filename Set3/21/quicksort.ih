@@ -4,7 +4,6 @@
 
 using namespace std;
 
-void quickSort(char *strArray[], size_t const left, size_t const right);
 size_t partition(char *strArray[], size_t const left, size_t const right);
 bool stringCompare(char const *pivot, char const *comparison);
 

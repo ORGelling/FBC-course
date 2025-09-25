@@ -1,4 +1,4 @@
-#include "main.ih"
+#include "quicksort.ih"
 
 bool stringCompare(char const *pivot, char const *comparison)
 {

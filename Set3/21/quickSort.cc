@@ -1,4 +1,4 @@
-#include "main.ih"
+#include "quicksort.ih"
 
 void quickSort(char *strArray[], size_t const left, size_t const right)
 {
