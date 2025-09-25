@@ -1,0 +1,1 @@
+show.cc.o: show.cc combine.ih combine.h

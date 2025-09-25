@@ -1,0 +1,1 @@
+combine.cc.o: combine.cc combine.ih combine.h

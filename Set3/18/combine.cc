@@ -1,6 +1,6 @@
-#include "main.ih"
+#include "combine.ih"
 
-ReturnValues const combine(size_t const argc, char const *argv[])
+ReturnValues combine(size_t const argc, char const *argv[])
 {
     ReturnValues returnStruct{false, 0, ""};    // Initialise "empty"
     
