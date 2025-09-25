@@ -1,0 +1,9 @@
+#include "indent.h"
+
+using namespace std;
+
+namespace indent_status {
+    size_t &indentation_depth();
+    void change_indent(int const change);
+    size_t const &get_step_size(size_t const stepSize = 4);
+}

@@ -1,0 +1,6 @@
+ex17info.txt
+main.ih
+sum1.cc
+sum2.cc
+main.cc
+-Makefile

@@ -1,0 +1,189 @@
+JB: 1
+JB: but check remarks.
+Exercise 19: Distinguishing return types
+
+Explain briefly in what situations different (return) types are appropriate
+to use.
+
+1: It is appropriate to use an int type parameter when one is working with
+signed integral/integer values that should not modify the original variable
+holding this value. In the code example, this is illustrated because we want
+to square the passed-in number.
+
+int squared(int number)
+{
+	return number * number;
+}
+
+2: It is appropriate to use a std::string type parameter when working with
+pieces of text or data that need to be passed by value. In the code example 
+this is illustrated because we don't want to modify the original name.
+
+std::string capitalize(std::string name)
+{
+	name[0] = std::toupper(name[0]); //JB: Out Of Range error.
+	return name;
+}
+
+3: It is appropriate to define a const reference to an int, to not copy the 
+value when using it in a function, aka 'read-only access'. In most use cases 
+it's better to pass-by-value for primitive types as it's cheaper to copy. We 
+show this in our code example with a function that does not alter the int but
+does use it for some purpose.
+
+JB: So when is the const-reference better?
+
+void show(int const &number)
+{
+    std::cout << number << '\n';
+}
+
+4: It is appropriate to define a reference to a const string to again keep 
+away from copying the contents when they are being passed to a function. We
+show this in the following code that accepts a reference to a const string to
+use it for a read-only purpose.
+
+void show(string const &sentence)
+{
+    std::cout << sentence << '\n';
+}
+
+5: It is appropriate to use a non-const reference to an int type parameter
+when it is being handed to a function that seeks to alter the contents of 
+said variable. We illustrate this with an example we take from the 
+annotations, which recieves a reference to a variable and then uses that to 
+increase it by 5.
+
+void increase(int &valr)
+{
+    valr += 5;
+}
+
+6: It is appropriate to define a non-const reference to a string if one wants
+to hand it off to a function without copying its contents whole and while
+allowing that function to alter said contents, similar to above. We 
+illustrate this with a bit of code that appends a period to a reference to a
+string, and thus to the original one too.
+
+void punctuationAppend(std::string &unPunctuated)
+{
+    unPunctuated += ".";
+}
+
+7: It is generally inappropriate to define a const rvalue reference, as
+rvalue references are anonymous values used, for instance, to assign a known
+quantity to lvalues. These are generally also supposed to be operated on. It
+seems they are sometimes used for read-only access of an rvalue reference 
+but that would generally defeat the purpose of this type. Instead a non-const
+rvalue reference should probably be used.
+
+8: Same as above.
+
+9: It is appropriate to define an rvalue reference to an int type parameter
+as the argument of a function that receives simply a numerical value, and not
+a predefined variable. This value can then be modified and used as needed. We
+illustrate this with another example from the annotations, where rvalue
+references are used as function arguments.
+JB: This can be done with a value too.
+
+void receiveInt(int &&value)
+{
+    ++value; //JB: No advantage taken of rvalue-ness.
+    cout << "int R-value parameter, now: " << value << '\n';
+}
+
+int main()
+{
+    receiveInt(18);
+}
+
+10: It is appropriate to define an rvalue reference to a std::string 
+parameter similar to above but for class or struct members. If we hand a 
+function simply "This is a string" as an argument we can best define the 
+argument type as an rvalue-reference to a std::string. We illustrate this 
+here:
+
+void receiveString(string &&anonymousString)
+{
+    std::cout << anonymousString + "." << '\n';
+}
+
+int main()
+{
+    receiveString("This is a string");
+}
+
+11: It is appropriate to return an int-type value from a function when an 
+operation has been done on its arguments and a new value or even type is 
+returned. We refer back to the example from 1 here as well, as we show there
+exactly when it is useful to return an int.
+
+12: It is appropriate to return a std::string in situations similar to above.
+When a new class object (like a string) or struct is defined inside a 
+function and that is handed back as its return it is best to do so in this 
+manner. We illustrate this with the following code, where a new string object
+is defined within a function. We illustrate this again similarly:
+
+std::string generateString(size_t size)
+{
+    std::string stringTemplate = "lalalalalalalalalalalalalalala";
+    std::string subString = stringTemplate.substr(0, size);
+    //JB: out-of-range danger.
+    return subString;
+}
+
+13: It is appropriate to return a const reference to a simple data type like 
+an int when the returned object is expected to live beyond the scope of the
+function returning it, but it is not meant to be operated on (through this
+alias). This is seen with functions that operate on variables that live 
+outside of their scope or are statically declared inside it.
+
+int const &globalValueGetter()
+{
+    static int const &globalValue = 42;
+    return globalValue;
+}
+
+14: Quite similar to above. It is appropriate to return a const reference to
+a string when we want to return a specific message that cannot be operated on
+and persists beyond this function:
+
+std::string const &globalStringGetter()
+{
+    static std::string const &globalString = 
+            "The answer to life, the universe, and everything";
+    
+    return globalString;
+}
+
+15: Similar to the two above as well. It is appropriate to return a non-const
+reference to a simple data-type when we want to return a value that should 
+persist beyond this function's return statement, like a static or member 
+variable, and that *can/should* be operated on and changed. We show this in 
+the following code by defining a static int that is handed off by the
+function as a reference.
+
+int &initialiseVariable()
+{
+    static int initVariable = 42;
+    return initVariable;                    // not const, so can be changed!
+}
+
+16: It is appropriate to return a non-const reference to a std::string when
+we return a value that, again, persists after this function has returned it.
+Like a member variable of a class or one that is statically declared within 
+the function, and that can/should be used and operated on at will. In our 
+example we show a string that is initialised and is returned non-const, such 
+that one can append things to it or pop characters out, etc. (to fix typos 
+for instance)
+
+std::string &initialiseString()
+{
+    static std::string initString = "When is the meaning of lif"
+    return initString;
+}
+
+17, 18, 19, 20: It is generally inappropriate to return an rvalue reference 
+to anything, const or not. Doing this will lead to problems with undefined 
+references once the function ends and its contents are removed from the stack.
+Instead, one should either return a type itself, or a reference to it.
