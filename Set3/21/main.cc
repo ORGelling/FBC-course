@@ -16,8 +16,8 @@ int main()
     
     quickSort(envArray, 0, arraySize);          // Execute qs       
     
-    cout << "\nnew order:\n\n";
+    cout << "Sorted:\n\n";
     
     for (size_t index = 0; index != arraySize; ++index)
-        cout << environ[index] << '\n';
+        cout << envArray[index] << '\n';
 }

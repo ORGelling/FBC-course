@@ -4,7 +4,7 @@
 
 void quickSort
 (
-    std::string const envArray[], 
+    std::string envArray[], 
     size_t const left, 
     size_t const right
 );

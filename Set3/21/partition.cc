@@ -1,13 +1,18 @@
 #include "quicksort.ih"
 
-size_t partition(string const *strArray[], size_t const left, size_t const right)
+size_t partition
+(
+    string strArray[], 
+    size_t const left, 
+    size_t const right
+)
 {
-    char *pivot = strArray[left];
+    string pivot = strArray[left];
     size_t pivotIdx = left;
     
     for (size_t index = left + 1; index != right; ++index)
     {
-        if (stringCompare(pivot, strArray[index]))
+        if (mustSwap(pivot, strArray[index]))
             swap(strArray[++pivotIdx], strArray[index]);
     }
     

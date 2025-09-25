@@ -4,6 +4,11 @@
 
 using namespace std;
 
-size_t partition(string const *strArray[], size_t const left, size_t const right);
-bool stringCompare(char const *pivot, char const *comparison);
-
+size_t partition
+(
+    string strArray[], 
+    size_t const left, 
+    size_t const right
+);
+bool mustSwap(string &pivot, string &comparison);
+string toLower(string &input);
