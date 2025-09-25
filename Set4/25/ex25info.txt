@@ -20,49 +20,63 @@ We only need to give the interface as that is all you need to understand how a
 class works and can be interacted with. The inner mechanics are not needed for
 this.
 
-Since I am a physicist, allow me to make a class interface about the
+Since I am a physicist, allow me to make a class interface of the
 fundamental forces of our universe:
 
 #ifndef FUNDAMENTAL_FORCES_H
 #define FUNDAMENTAL_FORCES_H
 
-Class FundamentalForces
+Class Particle
 {
     // data members: (private)
-    double  const d_weak = 1.0e-7;
-    double  const d_strong = 1.0e-6;
-    double  const d_electromagnetic = 1.0;
-    double  const d_gravity = 9.81;
+    double  const       d_mass;
+    float   const       d_spin;
+    size_t  const       d_charge;
+    unsigned long long  d_momentum;
+    
+    unsigned long long  d_energy;
+    
+    double  const       d_weak_coupling;
+    double  const       d_strong_coupling;
+    double  const       d_electromagnetic_coupling;
+    double  const       d_gravity_coupling;
     
     public:             // member functions
-        FundamentalForces();
-        FundamentalForces
+        Particle();
+        Particle
         (
-            double weak, 
-            double strong, 
-            double electromagnetic,
-            double gravity
-        )
-    
-        double calculateGravitationalForce(Particle &source);
-        double calculateElectroMagneticForce(Particle &source);
+            double              mass, 
+            float               spin, 
+            size_t              charge,
+            unsigned long long  momentum
+        );
+        ~Particle(Particle antiparticle);
+        
+        Particle *fusion(Particle target);
+        Particle *fission();
+        Particle *fission(Particle target);
+        
+        void accelerate();
+        void collide(Particle target);
+        
         double calculateWeakForce(Particle &source);
         double calculateStrongForce(Particle &source);
+        double calculateElectroMagneticForce(Particle &source);
+        double calculateGravitationalForce(Particle &source);
 };
 
 #endif
 
-Behold, our (or a) universe (approximately). We see the data members, d_weak,
-(...), d_gravity, which will, by the constructor, be initiated with their
-fundamental constants. They are not settable or changeable. We can however, 
-look at particles and how they affect each other with all these different 
-forces. One calls the calculate...() functions on an object with a source 
-object as argument to find the force that particle (another class) enacts on 
-it. These are being handed as references, since those particles in turn will 
-also be acted upon. We can assume here there is a particle class that contains
-the location, mass, and spin, of particles as its data members.
+Behold, our universe (approximately). We see among the data members all the
+aspects that define a particle, and all the couplings with the four
+fundamental forces. These can be set to auto initialise to a very basic
+particle type, like a proton, or can be chosen to represent something more
+unique. They are not settable or changeable, as particles don't generally
+change these aspects. We can however, define more exotic particles too. 
 
-Any object of this class will represent the fundamental force-nature of a
-universe. Initialise it with the default constructor and you will (or should)
-get one not unlike our own. Initialise one with a custom set of forces, and
-you might find something very straneg indeed.
+With them we can then model a bunch of interactions, we can accelerate,
+collide, fuse and split them (the latter can happen spontaneously or after a
+collision). Fusing or splitting particles doesn't always lead to only one resp
+particle, hence the pointer (array). Destroying particles only happens in 
+pairs. We may have gone slighty overboard on the "keep it small/simple" aspect
+but we hope this helps illustrate our understanding of classes in a fun way.
