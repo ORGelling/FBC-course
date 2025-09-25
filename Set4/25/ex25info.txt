@@ -1,0 +1,54 @@
+Exercise 25:
+
+Describe what encapsulation and data hiding means, and why they are impotant
+for classes. Give a small example. 
+
+Encapsulation and data hiding are both related to closing the class's
+"privates" off from the "outer world". Data hiding is the practice of making
+data members "private" within the class interface, such that they cannot be
+reached by the outside. You should not just go rummaging through someone's (or
+something's) "privates" after all! To enforce the privacy of the data members,
+all the modification that is performed on said data can only be done by member
+functions. We call this practice "encapsulation", and it keeps parts of the 
+program that shouldn't be interacting with or manipulating each other from 
+doing so. It keeps the data safe and unmeddled, and cordons off the
+responsibility for its integrity such that errors and issues don't pop up
+easily, and are relatively easy to address since one knows which part of the
+program is responsible for interacting with these data members.
+
+We only need to give the interface as that is all you need to understand how a
+class works and can be interacted with. The inner mechanics are not needed for
+this.
+
+Since I am a physicist, allow me to make a class interface about the
+fundamental forces of our universe:
+
+#ifndef FUNDAMENTAL_FORCES_H
+#define FUNDAMENTAL_FORCES_H
+
+Class FundamentalForces
+{
+    // data members: (private)
+    double  const d_weak;
+    double  const d_strong;
+    double  const d_electromagnetic;
+    double  const d_gravity;
+    
+    public:             // member functions
+        double calculateGravitationalForce(Particle &source);
+        double calculateElectroMagneticForce(Particle &source);
+        double calculateWeakForce(Particle &source);
+        double calculateStrongForce(Particle &source);
+};
+
+#endif
+
+Behold, our universe (approximately). We see the data members, d_weak,
+(...) d_gravity, which will, by the constructor, be initiated with their
+fundamental constants, are not settable, or changeable. We can however, look
+at particles and how they affect each other with all these different forces.
+One calles the calculate...() functions on an object with a source object as
+argument to find the force that particle (another class) enacts on it. These
+are being handed as references, since those particles in turn will also be
+acted upon. We can assume here there is a particle class that contains the
+location, mass, and spin, of particles as its data members.
