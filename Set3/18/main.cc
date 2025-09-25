@@ -1,6 +1,5 @@
-#include "main.ih"
-#include "combine.h"
-
+#include "combine.h"                        // Everything necessary is in
+                                            // here already!
 int main(int const argc, char const *argv[])
 {
     if (argc == 1)
