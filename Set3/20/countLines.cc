@@ -1,4 +1,4 @@
-#include "main.ih"
+#include "count.ih"
 
 size_t countLines()
 {

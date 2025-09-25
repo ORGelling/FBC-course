@@ -1,3 +1,4 @@
+#include "count.h"
 #include "main.ih"
 
 int main(int argc, char *argv[])
@@ -5,7 +6,7 @@ int main(int argc, char *argv[])
     if (argc == 1)                          // Info and correct usage check
     {
         usage();
-        return 0;
+        return 1;
     }
     
     char const inputFlag = argv[1][1];
@@ -31,5 +32,5 @@ int main(int argc, char *argv[])
         return 0;
     }
     
-    cout << "Amount of " << countType << " in file: " << count << '\n';
+    cout << "Number of " << countType << " in file: " << count << '\n';
 }

@@ -1,0 +1,1 @@
+countLines.cc.o: countLines.cc count.ih count.h
