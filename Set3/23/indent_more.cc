@@ -2,5 +2,5 @@
 
 void indent_more()
 {
-    indent_status::change_indent(+1);
+    indent_status::change_indent(indent_status::MORE);
 }

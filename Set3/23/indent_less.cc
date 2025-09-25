@@ -2,5 +2,5 @@
 
 void indent_less()
 {
-    indent_status::change_indent(-1);
+    indent_status::change_indent(indent_status::LESS);
 }

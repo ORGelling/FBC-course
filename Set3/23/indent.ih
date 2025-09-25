@@ -9,5 +9,12 @@ namespace indent_status {
     string get_single_indent();
     string get_indent_string();
     void change_indent(int const change);
-    size_t const &get_step_size(size_t const stepSize = 4);
+    size_t get_step_size(size_t const stepSize = 4);
+
+    enum {
+        LESS = -1,
+        RESET = 0,
+        MORE = +1,
+    };
+
 }

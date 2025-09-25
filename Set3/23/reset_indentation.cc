@@ -2,5 +2,5 @@
 
 void reset_indentation()
 {
-    indent_status::change_indent(0);
+    indent_status::change_indent(indent_status::RESET);
 }
