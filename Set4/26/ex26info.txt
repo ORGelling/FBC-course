@@ -1,0 +1,23 @@
+Exercise 26:
+
+Complete and implement the Person class from the annotations. Add insert() and
+extract() functions.
+
+We have done exactly this! We add a main function to show our completed
+product, demonstrating the insert and extract functions like so:
+
+$ ./a.out
+Name    : Frank Brokken
+Address : Groningen
+Phone   : 0612345678
+Mass    : 65
+Jurjen Bokma,Groningen,0687654321,75
+Name    : Jurjen Bokma
+Address : Groningen
+Phone   : 0687654321
+Mass    : 75
+
+where the first output is from the Person object defined in main() and the
+second is prompted by the program through the extract function, and then also
+inserted into cout to show the result. (We apologise if the weights are off,
+we simply guessed!)
