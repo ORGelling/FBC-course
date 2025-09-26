@@ -1,8 +1,5 @@
-#include "person.h"
+#include "helperheader.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
-
-
-

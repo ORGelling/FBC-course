@@ -11,3 +11,4 @@ person/extract.cc
 person/hasOnly.cc
 
 main.cc
+-Makefile

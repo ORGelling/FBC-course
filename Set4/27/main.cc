@@ -1,12 +1,14 @@
-#include "person/person.h"
-#include <iostream>
-#include <string>
+#include "main.ih"
 
-using namespace std;
-
-int main()
+int main(int argc, char *argv[])
 {
-    Person personArray[5];
+    size_t arraySize = (argc == 2 ? stoul(argv[1]) : 5);
     
-    personArray[0].insert(cout);
+    Person personArray[arraySize];
+    
+    // call reader function
+    readIntoPerson(personArray, arraySize);
+    
+    // call writer function
+    writeFromPerson(personArray, arraySize);
 }
