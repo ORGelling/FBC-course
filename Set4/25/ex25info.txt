@@ -30,7 +30,9 @@ Class Particle
 {
     // data members: (private)
     double  const       d_mass;
+    double              d_relativistic_mass;
     float   const       d_spin;
+    float               d_angular_momentum;
     size_t  const       d_charge;
     unsigned long long  d_momentum;
     
@@ -63,6 +65,11 @@ Class Particle
         double calculateStrongForce(Particle &source);
         double calculateElectroMagneticForce(Particle &source);
         double calculateGravitationalForce(Particle &source);
+
+        long long &momentum();
+        long long &energy();
+        long long &relativisticMass();
+        float angularMomentum();
 };
 
 #endif
