@@ -6,9 +6,7 @@ int main(int argc, char *argv[])
     
     Person personArray[arraySize];
     
-    // call reader function
     readIntoPerson(personArray, arraySize);
     
-    // call writer function
     writeFromPerson(personArray, arraySize);
 }

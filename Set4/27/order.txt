@@ -10,4 +10,3 @@ main.cc
 
 -person.h
 -Makefile
--libperson.a
