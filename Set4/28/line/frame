@@ -1,0 +1,7 @@
+#include "line.ih"
+
+    // by 
+
+void Line::()
+{
+}

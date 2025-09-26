@@ -20,11 +20,11 @@ We only need to give the interface as that is all you need to understand how a
 class works and can be interacted with. The inner mechanics are not needed for
 this.
 
-Since I am a physicist, allow me to make a class interface of the
-fundamental forces of our universe:
+Since I am a physicist, allow me to make a class interface for a class that
+represents the particle-nature of our universe:
 
-#ifndef FUNDAMENTAL_FORCES_H
-#define FUNDAMENTAL_FORCES_H
+#ifndef PARTICLE_HEADER_H
+#define PARTICLE_HEADER_H
 
 Class Particle
 {
@@ -77,13 +77,18 @@ Class Particle
 Behold, our universe (approximately). We see among the data members all the
 aspects that define a particle, and all the couplings with the four
 fundamental forces. These can be set to auto initialise to a very basic
-particle type, like a proton, or can be chosen to represent something more
-unique. They are not settable or changeable, as particles don't generally
-change these aspects. We can however, define more exotic particles too. 
+particle type, like a proton. They are not settable or changeable, as 
+particles don't generally change these aspects. We can however, define more 
+exotic particles too. 
 
 With them we can then model a bunch of interactions, we can accelerate,
 collide, fuse and split them (the latter can happen spontaneously or after a
-collision). Fusing or splitting particles doesn't always lead to only one resp
+collision). Fusing or splitting particles doesn't always lead to only one rest
 particle, hence the pointer (array). Destroying particles only happens in 
 pairs. We may have gone slighty overboard on the "keep it small/simple" aspect
 but we hope this helps illustrate our understanding of classes in a fun way.
+
+Implementing this class would require a bunch of stuff going on under the
+hood, like the field theory equations that actually govern how particles
+couple with forces. These could be put inside the private member function
+section (that comes after the public ones). We have left them out for clarity.
