@@ -1,0 +1,1 @@
+person/insert.cc.o: person/insert.cc person/person.ih person/person.h

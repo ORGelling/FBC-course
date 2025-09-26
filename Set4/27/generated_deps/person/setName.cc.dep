@@ -1,0 +1,1 @@
+person/setName.cc.o: person/setName.cc person/person.ih person/person.h

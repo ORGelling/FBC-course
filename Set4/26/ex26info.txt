@@ -21,3 +21,8 @@ where the first output is from the Person object defined in main() and the
 second is prompted by the program through the extract function, and then also
 inserted into cout to show the result. (We apologise if the weights are off,
 we simply guessed!)
+
+We note that blanks after commas will be read as part of the string for those
+fields. We take this as acceptable and would explain in the man-page (not
+added here) to not write blanks after the commas for this function's input.
+For the mass's size_t the blank is luckily (and logically) ignored.
