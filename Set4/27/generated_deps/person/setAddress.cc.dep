@@ -1,2 +1,0 @@
-person/setAddress.cc.o: person/setAddress.cc person/person.ih \
- person/person.h
