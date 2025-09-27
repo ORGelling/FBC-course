@@ -9,9 +9,6 @@ int main(int argc, char *argv[])
     line.getLine();
 
     std::string substring;
-    do
-    {
-        substring = line.next();
+    while (substring = line.next(), !substring.empty())
         cout << substring << '\n';
-    } while (!substring.empty());
 }
