@@ -4,6 +4,6 @@
 #include "person.h"
 
 void readIntoPerson(Person *personArray, size_t arraySize);
-void writeFromPerson(Person *personArray, size_t arraySize);
+void writeFromPerson(Person const *personArray, size_t arraySize);
 
 #endif

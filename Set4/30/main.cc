@@ -8,7 +8,5 @@ using namespace std;
 
 int main()
 {
-    Parser parse;
-    
-    parse.reset();
+    Calculator::run();
 }

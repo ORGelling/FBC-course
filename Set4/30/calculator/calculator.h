@@ -1,21 +1,23 @@
 #ifndef INCLUDED_CALCULATOR_
 #define INCLUDED_CALCULATOR_
+#include "../parser/parser.h"
 #include <iosfwd>
 
 class Calculator
 {
-    Parser d_parser;
+    Parser  d_parser;
     
     public:
-        run();
+        void run();
         
     private:
-        addition();
-        subtraction();
-        division();
-        multiplication();
-        modulo();
+        bool expression();
         
+        bool number(double *dest, bool *isInt);
+        bool getOperator();
+        bool evaluate();
+        
+        void usage();
 };
         
 #endif
