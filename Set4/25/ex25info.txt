@@ -44,32 +44,32 @@ Class Particle
     double  const       d_gravity_coupling;
     
     public:             // member functions
-        Particle();
+        Particle() = default;
         Particle
         (
-            double              mass, 
-            float               spin, 
-            size_t              charge,
-            unsigned long long  momentum
+            double const             mass, 
+            float  const             spin, 
+            size_t const             charge,
+            unsigned long long const momentum,
         );
         ~Particle(Particle antiparticle);
         
-        Particle *fusion(Particle target);
+        Particle *fusion(Particle &&target);
         Particle *fission();
-        Particle *fission(Particle target);
+        Particle *fission(Particle &&target);
         
         void accelerate();
-        void collide(Particle target);
+        void collide(Particle &target);
         
-        double calculateWeakForce(Particle &source);
-        double calculateStrongForce(Particle &source);
-        double calculateElectroMagneticForce(Particle &source);
-        double calculateGravitationalForce(Particle &source);
+        double calculateWeakForce(Particle &source) const;
+        double calculateStrongForce(Particle &source) const;
+        double calculateElectroMagneticForce(Particle &source) const;
+        double calculateGravitationalForce(Particle &source) const;
 
-        long long &momentum();
-        long long &energy();
-        long long &relativisticMass();
-        float angularMomentum();
+        long long &momentum() const;
+        long long &energy() const;
+        long long &relativisticMass() const;
+        float angularMomentum() const;
 };
 
 #endif
