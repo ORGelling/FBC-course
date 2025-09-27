@@ -1,6 +1,4 @@
-#include "parser/parser.h"
-#include "line/line.h"
-
+#include "calculator/calculator.h"
 #include <iostream>
 #include <string>
 
@@ -8,5 +6,6 @@ using namespace std;
 
 int main()
 {
-    Calculator::run();
+    Calculator lilRobotFriend;
+    lilRobotFriend.run();
 }

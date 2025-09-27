@@ -1,0 +1,3 @@
+calculator/number.cc.o: calculator/number.cc calculator/calculator.ih \
+ calculator/calculator.h calculator/../parser/parser.h \
+ calculator/../parser/../line/line.h

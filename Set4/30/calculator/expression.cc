@@ -4,25 +4,20 @@
 
 bool Calculator::expression()
 {
-    double lhs = 0.0;
-    double rhs = 0.0;
-    bool lhsIsInt = true;
-    bool rhsIsInt = true;
-    char op = '\0';
-    
-    // calls number, then getOperator, then number again
-    // We call number(), which takes a double and a bool
-    
-    if (!number(&lhs, &lhsIsInt))
+    if (!number(&d_lhs, &d_lhsIsInt))
         return false;
     
-    if (!getOperator(&op))
+    if (!getOperator())
         return false;
     
-    if (!number(&rhs, &rhsIsInt))
+    if (!number(&d_rhs, &d_rhsIsInt))
         return false;
     
-    evaluate(lhs, rhs, op, lhsIsInt, rhsIsInt);
+    if (d_op == '/')
+        return verifyDivision();
+    
+    if (d_op == '%')
+        return verifyModulo();
+    
     return true;
-
 }

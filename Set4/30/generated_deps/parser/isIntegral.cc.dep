@@ -1,0 +1,2 @@
+parser/isIntegral.cc.o: parser/isIntegral.cc parser/parser.ih \
+ parser/parser.h parser/../line/line.h

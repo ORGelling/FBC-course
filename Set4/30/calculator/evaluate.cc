@@ -2,26 +2,27 @@
 
     // by expression.cc 
 
-bool Calculator::evaluate(lhs, rhs, op, lhsIsInt, rhsIsInt)
+void Calculator::evaluate()
 {
-    
-    switch (op)
+    switch (d_op)
     {
         case '+':
-            
+            cout << d_lhs + d_rhs;
         break;
         case '-':
-            
+            cout << d_lhs - d_rhs;
         break;
-            
         case '*':
-            
+            cout << d_lhs * d_rhs;
+        break;
+        case '/':
+            cout << d_lhs / d_rhs;
         break;
         case '%':
-            
+            cout << static_cast<int>(d_lhs) % static_cast<int>(d_rhs);
         break;
         default:
             usage();
     }
-    cout << result << '\n';
+    cout << '\n';
 }

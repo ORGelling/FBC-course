@@ -2,9 +2,12 @@
 
     // by expression.cc
 
-void Calculator::getOperator(*op)
+bool Calculator::getOperator()
 {
-    if (d_parser.number(op) != Parser::NO_NUMBER)
+    d_op = d_parser.next()[0];
+    
+    string const validOperators = "+-*/%";
+    if (validOperators.find(d_op) == string::npos)
         return false;
     
     return true;

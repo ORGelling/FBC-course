@@ -2,7 +2,7 @@
 
     // by expression.cc
 
-Calculator::number(double *dest, bool *isInt)
+bool Calculator::number(double *dest, bool *isInt)
 {
     if (d_parser.number(dest) != Parser::NUMBER)
         return false;

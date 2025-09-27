@@ -1,0 +1,3 @@
+calculator/calculator.ih.gch: calculator/calculator.ih \
+ calculator/calculator.h calculator/../parser/parser.h \
+ calculator/../parser/../line/line.h

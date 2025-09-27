@@ -1,0 +1,3 @@
+calculator/getOperator.cc.o: calculator/getOperator.cc \
+ calculator/calculator.ih calculator/calculator.h \
+ calculator/../parser/parser.h calculator/../parser/../line/line.h

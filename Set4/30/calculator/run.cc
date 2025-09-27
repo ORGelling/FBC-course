@@ -1,19 +1,22 @@
 #include "calculator.ih"
 
-    // by main 
+    // by main.cc 
 
 void Calculator::run()
 {
-    while (!d_parser.reset())
+    while (true)
     {
-        // Use expression() to parse input line
-        // expression() calls number, getOperator, 
-        // and number again to validate
+        cout << "? ";
+        if (!d_parser.reset())
+            break;
+        
         if (!expression())
         {
             usage();
-            return 1;
+            break;
         }
+        else 
+            evaluate();
     }
     
 }
