@@ -2,10 +2,16 @@
 
 void Person::extract(istream &input)
 {
-    getline(input, d_name, ',');
-    getline(input, d_address, ',');
-    getline(input, d_phone, ',');
+    string name;
+    getline(input, name, ',');
+    setName(name);
+    string address;
+    getline(input, address, ',');
+    setAddress(address);
+    string phone;
+    getline(input, phone, ',');
+    setPhone(phone);
     string mass;
     getline(input, mass);
-    d_mass = stoul(mass);
+    setMass(stoul(mass));
 }
