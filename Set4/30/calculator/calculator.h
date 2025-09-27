@@ -19,8 +19,8 @@ private:
     // value in cout.
     bool expression();
     bool number(double *dest, bool *isInt);
-    bool getOperator();
-    void evaluate();
+    bool getOperator();  // ???
+    void evaluate();     // ???
 };
 
 #endif
