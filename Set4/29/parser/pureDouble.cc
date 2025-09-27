@@ -10,7 +10,7 @@ bool Parser::pureDouble(double *dest, string const &str)
     if (position != str.size())
         return false;
     
-    d_integral = str.find(".eE") == string::npos;
+    d_integral = str.find_first_of(".eE") == string::npos;
     
     return true;
 }
