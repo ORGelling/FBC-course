@@ -10,12 +10,8 @@ int main()
     
     if (line.getLine())
     {
-        while (true)
-        {
-            if (string currentText = line.next(); currentText == "")
-                break;
-            else
-                cout << currentText << '\n';
-        }
+        string currentText;
+        while (currentText = line.next(), !currentText.empty())
+            cout << currentText << '\n';
     }
 }
