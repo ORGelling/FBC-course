@@ -4,5 +4,5 @@
 
 Line::Line()
 :
-    d_position {0}
+    d_position {string::npos}
 {}
