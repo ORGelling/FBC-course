@@ -1,3 +1,0 @@
-calculator/verifyModulo.cc.o: calculator/verifyModulo.cc \
- calculator/calculator.ih calculator/calculator.h \
- calculator/../parser/parser.h calculator/../parser/../line/line.h

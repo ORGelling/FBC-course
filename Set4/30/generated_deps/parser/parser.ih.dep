@@ -1,2 +1,0 @@
-parser/parser.ih.gch: parser/parser.ih parser/parser.h \
- parser/../line/line.h

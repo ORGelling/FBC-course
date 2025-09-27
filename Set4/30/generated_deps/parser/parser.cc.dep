@@ -1,2 +1,0 @@
-parser/parser.cc.o: parser/parser.cc parser/parser.ih parser/parser.h \
- parser/../line/line.h
