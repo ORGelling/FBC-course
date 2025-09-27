@@ -1,0 +1,25 @@
+Exercise 15: Applying standard types in non-standard ways
+
+We must write a program that shows all possible combinations of input 
+arguments. To do this we make use of the bit structure of an iterating int.
+
+If we look at our input arguments and the structure of the output, we will 
+see quickly that it looks similar to the bits of a binary number. Using 1s to
+show the array value, and 0s to hide it. If we iterate through a number and
+show its bits we see (only showing the last 4 bits):
+0: 000
+1: 001
+2: 010
+3: 011
+4: 100
+5: 101
+and so on. This is exactly how we want to show the argv[] array's contents! 
+As such we will write a program with two nested for loops, one to iterate 
+through our binary output show/hide selector, and one to loop through the 
+input arguments and add them to the output stream.
+
+Thus takes shape our source file. We initialise our usable variables and nest
+two for loops together to be able to output both the arguments (horizontal)
+for all of the different permutations (vertical). We use a mask shifting over
+the current permutation bit by bit by to check whether the corresponding 
+value should be shown, and then move on to the next permutation.
