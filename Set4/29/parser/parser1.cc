@@ -3,6 +3,6 @@
     // by 
 
 Parser::Parser()
-//:
-{
-}
+:
+    d_integral(true)
+{}
