@@ -1,6 +1,7 @@
 #ifndef INCLUDED_LINE_
 #define INCLUDED_LINE_
 #include <iosfwd>
+#include <string>
 
 class Line
 {

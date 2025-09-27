@@ -9,6 +9,13 @@ int main()
     Line line;
     
     if (line.getLine())
-    while (string currentText = line.next(); !currentText.empty()
-        cout << currentText << '\n';
+    {
+        while (true)
+        {
+            if (string currentText = line.next(); currentText == "")
+                break;
+            else
+                cout << currentText << '\n';
+        }
+    }
 }
