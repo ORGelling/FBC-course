@@ -13,7 +13,6 @@ class Line
         bool getLine();
         std::string next();
 
-    private:
 };
         
 #endif
