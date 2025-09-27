@@ -1,6 +1,6 @@
 #include "person.ih"
 
-void Person::insert(ostream &output)
+void Person::insert(ostream &output) const
 {
     output << "Name    : " << d_name    << "\n"
               "Address : " << d_address << "\n"

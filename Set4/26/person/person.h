@@ -48,7 +48,7 @@ class Person
             return d_mass;
         };
         
-        void insert(std::ostream &output);
+        void insert(std::ostream &output) const;
         void extract(std::istream &input);
         
     private:
