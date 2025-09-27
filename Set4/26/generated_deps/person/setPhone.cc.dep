@@ -1,1 +1,0 @@
-person/setPhone.cc.o: person/setPhone.cc person/person.ih person/person.h

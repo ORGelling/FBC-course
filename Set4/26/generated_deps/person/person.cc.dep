@@ -1,1 +1,0 @@
-person/person.cc.o: person/person.cc person/person.ih person/person.h
