@@ -1,0 +1,7 @@
+Exercise 30:
+
+Make a simple calculator.
+
+This class needs no explicitly defined constructor since all its members are
+subclass objects with their own constructors which auto initialise those
+objects. 
