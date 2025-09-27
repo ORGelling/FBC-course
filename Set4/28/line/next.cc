@@ -9,5 +9,5 @@ string Line::next()
     d_position = d_line.find_first_not_of(" \t", endPosition);
                                         // set d_pos to next non ws position
     return d_line.substr(d_position, endPosition - d_position);
-                                                        // Cut next substring;
+                                        // Cut and return next substring
 }
