@@ -44,7 +44,6 @@ Class Particle
     double  const       d_gravity_coupling;
     
     public:             // member functions
-        Particle() = default;
         Particle
         (
             double const             mass, 
@@ -52,6 +51,7 @@ Class Particle
             size_t const             charge,
             unsigned long long const momentum,
         );
+        ~Particle();
         ~Particle(Particle antiparticle);
         
         Particle *fusion(Particle &&target);
@@ -76,17 +76,22 @@ Class Particle
 
 Behold, our universe (approximately). We see among the data members all the
 aspects that define a particle, and all the couplings with the four
-fundamental forces. These can be set to auto initialise to a very basic
-particle type, like a proton. They are not settable or changeable, as 
-particles don't generally change these aspects. We can however, define more 
-exotic particles too. 
+fundamental forces. They are not settable or changeable, as particles don't 
+generally change these aspects. We can define particles, ranging from simple
+protons to exotic composite particles, and play around with them. Some members
+will be needed to construct the particle, like mass, spin, charge, and
+momentum (location is actually pretty irrelevant at this level), and the rest
+will be set by the constructor (total energy, reltivistic mass, etc) and
+maintained by the member functions. 
 
 With them we can then model a bunch of interactions, we can accelerate,
 collide, fuse and split them (the latter can happen spontaneously or after a
 collision). Fusing or splitting particles doesn't always lead to only one rest
-particle, hence the pointer (array). Destroying particles only happens in 
-pairs. We may have gone slighty overboard on the "keep it small/simple" aspect
-but we hope this helps illustrate our understanding of classes in a fun way.
+particle, hence the returned pointer (array). Destroying particles generally 
+only happens in pairs, but we have a standard desturctor too since we need to
+keep in mind particles changing and morphing during fusion and fission. We may
+have gone slighty overboard on the "keep it small/simple" aspect but we hope 
+this helps illustrate our understanding of classes in a fun way.
 
 Implementing this class would require a bunch of stuff going on under the
 hood, like the field theory equations that actually govern how particles
