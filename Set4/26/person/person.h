@@ -34,5 +34,36 @@ class Person
     private:
         bool hasOnly(char const *characters, std::string const &object);
 };
-        
+
+// Inline definition of single line members
+
+inline void Person::setName(std::string const &name) 
+{ 
+    d_name = name; 
+}
+inline void Person::setAddress(std::string const &address) 
+{
+    d_address = address;
+}
+inline void Person::setMass(size_t mass) 
+{ 
+    d_mass = mass; 
+}
+inline std::string const &Person::name() const 
+{ 
+    return d_name; 
+}
+inline std::string const &Person::address() const 
+{ 
+    return d_address; 
+}
+inline std::string const &Person::phone() const 
+{ 
+    return d_phone; 
+}
+inline size_t Person::mass() const 
+{ 
+    return d_mass; 
+}
+
 #endif
