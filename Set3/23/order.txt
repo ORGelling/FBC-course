@@ -10,6 +10,8 @@ reset_indentation.cc
 step_size.cc
 
 indentation_depth.cc
+get_single_indent.cc
+get_full_indentation.cc
 change_indent.cc
 get_step_size.cc
 

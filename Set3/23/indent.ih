@@ -7,7 +7,7 @@ using namespace std;
 namespace indent_status {
     size_t &indentation_depth();
     string get_single_indent();
-    string get_indent_string();
+    string get_full_indentation();
     void change_indent(int const change);
     size_t get_step_size(size_t const stepSize = 4);
 

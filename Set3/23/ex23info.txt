@@ -1,5 +1,14 @@
 Exercise 23: Encapsulate "global" variables in a safer way.
 
+New notes:
+
+We have added extra info where the comments showed our answers were
+incomplete. We also note that to deal with the second mention of WHEEL in our
+indented_cout we could not find anything more appropriate that using
+.append(). String multiplication does not seem to be possible (either in
+general in C++ or on my machine). This was the most clear and simple way we
+could append the indents together. We are not entirely sure
+
 We mimic the way classes work, setting up a namespace indent_status inside our
 internal header that has a getter and setter function for the indentation
 depth, and a getter for the stepsize, that can also set it if it is called
@@ -59,7 +68,7 @@ A: The user cannot directly modify these local static variables without
 modifying the library or header, but can potentially modify them via a
 returned non-const reference. They can use the available functions to
 still modify things "legally", but there is no way of changing the data
-illegally now, since all ways of reaching the data are guarding for unwanted
+illegally now, since all ways of reaching the data are guarded from unwanted
 meddling.
 
 3: Why is a static local variable better than a static global one?
