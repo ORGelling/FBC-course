@@ -1,0 +1,51 @@
+Exercise 31:
+
+Write a calculator program.
+
+Since the calculator class from the previous exercise is quite comprehensive,
+our main function needs very little fluff. It doesn't even need any headers
+other than the calculator.h, parser.h, and line.h file, as everything 
+necessary is already invluded inside the class's internals.
+
+Our calculator is relatively barebones. The usage information pops up when the
+program is started, and errors show when relevant. Other than that it shows
+simply the recommended "? " prompt.
+
+As discussed in the previous exercise, we only consider the epsilon value to
+determine if something is "zero enough" for the division's rhs operand. This
+does not seem to harm the calculator's functionality though.
+
+Here follows an interaction with the calculator:
+
+$ ./main
+This is a simple calculator. 
+
+     Input is given by:
+[number] [operator] [number]
+  
+ where the operator may be
+     
+     +   -   *   /   %
+
+Only one computation can be 
+      given in a line. 
+Enter a blank line to quit.
+
+         Thank you 
+  for using our calculator.
+
+? 420 * 69
+28980
+? 356 / 18
+19.7778
+? 5 - 360.78
+-355.78
+? 27 % 12
+3
+? 1 / 0.000000000001
+Cannot divide by 0
+? 316 % -3
+Invalid modulo operation
+? 
+
+After which we entered an empty line to quit the program.
