@@ -9,14 +9,13 @@ void Calculator::run()
         cout << "? ";
         if (!d_parser.reset())
             break;
-        
-        if (!expression())
+                                // Add getlhsexpression()?
+        if (expression())       // Use expression() only for d_op & d_rhs?
+            evaluate();         // Have evaluate send to cout *and* set d_lhs?
+        else
         {
             usage();
             break;
         }
-        else 
-            evaluate();
     }
-    
 }
