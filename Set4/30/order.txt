@@ -1,0 +1,16 @@
+ex31info.txt
+calculator/calculator.h
+calculator/calculator.ih
+calculator/run.cc
+calculator/expression.cc
+calculator/number.cc
+calculator/getOperator.cc
+calculator/evaluate.cc
+calculator/verifyDivision.cc
+calculator/verifyModulo.cc
+calculator/usage.cc
+
+-main.cc
+-line.h
+-parser.h
+-Makefile

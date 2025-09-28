@@ -4,9 +4,9 @@
 
 bool Calculator::number(double *dest, bool *isInt)
 {
-    if (d_parser.number(dest) != Parser::NUMBER)
+    if (d_parser.number(dest) != Parser::NUMBER)    // get operand
         return false;
     
-   *isInt = d_parser.isIntegral();
+   *isInt = d_parser.isIntegral();                  // for modulo
    return true;
 }

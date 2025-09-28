@@ -1,6 +1,6 @@
 #ifndef INCLUDED_CALCULATOR_
 #define INCLUDED_CALCULATOR_
-#include "../parser/parser.h"
+#include "../parser.h"
 #include <iosfwd>
 
 class Calculator
@@ -18,7 +18,6 @@ class Calculator
         
     private:
         bool expression();
-        bool expressionChained();
         bool number(double *dest, bool *isInt);
         bool getOperator();
         void evaluate();

@@ -4,13 +4,13 @@
 
 bool Calculator::expression()
 {
-    if (!number(&d_lhs, &d_lhsIsInt))
+    if (!number(&d_lhs, &d_lhsIsInt))       // get lhs
         return false;
     
-    if (!getOperator())
+    if (!getOperator())                     // get operator
         return false;
     
-    if (!number(&d_rhs, &d_rhsIsInt))
+    if (!number(&d_rhs, &d_rhsIsInt))       // get rhs
         return false;
     
     if (d_op == '/')

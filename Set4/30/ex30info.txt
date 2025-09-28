@@ -2,6 +2,23 @@ Exercise 30:
 
 Make a simple calculator.
 
+We have made a calculator according to the exercise's description. We note
+that it could take multiple operations in a single line if we split the
+expression() function up into one that parses the lhs of the computation, and
+then loops over a secondary expression that gets the operator and rhs, and
+then evaluates the computation and stores the result inside the lhs variable.
+This is however not according to the exercise's demands, and as such we will
+keep it simple with a calculator that only parses [number] [operator] [number]
+statements.
+
+We note that our program does not consider (absolute) values smaller than
+1e-8 to be 0 *outside* of checking division and modulo operations. We can add
+a constexpression or enum for this value and more effectively track it, but
+since it is only really needed for the division operation it seems
+unnecessary. It isn't needed for modulo since that will fail for any
+non-integer (or negative) number to begin with, so we can simply test if the 
+rhs operand is < 1, rather than needing to test this margin value.
+
 This class needs no explicitly defined constructor since all its members are
 either subclass objects with their own constructors which auto initialise 
 those objects safely, or can be given a standard initialisation value inside

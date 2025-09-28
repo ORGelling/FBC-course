@@ -6,7 +6,7 @@ namespace
 {
 
 char const usageInformation[] = 
-R"(This is a simple calculator app. 
+R"(This is a simple calculator. 
 
      Input is given by:
 [number] [operator] [number]
@@ -15,12 +15,13 @@ R"(This is a simple calculator app.
      
      +   -   *   /   %
 
-Multiple inputs can be given in 
-one line, they will be evaluated 
-from left to right. Enter a blank 
-line to quit.
+Only one computation can be 
+      given in a line. 
+Enter a blank line to quit.
 
-Thank you for using our calculator.
+         Thank you 
+  for using our calculator.
+
 )";
 
 };

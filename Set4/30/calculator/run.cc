@@ -4,18 +4,14 @@
 
 void Calculator::run()
 {
+    usage();
     while (true)
     {
         cout << "? ";
-        if (!d_parser.reset())
+        if (!d_parser.reset())          // get a line
             break;
-                                // Add getlhsexpression()?
-        if (expression())       // Use expression() only for d_op & d_rhs?
-            evaluate();         // Have evaluate send to cout *and* set d_lhs?
-        else
-        {
-            usage();
-            break;
-        }
+        
+        if (expression())               // parse its values
+            evaluate();                 // compute
     }
 }

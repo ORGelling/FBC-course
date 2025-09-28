@@ -21,8 +21,6 @@ void Calculator::evaluate()
         case '%':
             cout << static_cast<int>(d_lhs) % static_cast<int>(d_rhs);
         break;
-        default:
-            usage();
     }
     cout << '\n';
 }
