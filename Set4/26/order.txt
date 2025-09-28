@@ -3,8 +3,6 @@ ex26info.txt
 person/person.h
 person/person.ih
 person/person.cc
-person/setName.cc
-person/setAddress.cc
 person/setPhone.cc
 person/insert.cc
 person/extract.cc
