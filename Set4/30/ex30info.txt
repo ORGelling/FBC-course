@@ -3,5 +3,8 @@ Exercise 30:
 Make a simple calculator.
 
 This class needs no explicitly defined constructor since all its members are
-subclass objects with their own constructors which auto initialise those
-objects. 
+either subclass objects with their own constructors which auto initialise 
+those objects safely, or can be given a standard initialisation value inside
+the header. Other than that all data will be provided during runtime, so the
+basic constructor that the compiler builds for us will do all that needs to
+be done. 
