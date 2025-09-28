@@ -3,7 +3,7 @@
 #include <iosfwd>
 
 size_t envArraySize(char const **env);
-std::string *envStringArray
+std::string *makeStringArray
 (
     size_t const arraySize, 
     std::string *envArray, 

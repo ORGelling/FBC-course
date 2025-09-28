@@ -1,6 +1,6 @@
 #include <iostream>
+#include <string>
 #include <ctype.h>
-#include <utility>
 
 using namespace std;
 
@@ -11,4 +11,4 @@ size_t partition
     size_t const right
 );
 bool mustSwap(string &pivot, string &comparison);
-string toLower(string &input);
+string toLower(string input);

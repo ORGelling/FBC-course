@@ -1,6 +1,6 @@
 #include "envconversion.ih"
 
-string *envStringArray
+string *makeStringArray
 (
     size_t const arraySize, 
     string envArray[], 
