@@ -1,0 +1,9 @@
+#ifndef INCLUDED_PERSON_IH_
+#define INCLUDED_PERSON_IH_
+
+#include "person.h"
+#include <iostream>
+#include <string>
+
+#endif
+

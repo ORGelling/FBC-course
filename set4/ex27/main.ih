@@ -1,0 +1,8 @@
+#ifndef INCLUDED_MAIN_IH_
+#define INCLUDED_MAIN_IH_
+
+#include "person.h"
+#include "peopleio.h"
+#include <string>    
+
+#endif

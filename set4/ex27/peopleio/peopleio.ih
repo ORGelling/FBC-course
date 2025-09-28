@@ -1,0 +1,8 @@
+#ifndef INCLUDED_PEOPLEIO_IH_
+#define INCLUDED_PEOPLEIO_IH_
+
+#include "peopleio.h"
+#include <iostream>
+
+#endif
+
