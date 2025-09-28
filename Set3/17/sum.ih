@@ -1,5 +1,4 @@
 #include "sum.h"
-
 #include <iostream>
 #include <string>
 

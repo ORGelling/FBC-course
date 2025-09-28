@@ -1,5 +1,4 @@
 #include "main.ih"
-#include "sum.h"
 
 int main(int const argc, char const *argv[])
 {
