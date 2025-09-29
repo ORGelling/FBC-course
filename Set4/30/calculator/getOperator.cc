@@ -8,7 +8,9 @@ bool Calculator::getOperator()
     
     string const validOperators = "+-*/%";          // verify
     if (validOperators.find(d_op) == string::npos)
+    {
+        cout << "invalid operator\n";               // Error message
         return false;
-    
+    }
     return true;
 }

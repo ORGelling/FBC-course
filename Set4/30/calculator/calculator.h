@@ -1,6 +1,6 @@
 #ifndef INCLUDED_CALCULATOR_
 #define INCLUDED_CALCULATOR_
-#include "../parser.h"
+#include "../parser/parser.h"
 #include <iosfwd>
 
 class Calculator
