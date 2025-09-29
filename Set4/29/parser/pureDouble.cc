@@ -5,11 +5,11 @@
 bool Parser::pureDouble(double *dest, string const &str)
 {
     size_t position;
-    *dest = stod(str, &position);
+    *dest = stod(str, &position);   // Throw handled by convert()
     
-    if (position != str.size())
-        return false;
-    
+    if (position != str.size())     // position is the index 1 beyond the
+        return false;               // last character used by stod().
+                                    // If == size, all chars were used. 
     d_integral = str.find_first_of(".eE") == string::npos;
     
     return true;

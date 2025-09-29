@@ -1,0 +1,2 @@
+parser/reset.cc.o: parser/reset.cc parser/parser.ih parser/parser.h \
+ parser/../line/line.h
