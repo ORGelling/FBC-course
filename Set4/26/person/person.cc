@@ -1,7 +1,5 @@
 #include "person.ih"
 
-    // by 
-
 Person::Person
 (                                                                         
     std::string const &name,

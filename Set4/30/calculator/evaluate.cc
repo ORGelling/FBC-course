@@ -1,6 +1,6 @@
 #include "calculator.ih"
 
-    // by expression.cc 
+    // by run.cc 
 
 void Calculator::evaluate() const
 {

@@ -7,7 +7,7 @@ bool Calculator::expression()
     if (!number(&d_lhs, &d_lhsIsInt))       // get lhs
         return false;
     
-    if (!getOperator())                     // get operator
+    if (!getOperator())
         return false;
     
     if (!number(&d_rhs, &d_rhsIsInt))       // get rhs
@@ -15,7 +15,7 @@ bool Calculator::expression()
     
     if (d_op == '/')
         return verifyDivision();
-    
+                                            // validate computation
     if (d_op == '%')
         return verifyModulo();
     

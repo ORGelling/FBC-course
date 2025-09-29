@@ -1,6 +1,6 @@
 #include "person.ih"
 
-    // by 
+    // by extract.cc 
 
 void Person::setPhone(string const &phone)
 {

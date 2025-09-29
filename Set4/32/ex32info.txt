@@ -47,14 +47,14 @@ Now we run the latter again with the "#define MULTICOMP" flag on. Something
 strange is happening. The compilation happens in barely 5 seconds now, but my
 time program is telling me it took 25 seconds of user time, but 4 seconds of 
 real time:
-real	0m3,903s
-user	0m25,222s
-sys	    0m5,558s
+real    0m3,903s
+user    0m25,222s
+sys     0m5,558s
 
 If we compare this to the compilation without the MULTICOMP flag set:
-real	0m17,312s
-user	0m13,543s
-sys	    0m3,722s
+real    0m17,312s
+user    0m13,543s
+sys     0m3,722s
 
 We see some clear discrepancies. I have timed it on my phone and notice that
 the "real" time result is the one that I actually experience. We assume that
@@ -62,9 +62,9 @@ user time here is all the spent time working on this task by the different CPU
 cores. We note that ccache was not installed on my computer yet. When we do
 the same and run "time icmbuild program" (with ccache prepended to g++ in the
 icmconf file) we get:
-real	0m6,452s
-user	0m49,545s
-sys	    0m9,807s
+real    0m6,452s
+user    0m49,545s
+sys     0m9,807s
 
 It took 0m50s of "user" time, but only about 6.5 seconds of real time.
 
@@ -76,4 +76,6 @@ Clearly, and as Frank showed during the tutorial a little while ago, ccache is
 storing compiled files to be reused even if we remove them from our
 directories. This certainly speeds up the process quite a bit, but is also not
 exactly a fair reference to a full compilation, as it requires a (partially) 
-successful compilation to have been done before.
+successful compilation to have been done before. Beyond that, using
+precompiled headers will speed up the compilation a lot, and using a SPCH will
+do so even more!

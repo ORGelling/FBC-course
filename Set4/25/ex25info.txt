@@ -1,4 +1,7 @@
-Details
+Exercise 25:
+
+Describe what encapsulation and data hiding means, and why they are impotant 
+for classes. Give a small example.
 
 A class is a collection of data and methods acting on this data. Users can 
 interact with a class (and thus its data) through its methods, but they
@@ -10,11 +13,14 @@ should not possible.
 
 Encapsulation and data hiding are important to designing classes because we 
 may then assume that the class designer is solely responsible for integrity 
-of the data. The latter is important to ensure that interactions with a class
-produce correct behavior. Although methods still provide some form of user 
-access to the data, the designer can account for this when designing such 
-methods. In case of unrestricted access, this would create countless 
-scenarios that could lead to data corruption.
+of the data. Data hiding is the practice of making data members "private" 
+within the class interface, such that they cannot be reached by the outside.
+It is important to ensure that interactions with a class produce correct 
+behavior. Although methods still provide some form of user access to the 
+data, the designer can account for this when designing such methods. In case 
+of unrestricted access, this would create countless scenarios that could lead
+to data corruption. This accessibility to member data only through class
+methods is what we call "encapsulation".
 
 Here's a small example of a self-defined class illustrating this:
 

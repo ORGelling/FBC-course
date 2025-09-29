@@ -1,7 +1,5 @@
 #include "line.ih"
 
-    // by main.cc
-
 bool Line::getLine()
 {
     getline(cin, d_line);

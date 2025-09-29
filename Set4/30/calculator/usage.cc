@@ -1,6 +1,6 @@
 #include "calculator.ih"
 
-    // by run.cc evaluate.cc
+    // by run.cc
 
 namespace
 {
