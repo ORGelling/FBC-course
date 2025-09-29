@@ -1,6 +1,6 @@
 #ifndef INCLUDED_PARSER_
 #define INCLUDED_PARSER_
-#include "line.h"
+#include "../line/line.h"
 #include <iosfwd>
 #include <string>
 
@@ -21,7 +21,7 @@ class Parser
         
         bool reset();                   // Fills d_line with next input 
         Return number(double *dest);    // Puts d_line's next phrase in dest
-        bool isIntegral();              // Checks if value is integral/integer
+        bool isIntegral() const;        // Checks if value is integral/integer
         std::string next();             // Moves d_line to next spot
         
     private:                            // Stores double converted str in dest

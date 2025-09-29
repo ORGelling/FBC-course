@@ -1,6 +1,6 @@
 #ifndef INCLUDED_CALCULATOR_
 #define INCLUDED_CALCULATOR_
-#include "parser.h"
+#include "../parser/parser.h"
 #include <iosfwd>
 
 class Calculator
@@ -20,10 +20,10 @@ class Calculator
         bool expression();
         bool number(double *dest, bool *isInt);
         bool getOperator();
-        void evaluate();
-        bool verifyDivision();
-        bool verifyModulo();
-        void usage();
+        void evaluate() const;
+        bool verifyDivision() const;
+        bool verifyModulo() const;
+        void usage() const;
 };
         
 #endif
