@@ -1,6 +1,9 @@
 ex17info.txt
-main.ih
+sum.h
+sum.ih
+findDouble.cc
 sum1.cc
 sum2.cc
+main.ih
 main.cc
 -Makefile

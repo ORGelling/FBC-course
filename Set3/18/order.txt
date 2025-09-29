@@ -1,9 +1,10 @@
 ex18info.txt
-main.ih
-combine.cc
+combine.h
+combine.ih
 structCall.cc
 boundCall.cc
-show.cc
 usage.cc
+combine.cc
+show.cc
 main.cc
 -Makefile

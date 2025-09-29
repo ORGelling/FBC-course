@@ -16,14 +16,8 @@ Our program finds the array size of our environ array by looping until it
 finds a null pointer, but it could also be done using sizeof(the array) /
 sizeof(array alement type).
 
-We note that we treat the environ array as an array of pointers to chars, and
-that our qs function(s) complement that. We have not cast the elements to
-strings and as such this function will not work if an array of std::string
-objects is passed to it. We considered the terminology of the question and the
-fact we have to operate on the environ character pointer array to imply that
-we could operate on these C-strings as is. Else we could have the size counter
-also copy all the elements into a new std::string array and hand that to our
-qs function. That would require some reworking of the subfunctions though.
+We make a helper function set in their own little directory to convert the env
+NTBS array to strings for the quicksort function to use.
 
 As in other exercises this week, we have elected to leave const size_t's as
 is, and to not make them references, as doing so would not save memory or

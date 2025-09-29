@@ -1,8 +1,10 @@
 ex20info.txt
-main.ih
+count.h
+count.ih
 countChars.cc
 countWords.cc
 countLines.cc
 usage.cc
+main.ih
 main.cc
 -Makefile

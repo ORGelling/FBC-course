@@ -1,7 +1,13 @@
 ex21info.txt
-main.ih
+envconversion/envconversion.h
+envconversion/envconversion.ih
+envconversion/envArraySize.cc
+envconversion/makeStringArray.cc
+quicksort.h
+quicksort.ih
 quickSort.cc
 partition.cc
-stringCompare.cc
+mustSwap.cc
+toLower.cc
 main.cc
 -Makefile

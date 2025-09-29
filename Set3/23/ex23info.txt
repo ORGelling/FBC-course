@@ -3,11 +3,7 @@ Exercise 23: Encapsulate "global" variables in a safer way.
 New notes:
 
 We have added extra info where the comments showed our answers were
-incomplete. We also note that to deal with the second mention of WHEEL in our
-indented_cout we could not find anything more appropriate that using
-.append(). String multiplication does not seem to be possible (either in
-general in C++ or on my machine). This was the most clear and simple way we
-could append the indents together. We are not entirely sure
+incomplete. Other than that this file is mostly the same.
 
 We mimic the way classes work, setting up a namespace indent_status inside our
 internal header that has a getter and setter function for the indentation

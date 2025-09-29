@@ -6,4 +6,4 @@
 
 using namespace std;
 
-size_t findLastBrown(string queue[], size_t const queueSize);
+size_t findLastBrown(string const queue[], size_t const queueSize);

@@ -2,7 +2,7 @@
 #define ENVCONVERSION_HEADER_
 #include <iosfwd>
 
-size_t envArraySize(char const **env);
+size_t const envArraySize(char const **env);
 std::string *makeStringArray
 (
     size_t const arraySize, 
