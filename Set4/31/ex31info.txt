@@ -53,9 +53,3 @@ After which we entered an empty line to quit the program.
 For error messages our calculator will notify the user if an erroneous operand
 is entered, an eroneous operator is used, or a faulty division or modulo is
 executed. 
-
-Our calculator will likely throw a segfault when it encounters EOF, as the way
-it parses the operator character using d_parser.next()[0] might cause issues
-there. We do, however, not expect files to be read by this program, as it
-seems very intently to be a commandline calculator with single-line user
-input.

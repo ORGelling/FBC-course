@@ -1,4 +1,4 @@
-ex31info.txt
+ex30info.txt
 
 calculator/calculator.h
 calculator/calculator.ih
