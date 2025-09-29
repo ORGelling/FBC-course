@@ -4,7 +4,7 @@ Write the class Parser to exercise specifications.
 
 We do exactly this. We have elected to use d_line.next()'s own Line::next()
 member function over the Parser::next() function inside number() since it
-seemed the more optimal one to use.
+seemed the better one to use.
 
 We have also used the fact that stod() allows for a second parameter to store
 the ending position of the characters it read from the string it is acted
