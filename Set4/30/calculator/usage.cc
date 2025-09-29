@@ -26,7 +26,7 @@ Enter a blank line to quit.
 
 };
 
-void Calculator::usage()
+void Calculator::usage() const
 {
     cout << usageInformation;
 }

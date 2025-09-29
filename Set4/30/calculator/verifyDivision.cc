@@ -2,7 +2,7 @@
                                                                                
     // by expression.cc                                                        
                                                                                
-bool Calculator::verifyDivision()
+bool Calculator::verifyDivision() const
 {
     if (fabs(d_rhs) < 1e-8) // 1e-8 is the zero-cutoff
     {

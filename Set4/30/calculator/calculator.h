@@ -20,10 +20,10 @@ class Calculator
         bool expression();
         bool number(double *dest, bool *isInt);
         bool getOperator();
-        void evaluate();
-        bool verifyDivision();
-        bool verifyModulo();
-        void usage();
+        void evaluate() const;
+        bool verifyDivision() const;
+        bool verifyModulo() const;
+        void usage() const;
 };
         
 #endif

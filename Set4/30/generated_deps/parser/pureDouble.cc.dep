@@ -1,0 +1,2 @@
+parser/pureDouble.cc.o: parser/pureDouble.cc parser/parser.ih \
+ parser/parser.h parser/../line/line.h

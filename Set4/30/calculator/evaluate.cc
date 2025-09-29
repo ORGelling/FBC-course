@@ -2,7 +2,7 @@
 
     // by expression.cc 
 
-void Calculator::evaluate()
+void Calculator::evaluate() const
 {
     switch (d_op)
     {
