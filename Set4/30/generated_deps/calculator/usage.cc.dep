@@ -1,3 +1,0 @@
-calculator/usage.cc.o: calculator/usage.cc calculator/calculator.ih \
- calculator/calculator.h calculator/../parser/parser.h \
- calculator/../parser/../line/line.h
