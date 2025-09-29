@@ -1,99 +1,40 @@
-Exercise 25:
+Details
 
-Describe what encapsulation and data hiding means, and why they are impotant
-for classes. Give a small example. 
+A class is a collection of data and methods acting on this data. Users can 
+interact with a class (and thus its data) through its methods, but they
+cannot directly access the data. A class is therefore an instance of 
+encapsulation, which refers to the general principle of bundling data and 
+ways to provide (restricted) access to the data. The principle of data hiding
+forms the foundation of encapsulation, which means that direct access to data
+should not possible.
 
-Encapsulation and data hiding are both related to closing the class's
-"privates" off from the "outer world". Data hiding is the practice of making
-data members "private" within the class interface, such that they cannot be
-reached by the outside. You should not just go rummaging through someone's (or
-something's) "privates" after all! To enforce the privacy of the data members,
-all the modification that is performed on said data can only be done by member
-functions. We call this practice "encapsulation", and it keeps parts of the 
-program that shouldn't be interacting with or manipulating each other from 
-doing so. It keeps the data safe and unmeddled, and cordons off the
-responsibility for its integrity such that errors and issues don't pop up
-easily, and are relatively easy to address since one knows which part of the
-program is responsible for interacting with these data members.
+Encapsulation and data hiding are important to designing classes because we 
+may then assume that the class designer is solely responsible for integrity 
+of the data. The latter is important to ensure that interactions with a class
+produce correct behavior. Although methods still provide some form of user 
+access to the data, the designer can account for this when designing such 
+methods. In case of unrestricted access, this would create countless 
+scenarios that could lead to data corruption.
 
-We only need to give the interface as that is all you need to understand how a
-class works and can be interacted with. The inner mechanics are not needed for
-this.
+Here's a small example of a self-defined class illustrating this:
 
-Since I am a physicist, allow me to make a class interface for a class that
-represents the particle-nature of our universe:
-
-#ifndef PARTICLE_HEADER_H
-#define PARTICLE_HEADER_H
-
-Class Particle
+class Account;
 {
-    // data members: (private)
-    double  const       d_mass;
-    double              d_relativistic_mass;
-    float   const       d_spin;
-    float               d_angular_momentum;
-    size_t  const       d_charge;
-    unsigned long long  d_momentum;
-    
-    unsigned long long  d_energy;
-    
-    double  const       d_weak_coupling;
-    double  const       d_strong_coupling;
-    double  const       d_electromagnetic_coupling;
-    double  const       d_gravity_coupling;
-    
-    public:             // member functions
-        Particle
-        (
-            double const             mass, 
-            float  const             spin, 
-            size_t const             charge,
-            unsigned long long const momentum,
-        );
-        ~Particle();
-        ~Particle(Particle antiparticle);
-        
-        Particle *fusion(Particle &&target);
-        Particle *fission();
-        Particle *fission(Particle &&target);
-        
-        void accelerate();
-        void collide(Particle &target);
-        
-        double calculateWeakForce(Particle &source) const;
-        double calculateStrongForce(Particle &source) const;
-        double calculateElectroMagneticForce(Particle &source) const;
-        double calculateGravitationalForce(Particle &source) const;
+    double balance = 0.0;
 
-        long long &momentum() const;
-        long long &energy() const;
-        long long &relativisticMass() const;
-        float angularMomentum() const;
-};
+    public:
+        void withdraw(double const amount) const;
+        void deposit(double const amount) const;
+        double balance() const;
+}
 
-#endif
+This example demonstrates the Account class, which tracks the balance of 
+someone's bank account. It maintains a balance amount, but this value can 
+only be read (through the balance read property). To change that state, a 
+user can interact with the class through the withdraw() and deposit()
+methods, where withdraw() may contain validation checks to avoid withdrawing 
+below a given limit.
 
-Behold, our universe (approximately). We see among the data members all the
-aspects that define a particle, and all the couplings with the four
-fundamental forces. They are not settable or changeable, as particles don't 
-generally change these aspects. We can define particles, ranging from simple
-protons to exotic composite particles, and play around with them. Some members
-will be needed to construct the particle, like mass, spin, charge, and
-momentum (location is actually pretty irrelevant at this level), and the rest
-will be set by the constructor (total energy, reltivistic mass, etc) and
-maintained by the member functions. 
-
-With them we can then model a bunch of interactions, we can accelerate,
-collide, fuse and split them (the latter can happen spontaneously or after a
-collision). Fusing or splitting particles doesn't always lead to only one rest
-particle, hence the returned pointer (array). Destroying particles generally 
-only happens in pairs, but we have a standard desturctor too since we need to
-keep in mind particles changing and morphing during fusion and fission. We may
-have gone slighty overboard on the "keep it small/simple" aspect but we hope 
-this helps illustrate our understanding of classes in a fun way.
-
-Implementing this class would require a bunch of stuff going on under the
-hood, like the field theory equations that actually govern how particles
-couple with forces. These could be put inside the private member function
-section (that comes after the public ones). We have left them out for clarity.
+The interface (and its documentation) establishes the contract between the 
+user and class. How that is achieved (e.g., which internal data members) is 
+not relevant to the user, so the implementation can be left out.

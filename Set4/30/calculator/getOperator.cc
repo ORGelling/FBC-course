@@ -4,13 +4,10 @@
 
 bool Calculator::getOperator()
 {
-    d_op = d_parser.next()[0];                      // parse operator symbol
+    string const substring = d_parser.next();
     
-    string const validOperators = "+-*/%";          // verify
-    if (validOperators.find(d_op) == string::npos)
-    {
-        cout << "invalid operator\n";               // Error message
-        return false;
-    }
-    return true;
+    d_op = substring.empty() ? '\0' : substring[0];
+    
+    return d_op == '+' || d_op == '-' || d_op == '*' || d_op == '/'
+           || d_op == '%';
 }
