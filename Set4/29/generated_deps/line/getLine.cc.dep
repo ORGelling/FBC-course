@@ -1,1 +1,0 @@
-line/getLine.cc.o: line/getLine.cc line/line.ih line/line.h

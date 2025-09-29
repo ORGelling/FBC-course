@@ -1,2 +1,0 @@
-parser/convert.cc.o: parser/convert.cc parser/parser.ih parser/parser.h \
- parser/../line/line.h

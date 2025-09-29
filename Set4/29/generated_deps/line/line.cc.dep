@@ -1,1 +1,0 @@
-line/line.cc.o: line/line.cc line/line.ih line/line.h

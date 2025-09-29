@@ -1,1 +1,0 @@
-main.cc.o: main.cc parser/parser.h parser/../line/line.h
