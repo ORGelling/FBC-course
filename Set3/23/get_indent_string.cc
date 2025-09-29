@@ -2,8 +2,10 @@
 
 string indent_status::get_indent_string()
 {
-    string indentation(indent_status::get_step_size() 
-                * indent_status::indentation_depth(), ' ');
+    size_t const stepSize = indent_status::get_step_size();
+    size_t const indentDepth = indent_status::indentation_depth();
+    
+    string indentation(stepSize * indentDepth, ' ');
     
     return indentation;
 }
