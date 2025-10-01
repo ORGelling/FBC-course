@@ -10,3 +10,16 @@ list.
 
 CopyCat() can be inline since it can simply call the 3rd constructor with a
 default argument (which we declare the extern char above it for).
+
+No destructors are needed for this exercise as the memory leak is accepted for
+didactic purposes here. If we were to create one we can do so by following the
+example from the book, and using d_size to loop over the elements of our array
+of pointers to pointers to chars, first deleting the memory allocated where
+our pointers to chars point for each one, and then deleting the array of
+pointers to pointers.
+
+The contents of that destructor would probably look something like this:
+
+for (size_t idx = 0; idx != arraySize; ++idx)
+    delete data[idx];
+delete[] data;
