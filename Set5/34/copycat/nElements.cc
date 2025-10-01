@@ -1,6 +1,6 @@
 #include "copycat.ih"
 
-    // by duplicate.cc
+    // by copycat3.cc
 
 size_t CopyCat::nElements(char const *const *data)
 {
