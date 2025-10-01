@@ -1,1 +1,12 @@
-Exercise 34: 
+Exercise 34:
+
+Implement the CopyCat class by adding functions ntbsCopy, nElements, and
+duplicate, and implementing the constructors.
+
+We do exactly this, noting that we can separate finding the size of the array
+out from calling duplicate, and passing d_size to duplicate as argument. Once
+these functions have been finished they can be used inside the initialiser
+list.
+
+CopyCat() can be inline since it can simply call the 3rd constructor with a
+default argument (which we declare the extern char above it for).
