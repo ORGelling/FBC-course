@@ -30,14 +30,16 @@ pointer notation:   cout << *(argv + 2);
  
 pointer notation:   (x + 10) - (x + 3); ( = 7 )
        semantics:   The memory address of the location 3 ints beyond x is
-                    subtracted from the memory address 10 ints beyond x.
+                    subtracted from the memory address 10 ints beyond x. This
+                    gives us the value 7.
 ----------------------------------------------------------------------------
   main's argv;      argv++[0];
 
 pointer notation:   *(argv++);
        semantics:   Postfix increment of the first element argv points to, 
                     so the output itself is just the element at argv. Any new
-                    operation on argv will start at (argv + 1).
+                    operation on argv will start at (argv + 1). The
+                    parentheses are not needed here, *argv++ gives the same.
 ----------------------------------------------------------------------------
   main's argv;      argv[0]++;
 
@@ -51,8 +53,9 @@ pointer notation:   (*argv)++;
 
 pointer notation:   ++(*argv);
        semantics:   The pointer that location argv's pointer points to is
-                    prefix incremented. The brackets are not needed here but
-                    they help show the priority.
+                    prefix incremented. It will point one char further than
+                    before. The parentheses are not needed here, ++*argv gives
+                    the same.
 ----------------------------------------------------------------------------
   main's argv;      ++argv[0][2];
 
