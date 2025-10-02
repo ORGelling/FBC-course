@@ -7,7 +7,8 @@ string Line::next()
                                                         // Find next ws 
     size_t endPosition = d_line.find_first_of(" \t", d_position);
     
-    string const subString = d_line.substr(d_position, endPosition - d_position);
+    string const subString = 
+                    d_line.substr(d_position, endPosition - d_position);
     
     d_position = d_line.find_first_not_of(" \t", endPosition);
                                         // set d_pos to next non ws position
