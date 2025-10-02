@@ -5,16 +5,18 @@
 bool Calculator::getOperator()
 {
     string const substring = d_parser.next();
-    
     d_op = substring.empty() ? '\0' : substring[0];
-    string const validOperators = "+-*/%"; 
     
-    if (validOperators.find(d_op) == string::npos)
+    switch (d_op)
     {
-        cout << "invalid operator\n";
-        return false;
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+        case '%':                           // all merged entrypoints
+            return true;                    // return ends function
+        default:
+            cout << "invalid operator\n";
+            return false;                   // same here so no breaks needed
     }
-    return true;
-    //return d_op == '+' || d_op == '-' || d_op == '*' || d_op == '/'
-    //       || d_op == '%';
 }
