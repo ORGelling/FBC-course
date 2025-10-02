@@ -1,0 +1,19 @@
+#include "line.ih"
+
+string Line::next()
+{
+    if (d_position == string::npos)
+        return "";
+                                                        // Find next ws 
+    size_t endPosition = d_line.find_first_of(" \t", d_position);
+    
+    string subString =                                  // Cut next substring
+        (endPosition == string::npos)
+        ? d_line.substr(d_position)
+        : d_line.substr(d_position, endPosition - d_position);
+        // HB: you can simplify so you don't need the ternary
+    
+    d_position = d_line.find_first_not_of(" \t", endPosition);
+                                        // set d_pos to next non ws position
+    return subString;                   // *Then* return and end function
+}

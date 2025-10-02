@@ -1,0 +1,49 @@
+// HB: rating: 1
+// HB: LGTM
+
+Exercise 25:
+
+Describe what encapsulation and data hiding means, and why they are impotant 
+for classes. Give a small example.
+
+A class is a collection of data and methods acting on this data. Users can 
+interact with a class (and thus its data) through its methods, but they
+cannot directly access the data. A class is therefore an instance of 
+encapsulation, which refers to the general principle of bundling data and 
+ways to provide (restricted) access to the data. The principle of data hiding
+forms the foundation of encapsulation, which means that direct access to data
+should not possible.
+
+Encapsulation and data hiding are important to designing classes because we 
+may then assume that the class designer is solely responsible for integrity 
+of the data. Data hiding is the practice of making data members "private" 
+within the class interface, such that they cannot be reached by the outside.
+It is important to ensure that interactions with a class produce correct 
+behavior. Although methods still provide some form of user access to the 
+data, the designer can account for this when designing such methods. In case 
+of unrestricted access, this would create countless scenarios that could lead
+to data corruption. This accessibility to member data only through class
+methods is what we call "encapsulation".
+
+Here's a small example of a self-defined class illustrating this:
+
+class Account;
+{
+    double balance = 0.0;
+
+    public:
+        void withdraw(double const amount) const;
+        void deposit(double const amount) const;
+        double balance() const;
+}
+
+This example demonstrates the Account class, which tracks the balance of 
+someone's bank account. It maintains a balance amount, but this value can 
+only be read (through the balance read property). To change that state, a 
+user can interact with the class through the withdraw() and deposit()
+methods, where withdraw() may contain validation checks to avoid withdrawing 
+below a given limit.
+
+The interface (and its documentation) establishes the contract between the 
+user and class. How that is achieved (e.g., which internal data members) is 
+not relevant to the user, so the implementation can be left out.
