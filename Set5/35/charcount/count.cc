@@ -1,22 +1,21 @@
 #include "charcount.ih"
 
-    // by 
+    // by main program.
 
-void CharCount::count(stream &input)
+void CharCount::count(istream &input)
 {
     char character;
-    while (input.get(character) != EOF)
+    while ((character = input.get()) != EOF)
     {
-        size_t index = 0;
-        switch (CharCount::locate(character, index))
+        size_t setAt = 0;
+        switch (CharCount::locate(character, setAt))
         {
-            case APPEND:
-                // make new array and add to end
-                
-            case INSERT:
-                // make new array and insert at right spot
-            case INC:
-                // add count to existing CharCount::Char struct
+            case APPEND:                // Both are done by insertChar
+            case INSERT:                // due to setAt index
+                CharCount::insertChar(setAt, character);
+            break;
+            case INC:                   // simply increment existing count
+                ++d_data.ptr[setAt].count;
         }
     }        
 }
