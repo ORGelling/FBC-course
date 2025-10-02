@@ -25,8 +25,9 @@ struct CharCount
         CharCount();
         void count(std::istream &input);
         ACTION locate(char ch, size_t &index) const;
+        void enlarge(size_t const index, char const ch);
         CharInfo const &info() const;
-
+        
     private:
         CharInfo d_data;                                // The data
 };

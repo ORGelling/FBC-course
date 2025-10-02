@@ -4,8 +4,6 @@
 
 void CharCount::count(stream &input)
 {
-    size_t charCount = 0;
-    
     char character;
     while (input.get(character) != EOF)
     {
