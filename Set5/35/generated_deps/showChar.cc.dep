@@ -1,1 +1,0 @@
-showChar.cc.o: showChar.cc showChar.ih showChar.h charcount/charcount.h
