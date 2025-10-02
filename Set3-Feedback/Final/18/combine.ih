@@ -1,0 +1,19 @@
+#include "combine.h" //JB: Good :-)
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct ReturnValues
+{
+    bool ok;
+    size_t nr;
+    string value;
+};
+
+ReturnValues combine(size_t const argc, char const *argv[]);
+void show(ReturnValues const &showStruct);
+
+
+

@@ -1,0 +1,28 @@
+Exercise 17: 
+
+Write two overloaded functions that take argc and argv as initial arguments.
+
+We have the option of either looping through each of the commandline 
+arguments' characters one by one using a for loop, or using string, casting
+the arguments into one, and then calling find('.') on them. We choose the 
+latter since it causes less clutter and keeps the code simple, and string
+is now part of the course's scope.
+
+Since we are not allowed to cast the arguments into int or double types 
+before we hand them to the sum function (which would still have been a 
+fitting way to overload our functions I think, using auto and maybe
+initializer lists), we will do so instead by overloading them by number of 
+parameters. The sum that uses doubles will take an extra parameter, which is 
+simply an NTBS saying "Doubles". The sum function that uses ints will only 
+recieve the 2 base arguments instead. This is sufficient for overloading, but
+does not use the same amount of arguments that are distinct only by type.
+
+To call and store the value returned by our overloaded sum function we could
+use auto as type declaration, but since that is, for now, frowned upon, we
+instead call them separately. This works better for our function structure 
+with 2 or 3 arguments.
+
+We have made our argc and argv const int and pointer to const char to signify
+the const-ness of these values, but consider that it is not actually usual to
+make these const (yet, maybe?). We choose to leave this as-is for now and hope
+it causes no harm.
