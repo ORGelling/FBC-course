@@ -5,14 +5,14 @@ string charOutput(unsigned char const ch)
     switch (ch)
     {
         case ' ':
-            return " ";
+            return "\' \'";
         case '\n':
-            return "\\n";
+            return "\'\\n\'";
         case '\t':
-            return "\\t";
+            return "\'\\t\'";
         default:
             if (isprint(ch))            // Check if printable
-                return string(1, ch);
+                return "\'" + string(1, ch) + "\'";
             else                        // Else print numerical ASCII value
                 return to_string(static_cast<unsigned int>(ch));
     }

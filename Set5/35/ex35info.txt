@@ -1,1 +1,6 @@
-Exercise 35: 
+Exercise 35:
+
+Make the class CharCount and implement it such that it can count all
+characters in a file using a dynamic number of character structs.
+
+We make a program as such.
