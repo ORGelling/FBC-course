@@ -2,7 +2,9 @@
 
 #ifndef INCLUDED_CALCULATOR_
 #define INCLUDED_CALCULATOR_
-#include "../parser/parser.h" // HB: again, include the files from the previous ex. directly instead of copying an entire folder
+#include "../parser/parser.h" // HB: again, include the files from the 
+                              // previous ex. directly instead of copying an 
+                              // entire folder
 #include <iosfwd>
 
 class Calculator

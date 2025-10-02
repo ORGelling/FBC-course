@@ -19,7 +19,8 @@ void Calculator::evaluate() const
             cout << d_lhs / d_rhs;
         break;
         case '%':
-            cout << static_cast<int>(d_lhs) % static_cast<int>(d_rhs); // HB: TYPE x2
+            cout << static_cast<int>(d_lhs) % static_cast<int>(d_rhs); 
+            // HB: TYPE x2
         break;
     }
     cout << '\n';

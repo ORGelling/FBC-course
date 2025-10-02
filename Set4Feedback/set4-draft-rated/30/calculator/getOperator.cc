@@ -5,7 +5,8 @@
 bool Calculator::getOperator()
 {
     string const substring = d_parser.next();
-    d_op = substring.empty() ? '\0' : substring[0]; // HB: `.front()` works too I think
+    d_op = substring.empty() ? '\0' : substring[0]; // HB: `.front()` works 
+                                                    // too I think
     
     switch (d_op)
     {
