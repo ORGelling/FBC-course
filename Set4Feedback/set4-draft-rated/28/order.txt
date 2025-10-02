@@ -1,0 +1,10 @@
+ex28info.txt
+
+line/line.h
+line/line.ih
+line/line.cc
+line/getLine.cc
+line/next.cc
+
+-main.cc
+-Makefile

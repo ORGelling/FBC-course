@@ -1,0 +1,2 @@
+ex25info.txt
+-ex25infoDeprecated.txt

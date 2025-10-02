@@ -1,0 +1,51 @@
+Exercise 27:
+
+Make a function that writes person into into an array of 5 Person objects
+and then writes the info from that array of objects into the standard output
+stream.
+
+We do exactly this, making 2 helper functions with their own header (and
+internal header) which we include in main.ih, along with the person class's.
+
+We use the existing extract and insert functions and wrap them in for loops
+that take the Person array and arraySize. The function that reads from the
+input stream outputs a minor but of supporting text and the "? " prompt as
+required.
+
+We note that we, rather than copying all the files from the Person class,
+created a static library and compiled the program with it, and the person.h
+header file, in the local directory, using the commands:
+
+g++ -c *.cc */*.cc --std=c++26 -Wall -Werror
+ar rcs libperson.a *.o
+g++ --std=c++26 -Wall -Werror *.cc -L. -lperson
+
+This is what we get when we run our program:
+
+$ ./a.out
+Please give name, address, phone nr, mass
+? Olivier Gelling,Groningen,0633333333,88
+? Leon Lan,Amsterdam,0600000000,70
+? Mohammad Habibi,Groningen,0600000001,80
+? Mana Avagyan,Groningen,0632673823,55
+? Julia Bowley,Groningen,0611111111,55
+Name    : Olivier Gelling
+Address : Groningen
+Phone   : 0633333333
+Mass    : 88
+Name    : Leon Lan
+Address : Amsterdam
+Phone   : 0600000000
+Mass    : 70
+Name    : Mohammad Habibi
+Address : Groningen
+Phone   : 0600000001
+Mass    : 80
+Name    : Mana Avagyan
+Address : Groningen
+Phone   : 0632673823
+Mass    : 55
+Name    : Julia Bowley
+Address : Groningen
+Phone   : 0611111111
+Mass    : 55

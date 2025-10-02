@@ -1,0 +1,12 @@
+ex27info.txt
+
+helperheader.h
+helperheader.ih
+readIntoPerson.cc
+writeFromPerson.cc
+
+main.ih
+main.cc
+
+-person.h
+-Makefile

@@ -1,0 +1,12 @@
+ex26info.txt
+
+person/person.h
+person/person.ih
+person/person.cc
+person/setPhone.cc
+person/insert.cc
+person/extract.cc
+person/hasOnly.cc
+
+main.cc
+-Makefile

@@ -1,0 +1,12 @@
+Exercise 28:
+
+Implement the Line class with member functions getLine() and next().
+
+We have done exactly this, using the minimal amount of data members we could
+feasibly implement, namely d_line, to store the current line read from
+getline() inside getLine() (ha), and d_position, which gets set at the first
+non ws character (if there is one) by getLine().
+
+next() uses a temporary variable to store the end of the current non-ws
+section and afterwards finds the next non-ws position, and updates d_position
+to that value.
