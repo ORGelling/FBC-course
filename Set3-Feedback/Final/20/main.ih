@@ -1,0 +1,11 @@
+#include <string>
+#include <iostream>
+#include "count.h"
+//JB: Looking way ahead, I recommend *also* including your own header FIRST 
+//here.
+//JB: In part three, when we'll be doing templates, there will be no internal
+//JB: headers, and having a main source that still includes our own headers
+//JB: first may just serve to detect any lacking includes in the public header
+//JB: then.
+
+using namespace std;

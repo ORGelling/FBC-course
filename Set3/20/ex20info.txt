@@ -1,0 +1,13 @@
+Exercise 20: Make a wc program that counts lines, words, and characters 
+depending on what flag is set.
+
+We have done exactly so. Splitting the program up into 3 functions that count
+characters, words, or lines, all from the input stream, like a redirected
+file. We also add a usage function that prints usage into.
+
+We note that our program doesn't work exactly like wc does, as it will count
+final lines that are not terminated with a newline character. Our program 
+will also count empty trailing lines. We don't mind the distinction from wc
+itself, as counting logical lines seems like the right thing to do when
+looking for all the lines in a file. We hope this still fulfills the purpose
+of the exercise.

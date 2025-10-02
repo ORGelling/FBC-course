@@ -1,0 +1,99 @@
+Exercise 24: Learn how to use a profiler.
+
+Construct the program from the example and profile it.
+
+We construct the program using the OFOS rule and compile it by hand with this
+command:
+
+g++ -O2 -pg main.cc fun.cc fun2.cc callValue.cc callRef.cc 
+-Wall -Werror --std=c++26
+
+This gives us an executable a.out. We run this to then get gmon.out. 
+
+We then do: gprof -bp a.out gmon.out 
+
+and get the following output:
+
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 66.67      0.02     0.02                             _init
+ 33.33      0.03     0.01        1    10.00    10.00  callValue(...)
+  0.00      0.03     0.00 10000000     0.00     0.00  fun(...)
+  0.00      0.03     0.00 10000000     0.00     0.00  fun2(...)
+  0.00      0.03     0.00        2     0.00     0.00  (...)_M_dispose()
+  0.00      0.03     0.00        2     0.00     0.00  (...) 
+  0.00      0.03     0.00        1     0.00     0.00  callRef(...)
+
+We have omitted very long lines of variables like (penultimate line):
+
+std::__cxx11::basic_string<char, std::char_traits<char>, 
+std::allocator<char> >::basic_string<std::allocator<char> >(char const*, 
+std::allocator<char> const&)
+
+as these are symbol names, and do not think they add much to the profiling 
+results (and certainly detract from its readability!).
+
+Q: What does -O2 do? and -O1 and -O3?
+A: These are optimisation flags that tell the compiler to what extent it
+should try to optimise the program that is being constructed. The higher the
+number the more optimisation is sought, but the longer it will take to
+compile. -O1 (or -O), -O2, and -O3 turn on an increasingly large  set of 
+optimisation flags, like -falign-functions, -ffinite-loops, etc. The higher 
+the number the more additional optimisation "sub"flags are added to the 
+compilation. -O3 adds things like -fsplit-loops, -fgcse-after-reload, and
+-funswitch-loops, along with all the flags -O1 and -O2 add. We can see all 
+these flags by typing:
+
+g++ -Q --help=optimizers
+
+-O1 focuses on code size and execution time, while keeping compilation time
+low. -O2 increases performance at the cost of compilation time, and -O3 goes
+even further. -O0 is the default and means no optimisation.
+
+Compiling with -O1 gives us the following profiling results:
+
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 50.00      0.02     0.02                             _init
+ 25.00      0.03     0.01 10000000     0.00     0.00  fun2(...)
+ 25.00      0.04     0.01        1    10.00    10.00  callValue(...)
+  0.00      0.04     0.00 10000000     0.00     0.00  fun(...)
+  0.00      0.04     0.00        2     0.00     0.00  (...)dispose()
+  0.00      0.04     0.00        2     0.00     0.00  (...)
+  0.00      0.04     0.00        1     0.00    10.00  callRef(...)
+
+and -O3 gives us:
+
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 66.67      0.04     0.04                             _init
+ 16.67      0.05     0.01 10000000     0.00     0.00  fun(...)
+ 16.67      0.06     0.01 10000000     0.00     0.00  fun2(...)
+  0.00      0.06     0.00        2     0.00     0.00  (...)
+  0.00      0.06     0.00        1     0.00    10.00  callRef(...)
+  0.00      0.06     0.00        1     0.00    10.00  callValue(...)
+  
+It seems, if we are reading our results right, that the -O3 flag leaves us
+with a cumulative time of 0.06 seconds, the -O2 flag with 0.03, and the -O1
+0.04. The more complex and more "optimised" compilation may have
+overcomplicated the program, that is in itself quite simple. In all three
+cases most of our time is spent in the initial step: _init, the initialisation
+of the program. We do see that fun2() generally outperforms fun(), which
+likely means the fact that fun2() gets handed a reference rather than copying
+tha input argument wholesale. With the -O2 flag on almost all the time that is
+not dedicated to the initialisation of the program is spent by callValue(),
+which takes 10.00ms, whereas callRef() rounds down to 0.00! In the other two
+cases callValue and callRef seem to take about equally long to finish up.
+
+We also ran our compilation with the -O0 flag but its output was over 50 lines
+long and had a *lot* of symbols cluttering the readability. We have elected
+to leave it out.

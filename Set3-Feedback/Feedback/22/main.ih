@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+
+using namespace std;
+
+void generateQueue
+(
+    string queue[], 
+    size_t const queueSize, 
+    size_t const colourChance
+);
+
+//JB: The 'const' is a bit pednatic here, but useful in the implementation.
+void orderSort(string queue[], size_t const queueSize);
+void showQueue(string queue[], size_t const queueSize);
+void usage();
+

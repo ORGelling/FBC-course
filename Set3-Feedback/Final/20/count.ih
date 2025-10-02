@@ -1,0 +1,7 @@
+#include "count.h" //JB: Yes.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+

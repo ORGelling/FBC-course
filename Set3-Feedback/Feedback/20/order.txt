@@ -1,0 +1,8 @@
+ex20info.txt
+main.ih
+countChars.cc
+countWords.cc
+countLines.cc
+usage.cc
+main.cc
+-Makefile

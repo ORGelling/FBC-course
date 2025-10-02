@@ -1,0 +1,4 @@
+#include "envconversion.h"
+#include <string>
+
+using namespace std;

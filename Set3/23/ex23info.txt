@@ -1,0 +1,97 @@
+Exercise 23: Encapsulate "global" variables in a safer way.
+
+New notes:
+
+We have added extra info where the comments showed our answers were
+incomplete. Other than that this file is mostly the same.
+
+We mimic the way classes work, setting up a namespace indent_status inside our
+internal header that has a getter and setter function for the indentation
+depth, and a getter for the stepsize, that can also set it if it is called
+with an argument before anything else uses it. This does not necessarily
+keep the data private from the user, but the fact that the functions that can
+reach and change it are hidden in the internal header does.
+
+We use the fact that static variables declared inside a function like this
+will not be overwritten if that same function is called again.
+indentation_depth hands back a reference to static variable indentDepth, which
+inside change_indent is used to both check the indentation level, and amend
+it. change_indent() has some logic to test whether indentation is causing
+wraparounds, and changes the indentation if not. We use this single function
+with a switch for the cases of increasing, decreasing, and resetting the
+indentation level.
+
+Our get_step_size function gets handed a default variable from its declaration
+inside the ih. If it is not initially called with a different variable the
+default will be used and can from then on not be overridden. get_step_size is
+always called when indented_cout is called so it will set the step size as a 
+static 4 spaces. This once again works due to the way static variables work. 
+step_size() can be called in main if one seeks to set the indent size, if one
+does not there is no point in calling it, so it requires an argument.
+
+We note that our indented_cout is not a fully functioning cout object. It can
+be given an input with the << operator *once* after which it ceases to work
+like cout. Since the main function given by the exercise never pushes multiple
+strings into the same indented_cout we consider this to be acceptable, and
+making our indented_cout function work with repeated push operations seems
+beyond the scope of this exercise.
+
+We used make with Jurjen's Makefile, which does all of this for us, but to do
+this by hand we would call:
+
+g++ -x c++-header indent.h -o indent.h.gch -Wall -Werror --std=c++26
+
+to pre-compile our header, and then:
+
+g++ -c indentation_depth.cc change_indent.cc get_step_size.cc -Wall -Werror
+--std=c++26
+
+to make object files out of these, and to then create a static library we run:
+
+ar rcs libindent.a indentation_depth.o change_indent.o get_step_size.o
+
+This gives us libindent.a!
+
+Now to answer the specific questions:
+1: How does this access control work?
+A: We make sure none of the variables operating the mechanics are reachable
+from a global scope. They can only be set by the functions secifically made to
+set and handle them, which then also keep issues from popping up with
+validation. They can only be changed through "legal" means.
+
+2: What could the user do to circumvent this?
+A: The user cannot directly modify these local static variables without
+modifying the library or header, but can potentially modify them via a
+returned non-const reference. They can use the available functions to
+still modify things "legally", but there is no way of changing the data
+illegally now, since all ways of reaching the data are guarded from unwanted
+meddling.
+
+3: Why is a static local variable better than a static global one?
+A: its scope is different such that it cannot simply be modified by calling it
+from any place or any function. It is encapsulated and thus kept safe from
+being tampered with.
+
+4: What is the reason to use one function per source file?
+A: it makes compiling changes in functions much more efficient, and keeps the
+size of programs down if they do not use all the functions from a library.
+Changes in functions have to be recompiled, but if one single object is
+changed not everything else needs to be now. And if all your functions are in
+one file but someone uses only one of them in their program now they aren't
+all included!
+
+5: Many source files causes extra compiler work. Why?
+A: finding and linking all these different (object) files together. Headers
+are also included repeatedly, which causes the program to be larger and takes
+extra time to compile.
+
+6: How do we help reduce the extra time this takes?
+A: We use an internal header that gets precompiled, especially when we compile
+with make or icmake with the relevant settings on.
+
+7: Did we do this?
+A: Initially, no, not manually. The Makefile does do this automatically, and
+after we saw this question we went back, did it again by hand, and added the
+command to precompile the header and ran the others afterwards. When a .h.gch
+file is present the compiler will use that instead of the .h, so in the end,
+yes we did! You can see from the command we added to our explanation!
