@@ -3,7 +3,6 @@
 int main()
 {
     CharCount counter;
-    
     counter.count(cin);
     
     CharCount::CharInfo infoData = counter.info();

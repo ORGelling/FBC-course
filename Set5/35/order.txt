@@ -1,1 +1,17 @@
 ex35info.txt
+
+charcount/charcount.h
+charcount/charcount.ih
+charcount/count.cc
+charcount/locate.cc
+charcount/insertChar.cc
+charcount/info.cc
+
+showChar.h
+showChar.ih
+showChar.cc
+charOutput.cc
+
+main.ih
+main.cc
+-Makefile
