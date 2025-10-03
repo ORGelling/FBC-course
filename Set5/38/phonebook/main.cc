@@ -1,16 +1,18 @@
 #include "main.ih"
 
-PhoneBook phoneBook;        // the program defines a PhoneBook. By 
+//PhoneBook phoneBook;        // the program defines a PhoneBook. By 
                             // defining it as a global object all the 
                             // program's sources can directly reach it:
                             // see the 'extern' declaration in main.ih
 
 int main()
 {
-    string const *phone = phoneBook.get("Jurjen");      // request a nr
+    
+    
+    string const *phone = phoneBook().get("Jurjen");    // request a nr
     cout << (phone == 0 ? "not available" : *phone) << '\n';
 
-    phone = phoneBook.get("William");                   // request another nr
+    phone = phoneBook().get("William");                 // request another nr
     cout << (phone == 0 ? "not available" : *phone) << '\n';
 }
 

@@ -6,7 +6,7 @@ This program seems to have a static initialisation issue, where the
 constructors are called before main() is even ran. 
 
 A way to fix this would be to wrap our static object inside a function such
-that it is initialised only when it is called/acted upon (and thus needed),
-rather than being initialised when the source file is compiled. 
+that it is initialised only when it is called/acted upon (and thus needed). 
+This is known as the "Construct on First Use" idiom
 
 https://isocpp.org/wiki/faq/ctors#static-init-order
