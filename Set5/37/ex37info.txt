@@ -1,1 +1,60 @@
 Exercise 37: 
+
+Convert verbal descriptions into code
+
+1:  declare a variable pointing to rows of 8 doubles
+
+//double arr[10][8];          // uninitialised though!
+double (*ptr)[8]; // = arr;
+
+2:  declare a variable ptr pointing to an array holding the addresses of 
+    series of doubles.
+
+double *(*ptr)[];
+
+3:  declare a pointer ptr that may point to arrays of immutable pointers to 
+    arrays of mutable pointers to immutable std::string objects.
+
+std::string const **const *ptr;
+
+4:  declare a function fun expecting no parameters, returning a matrix of 
+    6 x 6 std::string objects
+
+std::string (*fun())[6][6]
+{
+    static std::string stringArray[6][6];
+    return &stringArray;
+}
+
+5:  declare a function fun as in the previous item, now with 
+
+using StringMat = std::string (*)[6];
+
+StringMat (*fun())[6]
+{
+    static StringMat stringArray[6];
+    return &stringArray;
+}
+
+6:  complete the following function by providing the initialization section 
+    of its for-statement
+    
+void process(unsigned begin, unsigned end, char const *const *args)
+{
+    for 
+    (
+        char const *const *argsBegin = args + begin, *argsEnd = args + end;
+        argsBegin != argsEnd;
+        ++argsBegin
+    )
+        process(*argsBegin);
+}
+
+7:  declare a function fun defining a parameter ptr which is an immutable 
+    pointer to NTBSs, returning one of these pointers as an immutable NTBS 
+    
+fun()
+{
+    char **const ptr;
+    return ...
+}
