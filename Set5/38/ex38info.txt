@@ -2,11 +2,45 @@ Exercise 38:
 
 Fix the code of the phonebook class
 
-This program seems to have a static initialisation issue, where the
-constructors are called before main() is even ran. 
+This program seems to have a static initialisation issue, also called the
+static initialisation order 'fiasco', or even disaster, where the 
+constructors are called before main() is even ran. This means that, depending
+on the order in which the files are constructed things might either be just 
+fine (the object called already exists because it was initialised in a 
+previous file), or they can end up corrupting the program (the file calling 
+the object is compiled before the one where it is initialised).
 
 A way to fix this would be to wrap our static object inside a function such
 that it is initialised only when it is called/acted upon (and thus needed). 
-This is known as the "Construct on First Use" idiom
+This is known as the "Construct on First Use Idiom".
 
+Aside from the global variable and static initialisation issue, another issue
+with this class that makes it problematic, or at least according to this
+course's standards, is the fact that class PhoneBook is not being declared
+inside its own header, and instead is part of main.ih. This seems rather
+unclean, and doing so has gotten us points marked down in a previous set.
+
+We have reordered the header so that it is tidy, have added a free helper
+function that is used to initialise and call a static PhoneBook instance, such
+that the same one is always called. Any further use of this PhoneBook in other
+functions is possible as long as it is called simply using the function 
+"phoneBook()" rather than the globally initialised "PhoneBook phoneBook".
+
+Another way of using this class "properly" would have been to declare the free
+function in the phonebook.h header but outside of the class, to make sure it
+can be called generally, and without having to prepend PhoneBook:: to it. We
+find the separate helper header a bit tidier and it seems to fit better with
+the spirit of the course.
+
+We make a header phonebookhelper.h, which calls phonebook.h so including only
+that gives you access both to this free function that initialises the
+phonebook, and all the aspects of the PhoneBook and Finder class. We added an
+internal header for this free function too albeit one that is basically
+empty, an internal header would also be fitting for the phonebook class proper
+as using main.ih is rather odd. It would be overkill to add that in at this
+point though, as we only mean to show the general changes that would fix this
+program. Everything should work just fine now, and should not have a coinflip
+chance to break upon compilation.
+
+A source we used to learn about the static initialisation order problem:
 https://isocpp.org/wiki/faq/ctors#static-init-order
