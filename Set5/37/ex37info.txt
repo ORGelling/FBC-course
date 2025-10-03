@@ -53,8 +53,7 @@ void process(unsigned begin, unsigned end, char const *const *args)
 7:  declare a function fun defining a parameter ptr which is an immutable 
     pointer to NTBSs, returning one of these pointers as an immutable NTBS 
     
-fun()
+char const *fun(char const **const ptr)
 {
-    char **const ptr;
-    return ...
+    return *ptr;
 }
