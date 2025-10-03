@@ -3,14 +3,18 @@
 
 #include <string>
 
+class DataImp;      // Forward declaration so no need to recompile main
+
 class Data
 {
-//    std::string d_text;
-    int d_value = 0;
-
+    DataImp *d_pimpl;
+    
     public:
+        Data();
+        ~Data();
+    
         bool read();
         void display() const; 
 };
-        
+
 #endif
