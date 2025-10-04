@@ -5,10 +5,15 @@ Fix the code of the phonebook class
 This program seems to have a static initialisation issue, also called the
 static initialisation order 'fiasco', or even disaster, where the 
 constructors are called before main() is even ran. This means that, depending
-on the order in which the files are constructed things might either be just 
+on the order in which the files are linked things might either be just 
 fine (the object called already exists because it was initialised in a 
 previous file), or they can end up corrupting the program (the file calling 
-the object is compiled before the one where it is initialised).
+the object is compiled before the one where it is initialised). We can
+recreate an issue here specifically by compiling all the files separately to
+object files, and then linking them in different orders. If we link main.o
+last and then run the program it will output "not available" for both
+numbers! A segfault or random nonsensical output are also a possible outcomes
+of an issue of this type, depending on the program.
 
 A way to fix this would be to wrap our static object inside a function such
 that it is initialised only when it is called/acted upon (and thus needed). 
