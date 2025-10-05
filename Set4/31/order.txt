@@ -1,6 +1,3 @@
 ex31info.txt
 main.cc
--line/line.h
--parser/parser.h
--calculator/calculator.h
 -Makefile

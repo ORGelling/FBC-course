@@ -12,4 +12,3 @@ parser/pureDouble.cc
 
 -main.cc
 -Makefile
--line/line.h

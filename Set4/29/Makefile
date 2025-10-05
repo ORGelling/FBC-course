@@ -1,4 +1,17 @@
+ifeq ($(origin EXCHAIN),command line)
+EXCHAIN_OBJS := $(EXCHAIN:.cc=.o)
 
+main: $(EXCHAIN_OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $(EXCHAIN_OBJS)
+
+%.o: %.cc
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -f main *.o */*.o
+
+else
+	
 # Detect the OS using uname
 UNAME_S := $(shell uname -s)
 
@@ -860,3 +873,6 @@ endif
 includes.txt:
 	cat /dev/null > $@  # Clear target
 	grep -E '^[[:space:]]*#include[[:space:]]"' $(CXX_SOURCES) $(CXX_INTERNAL_HEADERS)|awk '{ sub(/:[[:space:]]*#include/, "", $$0); gsub(/^[[:space:]]+|[[:space:]]+$$/, "", $$1); print $$2, " -> \"" $$1 "\" [label = inc] " }' > $@
+
+endif
+

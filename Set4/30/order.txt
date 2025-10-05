@@ -12,6 +12,4 @@ calculator/verifyModulo.cc
 calculator/usage.cc
 
 -main.cc
--line/line.h
--parser/parser.h
 -Makefile
