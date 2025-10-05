@@ -1,0 +1,23 @@
+#include "main.ih"
+
+void orderSort(string queue[], size_t const queueSize)
+{
+    for (size_t index = 0; index != queueSize - 1; ++index)
+    {
+        size_t lastBrown = 0;
+        //JB: NSC, MLR
+        for (size_t checkBrown = 0; checkBrown != queueSize; ++checkBrown)
+        {
+            if (queue[checkBrown] == "Brown")
+                lastBrown = checkBrown;
+        }
+        
+        string movingPerson = queue[0];     // Person in front moves behind
+        //JB: spelling?                     // last bworn eyed queueer
+        for (size_t moveIdx = 1; moveIdx != lastBrown + 1; ++moveIdx)
+            queue[moveIdx - 1] = queue[moveIdx];    // Everyone in front
+                                                    // moves 1 step up
+        //JB: Comment says we move up, code says we move down.
+        queue[lastBrown] = movingPerson;
+    }
+}

@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+#include <ctype.h>
+
+using namespace std;
+
+size_t partition
+(
+    string strArray[], 
+    size_t const left, 
+    size_t const right
+);
+bool mustSwap(string &pivot, string &comparison);
+string toLower(string input);

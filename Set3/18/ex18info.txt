@@ -1,0 +1,14 @@
+Exercise 18: Write a program with functions combine, structCall, boundCall,
+and whatever else needed. 
+
+Functionalities like showing value output and the usage message are divided 
+out into extra functions. We implicitly cast our argc ints to size_t's by
+having all of our functions recieve size_t argc's, like is recommended in the
+hints and tips.
+
+We run an initial check for the right amount of input arguments, and have
+combine check again for proper validation of the selected one, guarding for
+selecting argument 0 or any argument beyond existing ones.
+
+The program is not divided up into subdirectories yet. Would be nice, but more
+fitting to do once we have classes to work with.
