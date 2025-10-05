@@ -45,7 +45,7 @@ empty, an internal header would also be fitting for the phonebook class proper
 as using main.ih is rather odd. It would be overkill to add that in at this
 point though, as we only mean to show the general changes that would fix this
 program. Everything should work just fine now, and should not have a coinflip
-chance to break upon compilation.
+chance to break upon being built.
 
 A source we used to learn about the static initialisation order problem:
 https://isocpp.org/wiki/faq/ctors#static-init-order
