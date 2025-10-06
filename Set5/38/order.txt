@@ -9,6 +9,7 @@ phoneBook.cc
 main.ih
 main.cc
 
+-Makefile
 -phonebook/finder.cc
 -phonebook/get.cc
 -phonebook/phonebook1.cc
