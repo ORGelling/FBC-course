@@ -22,7 +22,6 @@ struct CharCount
             INC
         };
         
-        CharCount() = default;
         void count(std::istream &input);
         Action locate(char const ch, size_t &setAt) const;
         void insertChar(size_t const index, char const ch);
