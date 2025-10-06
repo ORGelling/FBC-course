@@ -6,13 +6,6 @@ Complete the table.
 ----------------------------------------------------------------------------
   definition:       rewrite: 
 ----------------------------------------------------------------------------
-  int x[8];         x[4]            
-
-pointer notation:   *(x + 4)
-       semantics:   x + 4 points to the location of the 4th int beyond x.
-                    That element is reached using the dereference operator 
-                    (*).
-----------------------------------------------------------------------------
   int x[8];         x[2] = x[3];
 
 pointer notation:   *(x + 2) = *(x + 3);
@@ -62,6 +55,6 @@ pointer notation:   ++(*argv);
 pointer notation:   ++*(*argv + 2);
        semantics:   We increment the specific character two steps beyond the 
                     character pointed at by the first pointer in the argv 
-                    array's target. If we print argv[0] after this it will
-                    read ./b.out.
+                    array's target. If the program is called with ./a.out
+                    then `cou << ++argv[0][2]` will print `b`.
 ----------------------------------------------------------------------------
