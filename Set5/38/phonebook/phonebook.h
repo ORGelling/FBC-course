@@ -1,7 +1,7 @@
 #ifndef INCLUDED_PHONEBOOK_
 #define INCLUDED_PHONEBOOK_
 
-#include "finder/finder.h"
+#include "../finder/finder.h"
 #include <iosfwd>
 
 class PhoneBook

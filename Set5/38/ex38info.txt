@@ -41,11 +41,8 @@ We make a header phonebookhelper.h, which calls phonebook.h so including only
 that gives you access both to this free function that initialises the
 phonebook, and all the aspects of the PhoneBook and Finder class. We added an
 internal header for this free function too albeit one that is basically
-empty, an internal header would also be fitting for the phonebook class proper
-as using main.ih is rather odd. It would be overkill to add that in at this
-point though, as we only mean to show the general changes that would fix this
-program. Everything should work just fine now, and should not have a coinflip
-chance to break upon being built.
-
-A source we used to learn about the static initialisation order problem:
-https://isocpp.org/wiki/faq/ctors#static-init-order
+empty, and one for the phonebook class proper to get everything compiling
+right, but we will not include those files in the pdf, as we only mean to
+show the general changes that would fix this program. Everything should work 
+just fine now, and should not have a coinflip chance to break upon being 
+built.
