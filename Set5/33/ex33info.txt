@@ -24,7 +24,9 @@ email.
 
 S2: for variable "int *pointer[20]"
 A:  "pointer" is an array of 20 pointers to (presumably) 30 ints. We follow
-the pointer to the (4th) array of ints, and then select the 3rd element.
+the pointer to the memory address  of the (4th) array of ints, and then select
+the 3rd element inside that array, like so: *(pointer[3] + 2).
+.
 Drawing to follow too!
 
 Q4: Pointer arithmetic is the act of doing arithmetic operations on pointers.
