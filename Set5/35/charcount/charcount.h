@@ -15,7 +15,7 @@ struct CharCount
             Char *ptr = nullptr;
             size_t nCharObjects = 0;
         };
-        enum ACTION
+        enum Action
         {
             APPEND,
             INSERT,
@@ -24,7 +24,7 @@ struct CharCount
         
         CharCount() = default;
         void count(std::istream &input);
-        ACTION locate(char const ch, size_t &setAt) const;
+        Action locate(char const ch, size_t &setAt) const;
         void insertChar(size_t const index, char const ch);
         CharInfo const &info() const;
         
