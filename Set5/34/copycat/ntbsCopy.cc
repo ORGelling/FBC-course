@@ -4,7 +4,7 @@
 
 char *CopyCat::ntbsCopy(char const *data)
 {
-    size_t ntbsSize = strlen(data);
+    size_t const ntbsSize = strlen(data);
     
     char *newNTBS = new char[ntbsSize + 1]();   // alloc NTBS length +1 for
                                                 // null terminating char
