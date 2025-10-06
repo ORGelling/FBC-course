@@ -1,0 +1,14 @@
+ex29info.txt
+
+parser/parser.h
+parser/parser.ih
+parser/parser.cc
+parser/reset.cc
+parser/number.cc
+parser/isIntegral.cc
+parser/next.cc
+parser/convert.cc
+parser/pureDouble.cc
+
+-main.cc
+-Makefile

@@ -5,7 +5,7 @@
 bool Calculator::getOperator()
 {
     string const substring = d_parser.next();
-    d_op = substring.empty() ? '\0' : substring.front();
+    d_op = substring.empty() ? '\0' : substring[0];
     
     switch (d_op)
     {
