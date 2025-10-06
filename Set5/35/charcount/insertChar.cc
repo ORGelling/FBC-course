@@ -4,7 +4,7 @@
 
 void CharCount::insertChar(size_t const index, char const ch)
 {
-    size_t newSize = ++d_data.nCharObjects;
+    size_t const newSize = ++d_data.nCharObjects;
     Char *newData = new Char[newSize];
     
     size_t idxNew = 0;                  // We know how you dislike init lists!
