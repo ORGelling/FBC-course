@@ -1,1 +1,40 @@
 Exercise 42: 
+
+Describe all the variants of new/delete operators
+
+------------------------------------------------------------------------------
+
+new:
+    Initialises an instance of a Type variable.
+        int *ip = new int;
+
+new():
+    Initialises an instance of Type to 0.
+        int *ip = new int();
+
+delete:
+        delete ip;
+
+------------------------------------------------------------------------------
+
+new[]:
+    Initialises an array of Type variables.
+        int *iarr = new int[20];
+
+new[]():
+    Initialises the values to 0 when possible.
+        int *iarr = new int[]();
+
+delete[]:
+        delete[] iarr;
+        
+------------------------------------------------------------------------------
+
+operator new:
+    
+        
+placement new:
+    
+        
+
+------------------------------------------------------------------------------
