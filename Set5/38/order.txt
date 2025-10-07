@@ -1,9 +1,11 @@
 ex38info.txt
 
 phonebook/phonebook.h
+phonebook/phonebook.ih
 
 phonebookhelper.h
 phonebookhelper.ih
+
 phoneBook.cc
 
 main.ih
