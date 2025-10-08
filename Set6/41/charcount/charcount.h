@@ -16,7 +16,6 @@ struct CharCount
         };
         struct CharInfo 
         {
-            //Char *ptr = nullptr;            // Same as *rC, unnecessary?
             Char *rawCapacity = nullptr;
             size_t nCharObjects = 0;
             size_t capacity = 8;

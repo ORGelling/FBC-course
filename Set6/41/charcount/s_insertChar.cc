@@ -1,5 +1,7 @@
 #include "charcount.ih"
 
+    // by count.cc
+
 void (CharCount::*CharCount::s_insertChar[])
 (
     char const ch,
