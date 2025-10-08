@@ -10,4 +10,6 @@ int main()
     
     for (size_t index = 0; index != nChars; ++index)
         showChar(infoData.rawCapacity[index]);
+
+    cout << "capacity is: " << counter.capacity() << '\n';
 }
