@@ -1,0 +1,2 @@
+charcount/enlarge.cc.o: charcount/enlarge.cc charcount/charcount.ih \
+ charcount/charcount.h

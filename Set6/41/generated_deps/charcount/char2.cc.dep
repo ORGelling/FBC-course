@@ -1,0 +1,2 @@
+charcount/char2.cc.o: charcount/char2.cc charcount/charcount.ih \
+ charcount/charcount.h

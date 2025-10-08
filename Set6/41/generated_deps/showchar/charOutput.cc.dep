@@ -1,0 +1,2 @@
+showchar/charOutput.cc.o: showchar/charOutput.cc showchar/showChar.ih \
+ showchar/showChar.h showchar/../charcount/charcount.h
