@@ -1,5 +1,7 @@
 #include "charcount.ih"
 
+    // by count.cc
+
 void CharCount::enlarge()
 {
     Char *block = static_cast<Char *>(
@@ -9,7 +11,7 @@ void CharCount::enlarge()
     for (size_t index = 0; index != d_data.nCharObjects; ++index)
     {
         new(block + index) Char(oldData[index]);        // copy Chars
-        oldData[index].~Char();                          // delete old Chars
+        oldData[index].~Char();                         // delete old Chars
     }
     
     operator delete(oldData);                       // de-allocate old memory
