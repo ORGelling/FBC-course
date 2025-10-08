@@ -9,5 +9,5 @@ int main()
     size_t const nChars = infoData.nCharObjects;
     
     for (size_t index = 0; index != nChars; ++index)
-        showChar(infoData.ptr[index]);
+        showChar(infoData.rawCapacity[index]);
 }

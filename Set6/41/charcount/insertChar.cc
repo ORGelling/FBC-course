@@ -4,18 +4,18 @@
 
 void CharCount::insertChar(char const ch, size_t const setAt)
 {
-    size_t const newSize = ++d_data.nCharObjects;
-    Char *newData = new Char[newSize];
+    size_t const size = d_data.nCharObjects++; // get size and then increment
     
-    size_t idxNew = 0;                  // We know how you dislike init lists!
-    size_t idxOld = 0;
-    for (; idxNew != newSize; ++idxNew)
+    new(d_data.rawCapacity + size) Char;  // Initialise extra Char location
+    
+    Char *ptr = d_data.rawCapacity;
+    
+    for (size_t index = size; index != setAt; --index)
     { 
-        if (idxNew != index)            // copy old elements and increment
-            newData[idxNew] = d_data.ptr[idxOld++];     // after copying
-        else
-            newData[idxNew].ch = ch;    // or add new element at [index]
-    }                                   // default initialised at 1 inside .h
+        ptr[index].ch = ptr[index - 1].ch;
+        ptr[index].count = ptr[index - 1].count;
+    }                           // move values from setAt onwards one step up
     
-    d_data.ptr = newData;
+    ptr[setAt].ch = ch;                     // Set new Char at setAt
+    ptr[setAt].count = 1;
 }

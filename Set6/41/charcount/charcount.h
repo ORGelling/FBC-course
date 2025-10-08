@@ -8,11 +8,15 @@ struct CharCount
         struct Char
         {
             char ch = '\0';
-            size_t count = 1;           // Only initialised when ch found
+            size_t count = 1;               // Only initialised when ch found
+            
+            Char() = default;
+            Char(char const ch);
+            Char(Char const &copyChar);     // Copy constructor
         };
         struct CharInfo 
         {
-            Char *ptr = nullptr;
+            //Char *ptr = nullptr;            // Same as *rC, unnecessary?
             Char *rawCapacity = nullptr;
             size_t nCharObjects = 0;
             size_t capacity = 8;
@@ -24,6 +28,9 @@ struct CharCount
             INC
         };
         
+        CharCount();
+        ~CharCount();
+        
         void count(std::istream &input);
         Action locate(char const ch, size_t &setAt);
         void appendChar(char const ch, size_t const setAt);
@@ -34,8 +41,8 @@ struct CharCount
         
         static void (CharCount::*s_insertChar[])
         (
-            size_t const index, 
-            char const ch
+            char const ch,
+            size_t const index 
         );
         
     private:

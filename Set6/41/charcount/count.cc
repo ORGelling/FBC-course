@@ -8,6 +8,9 @@ void CharCount::count(istream &input)
     while ((character = input.get()) != EOF)
     {
         size_t setAt = 0;
-        (*s_insert[locate(character, setAt)])(character, setAt);
+        (this->*s_insertChar[locate(character, setAt)])(character, setAt);
+        
+        if (d_data.nCharObjects == d_data.capacity)
+            enlarge();
     }
 }

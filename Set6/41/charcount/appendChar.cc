@@ -2,15 +2,9 @@
 
     // by count.cc
 
-void CharCount::appendChar(char const ch)
+void CharCount::appendChar(char const ch, [[maybe_unused]] size_t const setAt)
 {
-    size_t const newSize = ++d_data.nCharObjects;
-    Char *newData = new Char[newSize];
+    size_t const size = d_data.nCharObjects++;
     
-    for (size_t index = 0; index != newSize; ++idxNew)
-            newData[index] = d_data.ptr[index];
-    
-    newData[idxNew].ch = ch;    // or add new element at [index]
-    
-    d_data.ptr = newData;
+    new(d_data.rawCapacity + size) Char(ch);
 }
