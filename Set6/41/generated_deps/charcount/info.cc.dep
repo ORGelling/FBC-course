@@ -1,2 +1,0 @@
-charcount/info.cc.o: charcount/info.cc charcount/charcount.ih \
- charcount/charcount.h

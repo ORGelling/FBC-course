@@ -1,2 +1,0 @@
-main.ih.gch: main.ih showchar/showChar.h \
- showchar/../charcount/charcount.h

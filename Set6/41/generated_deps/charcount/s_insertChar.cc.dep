@@ -1,2 +1,0 @@
-charcount/s_insertChar.cc.o: charcount/s_insertChar.cc \
- charcount/charcount.ih charcount/charcount.h

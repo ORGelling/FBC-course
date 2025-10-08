@@ -1,2 +1,0 @@
-main.cc.o: main.cc main.ih showchar/showChar.h \
- showchar/../charcount/charcount.h

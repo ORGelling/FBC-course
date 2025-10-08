@@ -1,2 +1,0 @@
-charcount/locate.cc.o: charcount/locate.cc charcount/charcount.ih \
- charcount/charcount.h

@@ -1,2 +1,0 @@
-charcount/charcount2.cc.o: charcount/charcount2.cc charcount/charcount.ih \
- charcount/charcount.h
