@@ -5,36 +5,47 @@ Describe all the variants of new/delete operators
 ------------------------------------------------------------------------------
 
 new:
-    Initialises an instance of a Type variable.
+    Dynamically allocates memory for an instance of a Type variable. In our
+    case an int.
         int *ip = new int;
 
 new():
-    Initialises an instance of Type to 0.
+    Dynamically allocates memory for and initialises an instance of Type to 0
+    or another relevant default value.
         int *ip = new int();
 
 delete:
+    Deallocates memory previously allocted by new.
         delete ip;
 
 ------------------------------------------------------------------------------
 
 new[]:
-    Initialises an array of Type variables.
+    Dynamically allocates memory for an array of Type variables.
         int *iarr = new int[20];
 
 new[]():
-    Initialises the values to 0 when possible.
-        int *iarr = new int[]();
+    Dynamically allocates memory for and initialises to 0 (or default) an 
+    array of Type variables.
+        int *iarr = new int[20]();
 
 delete[]:
+    Deallocates an array of memory allocated by new[].
         delete[] iarr;
         
 ------------------------------------------------------------------------------
 
 operator new:
-    
+    Allocates raw memory. In our case for 8 strings. It returns a pointer,
+    usually to void, but we cast it to a string pointer instead.
+        string *rawMemory = static_cast<std::string *>(
+                                        operator new(8 * sizeof(string)));
         
 placement new:
-    
-        
+    Calls the constructor to initilise memory in a specific memory address.
+    We initialise a string in all 8 places of the raw memory allocated in the
+    answer above.
+        for (size_t index = 0; index != 8; ++index)
+            new(rawMemory + index) string{ "Hello constructor!" };
 
 ------------------------------------------------------------------------------
