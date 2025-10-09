@@ -3,5 +3,5 @@
 Strings::Strings()
 :
     d_size(0),
-    d_data(0)
+    d_data(rawPointers(1))
 {}

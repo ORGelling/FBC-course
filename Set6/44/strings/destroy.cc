@@ -1,6 +1,6 @@
 #include "strings.ih"
 
-    // by
+    // by strings5.cc
 
 void Strings::destroy()
 {

@@ -1,6 +1,6 @@
 #include "strings.ih"
 
-    // by enlarge.cc
+    // by enlarge.cc & strings1.cc & strings2.cc & strings3.cc & strings4.cc
 
 string **Strings::rawPointers(size_t const newCapacity)
 {
