@@ -36,6 +36,9 @@ struct CharCount
         void insertChar(char const ch, size_t const setAt);
         void includeChar(char const ch, size_t const setAt);
         void enlarge();
+        Char *newMemory(size_t const newSize);
+        void copyInto(Char *newData);
+        void destroy();
         
         size_t capacity() const;
         CharInfo const &info() const;

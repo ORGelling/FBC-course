@@ -21,3 +21,13 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 --verbose --log-file=valgrind-out.txt
 
 and it told us that we do not have a memory leak! Yay!
+
+We note that we have elected to keep the append and insert functions separate
+entirely. In the previous set we had allocated both these functionalities to 
+the same function, as it could insert something inside the array, or just at
+the end (hence: append). This time around we note that appending is much
+simpler than inserting, as there will always be some room left in the raw 
+capacity the moment the function is called, and as such appending only needs 
+to initialise one more Char spot, whereas insertion needs all the elements at
+and beyond the insertion index to move one place. We thus do not really reuse
+any significant amount of code.
