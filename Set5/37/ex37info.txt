@@ -9,8 +9,8 @@ double (*ptr)[8]; // = arr;
 
 2:  declare a variable ptr pointing to an array holding the addresses of 
     series of doubles.
-
-double *(*ptr)[];
+                                        // Probably fixed
+double **ptr;
 
 3:  declare a pointer ptr that may point to arrays of immutable pointers to 
     arrays of mutable pointers to immutable std::string objects.
@@ -19,31 +19,23 @@ std::string const **const *ptr;
 
 4:  declare a function fun expecting no parameters, returning a matrix of 
     6 x 6 std::string objects
-
-std::string (*fun())[6][6]
-{
-    static std::string stringArray[6][6];
-    return &stringArray;
-}
+                                        // Probably fixed!
+std::string (*fun())[6][6];
 
 5:  declare a function fun as in the previous item, now with 
-
+                                        // Probably fixed!
 using StringMat = std::string (*)[6];
 
-StringMat (*fun())[6]
-{
-    static StringMat stringArray[6];
-    return &stringArray;
-}
+StringMat (*fun())[6];
 
 6:  complete the following function by providing the initialization section 
     of its for-statement
-    
+                                        // COCO... Maybe fixed?
 void process(unsigned begin, unsigned end, char const *const *args)
 {
     for 
     (
-        char const *const *argsBegin = args + begin, *argsEnd = args + end;
+        auto argsBegin = args + begin, argsEnd = args + end;
         argsBegin != argsEnd;
         ++argsBegin;
     )

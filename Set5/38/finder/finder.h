@@ -1,3 +1,6 @@
+#ifndef INCLUDED_FINDER_
+#define INCLUDED_FINDER_
+
 #include <string>
 
 struct Finder
@@ -34,3 +37,5 @@ inline Finder::Pair const *Finder::get(std::string const &key) const
 {
     return finder(key);
 }
+
+#endif
