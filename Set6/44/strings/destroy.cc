@@ -4,8 +4,8 @@
 
 void Strings::destroy()
 {
-    for (string *sp = d_memory + d_size; sp-- != d_memory; )
-        sp->~string();
+    for (size_t index = 0; index != d_size; ++index)
+        delete d_data[index];
     
-    operator delete(d_memory);
+    operator delete(d_data);
 }

@@ -1,6 +1,6 @@
 #include "strings.ih"
 
-CharCount::resize()
+Strings::resize()
 {
     
 }

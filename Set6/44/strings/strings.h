@@ -10,12 +10,6 @@ class Strings
     std::string **d_data = nullptr;
     
     public:
-        struct POD
-        {
-            size_t      size;
-            std::string *str;
-        };
-
         Strings();
         Strings(size_t argc, char **argv);
         Strings(char **environLike);
@@ -26,8 +20,7 @@ class Strings
         void swap(Strings &other);              
 
         size_t size() const;
-        std::string const *data() const;
-        POD release();
+        std::string const *const *data() const;
 
         std::string const &at(size_t idx) const;
         std::string &at(size_t idx);
@@ -38,11 +31,15 @@ class Strings
         void fill(char **ntbs);                    // fill prepared d_str
 
         std::string &safeAt(size_t idx) const;      // private backdoor
-        std::string *enlarge();
+        
+        void enlarge();
+        std::string **rawPointers(size_t const newSize);
+        void copyPtrsInto(std::string **rawMemory);
+        void setNull();
+        void destroyPtrArray();
         void destroy();
         void reserve();
         std::string **resize();
-        std::string **rawPointers(size_t const number);
         
         static size_t count(char **environLike);   // # elements in env.like
 };
@@ -52,9 +49,9 @@ inline size_t Strings::size() const         // potentially dangerous practice:
     return d_size;
 }
 
-inline std::string const *Strings::data() const
+inline std::string const *const *Strings::data() const
 {
-    return d_str;
+    return d_data;
 }
 
 inline std::string const &Strings::at(size_t idx) const

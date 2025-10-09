@@ -9,23 +9,17 @@ class Strings
     std::string *d_str;
 
     public:
-        struct POD
-        {
-            size_t      size;
-            std::string *str;
-        };
-
         Strings();
         Strings(size_t argc, char **argv);
         Strings(char **environLike);
         Strings(std::istream &in);
+        
         ~Strings();                         // Added destructor.
         
         void swap(Strings &other);              
 
         size_t size() const;
         std::string const *data() const;
-        POD release();
 
         std::string const &at(size_t idx) const;
         std::string &at(size_t idx);
