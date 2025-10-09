@@ -2,7 +2,7 @@
 
     // by count.cc
 
-CharCount::Action CharCount::locate(char const ch, size_t &setAt)
+CharCount::Action CharCount::locate(char const ch, size_t &setAt) const
 {
     size_t const arraySize = d_data.nCharObjects;
     while (setAt != arraySize)              // setAt always starts at 0 when

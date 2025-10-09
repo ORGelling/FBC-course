@@ -31,7 +31,7 @@ struct CharCount
         ~CharCount();
         
         void count(std::istream &input);
-        Action locate(char const ch, size_t &setAt);
+        Action locate(char const ch, size_t &setAt) const;
         void appendChar(char const ch, size_t const setAt);
         void insertChar(char const ch, size_t const setAt);
         void includeChar(char const ch, size_t const setAt);

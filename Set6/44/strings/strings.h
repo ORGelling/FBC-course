@@ -6,8 +6,8 @@
 class Strings
 {
     size_t d_size;
-    size_t d_capacity;
-    std::string **d_data;
+    size_t d_capacity = 1;
+    std::string **d_data = nullptr;
     
     public:
         struct POD
