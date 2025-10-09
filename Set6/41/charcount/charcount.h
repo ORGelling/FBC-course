@@ -38,6 +38,8 @@ struct CharCount
         void enlarge();
         Char *newMemory(size_t const newSize);
         void copyInto(Char *newData);
+        void moveValues(Char *ptr, size_t const start, size_t const end);
+        
         void destroy();
         
         size_t capacity() const;

@@ -4,17 +4,12 @@
 
 void CharCount::insertChar(char const ch, size_t const setAt)
 {
-    size_t const size = d_data.nCharObjects++; // get size and then increment
+    size_t const size = d_data.nCharObjects++;  // get size and then increment
     
-    Char *ptr = d_data.rawCapacity;             // For visual clarity
-    new(ptr + size) Char;                       // Initialise extra Char
+    new(d_data.rawCapacity + size) Char;        // Initialise extra Char
     
-    for (size_t index = size; index != setAt; --index)
-    { 
-        ptr[index].ch = ptr[index - 1].ch;
-        ptr[index].count = ptr[index - 1].count;
-    }                           // move values from setAt onwards one step up
+    moveValues(d_data.rawCapacity, setAt, size);
     
-    ptr[setAt].ch = ch;                         // Set new Char at setAt
-    ptr[setAt].count = 1;
+    d_data.rawCapacity[setAt].ch = ch;          // Set new Char at setAt
+    d_data.rawCapacity[setAt].count = 1;
 }
