@@ -1,1 +1,30 @@
 Exercise 43: 
+
+Fix the memory leak in the Strings class.
+
+Compiling the class with the given main function and running it through
+valgrind shows us that we have a rather severe memory leak going on. It seems
+like the data is being deleted just fine inside add() but is not being cleaned
+up properly at the end of the object's lifetime. Valgrind showed multiple
+calls of both allocation and "freeing" of memory, but not of equal amount.
+
+To solve this we have added a relatively simple destructor to make sure that
+the object is being cleaned up correctly at the end of its lifetime
+
+Three questions:
+
+Q1: Why are there 2 at() members?
+A1: The function at() is called on a String object. Since there is a const and
+    a not-const version of this function either one or the other will be 
+    called depending on whether it is called on a const or non-const String
+    object. It also functions as a backdoor if the object is not const. One 
+    can use object.at(index) to change the string at that index.
+
+Q2: Which one does abovementioned main() use?
+A2: The one that is not const. We added cout statements to both and the
+    initial main function given by the exercise uses the not-const at().
+
+Q3: Provide an example showing where the other at() member is used.
+A3: If we declare a const String object the other at() function will be used!
+    Our main.cc shows this by simply and exclusively adding const to the
+    Strings object declaration/initialisation.
