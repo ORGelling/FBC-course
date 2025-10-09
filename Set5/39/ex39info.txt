@@ -1,0 +1,62 @@
+Exercise 39:
+
+We compile the class's source files like so:
+g++ -Werror -Wall -std=c++26 -c data/*.cc
+
+And we then link the library:
+ar rcs libdata.a *.o
+
+This gives us libdata.a.
+
+We can compile main.cc into an object file in the same way:
+g++ -Werror -Wall -std=c++26 -c main.cc
+
+And we link the two together:
+g++ -Werror -Wall -std=c++26 main.o -L. -ldata -o main
+
+The program runs as it should, giving us output:
+
+Object 1: value is: 1
+Object 2: value is: 2
+Object 3: value is: 3
+Object 4: value is: 4
+
+Now, doing the same over again but with the new member and its line in the
+read() function uncommented, we run the program similarly and get:
+Segmentation fault (core dumped)
+
+We reforge the classes to now have DataImp and Data class, where DataImp is
+basically the previous Data class, and Data is the "wrapper" with the d_pimpl
+pointer as its single data member.
+
+We compile them:
+g++ -Wall -Werror --std=c++26 -c dataimp/*.cc data/*.cc
+
+We recompile main.cc exactly like above, just to make sure it works with the
+initial version of our new class form (with the d_text fields still commented
+out.)
+
+Then we link the files together like so:
+g++ main.o -L. -ldataimp -o main
+
+We get a main that runs exactly as above. Now we change the DataImp class to
+use the text data member and try again!
+
+We recompile all the sources exactly like before, and then construct the
+library like so:
+ar rcs libdataimp2.a *.o
+
+And then link it with main.o:
+g++ main.o -L. -ldataimp2 -o main
+
+And we get the output:
+
+Object 1: value is: 1
+Object 2: value is: 2
+Object 3: value is: 3
+Object 4: value is: 4
+
+Which is exactly correct! Although there does not seem to be anything in here
+that shows the extension of the class, but that makes sense since nothing in
+the members has been amended to use the new member variable, and the Data
+class itself is not extended for it either.

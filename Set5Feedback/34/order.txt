@@ -1,0 +1,12 @@
+ex34info.txt
+
+copycat/copycat.h
+copycat/copycat.ih
+copycat/copycat2.cc
+copycat/copycat3.cc
+copycat/ntbsCopy.cc
+copycat/nElements.cc
+copycat/duplicate.cc
+
+-main.cc
+-Makefile

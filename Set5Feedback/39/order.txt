@@ -1,0 +1,15 @@
+ex39info.txt
+
+data/data.h
+data/data.ih
+data/data1.cc
+data/data2.cc
+data/read.cc
+data/display.cc
+
+dataimp/dataimp.h
+dataimp/dataimp.ih
+dataimp/readimp.cc
+dataimp/displayimp.cc
+
+-Makefile

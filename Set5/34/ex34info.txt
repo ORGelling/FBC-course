@@ -1,0 +1,31 @@
+Exercise 34:
+
+Implement the CopyCat class by adding functions ntbsCopy, nElements, and
+duplicate, and implementing the constructors.
+
+We do exactly this, noting that we can separate finding the size of the array
+out from calling duplicate, and passing d_size to duplicate as argument. Once
+these functions have been finished they can be used inside the initialiser
+list.
+
+CopyCat() can be inline since it can simply call the 3rd constructor with a
+default argument (which we declare the extern char above it for).
+
+We choose to copy the NTBSs "manually" inside a for loop to maintain maximum
+safety, as strcpy and strncpy (etc) aren't very "C++" and have downsides.
+Since we find the length of the NTBSs (we do use cstring's strlen for that) to
+allocate memory looping through the strings in situ is not much more complex
+than calling a function for it.
+
+No destructors are needed for this exercise as the memory leak is accepted for
+didactic purposes here. If we were to create one we can do so by following the
+example from the book, and using d_size to loop over the elements of our array
+of pointers to pointers to chars, first deleting the memory allocated where
+our pointers to chars point for each one, and then deleting the array of
+pointers to pointers.
+
+The contents of that destructor would probably look something like this:
+
+for (size_t idx = 0; idx != arraySize; ++idx)
+    delete data[idx];
+delete[] data;
