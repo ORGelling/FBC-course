@@ -1,14 +1,14 @@
 #include "strings.ih"
 
-void Strings::enlarge()
+void Strings::enlarge(size_t const newSize)
 {
-    string **stringPtrArray = rawPointers(d_capacity * 2);
-    
+    string **stringPtrArray = rawPointers(newSize);
     copyPtrsInto(stringPtrArray);
-    setNull();
     
     operator delete(d_data);
     d_data = stringPtrArray;
     
-    d_capacity *= 2;
+    setNull(d_capacity, newSize);
+    
+    d_capacity = newSize;
 }

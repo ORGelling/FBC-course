@@ -4,6 +4,6 @@
 
 void Strings::copyPtrsInto(string **rawMemory)
 {
-    for (size_t index = 0; index != d_capacity; ++index)
+    for (size_t index = 0; index != d_size; ++index)
         rawMemory[index] = d_data[index];
 }

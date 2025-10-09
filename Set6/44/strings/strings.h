@@ -24,7 +24,12 @@ class Strings
 
         std::string const &at(size_t idx) const;
         std::string &at(size_t idx);
-
+        
+        void resize(size_t const newSize);
+        void reserve(size_t const newCapacity);
+        
+        size_t capacity() const;
+        
         void add(std::string const &next);          // add another element
 
     private:
@@ -32,14 +37,16 @@ class Strings
 
         std::string &safeAt(size_t idx) const;      // private backdoor
         
-        void enlarge();
+        void enlarge(size_t const newSize);
         std::string **rawPointers(size_t const newSize);
         void copyPtrsInto(std::string **rawMemory);
-        void setNull();
-        void destroyPtrArray();
+        void setNull(size_t const from, size_t const to);
+        void initialiseStrings(size_t const newSize);
+        
         void destroy();
-        void reserve();
-        std::string **resize();
+        void destroyStrings();
+        void destroyStrings(size_t const cutoff);
+        void destroyArray();
         
         static size_t count(char **environLike);   // # elements in env.like
 };
@@ -64,6 +71,9 @@ inline std::string &Strings::at(size_t idx)
     return safeAt(idx);
 }
 
+inline size_t Strings::capacity() const
+{
+    return d_capacity;
+}
         
 #endif
-

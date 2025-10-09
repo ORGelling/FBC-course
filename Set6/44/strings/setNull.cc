@@ -2,8 +2,8 @@
 
     // by enlarge.cc
 
-void Strings::setNull()
+void Strings::setNull(size_t const from, size_t const to)
 {
-    for (size_t index = 0; index != d_capacity; ++index)
-        d_data[d_capacity + index] = nullptr;
+    for (size_t index = from; index != to; ++index)
+        d_data[index] = nullptr;
 }
