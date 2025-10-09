@@ -1,0 +1,20 @@
+Exercise 35:
+
+Make the class CharCount and implement it such that it can count all
+characters in a file using a dynamic number of character structs.
+
+We make a program as such. Along with the functions outlined in the exercise
+descriiption we also make insertChar, which bandles the responsibility of
+allocating new memory, copying the old elements, and inserting the new one
+in. We use the same function for appending and inserting as it is necessarily
+given an index for where to do so, so the APPEND and INSERT cases are a dual
+entrypoint into the same function call, with insert being given the setAt
+position to put it either inside the array or append it at the end. 
+
+Locate uses a static cast to unsigned chars to order the array by ascii value,
+and so that we do not get wraparound errors in the final print of the showChar
+function. 
+
+We also added a secondary free function, charOutput, that takes up the 
+responsibility of formatting the character output from showChar, which ould
+otherwise have MLR and be a tad on the long side.
