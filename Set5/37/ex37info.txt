@@ -45,7 +45,7 @@ void process(unsigned begin, unsigned end, char const *const *args)
     (
         char const *const *argsBegin = args + begin, *argsEnd = args + end;
         argsBegin != argsEnd;
-        ++argsBegin
+        ++argsBegin;
     )
         process(*argsBegin);
 }
