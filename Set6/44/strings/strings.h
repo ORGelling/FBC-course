@@ -44,9 +44,7 @@ class Strings
         void initialiseStrings(size_t const newSize);
         
         void destroy();
-        void destroyStrings();
         void destroyStrings(size_t const cutoff);
-        void destroyArray();
         
         static size_t count(char **environLike);   // # elements in env.like
 };

@@ -1,10 +1,9 @@
 #ifndef INCLUDED_VALUE_
 #define INCLUDED_VALUE_
 
+#include "../token.h"
 #include <iosfwd>
 #include <cstddef>
-
-#include "../token.h"
 
 class Value
 {
