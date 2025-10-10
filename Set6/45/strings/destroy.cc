@@ -5,7 +5,7 @@
 void Strings::destroy()
 {
     for (size_t index = 0; index != d_size; ++index)
-        delete d_data[index];
+        d_data[index].~string();
     
     operator delete(d_data);
 }

@@ -7,7 +7,7 @@ class Strings
 {
     size_t d_size;
     size_t d_capacity = 1;
-    std::string **d_data = nullptr;
+    std::string *d_data = nullptr;
     
     public:
         Strings();
@@ -20,7 +20,7 @@ class Strings
         void swap(Strings &other);              
 
         size_t size() const;
-        std::string const *const *data() const;
+        std::string const *data() const;
 
         std::string const &at(size_t idx) const;
         std::string &at(size_t idx);
@@ -39,14 +39,10 @@ class Strings
         
         void enlarge(size_t const newSize);
         std::string *rawStrings(size_t const newSize);
-        void copyPtrsInto(std::string **rawMemory);
-        void setNull(size_t const from, size_t const to);
-        void initialiseStrings(size_t const newSize);
+        void copyStringsInto(std::string *stringArray);
         
         void destroy();
-        void destroyStrings();
-        void destroyStrings(size_t const cutoff);
-        void destroyArray();
+        void destroyPart(size_t const newSize);
         
         static size_t count(char **environLike);   // # elements in env.like
 };
@@ -56,7 +52,7 @@ inline size_t Strings::size() const         // potentially dangerous practice:
     return d_size;
 }
 
-inline std::string const *const *Strings::data() const
+inline std::string const *Strings::data() const
 {
     return d_data;
 }

@@ -7,10 +7,8 @@ void Strings::enlarge(size_t const newSize)
     string *stringArray = rawStrings(newSize);
     copyStringsInto(stringArray);
     
-    operator delete(d_data);
-    d_data = stringPtrArray;
+    destroy();
     
-    setNull(d_capacity, newSize);       // set pointers to nullptr
-    
+    d_data = stringArray;
     d_capacity = newSize;
 }

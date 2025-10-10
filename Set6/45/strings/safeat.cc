@@ -12,5 +12,5 @@ std::string &Strings::safeAt(size_t idx) const
         return emptyString;
     }
 
-    return *d_data[idx];
+    return d_data[idx];
 }

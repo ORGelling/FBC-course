@@ -2,7 +2,7 @@
 
 void Strings::swap(Strings &other)
 {
-    string **tmp = d_data;
+    string *tmp = d_data;
     d_data = other.d_data;
     other.d_data = tmp;
 
