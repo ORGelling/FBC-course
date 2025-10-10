@@ -5,5 +5,6 @@
 Value::Value(double const number)
 :
     d_token(DOUBLE)
-    d_value(number)
-{}
+{
+    d_value.u_double = number;
+}

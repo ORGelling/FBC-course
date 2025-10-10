@@ -5,5 +5,6 @@
 Value::Value(char const number)
 :
     d_token(CHAR)
-    d_value(number)
-{}
+{
+    d_value.u_char = number;
+}

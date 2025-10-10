@@ -5,5 +5,6 @@
 Value::Value()
 :
     d_token(INT)
-    d_value(0)
-{}
+{
+    d_value.u_int = 0;
+}

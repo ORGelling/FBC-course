@@ -1,6 +1,9 @@
 #ifndef INCLUDED_VALUE_
 #define INCLUDED_VALUE_
 
+#include <iosfwd>
+#include <cstddef>
+
 #include "../token.h"
 
 class Value
@@ -10,15 +13,17 @@ class Value
         int u_int;
         double u_double;
         char u_char;
-    }
+    };
     
     Token d_token;
     uValue d_value;
     
     public:
         Value();
+        Value(int const number);
         Value(double const number);
-        Value(size_t const index, )
+        Value(char const number);
+        Value(size_t const symbolIndex, Token type);
         
         int intValue() const;
         void intValue(int const value);
@@ -33,29 +38,33 @@ class Value
     private:
 };
 
-inline int intValue() const
+inline int Value::intValue() const
 {
-    return d_value;
+    return d_value.u_int;
 }
-inline void intValue(int const value)
+inline void Value::intValue(int const value)
 {
-    d_value = value;
+    d_value.u_int = value;
 }
-inline double doubleValue() const
+inline double Value::doubleValue() const
 {
-    return d_value;
+    return d_value.u_double;
 }
-inline void doubleValue(double const value)
+inline void Value::doubleValue(double const value)
 {
-    d_value = value;
+    d_value.u_double = value;
 }
-inline char charValue() const
+inline char Value::charValue() const
 {
-    return d_value;
+    return d_value.u_char;
 }
-inline void charValue(char const value)
+inline void Value::charValue(char const value)
 {
-    d_value = value;
+    d_value.u_char = value;
+}
+inline Token Value::token() const
+{
+    return d_token;
 }
 
 #endif
