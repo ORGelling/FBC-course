@@ -1,0 +1,7 @@
+#include "value.ih"
+
+    // by 
+
+void Value::()
+{
+}
