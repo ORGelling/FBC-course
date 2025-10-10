@@ -33,4 +33,29 @@ class Value
     private:
 };
 
+inline int intValue() const
+{
+    return d_value;
+}
+inline void intValue(int const value)
+{
+    d_value = value;
+}
+inline double doubleValue() const
+{
+    return d_value;
+}
+inline void doubleValue(double const value)
+{
+    d_value = value;
+}
+inline char charValue() const
+{
+    return d_value;
+}
+inline void charValue(char const value)
+{
+    d_value = value;
+}
+
 #endif
