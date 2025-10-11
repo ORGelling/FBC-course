@@ -32,6 +32,7 @@ class Value
         void charValue(char const value);
         
         Token token() const;
+        void setToken(Token const token);
         
         void requireSpecial(Token token);
     private:
@@ -64,6 +65,10 @@ inline void Value::charValue(char const value)
 inline Token Value::token() const
 {
     return d_token;
+}
+inline void Value::setToken(Token const token)
+{
+    d_token = token;
 }
 
 #endif

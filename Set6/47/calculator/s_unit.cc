@@ -5,10 +5,10 @@
 Value (Calculator::*Calculator::s_unit[])() 
 =
 {
-    &Calculator::notOk;
-    &Calculator::charUnit;
-    &Calculator::intDouble;
-    &Calculator::intDouble;
-    &Calculator::ident;
-    &Calculator::notOk;
+    &Calculator::notOk;         // QUIT
+    &Calculator::charUnit;      // CHAR
+    &Calculator::intDouble;     // INT
+    &Calculator::intDouble;     // DOUBLE
+    &Calculator::ident;         // IDENT
+    &Calculator::notOk;         // ERROR
 };

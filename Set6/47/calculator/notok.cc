@@ -2,7 +2,7 @@
 
     // by s_unit.cc
 
-Value Calculator::notOk()
+Value Calculator::notOK()
 {
     d_tokenizer.error();
     d_ok = false;
