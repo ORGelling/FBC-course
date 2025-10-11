@@ -1,7 +1,7 @@
 #ifndef INCLUDED_VALUE_
 #define INCLUDED_VALUE_
 
-#include "../token.h"
+#include "../enum/enum.h"
 #include <iosfwd>
 #include <cstddef>
 
