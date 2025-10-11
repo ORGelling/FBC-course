@@ -1,0 +1,2 @@
+find.cc.o: find.cc symtab.ih symtab.h ../symbol/symbol.h \
+ ../symbol/../value/value.h ../symbol/../value/../token.h

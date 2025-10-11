@@ -12,18 +12,21 @@ class Symtab
     public:
         Symtab();
         
-        Symbol &find(std::string &identifier);
-        size_t findIdx();
+        Symbol const &find(std::string const &ident);
+        size_t findIdx(std::string const &ident);
         size_t size();
         Symbol &at(size_t const index);
         Symbol const &at(size_t const index) const;
         
     private:
-        void add();
+        size_t binarySearch(std::string const &ident) const;
+        
+        void add(std::string const &ident, size_t const position);
         void enlarge(size_t const newSize);
         Symbol **rawPointers(size_t const newCapacity);
         void copyDataInto(Symbol **newData);
         void setNull(size_t const from, size_t const to);
+        void movePtrs(size_t const from);
         
         Symbol &safeAt(size_t const index) const; 
 };

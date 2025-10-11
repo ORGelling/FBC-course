@@ -1,0 +1,2 @@
+symbol/symbol1.cc.o: symbol/symbol1.cc symbol/symbol.ih symbol/symbol.h \
+ symbol/../value/value.h symbol/../value/../token.h

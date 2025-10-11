@@ -17,10 +17,11 @@ class Symbol
             RHS_FIRST,
             EQUAL,
         };
-        
-        Symbol(std::string const &name, int intValue);
+        Symbol();
+        Symbol(std::string const &name, int intValue = 0);
         Symbol(std::string const &name, double doubleValue);
         
+        std::string const &ident() const;
         double doubleValue() const;
         int intValue() const;
         Token type() const;
@@ -33,6 +34,10 @@ class Symbol
     private:
 };
 
+inline std::string const &Symbol::ident() const
+{
+    return d_name;
+}
 inline double Symbol::doubleValue() const
 {
     return d_value.doubleValue();
