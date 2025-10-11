@@ -1,0 +1,2 @@
+safeat.cc.o: safeat.cc symtab.ih symtab.h ../symbol/symbol.h \
+ ../symbol/../value/value.h ../symbol/../value/../token.h

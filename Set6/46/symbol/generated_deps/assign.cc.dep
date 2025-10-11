@@ -1,0 +1,2 @@
+assign.cc.o: assign.cc symbol.ih symbol.h ../value/value.h \
+ ../value/../token.h
