@@ -1,3 +1,0 @@
-symtab/binarysearch.cc.o: symtab/binarysearch.cc symtab/symtab.ih \
- symtab/symtab.h symtab/../symbol/symbol.h \
- symtab/../symbol/../value/value.h symtab/../symbol/../value/../token.h
