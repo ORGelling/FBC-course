@@ -1,8 +1,16 @@
 #include "calculator.ih"
 
-    // by 
+    // by charunit.cc
 
 Value Calculator::parenthesized()
 {
+    nextToken();
+    Value ret = evaluate();
     
+    if(charToken(')'))
+    {
+        nextToken();
+        return ret;
+    }
+    return notOk();
 }

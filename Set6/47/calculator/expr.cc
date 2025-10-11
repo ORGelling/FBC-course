@@ -2,7 +2,7 @@
 
     // by evaluate.cc
 
-void Calculator::expr()
+Value Calculator::expr()
 {
     Value ret = term();                                 // the expr's term
 

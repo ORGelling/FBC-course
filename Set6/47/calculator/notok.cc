@@ -9,6 +9,5 @@ Value Calculator::notOk()
     
     Value ret = d_tokenizer.value();
     
-    d_tokenizer.nextToken();
     return ret;
 }

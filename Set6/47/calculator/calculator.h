@@ -53,7 +53,7 @@ class Calculator
 
        Token show(Value const &value);
 
-       bool charToken(int ch);         // true if 'ch' is the next token
+       bool charToken(int ch) const;      // true if 'ch' is the next token
        size_t charTokens(std::string const &chars);    // the index of the
                                        // token in chars, or chars.length() 
 

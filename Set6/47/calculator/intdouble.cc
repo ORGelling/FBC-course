@@ -4,11 +4,9 @@
 
 Value Calculator::intDouble()
 {
-    // handle pending token
     Value ret = d_tokenizer.value();
     
-    // call next token
-    d_tokenizer.nextToken();
+    nextToken();
 
     return ret;
 }

@@ -4,5 +4,15 @@
 
 Value Calculator::unaryMinus()
 {
-    // call factor but swap sign?
+    Value ret = factor();
+    
+    switch (ret.token())
+    {
+        case INT:
+            ret.intValue(-ret.intValue());
+        case DOUBLE:
+            ret.doubleValue(-ret.doubleValue());
+    }
+    
+    return ret;
 }

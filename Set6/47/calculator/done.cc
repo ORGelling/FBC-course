@@ -1,6 +1,6 @@
 #include "calculator.ih"
 
-bool Calculator::done(Value &ret)
+bool Calculator::done([[maybe_unused]] Value &ret)
 {
     return false;
 }
