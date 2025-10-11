@@ -1,2 +1,0 @@
-value/value3.cc.o: value/value3.cc value/value.ih value/value.h \
- value/../token.h
