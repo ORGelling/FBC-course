@@ -2,7 +2,7 @@
 
     // by 
 
-Symbol const &Symtab::find(string const &ident)
+Symbol &Symtab::find(string const &ident)
 {
     size_t index = binarySearch(ident);
     

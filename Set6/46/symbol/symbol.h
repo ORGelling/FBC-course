@@ -25,6 +25,7 @@ class Symbol
         double doubleValue() const;
         int intValue() const;
         Token type() const;
+        Value &value();
         Value const &value() const;
         
         void assign(Value const &value);
@@ -49,6 +50,10 @@ inline int Symbol::intValue() const
 inline Token Symbol::type() const
 {
     return d_value.token();
+}
+inline Value &Symbol::value()
+{
+    return d_value;
 }
 inline Value const &Symbol::value() const
 {
