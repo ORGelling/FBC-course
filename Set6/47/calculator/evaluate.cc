@@ -7,19 +7,21 @@ Value Calculator::evaluate()
     if (d_tokenizer.token() == IDENT)
     {
         string name = d_tokenizer.ident();
-        size_t index = d_symtab.findIdx(name);
+        Symbol &id = d_symtab.find(name);
         nextToken();
         
         if (charToken('='))
         {
             nextToken();
             Value rhs = evaluate();
-            
-            d_symtab.at(index).assign(rhs);
-            return evaluate();
+            id.assign(rhs);
+            return rhs;
+        }
+        else 
+        {   
+            return id.value(); 
         }
     }
-    // keep in mind the recursive calls.
-    // 
+    
     return expr();
 }

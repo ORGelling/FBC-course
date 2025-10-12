@@ -6,11 +6,7 @@ Value Calculator::ident()
 {
     string const identifier = d_tokenizer.ident();
     Value ret = d_symtab.find(identifier).value();
-    show(ret);
-    //Value ret{ index, IDENT };
-    
-    
-    
+    //ret.setToken(IDENT);
     nextToken();
 
     return rvalue(ret);

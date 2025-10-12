@@ -4,7 +4,6 @@
 
 Value Calculator::rvalue(Value const &value) const
 {
-    cout << "using rvalue\n";
     if (value.token() == IDENT)
         return d_symtab.at(value.intValue()).value();
     
