@@ -42,25 +42,13 @@ inline int Value::intValue() const
 {
     return d_value.u_int;
 }
-inline void Value::intValue(int const value)
-{
-    d_value.u_int = value;
-}
 inline double Value::doubleValue() const
 {
     return d_value.u_double;
 }
-inline void Value::doubleValue(double const value)
-{
-    d_value.u_double = value;
-}
 inline char Value::charValue() const
 {
     return d_value.u_char;
-}
-inline void Value::charValue(char const value)
-{
-    d_value.u_char = value;
 }
 inline Token Value::token() const
 {

@@ -9,6 +9,7 @@ void Value::requireSpecial(Token token)
         case QUIT:
         case ERROR:
         case IDENT:
+            setToken(token);
         break;
         default:
             cerr << "internal error: forcing token " << token << 

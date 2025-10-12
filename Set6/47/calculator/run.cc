@@ -6,7 +6,7 @@ void Calculator::run()
     {
         prompt();                       // show a prompt, prepare for the
                                         // next expression evaluation
-
+        
         if (d_tokenizer.token() == QUIT)
             break;
 

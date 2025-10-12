@@ -8,10 +8,15 @@ Value Calculator::evaluate()
     {
         string name = d_tokenizer.ident();
         size_t index = d_symtab.findIdx(name);
+        cout << "symtab index: " << index << '\n';
+        //nextToken();
         
-        nextToken();
-        
-        if (charToken('='))
+        if (!charToken('='))
+        {
+            nextToken();
+            return d_symtab.at(index).value();
+        }
+        else
         {
             nextToken();
             Value rhs = expr();
@@ -20,5 +25,6 @@ Value Calculator::evaluate()
             return rhs;
         }
     }
+    
     return expr();
 }

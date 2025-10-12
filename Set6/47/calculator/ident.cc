@@ -7,7 +7,7 @@ Value Calculator::ident()
     string const identifier = d_tokenizer.ident();
     size_t const index = d_symtab.findIdx(identifier);
     
-    Value ret{ index, d_tokenizer.token() };
+    Value ret{ index, IDENT };
     
     nextToken();
 

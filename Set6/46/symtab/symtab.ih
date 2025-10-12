@@ -1,5 +1,5 @@
 #include "symtab.h"
-
+#include <iostream> // for debugging
 
 using namespace std;
 

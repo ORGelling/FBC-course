@@ -8,6 +8,6 @@ Value Calculator::notOK()
     d_ok = false;
     
     Value ret = d_tokenizer.value();
-    
+    show(ret);    
     return ret;
 }
