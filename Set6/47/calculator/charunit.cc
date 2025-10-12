@@ -5,7 +5,6 @@
 Value Calculator::charUnit()
 {
     //nextToken();
-    cout << "charUnit\n";
     switch (d_tokenizer.charValue())
     {
         case '(':
