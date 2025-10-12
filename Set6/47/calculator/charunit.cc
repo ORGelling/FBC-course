@@ -4,6 +4,7 @@
 
 Value Calculator::charUnit()
 {
+    cout << "charUnit\n";
     switch (d_tokenizer.charValue())
     {
         case '(':

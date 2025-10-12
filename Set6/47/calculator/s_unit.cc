@@ -1,6 +1,6 @@
 #include "calculator.ih"
 
-    // by 
+    // by factor.cc
 
 Value (Calculator::*Calculator::s_unit[])() 
 =

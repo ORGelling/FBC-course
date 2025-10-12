@@ -1,0 +1,2 @@
+41/charcount/copyinto.cc.o: 41/charcount/copyinto.cc \
+ 41/charcount/charcount.ih 41/charcount/charcount.h

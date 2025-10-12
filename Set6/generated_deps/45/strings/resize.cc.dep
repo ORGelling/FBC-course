@@ -1,0 +1,2 @@
+45/strings/resize.cc.o: 45/strings/resize.cc 45/strings/strings.ih \
+ 45/strings/strings.h
