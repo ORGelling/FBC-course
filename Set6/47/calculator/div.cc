@@ -4,20 +4,22 @@
 
 bool Calculator::div(Value &lhs)
 {
-    Value rhs = factor();
+    nextToken();
     
+    Value rhs = factor();
     Token type = equalize(lhs, rhs);
     
-    if(type == INT)
-    {
-        if (!divisionOK(rhs.intValue() == 0))
-            return false;
-        lhs.intValue(lhs.intValue() / rhs.intValue());
-        return true;
-    }
+    bool zeroRhs = (type == INT) ? (rhs.intValue() == 0) 
+                            : (fabs(rhs.doubleValue()) < s_zeroDouble);
     
-    if (!divisionOK(fabs(rhs.doubleValue()) < s_zeroDouble))
+    if (!divisionOK(zeroRhs))
+    {
+        notOK();
         return false;
-    lhs.doubleValue(lhs.doubleValue() / rhs.doubleValue());
+    }
+    if(type == INT)
+        lhs.intValue(lhs.intValue() / rhs.intValue());
+    else
+        lhs.doubleValue(lhs.doubleValue() / rhs.doubleValue());
     return true;
 }

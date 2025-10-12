@@ -4,14 +4,13 @@
 
 Token Calculator::equalize(Value &lhs, Value &rhs)
 {
-    // if both are int do nothing
     if (lhs.token() == INT && rhs.token() == INT)
         return INT;
     
     if (lhs.token() == INT)
-        lhs.toDouble();
+        toDouble(lhs);
     if (rhs.token() == INT)
-        rhs.toDouble();
+        toDouble(rhs);
     
     return DOUBLE;
 }

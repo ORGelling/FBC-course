@@ -12,5 +12,5 @@ Value Calculator::parenthesized()
         nextToken();
         return ret;
     }
-    return notOk();
+    return notOK();
 }

@@ -6,7 +6,7 @@ Value Calculator::evaluate()
 {
     if (d_tokenizer.token() == IDENT)
     {
-        string name = d_tokenizer.identifier();
+        string name = d_tokenizer.ident();
         size_t index = d_symtab.findIdx(name);
         
         nextToken();
@@ -16,7 +16,7 @@ Value Calculator::evaluate()
             nextToken();
             Value rhs = expr();
             
-            assign(d_symtab.at(index).value, rhs);
+            d_symtab.at(index).assign(rhs);
             return rhs;
         }
     }

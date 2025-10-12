@@ -13,6 +13,6 @@ Value Calculator::charUnit()
         case '-':
             return unaryMinus();
         default:
-            return notOk();
+            return notOK();
     }
 }

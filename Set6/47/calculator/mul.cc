@@ -4,6 +4,8 @@
 
 bool Calculator::mul(Value &lhs)
 {
+    nextToken();
+    
     Value rhs = factor();
     
     Token type = equalize(lhs, rhs);
