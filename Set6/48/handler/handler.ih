@@ -1,0 +1,11 @@
+#include "handler.h"
+
+
+using namespace std;
+
+    // by element.cc kill.cc sum.cc available.cc fill.cc
+inline bool Handler::available(size_t nRequired)
+{
+    return specified(nRequired) and connect();
+}
+

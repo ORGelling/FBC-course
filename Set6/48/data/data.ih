@@ -1,0 +1,7 @@
+#include "data.h"
+//#include "../xerr/xerr.ih"
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
