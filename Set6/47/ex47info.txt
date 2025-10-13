@@ -8,16 +8,23 @@ of moving parts, and the connection to the previous one's actual exercise
 scope is tentative. We have a working calculator that can parse entire lines
 of logic, but have a few issues:
 
-Using assigned variables in calculations like x - 4, in this case we simply
-output the value of x. 
-
 Properly storing ident tokens, we see this in the fact that an expr() cannot
 return an ident for us and as such show() does not treat variables as idents,
 but as chars. We *do* store and show their values correctly though.
+
+Using assigned variables in calculations like x - 4. In this case we simply
+output the (stored) value of x. We understand that the form of evaluate() 
+should account for accepting an expression, and then, if an equals sign is 
+found, use assign(lhs, evaluate()) to then set whatever comes out of the next
+part to the lhs. This however requires proper disctinction and recognision of
+IDENT tokens after being returned by the previous expr(), which we are not 
+able to do yet. Thus for now this simple but incorrect form is left.
+Commented out code remains to be worked on inside the evaluate() function.
 
 Both of these issues stem from the way variables are handled, and the way we
 run things inside evaluate and the fact we do not have a properly implemented
 assign() function yet.
 
 We can do pretty much any and all calculations now, including parenthesized
-expressions, but we are not yet properly using the symbol table.
+expressions, but we are not yet properly using the symbol table as it should
+be.
