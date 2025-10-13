@@ -1,2 +1,0 @@
-symbol2.cc.o: symbol2.cc symbol.ih symbol.h ../value/value.h \
- ../value/../token.h

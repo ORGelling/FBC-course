@@ -1,2 +1,0 @@
-compare.cc.o: compare.cc symbol.ih symbol.h ../value/value.h \
- ../value/../token.h

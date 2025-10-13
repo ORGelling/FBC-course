@@ -42,7 +42,7 @@ operator new:
                                         operator new(8 * sizeof(string)));
         
 placement new:
-    Calls the constructor to initilise memory in a specific memory address.
+    Calls the constructor to initialise memory in a specific memory address.
     We initialise a string in all 8 places of the raw memory allocated in the
     answer above.
         for (size_t index = 0; index != 8; ++index)

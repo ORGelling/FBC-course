@@ -1,2 +1,0 @@
-41/charcount/includeChar.cc.o: 41/charcount/includeChar.cc \
- 41/charcount/charcount.ih 41/charcount/charcount.h

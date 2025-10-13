@@ -1,3 +1,0 @@
-46/symtab/symtab.ih.gch: 46/symtab/symtab.ih 46/symtab/symtab.h \
- 46/symtab/../symbol/symbol.h 46/symtab/../symbol/../value/value.h \
- 46/symtab/../symbol/../value/../enum/enum.h

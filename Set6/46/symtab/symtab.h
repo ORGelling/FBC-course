@@ -12,7 +12,7 @@ class Symtab
     public:
         Symtab();
         
-        Symbol const &find(std::string const &ident);
+        Symbol &find(std::string const &ident);
         size_t findIdx(std::string const &ident);
         size_t size();
         Symbol &at(size_t const index);

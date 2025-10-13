@@ -14,10 +14,8 @@ Token Tokenizer::nextToken()
 
         if (isalpha(d_ch) or d_ch == '_')
             return identifier();
-
         if (isdigit(d_ch) or d_ch == '.')           // and maybe also a ' '
             return intOrDouble();
-
         if (d_ch != '\n')
         {
             if (isspace(d_ch) or not isprint(d_ch))

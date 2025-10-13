@@ -6,4 +6,5 @@ void Strings::resize(size_t newSize)
         destroyPart(newSize);
     else if (newSize > d_size)
         reserve(newSize);
+    d_size = newSize;
 }

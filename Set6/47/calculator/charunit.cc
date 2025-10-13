@@ -4,16 +4,18 @@
 
 Value Calculator::charUnit()
 {
-    cout << "charUnit\n";
     switch (d_tokenizer.charValue())
     {
         case '(':
-            return parenthesized();
+            nextToken();
+        return parenthesized();
         case '+':
-            return factor();
+            nextToken();
+        return factor();
         case '-':
-            return unaryMinus();
+            nextToken();
+        return unaryMinus();
         default:
-            return notOK();
+        return notOK();
     }
 }

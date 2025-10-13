@@ -5,7 +5,7 @@
 void (CharCount::*CharCount::s_insertChar[])
 (
     char const ch,
-    size_t const indeix 
+    size_t const index 
 ) =
 {
     &CharCount::appendChar,             // Append to Char object array

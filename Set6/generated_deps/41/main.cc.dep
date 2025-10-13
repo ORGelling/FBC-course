@@ -1,2 +1,0 @@
-41/main.cc.o: 41/main.cc 41/main.ih 41/showchar/showChar.h \
- 41/showchar/../charcount/charcount.h

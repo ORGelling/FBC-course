@@ -7,15 +7,13 @@ bool Calculator::add(Value &lhs)
     nextToken();
     
     Value rhs = term();
-    Value lval = rvalue(lhs);
-    Value rval = rvalue(rhs);
     
-    Token type = equalize(lval, rval);
+    Token type = equalize(lhs, rhs);
     
     if (type == INT)
-        lhs.intValue(lval.intValue() + rval.intValue());
+        lhs.intValue(lhs.intValue() + rhs.intValue());
     else
-        lhs.doubleValue(lval.doubleValue() + rval.doubleValue());
+        lhs.doubleValue(lhs.doubleValue() + rhs.doubleValue());
     
     return true;
 }
