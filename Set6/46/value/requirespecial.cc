@@ -2,7 +2,7 @@
 
     // by 
 
-void Value::requireSpecial(Token token)
+void Value::requireSpecial(Token const token)
 {
     switch (token)
     {

@@ -11,10 +11,11 @@ class Symtab
     
     public:
         Symtab();
+        ~Symtab();
         
         Symbol &find(std::string const &ident);
         size_t findIdx(std::string const &ident);
-        size_t size();
+        size_t size() const;
         Symbol &at(size_t const index);
         Symbol const &at(size_t const index) const;
         
@@ -30,7 +31,7 @@ class Symtab
         
         Symbol &safeAt(size_t const index) const; 
 };
-inline size_t Symtab::size()
+inline size_t Symtab::size() const
 {
     return d_size;
 }

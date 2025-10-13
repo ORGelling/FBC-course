@@ -2,7 +2,7 @@
 
     // by 
 
-Value::Value(size_t const symbolIndex, Token type = Token::IDENT)
+Value::Value(size_t const symbolIndex, Token const type = Token::IDENT)
 :
     d_token(type)
 {

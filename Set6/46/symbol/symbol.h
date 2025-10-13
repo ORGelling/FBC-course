@@ -25,7 +25,7 @@ class Symbol
         double doubleValue() const;
         int intValue() const;
         Token type() const;
-        Value &value();
+        Value &value();             // for 47
         Value const &value() const;
         
         void assign(Value const &value);

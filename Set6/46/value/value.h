@@ -22,7 +22,7 @@ class Value
         Value(int const number);
         Value(double const number);
         Value(char const number);
-        Value(size_t const symbolIndex, Token type);
+        Value(size_t const symbolIndex, Token const type);
         
         int intValue() const;
         void intValue(int const value);
@@ -34,7 +34,7 @@ class Value
         Token token() const;
         void setToken(Token const token);
         
-        void requireSpecial(Token token);
+        void requireSpecial(Token const token);
     private:
 };
 

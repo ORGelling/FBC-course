@@ -1,7 +1,0 @@
-#include "symtab.ih"
-
-    // by 
-
-void Symtab::()
-{
-}
