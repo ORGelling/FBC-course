@@ -23,7 +23,9 @@ Commented out code remains to be worked on inside the evaluate() function.
 
 Both of these issues stem from the way variables are handled, and the way we
 run things inside evaluate and the fact we do not have a properly implemented
-assign() function yet.
+assign() function yet, along with the way we parse rvalue() to only hand back
+a Value object. This either has to happen further down the line (during
+calculations), or the IDENT tag is being lost somewhere along the way.
 
 We can do pretty much any and all calculations now, including parenthesized
 expressions, but we are not yet properly using the symbol table as it should
