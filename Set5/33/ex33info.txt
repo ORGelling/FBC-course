@@ -1,5 +1,7 @@
 Exercise 33:
 
+// NOTE: Image sent separately! This is only here for extended clarity
+
 Explain different aspects about pointers
 
 Q1: What differences exist between pointer variables and arrays?

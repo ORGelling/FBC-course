@@ -18,12 +18,22 @@ extern std::string const **const *ptr;
 
 4:  declare a function fun expecting no parameters, returning a matrix of 
     6 x 6 std::string objects
-                                        // Probably fixed!
-std::string (*fun())[6][6];
+                                        // Probably fixed!?
+extern std::string (*fun())[6][6];
 
 This returns a pointer to a 6x6 matrix, as returning a matrix itself is simply
 not allowed in C++. We could also return pointers to pointers to strings, or 
 a pointer to arrays of 6 strings.
+
+If that is not the correct answer, as it is not much different from our
+previous one, then maybe the form where we don't bother with the matrix
+structure works better:
+extern std::string **fun();
+
+Where fun points to pointers to strings, or even more concise:
+extern std::string (*(*fun())[6])[6];
+
+Here fun() returns a pointer to an array of 6 pointers to arrays of 6 strings.
 
 5:  declare a function fun as in the previous item, now with 
                                         // Probably fixed!
