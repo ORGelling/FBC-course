@@ -29,4 +29,6 @@ calculations), or the IDENT tag is being lost somewhere along the way.
 
 We can do pretty much any and all calculations now, including parenthesized
 expressions, but we are not yet properly using the symbol table as it should
-be.
+be. When a symbol is used as the first factor in a calculation, the
+calculation will be successful *if* it is prefixed with a +, otherwise it will
+fail to parse properly.
