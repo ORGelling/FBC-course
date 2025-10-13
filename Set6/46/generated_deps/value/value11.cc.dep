@@ -1,2 +1,0 @@
-value/value11.cc.o: value/value11.cc value/value.ih value/value.h \
- value/../enum/enum.h

@@ -4,20 +4,18 @@
 
 Value Calculator::charUnit()
 {
-    //nextToken();
     switch (d_tokenizer.charValue())
     {
         case '(':
             nextToken();
-            return parenthesized();
+        return parenthesized();
         case '+':
             nextToken();
-            return factor();
+        return factor();
         case '-':
             nextToken();
-            return unaryMinus();
+        return unaryMinus();
         default:
-            nextToken();
-            return notOK();
+        return notOK();
     }
 }

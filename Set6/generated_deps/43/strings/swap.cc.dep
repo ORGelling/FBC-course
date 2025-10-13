@@ -1,2 +1,0 @@
-43/strings/swap.cc.o: 43/strings/swap.cc 43/strings/strings.ih \
- 43/strings/strings.h

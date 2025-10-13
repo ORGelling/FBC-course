@@ -1,3 +1,0 @@
-intordouble.cc.o: intordouble.cc tokenizer.ih tokenizer.h \
- ../../46/enum/enum.h ../../46/value/value.h \
- ../../46/value/../enum/enum.h

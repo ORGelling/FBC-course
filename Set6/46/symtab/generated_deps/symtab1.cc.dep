@@ -1,1 +1,0 @@
-symtab1.cc.o: symtab1.cc symtab.ih symtab.h

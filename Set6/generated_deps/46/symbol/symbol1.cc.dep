@@ -1,3 +1,0 @@
-46/symbol/symbol1.cc.o: 46/symbol/symbol1.cc 46/symbol/symbol.ih \
- 46/symbol/symbol.h 46/symbol/../value/value.h \
- 46/symbol/../value/../enum/enum.h

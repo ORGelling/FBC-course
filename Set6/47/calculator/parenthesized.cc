@@ -4,13 +4,15 @@
 
 Value Calculator::parenthesized()
 {
-    nextToken();
-    Value ret = evaluate();
+    Value ret = expr();
     
-    if(charToken(')'))
+    if(!charToken(')'))
     {
-        nextToken();
-        return ret;
+        cout << "expected ')'\n";
+        return notOK();
     }
-    return notOK();
+    
+    nextToken();
+    
+    return ret;
 }

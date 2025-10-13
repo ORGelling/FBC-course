@@ -1,9 +1,0 @@
-47/calculator/nexttoken.cc.o: 47/calculator/nexttoken.cc \
- 47/calculator/calculator.ih 47/calculator/calculator.h \
- 47/calculator/../tokenizer/tokenizer.h \
- 47/calculator/../tokenizer/../../46/enum/enum.h \
- 47/calculator/../tokenizer/../../46/value/value.h \
- 47/calculator/../tokenizer/../../46/value/../enum/enum.h \
- 47/calculator/../../46/symtab/symtab.h \
- 47/calculator/../../46/symtab/../symbol/symbol.h \
- 47/calculator/../../46/symtab/../symbol/../value/value.h

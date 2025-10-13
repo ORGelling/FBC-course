@@ -15,6 +15,5 @@ bool Calculator::add(Value &lhs)
     else
         lhs.doubleValue(lhs.doubleValue() + rhs.doubleValue());
     
-    nextToken();
     return true;
 }

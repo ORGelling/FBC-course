@@ -1,4 +1,0 @@
-47/tokenizer/identifier.cc.o: 47/tokenizer/identifier.cc \
- 47/tokenizer/tokenizer.ih 47/tokenizer/tokenizer.h \
- 47/tokenizer/../../46/enum/enum.h 47/tokenizer/../../46/value/value.h \
- 47/tokenizer/../../46/value/../enum/enum.h

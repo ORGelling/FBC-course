@@ -1,2 +1,0 @@
-41/charcount/capacity.cc.o: 41/charcount/capacity.cc \
- 41/charcount/charcount.ih 41/charcount/charcount.h

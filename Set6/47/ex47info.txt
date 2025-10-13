@@ -1,1 +1,23 @@
 Exercise 47: 
+
+Make a complex calculator that can store symbols in the symbol table from the
+previous exercise.
+
+We are trying exactly this, but it is a very complicated exercise with a lot
+of moving parts, and the connection to the previous one's actual exercise
+scope is tentative. We have a working calculator that can parse entire lines
+of logic, but have a few issues:
+
+Using assigned variables in calculations like x - 4, in this case we simply
+output the value of x. 
+
+Properly storing ident tokens, we see this in the fact that an expr() cannot
+return an ident for us and as such show() does not treat variables as idents,
+but as chars. We *do* store and show their values correctly though.
+
+Both of these issues stem from the way variables are handled, and the way we
+run things inside evaluate and the fact we do not have a properly implemented
+assign() function yet.
+
+We can do pretty much any and all calculations now, including parenthesized
+expressions, but we are not yet properly using the symbol table.

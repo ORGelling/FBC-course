@@ -1,3 +1,0 @@
-41/showchar/showChar.cc.o: 41/showchar/showChar.cc \
- 41/showchar/showChar.ih 41/showchar/showChar.h \
- 41/showchar/../charcount/charcount.h

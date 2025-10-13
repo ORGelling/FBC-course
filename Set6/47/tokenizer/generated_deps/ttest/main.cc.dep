@@ -1,3 +1,0 @@
-ttest/main.cc.o: ttest/main.cc ttest/main.ih ttest/../tokenizer.h \
- ttest/../../../46/enum/enum.h ttest/../../../46/value/value.h \
- ttest/../../../46/value/../enum/enum.h

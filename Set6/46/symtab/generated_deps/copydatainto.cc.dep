@@ -1,1 +1,0 @@
-copydatainto.cc.o: copydatainto.cc symtab.ih symtab.h

@@ -1,5 +1,0 @@
-47/tokenizer/ttest/main.cc.o: 47/tokenizer/ttest/main.cc \
- 47/tokenizer/ttest/main.ih 47/tokenizer/ttest/../tokenizer.h \
- 47/tokenizer/ttest/../../../46/enum/enum.h \
- 47/tokenizer/ttest/../../../46/value/value.h \
- 47/tokenizer/ttest/../../../46/value/../enum/enum.h
