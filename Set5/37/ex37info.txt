@@ -4,29 +4,32 @@ Convert verbal descriptions into code
 
 1:  declare a variable pointing to rows of 8 doubles
 
-//double arr[10][8];          // uninitialised though!
-double (*ptr)[8]; // = arr;
+extern double (*ptr)[8];
 
 2:  declare a variable ptr pointing to an array holding the addresses of 
     series of doubles.
                                         // Probably fixed
-double **ptr;
+extern double **ptr;
 
 3:  declare a pointer ptr that may point to arrays of immutable pointers to 
     arrays of mutable pointers to immutable std::string objects.
 
-std::string const **const *ptr;
+extern std::string const **const *ptr;
 
 4:  declare a function fun expecting no parameters, returning a matrix of 
     6 x 6 std::string objects
                                         // Probably fixed!
 std::string (*fun())[6][6];
 
+This returns a pointer to a 6x6 matrix, as returning a matrix itself is simply
+not allowed in C++. We could also return pointers to pointers to strings, or 
+a pointer to arrays of 6 strings.
+
 5:  declare a function fun as in the previous item, now with 
                                         // Probably fixed!
 using StringMat = std::string (*)[6];
 
-StringMat (*fun())[6];
+extern StringMat (*fun())[6];
 
 6:  complete the following function by providing the initialization section 
     of its for-statement
@@ -42,10 +45,17 @@ void process(unsigned begin, unsigned end, char const *const *args)
         process(*argsBegin);
 }
 
+if auto is not good then instead this should probably be:
+
+void process(unsigned begin, unsigned end, char const *const *args)
+{
+    char const * const *argsBegin = args + begin;
+    char const * const *argsEnd = args + end;
+    for ( ; argsBegin != argsEnd; ++argsBegin; )
+        process(*argsBegin);
+}
+
 7:  declare a function fun defining a parameter ptr which is an immutable 
     pointer to NTBSs, returning one of these pointers as an immutable NTBS 
     
-char const *fun(char const **const ptr)
-{
-    return *ptr;
-}
+extern char const *fun(char **const ptr);
