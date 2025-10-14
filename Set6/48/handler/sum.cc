@@ -4,7 +4,7 @@
 
 int Handler::sum()
 {
-    if (confirmConnect())
+    if (!available(2))
         return 1;
     
     cout << d_data->sum() << '\n';

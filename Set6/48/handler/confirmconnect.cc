@@ -4,8 +4,15 @@
 
 int Handler::confirmConnect()
 {
-    d_data = s_shared.connect(d_argv[1]);       // this one takes char const *
-    if (d_data == nullptr)
+    if (!specified(2))
         return 1;
-    return 0;
+    
+    if (connect())
+    {
+        cout << "connection successful\n";
+        return 0;
+    }
+    
+    cout << "could not connect\n";
+    return 1;
 }
