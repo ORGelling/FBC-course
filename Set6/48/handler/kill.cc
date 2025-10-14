@@ -1,13 +1,14 @@
-#include "handler.h"
+#include "handler.ih"
 
     // by
 
 int Handler::kill()
 {
-    // use static bool kill(int id)
-    // get use id from argv?
-    if (kill(stoi(argv[2])))
-        cout << "killed memory segment: " << argv[2] << '\n';
-    else
-        cout << "murder failed\n";
+    if (Shared::kill(stoi(d_argv[1])))
+    {
+        cout << "killed memory segment: " << d_argv[1] << '\n';
+        return 0;
+    }
+    cout << "murder failed\n";
+    return 1;
 }

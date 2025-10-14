@@ -1,7 +1,0 @@
-#include "handler.ih"
-
-    // by 
-
-void Handler::()
-{
-}

@@ -7,13 +7,14 @@
 
 class Handler
 {
-    size_t d_argc;
-    char **d_argv;                // skip the program name
+    size_t d_argc;                  // do not count program name
+    char **d_argv;                  // skip the program name
 
     Data *d_data;                   // points to the shared memory info
 
     // static data members
-
+    static Shared s_shared;         // if static only one data seg 
+                                    // And should add in own data file
     public:
         Handler(size_t argc, char **argv);
         ~Handler();                 // disconnects the shared memory
