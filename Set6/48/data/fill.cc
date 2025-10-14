@@ -1,4 +1,3 @@
-#define XERR "data"
 #include "data.ih"
 
     // by 

@@ -7,7 +7,8 @@
 
 class Handler
 {
-    // d_argc, d_argv, skipping the program name
+    size_t d_argc;
+    char **d_argv;                // skip the program name
 
     Data *d_data;                   // points to the shared memory info
 

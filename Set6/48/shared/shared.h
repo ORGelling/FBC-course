@@ -23,5 +23,15 @@ class Shared
         static bool disconnect(Data const *ptr);
         static bool kill(int id);           // delete a shared segment
 };                      // shmctl arg2: IPC_RMID arg3: smhid_ds address
-        
+
+inline Shared::Shared()
+:
+    d_id(-1)
+{}
+
+inline int Shared::id() const
+{
+    return d_id;
+}
+
 #endif

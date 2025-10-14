@@ -1,8 +1,0 @@
-#define XERR "data"
-#include "data.ih"
-
-    // by 
-
-void Data::()
-{
-}
