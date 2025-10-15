@@ -1,0 +1,24 @@
+// ES: 1
+Exercise 40:
+
+Theory questions about pimpl:
+
+Q1: Why does the program break when linking with the new library?
+A1: Adding a new data member will change the size of the class objects. This
+will change the internal memory layout. Even changing the order of data 
+members will cause issues, like the memory offset not being correct anymore. 
+If we add a new data member right at the top that is the member that will be
+read by a program that expects the previous version of the library.
+
+Q2: Why does it not after implementing the pimpl setup?
+A2: With pimpl the implementation and class interface are decoupled, and as
+such the ABI will not contain chainges made in the class's internals. Thus no
+issues arise with memory layout!
+
+Q3: How can you add additional members without using pimpl?
+A3: In order to avoid ABI beakages while still adding extra members to a class
+one can add them at the very end of the class. This will keep the order of the
+data (and thus the memory layout) in the objects the same, but can still
+cause issues due to the change in object size. This means adding a new
+private section to the end of the class and putting the new member in there.
+

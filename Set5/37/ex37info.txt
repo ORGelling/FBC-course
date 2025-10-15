@@ -1,0 +1,71 @@
+Exercise 37: 
+
+Convert verbal descriptions into code
+
+1:  declare a variable pointing to rows of 8 doubles
+
+extern double (*ptr)[8];
+
+2:  declare a variable ptr pointing to an array holding the addresses of 
+    series of doubles.
+                                        // Probably fixed
+extern double **ptr;
+
+3:  declare a pointer ptr that may point to arrays of immutable pointers to 
+    arrays of mutable pointers to immutable std::string objects.
+
+extern std::string const **const *ptr;
+
+4:  declare a function fun expecting no parameters, returning a matrix of 
+    6 x 6 std::string objects
+                                        // Probably fixed!?
+extern std::string (*fun())[6][6];
+
+This returns a pointer to a 6x6 matrix, as returning a matrix itself is simply
+not allowed in C++. We could also return pointers to pointers to strings, or 
+a pointer to arrays of 6 strings.
+
+If that is not the correct answer, as it is not much different from our
+previous one, then maybe the form where we don't bother with the matrix
+structure works better:
+extern std::string **fun();
+
+Where fun points to pointers to strings, or even more concise:
+extern std::string (*(*fun())[6])[6];
+
+Here fun() returns a pointer to an array of 6 pointers to arrays of 6 strings.
+
+5:  declare a function fun as in the previous item, now with 
+                                        // Probably fixed!
+using StringMat = std::string (*)[6];
+
+extern StringMat (*fun())[6];
+
+6:  complete the following function by providing the initialization section 
+    of its for-statement
+                                        // COCO... Maybe fixed?
+void process(unsigned begin, unsigned end, char const *const *args)
+{
+    for 
+    (
+        auto argsBegin = args + begin, argsEnd = args + end;
+        argsBegin != argsEnd;
+        ++argsBegin;
+    )
+        process(*argsBegin);
+}
+
+if auto is not good then instead this should probably be:
+
+void process(unsigned begin, unsigned end, char const *const *args)
+{
+    char const * const *argsBegin = args + begin;
+    char const * const *argsEnd = args + end;
+    for ( ; argsBegin != argsEnd; ++argsBegin; )
+        process(*argsBegin);
+}
+
+7:  declare a function fun defining a parameter ptr which is an immutable 
+    pointer to NTBSs, returning one of these pointers as an immutable NTBS 
+    
+extern char const *fun(char **const ptr);

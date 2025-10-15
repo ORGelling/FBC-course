@@ -1,0 +1,60 @@
+Exercise 36: 
+
+Complete the table.
+
+
+----------------------------------------------------------------------------
+  definition:       rewrite: 
+----------------------------------------------------------------------------
+  int x[8];         x[2] = x[3];
+
+pointer notation:   *(x + 2) = *(x + 3);
+       semantics:   Same as above, but now we use the dereference operator 
+                    to assign the value at location x + 3 to the variable at
+                    location x + 2, through dereferencing both.
+----------------------------------------------------------------------------
+  char *argv[8];    cout << argv[2];
+
+pointer notation:   cout << *(argv + 2);
+       semantics:   We send the value in the location 2 chars beyond argv 
+                    into cout.
+----------------------------------------------------------------------------
+  int x[8];         &x[10] - &x[3];
+ 
+pointer notation:   (x + 10) - (x + 3); ( = 7 )
+       semantics:   The memory address of the location 3 ints beyond x is
+                    subtracted from the memory address 10 ints beyond x. This
+                    gives us the value 7.
+----------------------------------------------------------------------------
+  main's argv;      argv++[0];
+
+pointer notation:   *(argv++);
+       semantics:   Postfix increment of the first element argv points to, 
+                    so the output itself is just the element at argv. Any new
+                    operation on argv will start at (argv + 1). The
+                    parentheses are not needed here, *argv++ gives the same.
+----------------------------------------------------------------------------
+  main's argv;      argv[0]++;
+
+pointer notation:   (*argv)++;
+       semantics:   The char * that is contained in argv[0], or *argv  is 
+                    postfix incremented. If the program is called with
+                    ./a.out the next time *argv is printed it will show
+                    /a.out
+----------------------------------------------------------------------------
+  main's argv;      ++argv[0];
+
+pointer notation:   ++(*argv);
+       semantics:   The pointer that location argv's pointer points to is
+                    prefix incremented. It will point one char further than
+                    before. The parentheses are not needed here, ++*argv gives
+                    the same.
+----------------------------------------------------------------------------
+  main's argv;      ++argv[0][2];
+
+pointer notation:   ++*(*argv + 2);
+       semantics:   We increment the specific character two steps beyond the 
+                    character pointed at by the first pointer in the argv 
+                    array's target. If the program is called with ./a.out
+                    then `cou << ++argv[0][2]` will print `b`.
+----------------------------------------------------------------------------
