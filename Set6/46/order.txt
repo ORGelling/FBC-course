@@ -33,6 +33,7 @@ symtab/rawpointers.cc
 symtab/copydatainto.cc
 symtab/setnull.cc
 symtab/moveptrs.cc
+symtab/safeat.cc
 
 -main.ih
 -main.cc

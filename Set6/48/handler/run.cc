@@ -6,7 +6,7 @@ int Handler::run()
 {
     string cmd = d_argv[0];
     
-    if (cmd == "i")                 // add specified();
+    if (cmd == "i")
         return initialize();
     if (cmd == "c")
         return confirmConnect();
