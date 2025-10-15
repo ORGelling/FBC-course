@@ -1,0 +1,5 @@
+#include "shared.h"
+#include <sys/shm.h>
+#include <string>
+
+using namespace std;

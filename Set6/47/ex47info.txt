@@ -1,0 +1,80 @@
+Exercise 47: 
+
+Make a complex calculator that can store symbols in the symbol table from the
+previous exercise.
+
+We are trying exactly this, but it is a very complicated exercise with a lot
+of moving parts, and the connection to the previous one's actual exercise
+scope is tentative. We have a working calculator that can parse entire lines
+of logic, but have a few issues:
+
+Properly storing ident tokens, we see this in the fact that an expr() cannot
+return an ident for us and as such show() does not treat variables as idents,
+but as chars. We *do* store and show their values correctly though.
+
+Using assigned variables in calculations like x - 4. In this case we simply
+output the (stored) value of x. We understand that the form of evaluate() 
+should account for accepting an expression, and then, if an equals sign is 
+found, use assign(lhs, evaluate()) to then set whatever comes out of the next
+part to the lhs. This however requires proper disctinction and recognision of
+IDENT tokens after being returned by the previous expr(), which we are not 
+able to do yet. Thus for now this simple but incorrect form is left.
+Commented out code remains to be worked on inside the evaluate() function.
+
+Both of these issues stem from the way variables are handled, and the way we
+run things inside evaluate and the fact we do not have a properly implemented
+assign() function yet, along with the way we parse rvalue() to only hand back
+a Value object. This either has to happen further down the line (during
+calculations), or the IDENT tag is being lost somewhere along the way.
+
+We can do pretty much any and all calculations now, including parenthesized
+expressions, but we are not yet properly using the symbol table as it should
+be. When a symbol is used as the first factor in a calculation, the
+calculation will be successful *if* it is prefixed with a +, otherwise it will
+fail to parse properly. 
+
+Clearly this exercise is not done yet, but we spent a *lot* of time on it and
+a whole lot of the rough edges have been sanded off. We hope it will be worth
+half a point! If not, feedback about the proper implementation of the Token 
+handling would be greatly appreciated. A few more days of time would likely 
+have been enough to finish this calculator properly but as-is we are already 
+a bit late handing this in. Jurjen recommended us to hand it in as is without
+the test program to see if an inattentive TA might give it a full point! But
+we have elected honesty instead, hoping our effort and quite decent result
+will be enough for some leniency!
+
+Here is a short demonstration of our program:
+
+$ ./main
+? (3 + 8 - 1) * (123 - 2 / 3 + 6)
+1290 (int)
+? 128.7 / 5
+25.74 (double)
+? x = y = z = 5432.1
+5432.1 (double)
+? y
+5432.1 (double)
+? x
+5432.1 (double)
+? z = 18
+18 (int)
+? z
+18 (int)
+? -x + z
+-5414.1 (double)
+? 112 % 5
+2 (int)
+? 3 / 0
+division by zero
+error(s) in expression
+? (3 * 8 + 1
+expected ')'
+error(s) in expression
+? 3 + 4
+7 (int)
+? 3 + 
+error(s) in expression
+? quit
+
+As a final note: We are not handing in the calculator class header as it was
+given by the exercise and did not require changing!

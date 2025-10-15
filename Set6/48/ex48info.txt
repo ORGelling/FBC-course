@@ -1,0 +1,13 @@
+Exercise 48: 
+
+Build the Shared and Handler classes such that they can store and use shared
+memory.
+
+We do exactly this! Using all the functions given in the header, hopefully
+with the checks and error messages in the right place. 
+
+We found this a rather interesting exercise to work on! After finishing it we
+ran its different steps through valgrind and noticed that it never considers a
+memory leak to have happened. We checked whether the shared memory segments
+are being deleted properly, and they are, so shared memory seems to simply
+not count as leaked, which makes sense!
