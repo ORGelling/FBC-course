@@ -31,3 +31,9 @@ capacity the moment the function is called, and as such appending only needs
 to initialise one more Char spot, whereas insertion needs all the elements at
 and beyond the insertion index to move one place. We thus do not really reuse
 any significant amount of code.
+
+Our charcount header has a slightly strange form where the data member is all
+the way at the bottom, but since it has to be defined only after the struct
+is, it seems a bit strange to go from public to private back to public for one
+line. We could probably make the data member public too as it would likely not
+harm much, but for now we elect to keep this as-is and hope it isn't an issue.

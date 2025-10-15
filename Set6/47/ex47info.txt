@@ -75,3 +75,6 @@ error(s) in expression
 ? 3 + 
 error(s) in expression
 ? quit
+
+As a final note: We are not handing in the calculator class header as it was
+given by the exercise and did not require changing!

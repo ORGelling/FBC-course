@@ -5,8 +5,7 @@
 
 struct CharCount
 {
-    public:
-    public:        struct Char
+        struct Char
         {
             char ch = '\0';
             size_t count = 1;               // Only initialised when ch found
