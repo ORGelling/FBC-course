@@ -5,7 +5,8 @@
 
 struct CharCount
 {
-        struct Char
+    public:
+    public:        struct Char
         {
             char ch = '\0';
             size_t count = 1;               // Only initialised when ch found
@@ -49,8 +50,8 @@ struct CharCount
         (
             char const ch,
             size_t const index 
-        );
-        
+        );        
+    
     private:
         CharInfo d_data;                    // The data
 };

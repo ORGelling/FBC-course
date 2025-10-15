@@ -1,3 +1,17 @@
 Exercise 44:
 
-don't forget rawPointers
+Change Strings class to use double pointers and be more memory efficient.
+
+We amend the class to use an array of raw memory for double pointers which in
+turn get initialised with new string objects. We also added a setNull function
+which sets all raw pointer locations to null for safety, albeit knowing that
+is not exactly necessary as long as d_size correctly tracks the size of the
+array.
+
+Our class doubles in size every time it reaches its capacity, checking after
+adding a new string, rather than before, as it should not matter when this is
+done since either the capacity will be enlarged right after it is reached, or
+it will be enlarged just before it is exceeded.
+
+We are not sure whether swap is still needed but we have amended it so it can
+be used with double pointers if necessary.

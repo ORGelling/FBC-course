@@ -1,1 +1,8 @@
-Exercise 45: 
+Exercise 45:
+
+We re-amend the Strings class to use a block of raw memory (not double
+pointers) that gets initialised by placement new when new data is needed. All
+the data is copied to a new block once the capacity is reached.
+
+This is similar in structure to the previous exercise, and also has overlap
+with 41.

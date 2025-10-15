@@ -1,1 +1,17 @@
 Exercise 46: 
+
+Make a class Value, Symbol, and Symtab.
+
+We have amended find() such that it returns a non const reference for 
+exercise 47 to work better, although are not entirely sure if it is needed. 
+Consider it const for this exercise. The necessities of this exercise were
+significantly different to what was required *of* this exercise's classes and
+files for exercise 47, so as such we had to go back and change some things. We
+hope this can be kept in mind while grading, as we are not entirely sure which
+references should and should not be const anymore, and struggled somewhat with
+getting 47 to work properly.
+
+Other than that we think this exercise should work as intended. Our program is
+entirely able to output the exact return as is given and expected from the
+exercise description. We do note that as is, and as per exercise requirements,
+this symbol table program has no way of exiting other than using ctrl + C.
