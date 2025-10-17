@@ -1,0 +1,6 @@
+#include <iostream>
+#include <iomanip>
+
+#ifndef SPCH_
+using namespace std;
+#endif

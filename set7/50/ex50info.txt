@@ -1,1 +1,25 @@
-Exercise 50: 
+Exercise 50:
+
+Use the given program and fix it such that it properly writes to out2 as well.
+
+We copy this program and amend it to work properly. Running it initially shows
+that only the first file is being created, opened, and written, while the
+second is not. We can even add a debug statement showing that the second file
+has failed to open:
+
+    fstream out2{ "./tmp/out2" };
+    if (!out2.is_open()
+        cout << "Error\n";
+        
+This will indeed print "Error" to our screen. The reason for this is that this
+second stream, out2, is not an *o*fstream, but just an *f*stream. As such it
+is not sure what to do (whether to send or receive this text). We can amend
+this by either making this an ofstream:
+
+ofstream out2{ "/tmp/out2" }
+
+or by adding an extra parameter to this constructor:
+
+fstream out2{ "/tmp/out2", ios::out };
+
+such that it now knows that it is supposed to be an ostream!
