@@ -10,8 +10,9 @@
 //#define ICM_DEP           "-V go"
 //#define USE_ECHO            ON
 //#define USE_VERSION
+#define PROGRAM             "main"
 
-#define DEFCOM "program"
+#define DEFCOM              "program"
 //#define DEFCOM "library"
 
 // COMPILATION AND LINKING RELATED DEFINES
