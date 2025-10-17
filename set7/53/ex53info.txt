@@ -1,1 +1,9 @@
-Exercise 53: 
+Exercise 53:
+
+Format the output of a sincle concatenated cout statement to show a multitude
+of options.
+
+We do this exactly, noting that for the 3 digit output option we could not
+find a manipulator that can set the maximum length of the full amount of
+digits to display, instead we have used 'fixed' and a precision of 1, to keep
+the 0. This should fulfill the requirement of the exercise.

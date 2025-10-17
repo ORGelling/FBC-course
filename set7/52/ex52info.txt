@@ -1,1 +1,8 @@
 Exercise 52: 
+
+Write a manipulator that uses put_time and outputs the current time and date
+like asctime does, but without the newline.
+
+We do exactly this, showing off our understandiing of the format string by
+recreating the easy direct optio (%c) by hand with all the available
+specifiers.

@@ -1,0 +1,10 @@
+#include <string>
+#include <fstream>
+#include <cctype>       // for lowercase
+#include <iostream>     // for debugging
+
+
+void convert(char *filename);
+std::string lowercase(std::string &input);
+
+using namespace std;

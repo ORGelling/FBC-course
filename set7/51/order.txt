@@ -1,1 +1,11 @@
 ex51info.txt
+
+convert.cc
+lowercase.cc
+
+main.ih
+main.cc
+
+input
+-input.org
+-icmconf
