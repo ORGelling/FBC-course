@@ -1,5 +1,8 @@
 ex54info.txt
 
+test.txt
+new.txt
+
 enum/enum.h
 
 fch/fch.h
@@ -21,6 +24,3 @@ fch/insertline.cc
 
 main.ih
 main.cc
-
--test.txt
--new.txt
