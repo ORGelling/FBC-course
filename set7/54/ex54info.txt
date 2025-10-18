@@ -18,3 +18,7 @@ necessary to implement it at this time. It could be done without much issue by
 adding a
 d_location -= d_target.length();
 statement to the default case.
+
+We also note that the exercise names an istream, where we used an ifstream.
+Not exactly the same but they are both istreams of one sort or another! It
+seemed proper to use the file version for this.
