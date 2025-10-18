@@ -1,7 +1,7 @@
 //#define CLS
 //#define LIBRARY             "modules"
 #define MAIN                "main.cc"
-#define SOURCES             "*.cc"
+#define SOURCES             "*.cc */*.cc"
 #define OBJ_EXT             ".o"
 //#define SHARED
 //#define SHAREDREQ           ""
@@ -10,7 +10,6 @@
 //#define ICM_DEP           "-V go"
 //#define USE_ECHO            ON
 //#define USE_VERSION
-#define PROGRAM             "main"
 
 #define DEFCOM              "program"
 //#define DEFCOM "library"

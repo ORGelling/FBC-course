@@ -8,17 +8,20 @@
 
 class Fch
 {
-    std::ifstream d_input;
-    std::string d_target;
-    std::string d_replacement;
+    std::fstream    d_input;
+    std::string     d_target;
+    std::string     d_replacement;
+    std::string     d_line;
+    size_t          d_location = 0;
+    
     Action d_action = ASK;
+    
+    static void (Fch::*s_action[])();
     
     public:
         Fch(char const *fname);
         int run();              // reads all lines from d_input
                                 // processes changes
-        static void (Fch::*s_action[])();
-        
     private:
         void ask();
         void changeAll();
@@ -31,7 +34,6 @@ class Fch
         void searchReplace();
         void showModification() const;
         void insertLine() const;
-        void noChanges();
 };
         
 #endif

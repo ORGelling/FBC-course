@@ -1,9 +1,14 @@
 #include "fch.ih"
 
-    // by 
+    // by main.cc 
 
 int Fch::run()
 {
-    cout << "run!\n";
+    if (!d_input.is_open())
+        return 1;
+    
+    while(getline(d_input, d_line))
+        process();
+    
     return 0;
 }

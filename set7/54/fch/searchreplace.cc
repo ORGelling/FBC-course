@@ -4,5 +4,8 @@
 
 void Fch::searchReplace()
 {
-    (this->*s_action[d_action])();
+    cerr << "target: ";
+    getline(cin, d_target);
+    cerr << "replacement: ";
+    getline(cin, d_replacement);
 }

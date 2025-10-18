@@ -1,1 +1,20 @@
 Exercise 54: 
+
+Make a program that can read through a file and can interactively change and 
+output its lines.
+
+We do this exactly, choosing to use an array of pointers to member functions
+inside process(), as we have learned how to use them and it seemed a nice fit!
+We do use a switch inside ask, as that makes plenty of sense there. We tried
+to keep is compact and readable, using a fallthrough for actions that could be
+combined, but that doesn't really save much space anyways. We keep it as it is
+part of the covered materials and a nice little detail (I learned abot it so
+why not use it!).
+
+When an incorrect command is given to the ask() function, it is interpreted as
+a simple 'n'. We considered adding functionality that either resets the
+d_location variable so that user error can be amended, but do not think it
+necessary to implement it at this time. It could be done without much issue by
+adding a
+d_location -= d_target.length();
+statement to the default case.
