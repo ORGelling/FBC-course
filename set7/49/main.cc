@@ -9,9 +9,10 @@ int main(int argc, char *argv[])
     
     out.setstate(ios::failbit);
     
-    for (size_t index = 0; index != stoull(argv[1]); ++index)
+    size_t count = stoull(argv[1]);
+    for (size_t index = 0; index != count; ++index)
     {
-        if (out.good())
-            out << "Nr. of command line arguments " << argc << '\n'; 
+        //if (out.good())
+        out << "Nr. of command line arguments " << argc << '\n'; 
     }
 }

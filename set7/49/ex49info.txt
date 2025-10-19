@@ -3,26 +3,27 @@ Exercise 49:
 Time a program that has the failbit set as it sends a debug message into an
 outstream object.
 
-Without the if clause:
-49$ time ./tmp/bin/binary 100'000'000
+Since the outcome wasn't very distinct yet when using argv[1] = 100'000'000 we
+elected to use 1'000'000'000 instead:
 
-real	0m3,389s
-user	0m3,385s
+Without the if clause:
+49$ time noIf 1000000000
+
+real	0m29,766s
+user	0m29,759s
 sys	0m0,004s
 
-
 With:
-49$ time ./tmp/bin/binary 100'000'000
+49$ time yeIf 1000000000
 
-real	0m1,967s
-user	0m1,963s
+real	0m0,478s
+user	0m0,473s
 sys	0m0,004s
 
 Clearly the if clause is guarding a bunch of extra evaluations from being
 done. The case where the stream itself is evaluating the failbit takes almost
-twice as long. It seems the ostream object itself is evaluating whether the 
-failbit is set and suppressing output, but it takes much longer than the if 
-statement does.
+sixty times as long. It seems that when the ostream object itself evaluates 
+whether the failbit is set it takes much longer than the if statement does.
 
 A fitting rule of thumb here would probably be to not let a stream do
 computations that can easily be checked elsewhere. Or more simply: don't rely
