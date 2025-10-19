@@ -1,1 +1,21 @@
 Exercise 55: 
+
+Write the Lock class and a program that locks a file and appends a line of
+text to it.
+
+We do exactly this, choosing not to refactor subroutines like copying the
+string into a char *, as the exercise specifies that no more members are
+needed than the ones mentioned. We had some trouble juggling the conversions
+from char *s to strings and back and forth, and as such hope this works. There
+might be room for improvements and optimisation by either leaning more on char
+* and less on strings, but that is a matte rfor another time.
+
+We note that checking for memory leaks with valgrind makes the program fail to
+open the lock file! This might be due to the way valgrind runs the input
+commands? Maybe it runs from a different directory, as we specifically see our
+validate function output the debug message that there was an issue with the
+lock file itself. We do not see any memory leaks luckily!
+
+As for writing a library:
+
+
