@@ -16,6 +16,51 @@ commands? Maybe it runs from a different directory, as we specifically see our
 validate function output the debug message that there was an issue with the
 lock file itself. We do not see any memory leaks luckily!
 
+We have chosen to remove the debug messages, but the "lock successful" and
+"lock failed" will remain as part of the program's feedback.
+
 As for writing a library:
 
+We make Lock's library by first compiling all the source files into object
+files, we can do this with:
+g++ --std=c++26 -Wall -Werror -c *.cc
 
+Or by using make or icmbuild library. We can then make a library from this by
+running:
+ar rcs liblock.a */*/*.o
+
+(since our object files were placed in tmp/o/). We can now either link
+directly to this library, or place it somewhere and link to it from there.
+
+Our class is made within the lock/ directory, separating it from the main
+program. We could install the library in /usr/lib, and the header in
+/usr/include, but since it will be growing over time that is likely a bit
+premature. It would greatly simplify including and linking it though. Instead,
+for now, we will place it somewhere else high up the file structure. My 
+projects are usually in a directory like so:
+~/Projects/Olivier/FBC++/set7/55
+
+We will make a new directory:
+~/orgutility
+which has subdirectories lib/ and include/. We will store our headers and 
+libraries inside here for now, and move them over to /usr/ when they are
+ready!
+
+orgutility$ tree
+.
+├── include
+│   └── lock.h
+└── lib
+    └── liborgutils.a
+
+We include the header in angled brackets inside main.ih, and then call the
+compiler to link the project like so:
+
+g++ -I$HOME/orgutility/include main.cc -L$HOME/orgutility/lib -lorgutility -o
+lock.out
+
+This compiles on our end and gives us the program exactly as such. We will
+turn the angled brackets back into double quotes to satisfy the mailhandler
+though, as it likely won't pick up on our lock.h otherwise.
+
+We will henceforth expand on this library.

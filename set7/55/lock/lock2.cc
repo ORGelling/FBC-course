@@ -11,7 +11,7 @@ Lock::Lock(string const &path, string lockDir)
     d_filedesc = open(pathObj);
     
     if(valid())
-        cerr << "locking successful\n";
+        cerr << "lock successful\n";
     else
-        cerr << "locking failed\n";
+        cerr << "lock failed\n";
 }

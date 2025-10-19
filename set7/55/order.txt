@@ -1,1 +1,16 @@
 ex55info.txt
+
+lock/lock.h
+lock/lock.ih
+lock/lock1.cc
+lock/lock2.cc
+lock/lock3.cc
+lock/open.cc
+lock/valid.cc
+lock/stringname.cc
+lock/lockpath.cc
+
+main.ih
+main.cc
+
+-test.txt

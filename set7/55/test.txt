@@ -3,3 +3,4 @@ And again from another terminal, which just failed to open the file!
 Another line appended
 Nothing can reach me!
 Now I can reach it though, but I had to stand in line!
+This is kinda fun tbh
