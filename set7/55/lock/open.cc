@@ -4,7 +4,8 @@
 
 int Lock::open(filesystem::path path)
 {
-    char const *pathC = path.string().c_str();
+    string pathStr = path.string();
+    char const *pathC = pathStr.c_str();
     int filedesc;
     
     if (filesystem::exists(path))
