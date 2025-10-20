@@ -1,1 +1,8 @@
 Exercise 56: 
+
+Write a program that can output the process accounting log in readable form,
+either in full or just what wasn't exited properly
+
+// Make sure it can read a different file
+
+We do exactly this, adding some notes about what is going on:

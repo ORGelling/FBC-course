@@ -2,10 +2,10 @@
 
     // by 
 
-ProcAcc::ProcAcc()
+ProcAcc::ProcAcc(string const fileName)
 //:
 {
-    d_file.open("/var/log/account/pacct", ios::binary);
+    d_file.open(fileName, ios::binary);
  
     isOpen();
 }

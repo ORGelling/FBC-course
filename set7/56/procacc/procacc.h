@@ -3,23 +3,29 @@
 
 #include <fstream>
 #include <string>
+#include <linux/acct.h>
 
 class ProcAcc
 {
-    ifstream d_file;
+    std::ifstream d_file;
     acct_v3 d_record;
     std::string d_processName;
-    uint16_t d_exitcode;
-    uint16_t d_signal;
+    
+    int d_exitcode;
+    int d_signal;
+ 
+    static void (ProcAcc::*s_output[])() const;
     
     public:
-        ProcAcc();
+        ProcAcc(std::string const fileName);
         
-        process(char flag);
+        int process(size_t flag);
         
     private:
-        signal(size_t sig) const;
-        isOpen() const;
+        void signal() const;
+        void showAll() const;
+        bool isOpen() const;
+        void setData();
 };
         
 #endif

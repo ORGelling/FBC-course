@@ -2,11 +2,10 @@
 
     // by 
 
-bool ProcAcc::isOpen()
+bool ProcAcc::isOpen() const
 {
     if (d_file.is_open())
         return true;
     
-    cerr << "failed to open file\n";
     return false;
 }
