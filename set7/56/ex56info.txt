@@ -11,14 +11,33 @@ truncated.
 
 After some researching (and a bit of arguing with copilot, which we don't
 actually trust that well on matters like these) we noticed that the signal 
-codes from signum.h shown in the exercise go up to 31, but a bunch of the 
-error signals shown even in the exercise's example go way higher than that. 
-Copilot might be onto something when it tells us that the ac_exitcode member 
-of the acct_v3 struct stored both a SIG type error code, and an exit code
-that represents how the program ended. If the first 8 bits are stripped off
-of the ac_exitcode member and used as our d_signal to then run the program we
-get a nice set of programs that actually ended in a faulty way, testig this
-by manually killing and terminating processes inside a terminal, like:
+codes from signum.h shown in the exercise go up to 31, and we can have our
+computer show us the rest by running:
+kill -l, which gives me:
+
+ 1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL	 5) SIGTRAP
+ 6) SIGABRT	 7) SIGBUS	 8) SIGFPE	 9) SIGKILL	10) SIGUSR1
+11) SIGSEGV	12) SIGUSR2	13) SIGPIPE	14) SIGALRM	15) SIGTERM
+16) SIGSTKFLT	17) SIGCHLD	18) SIGCONT	19) SIGSTOP	20) SIGTSTP
+21) SIGTTIN	22) SIGTTOU	23) SIGURG	24) SIGXCPU	25) SIGXFSZ
+26) SIGVTALRM	27) SIGPROF	28) SIGWINCH	29) SIGIO	30) SIGPWR
+31) SIGSYS	34) SIGRTMIN	35) SIGRTMIN+1	36) SIGRTMIN+2	37) SIGRTMIN+3
+38) SIGRTMIN+4	39) SIGRTMIN+5	40) SIGRTMIN+6	41) SIGRTMIN+7	
+42) SIGRTMIN+8  43) SIGRTMIN+9	44) SIGRTMIN+10	45) SIGRTMIN+11	
+46) SIGRTMIN+12	47) SIGRTMIN+13 48) SIGRTMIN+14	49) SIGRTMIN+15	
+50) SIGRTMAX-14	51) SIGRTMAX-13	52) SIGRTMAX-12 53) SIGRTMAX-11	
+54) SIGRTMAX-10	55) SIGRTMAX-9	56) SIGRTMAX-8	57) SIGRTMAX-7 58) SIGRTMAX-6
+59) SIGRTMAX-5	60) SIGRTMAX-4	61) SIGRTMAX-3	62) SIGRTMAX-2 63) SIGRTMAX-1
+64) SIGRTMAX
+
+A bunch of the error signals shown in the exercise's example go way higher 
+than that. Copilot might be onto something when it tells us that the 
+ac_exitcode member of the acct_v3 struct stores both a SIG type kill code, 
+and an exit code that simply  represents how the program ended. If the first 
+8 bits are stripped off of the ac_exitcode member and used as our d_signal to
+then run the program we get a nice set of programs that actually ended in a 
+faulty way, testig this by manually killing and terminating processes inside 
+a terminal, like:
 
 sleep 1000 &
 and then executing 
@@ -26,11 +45,15 @@ kill <PID>
 where PID is the process id that shows up after running the sleep command. We
 can add a -9 or -15 after kill as well to specify SIGKILL or SIGTERM.
 
-We think the value also stores whatever way the programs exited, even if they
-did not exit badly, higher up the bit structure, which can then be reached by
-bitshifting those values down. We have left this in our code but have
-commented it out, as it is not needed for our exercise, but was at the very
-least rather interesting to look into!
+We make the program print debug info, like the (interpreted) value of
+ac_exitcode, and it seems to align exatcly with clipping the first 8 bits off
+for the signal, and the next 8 for possible exitcodes if a process was not
+killed by SIG. We have left the debug lines in our code but have commented 
+them out, as it is not needed for our exercise, but was at the very least 
+rather interesting to look into!
 
-All of this assumes this is actually correct and the error codes don't
-actually just go up to ridiculously high numbers lik 25600!
+We do run into an issue that shows we might be wrong: getting a segfault 
+should give us an exitcode of 11, for SIGSEGV, yet when we purposely make a
+program segfault our stored error code is 139, with a hex value: 8b. This does
+not seem to align properly with the SIGnals and exitcodes. As such we may
+still be entirely wrong.

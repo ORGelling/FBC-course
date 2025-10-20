@@ -12,7 +12,7 @@ class ProcAcc
     std::string d_processName;
     
     int d_exitcode;
-    //int d_signal;
+    int d_signal;
  
     static void (ProcAcc::*s_output[])() const;
     

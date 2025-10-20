@@ -5,17 +5,20 @@
 void ProcAcc::show() const
 {
     cout << "'" + d_processName + "' ";                                    
-    switch (d_exitcode)                                                      
+    switch (d_signal)                                                      
     {                                                                      
         case SIGKILL:                                                      
-            cout << "KILL";                                                
-        break;                                                             
-        case SIGTERM:                                                      
-            cout << "TERM";                                                
+            cout << "KILL";
+            //cout << " " << hex << d_record.ac_exitcode << dec;
+        break;
+        case SIGTERM:
+            cout << "TERM";
+            //cout << " " << hex << d_record.ac_exitcode << dec;
         break;                                                             
         default:
-            cout << d_exitcode;
-            //cout << (d_exitcode != 0 ? d_exitcode : d_signal);      
+            cout << d_signal; // << " " << d_exitcode;
+            //cout << (d_exitcode != 0 ? d_exitcode : d_signal);
+            //cout << " " << hex << d_record.ac_exitcode << dec;
     }                                                                      
     cout << '\n';                                                          
 } 

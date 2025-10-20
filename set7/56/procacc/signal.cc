@@ -4,6 +4,6 @@
 
 void ProcAcc::signal() const
 {
-    if (d_exitcode != 0) // || d_signal != 0)
+    if (d_signal != 0) // || d_signal != 0)
         show();
 }
