@@ -1,1 +1,13 @@
 ex56info.txt
+
+procacc/procacc.h
+procacc/procacc.ih
+procacc/procacc1.cc
+procacc/process.cc
+procacc/signal.cc
+procacc/show.cc
+procacc/isopen.cc
+procacc/setdata.cc
+
+main.ih
+main.cc
