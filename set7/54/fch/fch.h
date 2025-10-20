@@ -24,7 +24,7 @@ class Fch
                                 // processes changes
     private:
         void ask();
-        void changeAll();
+        //void changeAll();
         bool findTarget();
         void modify();
         bool openInput(char const *fname);      // Called by constructor
