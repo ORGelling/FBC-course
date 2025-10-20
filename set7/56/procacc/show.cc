@@ -2,10 +2,10 @@
 
     // by 
 
-void ProcAcc::showAll() const
-{                                                                              
+void ProcAcc::show() const
+{
     cout << "'" + d_processName + "' ";                                    
-    switch (d_signal)                                                      
+    switch (d_exitcode)                                                      
     {                                                                      
         case SIGKILL:                                                      
             cout << "KILL";                                                
@@ -14,7 +14,8 @@ void ProcAcc::showAll() const
             cout << "TERM";                                                
         break;                                                             
         default:
-            cout << (d_signal != 0 ? d_signal : d_exitcode);      
+            cout << d_exitcode;
+            //cout << (d_exitcode != 0 ? d_exitcode : d_signal);      
     }                                                                      
     cout << '\n';                                                          
 } 

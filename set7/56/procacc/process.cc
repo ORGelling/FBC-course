@@ -2,7 +2,7 @@
 
     // by 
 
-int ProcAcc::process(size_t flag)
+int ProcAcc::process(bool showAll)
 {
     if (!isOpen())
     {
@@ -13,8 +13,7 @@ int ProcAcc::process(size_t flag)
     while (d_file.read(reinterpret_cast<char *>(&d_record), sizeof(d_record)))
     {
         setData();
-        
-        (this->*s_output[flag])();
+        (this->*s_output[showAll])();
     }
     return 0;
 }

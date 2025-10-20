@@ -4,7 +4,7 @@ int main(int argc, char *argv[])
 {
     // if -a flag output all processes
     
-    size_t flag = 0;
+    bool showAll = false;
     string fileName = "/var/log/account/pacct";
     size_t argcount = argc;
     for (size_t index = 1; index != argcount; ++index)
@@ -12,12 +12,12 @@ int main(int argc, char *argv[])
         string arg = argv[index];
         
         if (arg == "-a")
-            flag = 1;
+            showAll = true;
         else
             fileName = arg;
     }
-    
+   
     ProcAcc logs(fileName);
     
-    logs.process(flag);
+    logs.process(showAll);
 }

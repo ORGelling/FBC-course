@@ -3,6 +3,34 @@ Exercise 56:
 Write a program that can output the process accounting log in readable form,
 either in full or just what wasn't exited properly
 
-// Make sure it can read a different file
+We do exactly this, adding some notes about what is going on: 
 
-We do exactly this, adding some notes about what is going on:
+We found that our command names are 16 bits from the ACCT_COMM definition
+inside the acct.h header. As such process names longer than that are simply
+truncated.
+
+After some researching (and a bit of arguing with copilot, which we don't
+actually trust that well on matters like these) we noticed that the signal 
+codes from signum.h shown in the exercise go up to 31, but a bunch of the 
+error signals shown even in the exercise's example go way higher than that. 
+Copilot might be onto something when it tells us that the ac_exitcode member 
+of the acct_v3 struct stored both a SIG type error code, and an exit code
+that represents how the program ended. If the first 8 bits are stripped off
+of the ac_exitcode member and used as our d_signal to then run the program we
+get a nice set of programs that actually ended in a faulty way, testig this
+by manually killing and terminating processes inside a terminal, like:
+
+sleep 1000 &
+and then executing 
+kill <PID>
+where PID is the process id that shows up after running the sleep command. We
+can add a -9 or -15 after kill as well to specify SIGKILL or SIGTERM.
+
+We think the value also stores whatever way the programs exited, even if they
+did not exit badly, higher up the bit structure, which can then be reached by
+bitshifting those values down. We have left this in our code but have
+commented it out, as it is not needed for our exercise, but was at the very
+least rather interesting to look into!
+
+All of this assumes this is actually correct and the error codes don't
+actually just go up to ridiculously high numbers lik 25600!
