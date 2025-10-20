@@ -6,10 +6,10 @@ int main(int argc, char *argv[])
         return 1;
     
     // For testing manually handing the .lck file's directory:
-    string directory = argv[2];
-    Lock fileLock(argv[1], directory);
+    // string directory = argv[2];
+    // Lock fileLock(argv[1], directory);
     
-    //Lock fileLock(argv[1]);
+    Lock fileLock(argv[1]);
     
     if (fileLock.valid())
     {

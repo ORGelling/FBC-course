@@ -8,7 +8,7 @@ string into a char *, as the exercise specifies that no more members are
 needed than the ones mentioned. We had some trouble juggling the conversions
 from char *s to strings and back and forth, and as such hope this works. There
 might be room for improvements and optimisation by either leaning more on char
-* and less on strings, but that is a matte rfor another time.
+* and less on strings, but that is a matter for another time.
 
 We note that checking for memory leaks with valgrind makes the program fail to
 open the lock file! This might be due to the way valgrind runs the input
@@ -18,6 +18,11 @@ lock file itself. We do not see any memory leaks luckily!
 
 We have chosen to remove the debug messages, but the "lock successful" and
 "lock failed" will remain as part of the program's feedback.
+
+We have left the option to add a second commandline argument to select the
+directory in which the .lck file will be stored out. Adding it in would
+require some extra shenanigans with memory allocation that seems irrelevant to
+this exercise's scope, but the code works and can be un-commented for testing!
 
 As for writing a library:
 
