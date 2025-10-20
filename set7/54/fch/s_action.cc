@@ -6,5 +6,6 @@ void (Fch::*Fch::s_action[])()
 =
 {
     &Fch::ask,
-    &Fch::changeAll
-};  // nochange is never needed
+    &Fch::modify
+    // &Fch::changeAll
+};

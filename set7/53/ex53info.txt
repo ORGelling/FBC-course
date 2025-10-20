@@ -1,6 +1,6 @@
 Exercise 53:
 
-Format the output of a sincle concatenated cout statement to show a multitude
+Format the output of a single concatenated cout statement to show a multitude
 of options.
 
 We do this exactly. We have left out the push operators where possible. We

@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     
     out.setstate(ios::failbit);
     
-    size_t count = stoull(argv[1]);
+    size_t const count = stoull(argv[1]);
     for (size_t index = 0; index != count; ++index)
     {
         //if (out.good())

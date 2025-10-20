@@ -4,7 +4,7 @@
 
 void Fch::showModification() const
 {
-    string underline(d_target.length(), '^');
+    string const underline(d_target.length(), '^');
     
     cerr << d_line << '\n'
         << setw(d_location) << "" << underline << '\n';

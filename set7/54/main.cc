@@ -6,7 +6,6 @@ int main(int argc, char *argv[])
         return 1;
     
     Fch file(argv[1]);
-    int ret = file.run();
 
-    return ret;
+    return file.run();
 }
