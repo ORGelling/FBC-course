@@ -13,8 +13,9 @@ struct CharCount
             Char() = default;
             Char(char const ch);
             Char(Char const &copyChar);     // Copy constructor
-            //JB: Providing a copy constructor here but not in CharInfo feels odd.
-            //JB: And it feels odd for a struct anyway.
+                                //JB: Providing a copy constructor here 
+                                //JB: but not in CharInfo feels odd.
+                                //JB: And it feels odd for a struct anyway.
         };
         struct CharInfo 
         {

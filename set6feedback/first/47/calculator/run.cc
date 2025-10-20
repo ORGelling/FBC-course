@@ -1,5 +1,7 @@
 //JB: 1
-//JB: NAE ?! See below. Oh, sry. We just don't have precedence. That's ok for now.
+//JB: NAE ?! See below. Oh, sry. We just don't 
+//JB: have precedence. That's ok for now.
+
 #include "calculator.ih"
 
 void Calculator::run()
