@@ -1,0 +1,2 @@
+43/strings/strings5.cc.o: 43/strings/strings5.cc 43/strings/strings.ih \
+ 43/strings/strings.h

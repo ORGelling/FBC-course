@@ -1,0 +1,2 @@
+41/charcount/insertChar.cc.o: 41/charcount/insertChar.cc \
+ 41/charcount/charcount.ih 41/charcount/charcount.h

@@ -1,0 +1,3 @@
+handler/s_shared.cc.o: handler/s_shared.cc handler/handler.ih \
+ handler/handler.h handler/../shared/shared.h \
+ handler/../shared/../data/data.h

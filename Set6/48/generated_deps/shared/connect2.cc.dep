@@ -1,0 +1,2 @@
+shared/connect2.cc.o: shared/connect2.cc shared/shared.ih shared/shared.h \
+ shared/../data/data.h

@@ -1,0 +1,2 @@
+46/value/value2.cc.o: 46/value/value2.cc 46/value/value.ih \
+ 46/value/value.h 46/value/../enum/enum.h

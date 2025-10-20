@@ -1,0 +1,2 @@
+44/strings/destroy.cc.o: 44/strings/destroy.cc 44/strings/strings.ih \
+ 44/strings/strings.h

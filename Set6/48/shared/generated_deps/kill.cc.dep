@@ -1,0 +1,1 @@
+kill.cc.o: kill.cc shared.ih shared.h ../data/data.h

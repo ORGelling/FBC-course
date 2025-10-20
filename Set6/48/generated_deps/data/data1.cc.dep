@@ -1,0 +1,1 @@
+data/data1.cc.o: data/data1.cc data/data.ih data/data.h
