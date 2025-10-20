@@ -9,3 +9,6 @@ void Strings::destroy()
     
     operator delete(d_data);
 }
+//JB: I disagree with allocating and deleting raw memory for pointers.
+//JB: new[] does it perfectly well, and returns the proper type without a cast,
+//JB: even if the constructor is a no-op.

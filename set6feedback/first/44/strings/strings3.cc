@@ -7,3 +7,5 @@ Strings::Strings(char **environLike)
 {
     fill(environLike);
 }
+
+//JB: Don't redo, delegate!

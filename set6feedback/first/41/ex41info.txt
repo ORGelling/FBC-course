@@ -1,0 +1,41 @@
+Exercise 41: 
+
+Adapt exercise 35 of the previous set to work with raw memory and a doubling
+capacity whenever all raw memory is used up.
+
+We do exactly what the exercise asks. Of note is our way of writing the insert
+function. Here we decide to move the Char objects at and beyond the position
+where a new Char should be inserted one step upwards. We do this by first
+initialising a new Char object just beyond the existing array, and then
+copying all the values from the Chars before it into their new correct spot. 
+It would be possible and (likely) not entirely incorrect to clean up the 
+memory of each place and reconstruct the Char objects that have to move, but
+instead we decided to simply initialise the new location and then move the
+values of all the Char objects before it. This seems the more efficient way to
+deal with the simple Char structs we are using. 
+
+We ran our program through valgrind's memory leak check with the following
+command:
+
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes 
+--verbose ./main < main.ih
+
+and it told us that we do not have a memory leak! Yay!
+
+We note that we have elected to keep the append and insert functions separate
+entirely. In the previous set we had allocated both these functionalities to 
+the same function, as it could insert something inside the array, or just at
+the end (hence: append). This time around we note that appending is much
+simpler than inserting, as there will always be some room left in the raw 
+capacity the moment the function is called, and as such appending only needs 
+to initialise one more Char spot, whereas insertion needs all the elements at
+and beyond the insertion index to move one place. We thus do not really reuse
+any significant amount of code.
+
+Our charcount header has a slightly strange form where the data member is all
+the way at the bottom, but since it has to be defined only after the struct
+is, it seems a bit strange to go from public to private back to public for one
+line. We could probably make the data member public too as it would likely not
+harm much, but for now we elect to keep this as-is and hope it isn't an issue.
+
+JB: Yet that is what I usually do, and Frank as well.

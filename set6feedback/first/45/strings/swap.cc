@@ -1,3 +1,5 @@
+//JB: 0
+//JB: Segfault
 #include "strings.ih"
 
 void Strings::swap(Strings &other)
@@ -9,8 +11,4 @@ void Strings::swap(Strings &other)
     size_t size = d_size;
     d_size = other.d_size;
     other.d_size = size;
-    
-    size_t tmpCapacity = d_capacity;
-    d_capacity = other.d_capacity;
-    other.d_capacity = tmpCapacity;
 }

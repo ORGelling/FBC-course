@@ -7,6 +7,7 @@ class Strings
 {
     size_t d_size;
     size_t d_capacity = 1;
+    //JB: Combination of 1 capacity and null d_data makes little sense.
     std::string **d_data = nullptr;
     
     public:

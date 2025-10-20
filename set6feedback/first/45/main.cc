@@ -1,20 +1,11 @@
 #include "main.ih"
 
-int main(int argc, char *argv[])
+int main()
 {
-    size_t argc_t = argc;
-    Strings strings{ argc_t, argv };
-    Strings strings2{ cin };
-    strings.swap(strings2);
+    Strings strings{ cin };
     
     for (size_t idx = 0, end = strings.size(); idx != end; ++idx)
         cout << "line " << idx + 1 << ": " << strings.at(idx) << '\n';
 
     cout << "current capacity: " << strings.capacity() << '\n';
-
-    for (size_t idx = 0, end = strings2.size(); idx != end; ++idx)
-        cout << "line " << idx + 1 << ": " << strings2.at(idx) << '\n';
-
-    cout << "current capacity: " << strings2.capacity() << '\n';
-
 }
