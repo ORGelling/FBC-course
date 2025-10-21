@@ -11,18 +11,18 @@ class ProcAcc
     acct_v3 d_record;
     std::string d_processName;
     
-    int d_exitcode;
+    //int d_exitcode;
     int d_signal;
  
     static void (ProcAcc::*s_output[])() const;
     
     public:
-        ProcAcc(std::string const fileName);
+        ProcAcc(std::string const &fileName);
         // ~ProcAcc();                                  // Needed?        
         int process(bool flag);
         
     private:
-        void signal() const;
+        void selectOutput() const;
         void show() const;
         bool isOpen() const;
         void setData();

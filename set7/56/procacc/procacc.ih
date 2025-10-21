@@ -1,8 +1,9 @@
 #include "procacc.h"
-#include <fstream>
+// #include <fstream>
 #include <iostream>
-#include <linux/acct.h>
+// #include <linux/acct.h>
 #include <csignal>
+#include <cstring> // for strnlen()
 
 using namespace std;
 

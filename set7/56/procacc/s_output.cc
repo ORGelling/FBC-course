@@ -5,6 +5,6 @@
 void (ProcAcc::*ProcAcc::s_output[])() const 
 =
 {
-    &ProcAcc::signal,
+    &ProcAcc::selectOutput,
     &ProcAcc::show
 };

@@ -17,7 +17,7 @@ void ProcAcc::show() const
         break;                                                             
         default:
             cout << d_signal; // << " " << d_exitcode;
-            //cout << (d_exitcode != 0 ? d_exitcode : d_signal);
+            //cout << (d_signal != 0 ? d_signal : d_exitcode);
             //cout << " " << hex << d_record.ac_exitcode << dec;
     }                                                                      
     cout << '\n';                                                          

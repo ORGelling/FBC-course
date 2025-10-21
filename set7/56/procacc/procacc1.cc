@@ -2,12 +2,10 @@
 
     // by 
 
-ProcAcc::ProcAcc(string const fileName)
-//:
+ProcAcc::ProcAcc(string const &fileName)
+:
+    d_file(fileName, ios::binary)
 {
-    d_file.open(fileName, ios::binary);
-    
-    cerr << "reading from: " << fileName << '\n';
-    
-    isOpen();
+    if (isOpen())
+        cerr << "reading from: " << fileName << '\n';
 }
