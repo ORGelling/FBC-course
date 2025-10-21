@@ -69,4 +69,4 @@ is 139, which we can see by executing
 echo $?
 right after the segfaulting program runs. Apparently in this case the process
 accounting is storing the shell's exit status rather than the segfault code?
-We aren't entirely sure why this is/
+We aren't entirely sure why this is.
