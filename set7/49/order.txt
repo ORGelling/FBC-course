@@ -2,7 +2,3 @@ ex49info.txt
 
 main.ih
 main.cc
-
--CLASSES
--icmconf
--Makefile

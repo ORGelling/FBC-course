@@ -2,9 +2,10 @@ ex56info.txt
 
 procacc/procacc.h
 procacc/procacc.ih
+procacc/s_output.cc
 procacc/procacc1.cc
 procacc/process.cc
-procacc/signal.cc
+procacc/selectoutput.cc
 procacc/show.cc
 procacc/isopen.cc
 procacc/setdata.cc
