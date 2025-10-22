@@ -1,0 +1,2 @@
+value/charvalue.cc.o: value/charvalue.cc value/value.ih value/value.h \
+ value/../enum/enum.h

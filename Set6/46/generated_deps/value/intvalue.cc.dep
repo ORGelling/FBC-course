@@ -1,0 +1,2 @@
+value/intvalue.cc.o: value/intvalue.cc value/value.ih value/value.h \
+ value/../enum/enum.h

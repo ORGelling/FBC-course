@@ -1,0 +1,2 @@
+usage.cc.o: usage.cc main.ih handler/handler.h handler/../shared/shared.h \
+ handler/../shared/../data/data.h

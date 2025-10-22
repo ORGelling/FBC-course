@@ -1,0 +1,2 @@
+41/charcount/charcount2.cc.o: 41/charcount/charcount2.cc \
+ 41/charcount/charcount.ih 41/charcount/charcount.h

@@ -1,0 +1,2 @@
+41/charcount/destroy.cc.o: 41/charcount/destroy.cc \
+ 41/charcount/charcount.ih 41/charcount/charcount.h

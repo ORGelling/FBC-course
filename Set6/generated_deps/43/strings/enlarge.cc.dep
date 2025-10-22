@@ -1,0 +1,2 @@
+43/strings/enlarge.cc.o: 43/strings/enlarge.cc 43/strings/strings.ih \
+ 43/strings/strings.h

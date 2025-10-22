@@ -1,0 +1,2 @@
+shared/kill.cc.o: shared/kill.cc shared/shared.ih shared/shared.h \
+ shared/../data/data.h

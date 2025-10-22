@@ -1,0 +1,2 @@
+shared/disconnect.cc.o: shared/disconnect.cc shared/shared.ih \
+ shared/shared.h shared/../data/data.h
