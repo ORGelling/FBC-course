@@ -5,7 +5,8 @@
 Numbers &Numbers::operator=(Numbers &&tmp)
 {
     swap(tmp);
-    tmp.d_size = 0;                         // Manually clearing to prevent
-    tmp.d_data = nullptr;                   // tmp holding calling object
-    return *this;                           // contents after swap
+    delete[] tmp.d_data;                    // Manually clearing to prevent
+    tmp.d_size = 0;                         // tmp holding "this" object's
+    tmp.d_data = nullptr;                   // contents after swap
+    return *this;                           
 }

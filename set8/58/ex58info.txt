@@ -1,1 +1,19 @@
 Exercise 58: 
+
+Write a class Numbers with move and copy constructors and assignment
+operators, and other specific member functions.
+
+We do exactly this, writing our write() function such that it iterates over
+d_size, and as such will not automatically show uninitialised memory. We run
+the program through valgrind instead and see:
+
+==71579== Conditional jump or move depends on uninitialised value(s)
+
+==71579== Use of uninitialised value of size 8
+
+==71579== Conditional jump or move depends on uninitialised value(s)
+ 
+==71579== Conditional jump or move depends on uninitialised value(s)
+
+This message pops up particularly whenever an object is being initialised
+with the second constructor!
