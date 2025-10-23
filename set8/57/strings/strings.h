@@ -14,6 +14,11 @@ class Strings
         Strings(size_t argc, char **argv);
         Strings(char **environLike);
         Strings(std::istream &in);
+        Strings(Strings const &other);      // Copy Constructor
+        Strings(Strings &&other);           // Move constructor
+        
+        Strings &operator=(Strings const &other);   // overloaded assign
+        Strings &operator=(Strings &&other);        // overloaded move
         
         ~Strings();                         // Added destructor.
                
@@ -39,7 +44,9 @@ class Strings
         
         void enlarge(size_t const newSize);
         std::string **rawPointers(size_t const newSize);
+        
         void copyPtrsInto(std::string **rawMemory);
+        void copyStringsFrom(std::string **otherData);
         void initialiseStrings(size_t const newSize);
         
         void destroy();

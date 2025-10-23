@@ -1,1 +1,8 @@
 Exercise 57: 
+
+Add copy and move constructors and overloaded assignment operators to the
+Strings class from set 6's exercise 44.
+
+We do exactly this, testing them in main.cc by forcing the move constructor
+and assignment using the std::move() function to create rvalue references to
+work with, that the class picks up on automatically.

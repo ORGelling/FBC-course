@@ -4,10 +4,11 @@
 
 Strings::Strings(Strings &&other)
 :
-    d_size(argc),
-    d_capacity(argc), // argc is never gonna be 0 I think?
-    d_data(rawPointers(d_capacity))
+    d_size(other.d_size),
+    d_capacity(other.d_capacity),
+    d_data(other.d_data)
 {
-    //setNull(0, d_capacity); //JB: IRE
-    fill(argv);
+    other.d_size = 0;
+    other.d_capacity = 0;
+    other.d_data = nullptr;
 }

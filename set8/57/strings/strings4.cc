@@ -3,7 +3,7 @@
 Strings::Strings(istream &in)
 :
     d_size(0),
-    d_capacity(1)
+    d_capacity(1),
     d_data(rawPointers(1))
 {
     string line;
