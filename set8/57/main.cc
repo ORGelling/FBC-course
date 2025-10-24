@@ -6,30 +6,30 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     size_t argc_t = argc;
-    Strings A(argc_t, argv);
+    Strings one(argc_t, argv);
     
-    Strings B(cin);
+    Strings two(cin);
     
     //Strings C(Strings(argc_t, argv));     // elided away
     //Strings C(Strings(move(B)));          // Works!
 
-    Strings C;
+    Strings three;
     
     //C = B;
-    C = move(B);
+    three = move(two);
     
-    for (size_t idx = 0, end = A.size(); idx != end; ++idx)
-        cout << "line " << idx + 1 << ": " << A.at(idx) << '\n';
+    for (size_t idx = 0, end = one.size(); idx != end; ++idx)
+        cout << "line " << idx + 1 << ": " << one.at(idx) << '\n';
 
-    cout << "current capacity: " << A.capacity() << '\n';
+    cout << "current capacity: " << one.capacity() << '\n';
     
-    for (size_t idx = 0, end = B.size(); idx != end; ++idx)
-        cout << "line " << idx + 1 << ": " << B.at(idx) << '\n';
+    for (size_t idx = 0, end = two.size(); idx != end; ++idx)
+        cout << "line " << idx + 1 << ": " << two.at(idx) << '\n';
 
-    cout << "current capacity: " << B.capacity() << '\n';
+    cout << "current capacity: " << two.capacity() << '\n';
     
-    for (size_t idx = 0, end = C.size(); idx != end; ++idx)
-        cout << "line " << idx + 1 << ": " << C.at(idx) << '\n';
+    for (size_t idx = 0, end = three.size(); idx != end; ++idx)
+        cout << "line " << idx + 1 << ": " << three.at(idx) << '\n';
 
-    cout << "current capacity: " << C.capacity() << '\n';
+    cout << "current capacity: " << three.capacity() << '\n';
 }

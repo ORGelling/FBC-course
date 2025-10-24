@@ -1,2 +1,0 @@
-strings/resize.cc.o: strings/resize.cc strings/strings.ih \
- strings/strings.h
