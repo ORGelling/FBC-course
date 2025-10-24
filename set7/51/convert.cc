@@ -1,12 +1,12 @@
 #include "main.ih"
 
-void convert(char *filename)
+int convert(char *filename)
 {
     fstream file(filename, ios::in | ios::out);
     if (!file)                              // test file presence
     {
         cerr << "Unable to open file\n";
-        return;
+        return 1;
     }
     
     size_t setPos = file.tellg();           // set initial position
@@ -20,4 +20,5 @@ void convert(char *filename)
         }
         setPos = file.tellg();              // store next line position
     }
+    return 0;
 }

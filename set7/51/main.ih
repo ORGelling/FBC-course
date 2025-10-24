@@ -4,7 +4,7 @@
 #include <iostream>     // for debugging
 
 
-void convert(char *filename);
-std::string lowercase(std::string &input);
+int convert(char *filename);
+std::string &lowercase(std::string &input);
 
 using namespace std;

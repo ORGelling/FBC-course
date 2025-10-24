@@ -2,8 +2,9 @@
 
 int main(int argc, char *argv[])
 {
-    if (argc == 1)              // verify input
+    if (argc == 1)                      // verify input
         return 1;
     
-    convert(argv[1]);           //  verifies file and corrects UC
+    if (convert(argv[1]) == 1)          //  verifies file and corrects UC
+        cerr << "failed to convert\n";
 }
