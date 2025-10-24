@@ -19,6 +19,7 @@ class Strings
         Strings(int argc, char *argv[]);
         Strings(char *environLike[]);
         Strings(std::istream &in);
+        Strings(size_t nIterate, bool copy = true); // ADD
 
         void swap(Strings &other);              
 
@@ -35,8 +36,11 @@ class Strings
         void fill(char *ntbs[]);                    // fill prepared d_str
 
         std::string &safeAt(size_t idx) const;      // private backdoor
-        std::string *enlarge();
-
+        std::string *enlarge();                     // Fix/modify?
+        std::string *enlargeByCopy();               // ADD
+        std::string *enlargeByMove();               // ADD
+        void iterate(char **environLike);           // ADD
+        
         static size_t count(char *environLike[]);   // # elements in env.like
 };
 
