@@ -4,8 +4,5 @@
 
 bool ProcAcc::isOpen() const
 {
-    if (d_file.is_open())
-        return true;
-    
-    return false;
+    return (d_file.is_open() ? true : false);
 }

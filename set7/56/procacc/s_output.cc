@@ -2,8 +2,7 @@
 
     // by 
 
-void (ProcAcc::*ProcAcc::s_output[])() const 
-=
+void (ProcAcc::*ProcAcc::s_output[])() const =
 {
     &ProcAcc::selectOutput,
     &ProcAcc::show

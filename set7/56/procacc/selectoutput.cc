@@ -5,5 +5,5 @@
 void ProcAcc::selectOutput() const
 {
     if (d_signal != 0) // || d_exitcode != 0)
-        show();
+        show();                         // selects when (not) to show
 }
