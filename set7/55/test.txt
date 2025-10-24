@@ -4,3 +4,7 @@ Another line appended
 Nothing can reach me!
 Now I can reach it though, but I had to stand in line!
 This is kinda fun tbh
+Checking if the program still works
+Another check
+Testing simpler stringName function
+Final check. Should look good now!

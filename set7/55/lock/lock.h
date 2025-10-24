@@ -1,9 +1,7 @@
 #ifndef INCLUDED_LOCK_
 #define INCLUDED_LOCK_
 
-//#include <iosfwd>
 #include <string>
-#include <filesystem>
 
 class Lock
 {
@@ -13,7 +11,7 @@ class Lock
         Lock(std::string const &path, std::string lockDir);
         ~Lock();
         
-        int open(std::filesystem::path path);
+        int open(std::string pathStr); //filesystem::path path);
         bool valid();
         
     private:

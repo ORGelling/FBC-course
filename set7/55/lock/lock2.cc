@@ -5,10 +5,9 @@
 Lock::Lock(string const &path, string lockDir)
 {
     string fullName = lockPath(path, lockDir);
-    cerr << fullName << '\n';
-    filesystem::path pathObj(fullName);
+    //cerr << fullName << '\n';
     
-    d_filedesc = open(pathObj);
+    d_filedesc = open(fullName);
     
     if(valid())
         cerr << "lock successful\n";

@@ -1,14 +1,14 @@
 #include "lock.ih"
 
-    // by 
+    // by lock2.cc
 
-int Lock::open(filesystem::path path)
+int Lock::open(string pathStr)
 {
-    string pathStr = path.string();
-    char const *pathC = pathStr.c_str();
-    int filedesc;
+    filesystem::path pathObj(pathStr);      // for exists()
+    char const *pathC = pathStr.c_str();    // for open()
+    int filedesc;                           // temp storage of d_filedesc
     
-    if (filesystem::exists(path))
+    if (filesystem::exists(pathObj))
         filedesc = ::open(pathC, O_RDWR);
     else
         filedesc = ::open(pathC, O_CREAT | O_TRUNC | O_RDWR, 0600);
