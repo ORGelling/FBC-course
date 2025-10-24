@@ -3,8 +3,6 @@ ex54info.txt
 test.txt
 new.txt
 
-enum/enum.h
-
 fch/fch.h
 fch/fch.ih
 fch/s_action.cc
