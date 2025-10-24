@@ -4,7 +4,7 @@
 
 void Fch::searchReplace()
 {
-    cerr << "target: ";
+    cerr << "target: ";                 // requests target and replacement
     getline(cin, d_target);
     cerr << "replacement: ";
     getline(cin, d_replacement);

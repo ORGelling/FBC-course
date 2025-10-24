@@ -1,13 +1,19 @@
 #ifndef INCLUDED_FCH_
 #define INCLUDED_FCH_
 
-#include "../enum/enum.h"
 #include <iosfwd>
 #include <fstream>
 #include <string>
 
 class Fch
 {
+    enum Action
+    {
+        ASK,
+        CHANGE_ALL,
+        NO_CHANGES,
+    };
+    
     std::fstream    d_input;
     std::string     d_target;
     std::string     d_replacement;

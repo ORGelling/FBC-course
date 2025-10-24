@@ -2,8 +2,7 @@
 
     // by searchreplace.cc
 
-void (Fch::*Fch::s_action[])()
-=
+void (Fch::*Fch::s_action[])() =
 {
     &Fch::ask,
     &Fch::modify
