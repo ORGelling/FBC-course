@@ -1,6 +1,6 @@
 #include "main.ih"
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
     if (argc == 1)
         return 1;
@@ -10,20 +10,17 @@ int main(int argc, char *argv[])
     // Lock fileLock(argv[1], directory);
     
     Lock fileLock(argv[1]);
-    
-    if (fileLock.valid())
+    if (!fileLock.valid())
     {
-        fstream writeFile(argv[1], ios::app);
-        
-        string appendText;
-        cerr << "? ";
-        
-        getline(cin, appendText);
-        writeFile << appendText << '\n';
-    }
-    else
-    {
-        cerr << "failed to open file\n";
+        cerr << "could not open file\n";
         return 1;
     }
+    
+    fstream writeFile(argv[1], ios::app);
+    
+    string appendText;
+    cerr << "? ";
+    
+    getline(cin, appendText);
+    writeFile << appendText << '\n';
 }
