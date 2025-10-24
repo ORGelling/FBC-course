@@ -1,1 +1,29 @@
-Exercise 61: 
+Exercise 61:
+
+Complete the table about the use of the default keyword in class construction
+
+- for not provided by compiler
+CC copy constructor used instead
+MC move constructor used instead
+C= copy assignment used instead
+M= move assignment used instead
+a+ ano other case: Compiler provides default
+Not all of these will be used
+
+-----------------------------------------------------------
+                    |   constructors     |  assignment ops.
+                    |------------------  |  ---------------  
+we define:          | default copy move  |    copy    move   
+-----------------------------------------------------------
+no constructor:     |  
+default cons:       |   
+copy cons (CC):     |   
+move cons (MC):     |   
+other cons:         |   
+                    |   
+no assignment:      |   
+copy assignmnt (C=):|   
+move assignmnt (M=):|   
+other assignmnt:    |                                        
+-----------------------------------------------------------
+
