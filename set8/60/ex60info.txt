@@ -1,1 +1,5 @@
-Exercise 60: 
+Exercise 60:
+
+We make a Demo class that does nothing other than output info messages. With
+it we show situations where copy elision is used, demonstrated in the output
+from our main function shown below.

@@ -1,1 +1,23 @@
 Exercise 59: 
+
+Amend the given Strings class to either copy or move when enlarging, and time
+how long a number of iterations of each takes.
+
+We do exactly this, adding probably a few more functions and constructors than
+strictly necessary for this process. We time our outputs and get:
+
+$ time tmp/bin/binary 10000
+
+real	0m0,485s
+user	0m0,482s
+sys	    0m0,004s
+
+$ time tmp/bin/binary 10000 false
+
+real	0m0,088s
+user	0m0,085s
+sys	    0m0,003s
+
+We note that rather than finnicking around with checking the exact text of the
+last commandline argument, we just set the copy bool to false when there *is*
+another argument after the iteration number. Not very pretty but it works.

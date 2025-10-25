@@ -1,12 +1,14 @@
 #include "strings.ih"
 
-Strings::iterate(char **environLike)
+void Strings::iterate(char **environLike, bool const copy)
 {
-    // Calls add() on repeat
-    // no counting entries, repeat nIterations
-    // destroy all allocated memory before each iteration
-
-    // At end: all of environLike's elements should be available.
-    // Display first and last.
-
+    delete[] d_str;
+    d_str = nullptr;
+    d_size = 0;
+    while(*environLike != nullptr)
+    {
+        string envVariable = *environLike;
+        add(envVariable, copy);
+        ++environLike;
+    }
 }

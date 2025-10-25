@@ -2,6 +2,9 @@
 
     // by 
 
-void Demo::()
+Demo Demo::factory()
 {
+    cerr << "calling factory.\n";
+    Demo demo;
+    return demo;
 }

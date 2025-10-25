@@ -4,7 +4,6 @@
 
 Demo &Demo::operator=(Demo const &other)
 {
-    Demo tmp(other);
-    swap(tmp);
+    cerr << "executing copy assignment.\n";
     return *this;
 }

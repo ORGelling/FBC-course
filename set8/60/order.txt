@@ -1,1 +1,12 @@
 ex60info.txt
+
+demo/demo1.cc
+demo/demo2.cc
+demo/demo3.cc
+demo/destructor.cc
+demo/operatorassign1.cc
+demo/operatorassign2.cc
+demo/factory.cc
+
+main.ih
+main.cc

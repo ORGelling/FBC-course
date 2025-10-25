@@ -11,8 +11,9 @@ class Demo
         ~Demo();
         Demo &operator=(Demo const &other);
         Demo &operator=(Demo &&tmp);
-        void swap(Demo &other);
-
+        
+        static Demo factory();
+        
     private:
 };
         

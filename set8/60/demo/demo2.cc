@@ -5,4 +5,5 @@
 Demo::Demo(Demo const &other)
 //:
 {
+    cerr << "calling copy constructor.\n";
 }

@@ -1,9 +1,9 @@
-#include "main.ih"
+//#include "main.ih"
 
-int main()
-{
-    Filter filter(cin);                 // filters out initial and final 
+//int main()
+//{
+//    Filter filter(cin);                 // filters out initial and final 
                                         // empty lines
 
-    filter.display();                   // show the remaining lines to cout
-}
+//    filter.display();                   // show the remaining lines to cout
+//}

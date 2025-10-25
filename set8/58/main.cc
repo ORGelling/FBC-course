@@ -6,17 +6,17 @@ int main(int argc, char *argv[])
     Numbers emptySet{ 8 };
     Numbers simpleSet{ 10, 42 };
     
-    cerr << "test length(): " << simpleSet.length() << '\n';
-    cerr << "test data(), should be a pointer: " << simpleSet.data() << '\n';
+    cout << "test length(): " << simpleSet.length() << '\n';
+    cout << "test data(), should be a pointer: " << simpleSet.data() << '\n';
     
-    cerr << "test at(): " << simpleSet.at(0) << '\n';
+    cout << "test at(): " << simpleSet.at(0) << '\n';
    
-    cerr << "\ntest write:\nempty:\n";
-    empty.write(cerr);
-    cerr << "emptySet:\n";
-    emptySet.write(cerr);
+    cout << "\ntest write:\nempty:\n";
+    empty.write(cout);
+    cout << "emptySet:\n";
+    emptySet.write(cout);
     
-    cerr << "\nfilling emptySet with values\n";
+    cout << "\nfilling emptySet with values\n";
     emptySet.at(0) = 6;
     emptySet.at(1) = 9;
     emptySet.at(2) = 4;
@@ -26,30 +26,30 @@ int main(int argc, char *argv[])
     emptySet.at(6) = 3;
     emptySet.at(7) = 7;
     
-    cerr << "\nempty:\n";
-    empty.write(cerr);
-    cerr << "emptySet:\n";
-    emptySet.write(cerr);
-    cerr << "simpleSet:\n";
-    simpleSet.write(cerr);
+    cout << "\nempty:\n";
+    empty.write(cout);
+    cout << "emptySet:\n";
+    emptySet.write(cout);
+    cout << "simpleSet:\n";
+    simpleSet.write(cout);
    
-    cerr << "\ntest copy assignment:\nempty:\n";
+    cout << "\ntest copy assignment:\nempty:\n";
     empty = emptySet;
-    empty.write(cerr);
+    empty.write(cout);
     
-    cerr << "\ntest move assignment:\nempty:\n";
+    cout << "\ntest move assignment:\nempty:\n";
     empty = move(simpleSet);
-    empty.write(cerr);
-    cerr << "simpleSet:\n";
-    simpleSet.write(cerr);
+    empty.write(cout);
+    cout << "simpleSet:\n";
+    simpleSet.write(cout);
     
-    cerr << "\ntest copy constructor:\ncopyInto:\n";
+    cout << "\ntest copy constructor:\ncopyInto:\n";
     Numbers copyInto{ emptySet };
-    copyInto.write(cerr);
+    copyInto.write(cout);
     
-    cerr << "\ntest move constructor:\nmoveInto:\n";
+    cout << "\ntest move constructor:\nmoveInto:\n";
     Numbers moveInto{ move(copyInto) };
-    moveInto.write(cerr);
-    cerr << "copyInto:\n";
-    copyInto.write(cerr);
+    moveInto.write(cout);
+    cout << "copyInto:\n";
+    copyInto.write(cout);
 }

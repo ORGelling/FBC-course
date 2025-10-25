@@ -1,7 +1,7 @@
 #include "strings.ih"
 
-void Strings::fill(char **ntbs)
+void Strings::display() const
 {
     for (size_t index = 0; index != d_size; ++index)
-        d_str[index] = ntbs[index];
+        cout << d_str[index] << '\n';
 }

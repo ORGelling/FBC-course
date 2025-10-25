@@ -1,8 +1,8 @@
 #include "strings.ih"
 
-void Strings::add(string const &next)
+void Strings::add(string const &next, bool const copy)
 {
-    string *tmp = enlarge();            // make room for the next string,
+    string *tmp = enlarge(copy);        // make room for the next string,
                                         // tmp is the new string *
 
     tmp[d_size] = next;                 // store next

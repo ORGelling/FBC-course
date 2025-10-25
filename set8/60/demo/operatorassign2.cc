@@ -4,6 +4,6 @@
 
 Demo &Demo::operator=(Demo &&tmp)
 {
-    swap(tmp);
+    cerr << "executing move assignment.\n";
     return *this;
 }

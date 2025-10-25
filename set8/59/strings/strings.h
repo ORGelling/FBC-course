@@ -7,6 +7,8 @@ class Strings
 {
     size_t d_size;
     std::string *d_str;
+    
+    static std::string *(Strings::*s_enlarge[])();
 
     public:
         struct POD
@@ -16,11 +18,18 @@ class Strings
         };
 
         Strings();
-        Strings(int argc, char *argv[]);
-        Strings(char *environLike[]);
+        Strings(int argc, char **argv);
+        Strings(char **environLike);
         Strings(std::istream &in);
         Strings(size_t nIterate, bool copy = true); // ADD
+        Strings(Strings const &other);
+        Strings(Strings &&other);
+        
+        ~Strings();
 
+        Strings &operator=(Strings const &other);
+        Strings &operator=(Strings &&other);
+        
         void swap(Strings &other);              
 
         size_t size() const;
@@ -30,18 +39,26 @@ class Strings
         std::string const &at(size_t idx) const;
         std::string &at(size_t idx);
 
-        void add(std::string const &next);          // add another element
+        void add(std::string const &next, bool const copy = true);  
+                                                    // add another element
+        void display() const;
 
     private:
-        void fill(char *ntbs[]);                    // fill prepared d_str
+        void fill(char **ntbs);                     // fill prepared d_str
 
         std::string &safeAt(size_t idx) const;      // private backdoor
-        std::string *enlarge();                     // Fix/modify?
-        std::string *enlargeByCopy();               // ADD
-        std::string *enlargeByMove();               // ADD
-        void iterate(char **environLike);           // ADD
+        std::string *enlarge(bool const copy = true);       // Fix/modify?
+        std::string *enlargeByCopy();                       // ADD
+        std::string *enlargeByMove();                       // ADD
+        void iterate(char **environLike, bool const copy);  // ADD
+
+        void copyStringsFrom(std::string *data);
+        void moveStringsFrom(std::string *data);
         
-        static size_t count(char *environLike[]);   // # elements in env.like
+        static char *ntbsCopy(char const *ntbs);
+        static char **copyEnvs();
+        static size_t count(char **environLike);    // # elements in env.like
+        static void deleteEnvs(char **environLike);
 };
 
 inline size_t Strings::size() const         // potentially dangerous practice:
