@@ -1,0 +1,34 @@
+//#define CLS
+//#define LIBRARY             "modules"
+#define MAIN                "main.cc"
+#define SOURCES             "*.cc"
+#define OBJ_EXT             ".o"
+//#define SHARED
+//#define SHAREDREQ           ""
+#define TMP_DIR             "tmp"
+//#define USE_ALL           "a"
+//#define ICM_DEP           "-V go"
+//#define USE_ECHO            ON
+//#define USE_VERSION
+
+#define DEFCOM "program"
+//#define DEFCOM "library"
+
+// COMPILATION AND LINKING RELATED DEFINES
+// =======================================
+
+#define CXX                 "g++"
+#define CXXFLAGS            "-Werror -Wall -O2"
+#define IH                  ".ih"
+//#define SPCH           ""
+//#define SPCH_FILE      "spch"
+//#define PRECOMP           "-x c++-header"
+//#define NO_PRECOMP_WARNING
+//#define MULTICOMP           "jobs -q"
+//#define REFRESH
+//#define LDFLAGS             ""
+
+// LIBRARIES REQUIRED BY THE CONSTRUCTED PROGRAM OR LIBRARY:
+// =========================================================
+//#define ADD_LIBRARIES       ""
+//#define ADD_LIBRARY_PATHS   ""

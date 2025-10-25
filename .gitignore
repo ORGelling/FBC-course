@@ -2,11 +2,19 @@
 *.slo
 *.lo
 *.o
+*.cc.o
 *.obj
 
 # Precompiled Headers
 *.gch
 *.pch
+*.ih.gch
+
+# Dependencies
+*.c.dep
+*.cpp.dep
+*.cc.dep
+*.ih.dep
 
 # Compiled Dynamic libraries
 *.so
@@ -23,3 +31,9 @@
 *.exe
 *.out
 *.app
+
+# Swap files
+*.cc.swp
+*.txt.swp
+*.h.swp
+*.ih.swp
