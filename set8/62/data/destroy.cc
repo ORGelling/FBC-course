@@ -4,5 +4,5 @@
 
 void Data::destroy(Type type)
 {
-    (this->*s_destroy[field])();
+    (this->*s_destroy[type])();
 }

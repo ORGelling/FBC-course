@@ -2,9 +2,7 @@
 
     // by 
 
-void Data::swapValDoub()
+void Data::swapValDoub(Data &other)
 {
-    size_t temp = u_value;
-    u_double = other.u_double;
-    other.u_value = temp;
+    other.swapDoubVal(*this);
 }

@@ -2,7 +2,7 @@
 
     // by 
 
-void (Data*Data::s_copy[])(Data const &tmp) = 
+void (Data::*Data::s_copy[])(Data const &tmp) = 
 {
     &Data::copyDouble,
     &Data::copyString,

@@ -20,14 +20,15 @@ union Data
         Data(double *doublePtr);
         Data(std::string const &word);
         Data(size_t value);
+        Data(Data const &other) = delete;
         Data(Data const &other, Type type);
         Data(Data &&tmp, Type type);
         
         ~Data();
         void destroy(Type type);
         
-        Data &operator=(Data const &other);
-        Data &operator=(Data &&tmp);
+        //Data &operator=(Data const &other);
+        //Data &operator=(Data &&tmp);
         
         void swap(Type thisType, Data &other, Type otherType);
         
@@ -55,12 +56,12 @@ union Data
         void swapDoubStr(Data &other);      // check
         void swapDoubVal(Data &other);      // check
         
-        void swapStrDoub(Data &other);      // check
+        void swapStrDoub(Data &other);      // check // simplified
         void swap2String(Data &other);      // check
         void swapStrVal(Data &other);       // check
         
-        void swapValDoub(Data &other);      // check
-        void swapValStr(Data &other);       // check
+        void swapValDoub(Data &other);      // check // simplified
+        void swapValStr(Data &other);       // check // simplified
         void swap2Value(Data &other);       // check
         
         // destroy members
@@ -79,23 +80,22 @@ inline std::string const &Data::word() const
 {
     return u_word;
 }
-inline size_t value() const
+inline size_t Data::value() const
 {
     return u_value;
 }
 
-inline void setDouble(size_t const index, double const value)
+inline void Data::setDouble(size_t const index, double const value)
 {
     u_double[index] = value;
 }
-inline void setWord(std::string const &word)
+inline void Data::setWord(std::string const &word)
 {
     u_word = word;
 }
-inline void setValue(size_t const value)
+inline void Data::setValue(size_t const value)
 {
     u_value = value;
 }
-
 
 #endif

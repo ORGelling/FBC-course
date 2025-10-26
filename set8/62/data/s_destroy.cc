@@ -2,7 +2,7 @@
 
     // by 
 
-void (Data*Data::s_destroy[])() = 
+void (Data::*Data::s_destroy[])() = 
 {
     &Data::destroyDouble,
     &Data::destroyString,
