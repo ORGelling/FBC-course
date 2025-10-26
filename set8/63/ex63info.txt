@@ -3,7 +3,9 @@ Exercise 63:
 Finish the union from the previous exercise by wrapping it inside a wrapper  
 class.
 
-We do exactly this! We note that the exercise does not ask of us to make our
+We do exactly this! 
+
+We note that the exercise does not ask of us to make our
 wrapper class test for the correctness of our accessors. This seems like it
 would be relevant though. We are currently not implementing them but realise
 that they should not be very complex. Something as simple as testing the
@@ -11,3 +13,17 @@ correct d_type (if (d_type != VALUE) for value() for instance), and returning
 an empty object that is declared in a namespace above that function in its
 source file. (We have the accessors implemented inline inside the header for
 now).
+
+To solve the issue of initialising the u_value field of a Wrap object's Data
+union with 0 we must realise that calling it like Wrap w4{ 0 }; is incredibly
+ambiguous, as the compiler tells us right away already that it cannot figure
+out which constructor to use. It shows us all candidates, but we logically
+already see conflict with the one that accepts a pointer to an array of
+doubles, as 0 can also be interpreted as a (null) pointer.
+
+We can solve this by explicitly initialise a size_t variable with the value 0,
+and then hand that to the constructor:
+size_t zero = 0;
+Wrap w4{ zero };
+
+This should run without any errors!

@@ -20,4 +20,9 @@ int main(int argc, char **argv)
     
     //for (size_t index = 0; index != 10; ++index)
     //    cout << w3.doubles(index) << '\n';
+    
+    size_t zero = 0;
+    Wrap w4{ zero };
+    
+    cout << "Value: " << w4.value() << '\n';
 }
