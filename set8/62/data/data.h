@@ -18,7 +18,7 @@ union Data
     
     public:
         Data(double *doublePtr);
-        Data(std::string const word);
+        Data(std::string const &word);
         Data(size_t value);
         Data(Data const &other, Type type);
         Data(Data &&tmp, Type type);

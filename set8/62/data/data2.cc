@@ -2,7 +2,7 @@
 
     // by 
 
-Data::Data(string const word)
+Data::Data(string const &word)
 :
     u_word(word)
 {}
