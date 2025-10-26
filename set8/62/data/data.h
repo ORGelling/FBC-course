@@ -34,6 +34,7 @@ union Data
         
         // accessors
         double const *array() const;
+        double doubles(size_t const index) const;
         std::string const &word() const;
         size_t value() const;
         
@@ -75,6 +76,10 @@ union Data
 inline double const *Data::array() const
 {
     return u_double;
+}
+inline double Data::doubles(size_t const index) const
+{
+    return u_double[index];
 }
 inline std::string const &Data::word() const
 {
