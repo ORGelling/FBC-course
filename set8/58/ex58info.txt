@@ -17,3 +17,10 @@ the program through valgrind instead and see:
 
 This message pops up particularly whenever an object is being initialised
 with the second constructor!
+
+Of note is the fact we have left some commented lines in the move assignment
+operator file, as when we used it inside our test program we noticed it was
+actually just swapping the contents. Normally this is fine since the rhs of
+the statement will go out of scope shortly after, but was nice and clean to
+have an empty object left to be handled by the destructor. This however is not
+needed, and as such we have omitted that code from the file.

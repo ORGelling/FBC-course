@@ -27,7 +27,7 @@ class Numbers
         
     private:
         int *allocateMemory(size_t const size);
-        void copyFrom(int *data);
+        void copyFrom(int const *data);
         void setValues(int value);
 };
 
