@@ -3,8 +3,9 @@ Exercise 59:
 Amend the given Strings class to either copy or move when enlarging, and time
 how long a number of iterations of each takes.
 
-We do exactly this, adding probably a few more functions and constructors than
-strictly necessary for this process. We time our outputs and get:
+We do exactly this, adding probably (definitely) a few (lot) more functions 
+and constructors than strictly necessary for this process. We time our
+outputs and get:
 
 $ time tmp/bin/binary 10000
 
@@ -19,5 +20,5 @@ user	0m0,085s
 sys	    0m0,003s
 
 We note that rather than finnicking around with checking the exact text of the
-last commandline argument, we just set the copy bool to false when there *is*
+last commandline argument, we just set the bool copy to false when there *is*
 another argument after the iteration number. Not very pretty but it works.
