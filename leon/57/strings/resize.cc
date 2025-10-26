@@ -1,0 +1,19 @@
+#include "strings.ih"
+
+void Strings::resize(size_t newSize)
+{
+    reserve(newSize);           // make sure there's enough memory
+
+    if (newSize > d_size)       // enlarging? initialize new strings
+    {
+        for (; d_size != newSize; ++d_size)
+            d_str[d_size] = new string;
+    }
+    else if (newSize < d_size)  // shrinking? remove excess strings
+    {
+        for (size_t idx = newSize; idx != d_size; ++idx)
+            delete d_str[idx];
+
+        d_size = newSize;
+    }
+}

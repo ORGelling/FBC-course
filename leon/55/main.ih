@@ -1,0 +1,7 @@
+#include "lock/lock.h"
+//#include <lock.h>     // when compiling with a static library and header
+                        // placed in our orgutility directory
+#include <fstream>
+#include <iostream>
+
+using namespace std;
