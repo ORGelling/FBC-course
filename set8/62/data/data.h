@@ -17,9 +17,9 @@ union Data
         size_t u_value;
     
     public:
-        Data(double *doublePtr);
+        Data(double const *doublePtr);
         Data(std::string const &word);
-        Data(size_t value);
+        Data(size_t const value);
         Data(Data const &other) = delete;
         Data(Data const &other, Type type);
         Data(Data &&tmp, Type type);
@@ -27,8 +27,8 @@ union Data
         ~Data();
         void destroy(Type type);
         
-        //Data &operator=(Data const &other);
-        //Data &operator=(Data &&tmp);
+        Data &copyAssign(Type thisType, Data const &other, Type otherType);
+        Data &moveAssign(Type thisType, Data &&tmp, Type tmpType);
         
         void swap(Type thisType, Data &other, Type otherType);
         

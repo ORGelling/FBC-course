@@ -2,7 +2,7 @@
 
     // by 
 
-Data::Data(size_t value)
+Data::Data(size_t const value)
 :
     u_value(value)
 {}

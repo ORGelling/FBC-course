@@ -1,1 +1,13 @@
-Exercise 63: 
+Exercise 63:
+
+Finish the union from the previous exercise by wrapping it inside a wrapper  
+class.
+
+We do exactly this! We note that the exercise does not ask of us to make our
+wrapper class test for the correctness of our accessors. This seems like it
+would be relevant though. We are currently not implementing them but realise
+that they should not be very complex. Something as simple as testing the
+correct d_type (if (d_type != VALUE) for value() for instance), and returning
+an empty object that is declared in a namespace above that function in its
+source file. (We have the accessors implemented inline inside the header for
+now).
