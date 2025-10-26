@@ -51,17 +51,17 @@ union Data
         void copyValue(Data const &tmp);
         
         // 9 swap members (oh god)
-        void swap2Double(Data &other);
-        void swapDoubStr(Data &other);
-        void swapDoubVal(Data &other);
+        void swap2Double(Data &other);      // check
+        void swapDoubStr(Data &other);      // check
+        void swapDoubVal(Data &other);      // check
         
-        void swapStrDoub(Data &other);
-        void swap2String(Data &other);
-        void swapStrVal(Data &other);
+        void swapStrDoub(Data &other);      // check
+        void swap2String(Data &other);      // check
+        void swapStrVal(Data &other);       // check
         
-        void swapValDoub(Data &other);
-        void swapValStr(Data &other);
-        void swap2Value(Data &other);
+        void swapValDoub(Data &other);      // check
+        void swapValStr(Data &other);       // check
+        void swap2Value(Data &other);       // check
         
         // destroy members
         void destroyDouble();

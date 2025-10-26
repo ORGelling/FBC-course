@@ -2,7 +2,5 @@
 
     // by 
 
-void Data::destroyString()
-{
-    u_word.string::~string();
-}
+void Data::destroyValue()               // Doesn't have to do anything 
+{}                                      // since size_t is a basic type                         

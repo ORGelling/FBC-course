@@ -2,7 +2,8 @@
 
     // by 
 
-void Data::destroyString()
+void Data::destroyDouble()
 {
-    u_word.string::~string();
+    delete[] u_double;
+    u_double = nullptr;
 }
