@@ -8,8 +8,9 @@ class Strings
     size_t d_size;
     std::string *d_str;
     
-    static std::string *(Strings::*s_enlarge[])();
-
+    //static std::string *(Strings::*s_enlarge[])();
+    std::string *(Strings::*d_enlarge)();
+    
     public:
         struct POD
         {
@@ -39,7 +40,7 @@ class Strings
         std::string const &at(size_t idx) const;
         std::string &at(size_t idx);
 
-        void add(std::string const &next, bool const copy = true);  
+        void add(std::string const &next);  
                                                     // add another element
         void display() const;
 
@@ -50,15 +51,15 @@ class Strings
         std::string *enlarge(bool const copy = true);       // Fix/modify?
         std::string *enlargeByCopy();                       // ADD
         std::string *enlargeByMove();                       // ADD
-        void iterate(char **environLike, bool const copy);  // ADD
+        void iterate(char **environLike);                   // ADD
 
         void copyStringsFrom(std::string *data);
         void moveStringsFrom(std::string *data);
         
-        static char *ntbsCopy(char const *ntbs);
-        static char **copyEnvs();
+        //static char *ntbsCopy(char const *ntbs);
+        //static char **copyEnvs();
         static size_t count(char **environLike);    // # elements in env.like
-        static void deleteEnvs(char **environLike);
+        //static void deleteEnvs(char **environLike);
 };
 
 inline size_t Strings::size() const         // potentially dangerous practice:
