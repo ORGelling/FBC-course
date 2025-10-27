@@ -8,10 +8,8 @@ int Lock::open(string pathStr)
     char const *pathC = pathStr.c_str();    // for open()
     int filedesc;                           // temp storage of d_filedesc
     
-    if (filesystem::exists(pathObj))        // Verify .lck file
-        filedesc = ::open(pathC, O_RDWR);
-    else                                    // open or create
-        filedesc = ::open(pathC, O_CREAT | O_TRUNC | O_RDWR, 0600);
+    filedesc = (filesystem::exists(pathObj) ? ::open(pathC, O_RDWR) 
+                        : ::open(pathC, O_CREAT | O_TRUNC | O_RDWR, 0600));
     
     return filedesc;
 }

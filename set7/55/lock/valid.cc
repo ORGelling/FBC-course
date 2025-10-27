@@ -8,4 +8,4 @@ bool Lock::valid()
         return false;               // d_fd == -1 means no file
                                     // else check locking success
     return true;
-}
+}                   // Using a ternary here would probably be a bit much

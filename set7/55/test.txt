@@ -8,3 +8,5 @@ Checking if the program still works
 Another check
 Testing simpler stringName function
 Final check. Should look good now!
+Hell yeah baby
+Final one!
