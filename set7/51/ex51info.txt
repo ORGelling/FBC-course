@@ -1,0 +1,18 @@
+Exercise 51:
+
+Write a simple program that can clean up capitalised letters from email 
+addresses.
+
+Our program has convert() check if the file could be opened, and shows an
+error message and returns if not. Doing this in a separate function seems
+excessive for the aim of the exercise but it does mean the convert method
+becomes slightly lengthy. We elect to keep it this way as it is still easy to
+uderstand.
+
+We note that even though getline strips the currently read line of its '\n',
+our lines still nicely align beneath each other. this due to the fact that the
+newline character that was still there from the original line is not being
+overwritten. If we had added a single extra character into the line it would
+overwrite the newline and cause the next one to continue right after it. Since
+we only change contents that are already in the string we do not have to worry
+about this though.

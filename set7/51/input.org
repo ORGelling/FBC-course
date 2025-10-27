@@ -1,0 +1,44 @@
+.
+Jurjen Bokma
+N.A. N.A.
+telefoon: 050 363 9254
+email: J.Bokma@rug.nl
+C boek: has been ordered
+Annotations: has been ordered
+...
+
+.
+Hans Bouwman
+Applied Physics and Applied Mathematics 4919521
+telefoon: +31620623472
+C boek: not ordered
+Annotations: not ordered
+email: G.H.BOUWMAN.3@STUDENT.RUG.NL
+...
+
+.
+Frank Brokken
+Psychology 1317700
+telefoon: 06 5353 2509
+email: F.B.brokken@rug.nl
+C boek: has been ordered
+Annotations: has been ordered
+...
+
+.
+Andrei Istudor
+n.a. s4675908
+telefoon:
+email: A.Istudor@student.rug.nl
+C boek: not ordered
+Annotations: not ordered
+...
+
+.
+Efe Sirin
+NA NA
+telefoon:
+email:  E.G.Sirin@Student.Rug.NL
+C boek: not ordered
+Annotations: not ordered
+...
