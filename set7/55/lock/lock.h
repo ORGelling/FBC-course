@@ -11,14 +11,14 @@ class Lock
         Lock(std::string const &path, std::string lockDir);
         ~Lock();
         
-        int open(std::string pathStr); //filesystem::path path);
+        int open(std::string pathStr);
         bool valid();
         
     private:
         static std::string stringName(std::string const &path1, 
                                             char *(*name)(char* pathPH));
         std::string lockPath(std::string const &path, 
-                                    std::string const &lockDir); // const ref?
+                                    std::string const &lockDir);
 };
         
 #endif
