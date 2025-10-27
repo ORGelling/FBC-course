@@ -1,0 +1,10 @@
+Exercise 53:
+
+Format the output of a single concatenated cout statement to show a multitude
+of options.
+
+We do this exactly. We have left out the push operators where possible. We
+considered adding " | ios::showpoint" to the resetflags(ios::fixed) function's 
+argument, as showpoint persists after being set. Since it would not show any 
+change to value's output we have elected to keep it out, but do understand
+that it means not all special formatting rules have been undone.
