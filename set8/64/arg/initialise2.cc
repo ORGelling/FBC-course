@@ -18,5 +18,5 @@ Arg &Arg::initialise
     
     s_instance = new Arg(optstring, begin, end, argc, argv);
     
-    return *s_instance;
+    return s_instance;
 }

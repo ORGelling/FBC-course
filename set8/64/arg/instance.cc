@@ -4,5 +4,5 @@
 
 Arg &Arg::instance()
 {
-    return s_instance ? s_instance : nullptr;
+    return s_instance; // ? s_instance : nullptr;
 }       // Needs work
