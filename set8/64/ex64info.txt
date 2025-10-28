@@ -1,4 +1,7 @@
 Exercise 64: 
 
-Flaw with the singleton: Calling initialise multiple times causes the program
-to exit? Instead keep track of an error flag maybe?
+We have not been able to complete this exercise as it is rather complex and
+draws from a lot of material that is not actually covered yet, like Nested
+Classes (chapter 17). We will keep working on it and hope to have a version to
+hand in before next monday, but sadly we have to accept that we might not be
+able to complete this one, as it is rather complex.
