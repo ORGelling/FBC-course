@@ -24,20 +24,6 @@ class Arg
     char **d_argv = nullptr;
     size_t d_nArgs = 0;
     
-    // private constructors since singleton
-    Arg();
-    Arg(char const *optstring, int argc, char **argv);
-    Arg
-    (
-        char const *optstring, 
-        LongOption const *begin, 
-        LongOption const *end, 
-        int argc, char **argv
-    );
-    
-    Arg(const &Arg) = delete;
-    Arg &operator=(Arg const &other) = delete; // Probably already done
-    
     public:    
         enum Type
         {
@@ -110,7 +96,7 @@ class Arg
         // returns number of times "one of the options specified in the
         // 'options' arg" were present
         
-        size_t option(string *value, int option) const;
+        size_t option(std::string *value, int option) const;
         // returns number of times provided option was present. If non-zero
         // then value of first occurrence of this option is stored in *value.
         // If op not present no change to *value. 0 can be set if opt has no
@@ -119,13 +105,27 @@ class Arg
         // if multiple same args given, only the first will be retrievable.
         // This is taken as is.
         
-        size_t option(string *value, char const *longOption) const;
+        size_t option(std::string *value, char const *longOption) const;
         // returns number of times provided longOption was present. If
         // non-zero the value of the first occurrence is stored in *value.
         
     private:
-        static std::string setBaseName(char *argv0) const;
-        static std::string makeOptStr(char const *optstring) const;
+        // private constructors since singleton
+        Arg();
+        Arg(char const *optstring, int argc, char **argv);
+        Arg
+        (
+            char const *optstring, 
+            LongOption const *begin, 
+            LongOption const *end, 
+            int argc, char **argv
+        );
+        
+        Arg(Arg const &) = delete;
+        Arg &operator=(Arg const &other) = delete; // Probably already done
+    
+        static std::string setBaseName(char *argv0);
+        static std::string makeOptStr(char const *optstring);
 };
 
 

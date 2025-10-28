@@ -2,7 +2,7 @@
 
     // by 
 
-string Arg::setBaseName(char *argv0) const
+string Arg::setBaseName(char *argv0)
 {
     // set basename using a copy of argv[0]
     char progName[strlen(argv0) + 1];
