@@ -13,7 +13,8 @@ class OptStructArray;
 
 class Arg
 {
-    static Arg s_instance;
+    static Arg *s_instance;
+    //static bool s_initialised;
     
     ArgOption *d_option = nullptr;
     ArgLongOption *d_longOption = nullptr;

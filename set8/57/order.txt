@@ -9,6 +9,10 @@ strings/assignmove.cc
 strings/copyStringsFrom.cc
 strings/swap.cc
 
+-main.ih
+-main.cc
+
+-strings/safeat.cc
 -strings/strings1.cc
 -strings/strings2.cc
 -strings/strings3.cc
@@ -16,7 +20,7 @@ strings/swap.cc
 -strings/strings0.cc
 -strings/reserve.cc
 -strings/resize.cc
--strings/rawpointers.cc
+-strings/rawPointers.cc
 -strings/fill.cc
 -strings/initialisestrings.cc
 -strings/enlarge.cc

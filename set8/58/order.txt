@@ -1,5 +1,7 @@
 ex58info.txt
 
+test.txt
+
 numbers/numbers.h
 numbers/numbers.ih
 numbers/numbers1.cc
@@ -17,5 +19,7 @@ numbers/allocatememory.cc
 numbers/copyfrom.cc
 numbers/setvalues.cc
 
-main.ih
-main.cc
+-main.ih
+-main.cc
+
+

@@ -1,6 +1,6 @@
 //#define CLS
 //#define LIBRARY             "modules"
-#define MAIN                "test.cc"
+#define MAIN                "main.cc"
 #define BINARY              "main"
 #define SOURCES             "*.cc"
 #define OBJ_EXT             ".o"

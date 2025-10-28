@@ -4,5 +4,11 @@
 
 Arg &Arg::instance()
 {
-    return s_instance; // ? s_instance : nullptr;
+    if (!s_instance)
+    {
+        cerr << "Not initialised.\n";
+        exit(1);
+    }
+    
+    return *s_instance;
 }       // Needs work

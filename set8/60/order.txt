@@ -2,6 +2,8 @@ ex60info.txt
 
 test.txt
 
+demo/demo.h
+demo/demo.ih
 demo/demo1.cc
 demo/demo2.cc
 demo/demo3.cc

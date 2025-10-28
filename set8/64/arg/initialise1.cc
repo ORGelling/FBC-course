@@ -4,7 +4,6 @@
 
 Arg &Arg::initialise(char const *optstring, int argc, char **argv)
 {
-    // This needs fixing
     if (s_instance)
     {
         cerr << "initialise called repeatedly\n";
@@ -12,6 +11,7 @@ Arg &Arg::initialise(char const *optstring, int argc, char **argv)
     }
     
     s_instance = new Arg(optstring, argc, argv);
+    //s_initialised = true;
     
-    return s_instance;
+    return *s_instance;
 }

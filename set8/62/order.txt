@@ -47,4 +47,4 @@ data/destroydouble.cc
 data/destroystring.cc
 data/destroyvalue.cc
 
-test.cc
+-test.cc

@@ -24,3 +24,6 @@ actually just swapping the contents. Normally this is fine since the rhs of
 the statement will go out of scope shortly after, but was nice and clean to
 have an empty object left to be handled by the destructor. This however is not
 needed, and as such we have omitted that code from the file.
+
+We add our debugging output as well to show a demonstration of our class in
+action.

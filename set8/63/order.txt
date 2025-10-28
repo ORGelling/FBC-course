@@ -16,5 +16,5 @@ wrap/operatorassign2.cc
 
 wrap/swap.cc
 
-main.cc
 main.ih
+main.cc
