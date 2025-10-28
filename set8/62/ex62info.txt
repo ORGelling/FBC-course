@@ -1,1 +1,5 @@
 Exercise 62: 
+
+We build our unrestricted union according to the annotations and Frank's
+uploaded movie's standards. We hope this is what is expected. We do not have
+notes really, it was quite clear what this should end up looking like!
