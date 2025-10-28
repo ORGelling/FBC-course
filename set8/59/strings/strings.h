@@ -7,8 +7,6 @@ class Strings
 {
     size_t d_size;
     std::string *d_str;
-    
-    //static std::string *(Strings::*s_enlarge[])();
     std::string *(Strings::*d_enlarge)();
     
     public:
@@ -23,13 +21,13 @@ class Strings
         Strings(char **environLike);
         Strings(std::istream &in);
         Strings(size_t nIterate, bool copy = true); // ADD
-        Strings(Strings const &other);
-        Strings(Strings &&other);
+        //Strings(Strings const &other);
+        //Strings(Strings &&other);
         
         ~Strings();
 
-        Strings &operator=(Strings const &other);
-        Strings &operator=(Strings &&other);
+        //Strings &operator=(Strings const &other);
+        //Strings &operator=(Strings &&other);
         
         void swap(Strings &other);              
 
@@ -48,7 +46,7 @@ class Strings
         void fill(char **ntbs);                     // fill prepared d_str
 
         std::string &safeAt(size_t idx) const;      // private backdoor
-        std::string *enlarge(bool const copy = true);       // Fix/modify?
+        //std::string *enlarge(bool const copy = true);       // Fix/modify?
         std::string *enlargeByCopy();                       // ADD
         std::string *enlargeByMove();                       // ADD
         void iterate(char **environLike);                   // ADD

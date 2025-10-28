@@ -6,8 +6,24 @@
 #include <string>
 #include <cstddef> // for size_t
 
+// forward declaring to reduce dependencies
+class ArgOption;
+class ArgLongOption;
+class OptStructArray;
+
 class Arg
 {
+    static Arg *s_instance;
+    
+    ArgOption *d_option = nullptr;
+    ArgLongOption *d_longOption = nullptr;
+    OptStructArray *d_optStructArray = nullptr;
+    
+    std::string d_basename;
+    int d_argc = 0;
+    char **d_argv = nullptr;
+    size_t d_nArgs = 0;
+    
     // private constructors since singleton
     Arg();
     Arg(char const *optstring, int argc, char **argv);
@@ -22,8 +38,6 @@ class Arg
     Arg(const &Arg) = delete;
     Arg &operator=(Arg const &other) = delete; // Probably already done
     
-    static Arg s_arg;
-    
     public:    
         enum Type
         {
@@ -31,7 +45,8 @@ class Arg
             Required,
             Optional
         };
-    
+        
+        // Nested class LongOption
         class LongOption
         {
             std::string d_name;
@@ -51,6 +66,8 @@ class Arg
                 Type type() const;
                 int optionChar() const;
         };
+        
+        // Arg's own member functions: 
         
         static Arg &initialise(char const *optstring, int argc, char **argv);
         // initialises Arg object. Optstring chars define the single char
@@ -107,7 +124,8 @@ class Arg
         // non-zero the value of the first occurrence is stored in *value.
         
     private:
-
+        static std::string setBaseName(char *argv0) const;
+        static std::string makeOptStr(char const *optstring) const;
 };
 
 

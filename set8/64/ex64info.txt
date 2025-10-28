@@ -1,1 +1,4 @@
 Exercise 64: 
+
+Flaw with the singleton: Calling initialise multiple times causes the program
+to exit? Instead keep track of an error flag maybe?

@@ -1,9 +1,24 @@
-//#include "main.ih"
+#include "main.ih"
 
-//int main()
-//{
-//    Filter filter(cin);                 // filters out initial and final 
-                                        // empty lines
+extern char **environ;
 
-//    filter.display();                   // show the remaining lines to cout
-//}
+int main(int argc, char **argv)
+{
+    size_t iterations = 0;
+    bool copy = true;
+    
+    if (argc != 1)
+        iterations = stoull(argv[1]);
+    if (argc == 3)
+        copy = false;
+    
+    Strings stringsCin{ cin };
+    Strings stringsArgs{ argc, argv };
+    Strings stringsEnvs{ environ };
+    
+    Strings stringsEnv{ iterations, copy };
+    
+    stringsCin.display();
+    stringsArgs.display();
+    //stringsEnv.display();
+}
