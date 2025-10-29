@@ -15,7 +15,7 @@ Arg::Arg
     d_argv(argv)
 {
     string optstr = makeOptStr(optstring);
-                                // to hijack getopt's error handling (?)
+                                // adds : to start of option string
     d_option = new ArgOption();
     d_longOption = new ArgLongOption();
     
@@ -41,8 +41,10 @@ Arg::Arg
             break;
             default:
                 d_option->add(opt);
-                if (longIdx != -1 && options[longIdx].val)      // this is 
+                if (longIdx != -1 && options[longIdx].val == opt)
+                {
                     d_longOption->add(options[longIdx].name);   // broken
+                }
             break;
         }
     }

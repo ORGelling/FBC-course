@@ -21,20 +21,24 @@ namespace
 int main(int argc, char **argv)
 try
 {
-    Arg &arg = Arg::initialise("f:h:v:", 
+    Arg &arg = Arg::initialise("f:h:v:qx:y:", 
                     longOptions, longEnd, argc, argv);
     // code using arg, etc.
     string *value = new string;
     string *value2 = new string;
-    cout << "o: " << arg.option(value, 'o') << ' ' << *value << '\n'
-        << "only: " << arg.option(value, "only") << ' '
+    
+    cerr << "x " << arg.option(value, 'x') << ": " << *value << '\n';
+    cerr << "y " << arg.option(value, 'y') << ": " << *value << '\n';
+    cerr << "q " << arg.option(value, 'q') << ": " << *value << '\n';
+    cerr << "only " << arg.option(value, "only") << ": "
         << *value << '\n';
-    cout << "f: " << arg.option(value, 'f') << ' ' << *value << '\n'
-        << "filenames: " << arg.option(value2, "filenames") << ' '
+    cerr << "f " << arg.option(value, 'f') << ": " << *value << '\n'
+        << "filenames " << arg.option(value2, "filenames") << ": "
         << *value2 << '\n';
-    cout << "v: " << arg.option(value, 'v') << ' ' << *value << '\n'
-        << "version: " << arg.option(value2, "version") << ' '
+    cerr << "v " << arg.option(value, 'v') << ": " << *value << '\n'
+        << "version " << arg.option(value2, "version") << ": "
         << *value2 << '\n';
+    
 }
 catch (...)
 {}

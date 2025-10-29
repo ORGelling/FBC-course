@@ -9,5 +9,8 @@ void ArgLongOption::newOption(string const &longOpt)
     d_opt = tmp;
 
     d_opt[d_size] = new Option{longOpt, 0, 0};  // initialize it
+    
+    //cerr << "add function: " << ptr << " : " << ptr->longOpt << '\n';
+    
     addValue(d_opt[d_size++]);                  // add its value
 }
