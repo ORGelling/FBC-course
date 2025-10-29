@@ -17,6 +17,11 @@ Arg::Arg(char const *optstring, int argc, char **argv)
     //int old_optind = optind;
     while ((opt = getopt(argc, argv, optstr.c_str())) != -1)
     {
+    //  cout << "SHORT:\n"
+    //      << "optarg: " << (optarg ? optarg : "none")                       
+    //      << " opt: " << opt                                                 
+    //      << " argv[optind] " << (optind < argc ? argv[optind] : "(end)")    
+    //      <<  '\n';
         if (opt == '?' || opt == ':')
             continue;
         d_option->add(opt);     // use ArgOption's add function

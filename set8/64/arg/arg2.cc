@@ -17,20 +17,13 @@ Arg::Arg
     string optstr = makeOptStr(optstring);
                                 // to hijack getopt's error handling (?)
     d_option = new ArgOption();
-    size_t nLongOpts = end - begin;
     
+    size_t nLongOpts = end - begin;
     d_optStructArray = new OptStructArray(nLongOpts + 1);
     
     struct option *options = d_optStructArray->get();
-    for (size_t i = 0; i != nLongOpts; ++i) 
-    {
-        options[i].name = const_cast<char*>(begin[i].name().c_str());
-        options[i].has_arg = (begin[i].type() == Required) ? required_argument
-                      : (begin[i].type() == Optional) ? optional_argument
-                      : no_argument;
-        options[i].flag = nullptr;
-        options[i].val = begin[i].optionChar() ? begin[i].optionChar() : 0;
-    }
+    
+    buildLongOptArray(begin, end, options);
     
     d_longOption = new ArgLongOption();
     
@@ -49,9 +42,14 @@ Arg::Arg
             case '0': 
                 // Long option with no short equivalent
                 d_longOption->add(options[longIdx].name);
+                cerr << "no short for " << options[longIdx].name << '\n';
             break;
             default:
                 d_option->add(opt);
+                if (longIdx >= 0)
+                    d_longOption->add(options[longIdx].name);
+                //    cerr << "long with short added\n";
+                //}
                 // Short option or long option with short equivalent
         }
     }
