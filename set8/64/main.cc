@@ -23,9 +23,11 @@ try
                     longOptions, longEnd, argc, argv);
 
     // code using arg, etc.
+    string *value = nullptr;
     cout << arg.nArgs() << '\n'
         << arg.nOptions() << '\n'
-        << arg.option('f') << '\n';
+        << arg.option(value, 'f') << '\n';
+        cout << value << '\n';
 }
 catch (...)
 {}
