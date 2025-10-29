@@ -32,6 +32,9 @@ try
     cout << "f: " << arg.option(value, 'f') << ' ' << *value << '\n'
         << "filenames: " << arg.option(value2, "filenames") << ' '
         << *value2 << '\n';
+    cout << "v: " << arg.option(value, 'v') << ' ' << *value << '\n'
+        << "version: " << arg.option(value2, "version") << ' '
+        << *value2 << '\n';
 }
 catch (...)
 {}

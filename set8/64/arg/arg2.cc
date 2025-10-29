@@ -41,8 +41,8 @@ Arg::Arg
             break;
             default:
                 d_option->add(opt);
-                if (longIdx != -1 && options[longIdx].val)
-                    d_longOption->add(options[longIdx].name);
+                if (longIdx != -1 && options[longIdx].val)      // this is 
+                    d_longOption->add(options[longIdx].name);   // broken
             break;
         }
     }
