@@ -12,13 +12,10 @@ void Arg::buildLongOptArray
     size_t nLongOpts = end - begin;
     for (size_t index = 0; index != nLongOpts; ++index)
     {
-        options[index].name = const_cast<char *>(begin[index].name().c_str());
-        options[index].has_arg = 
-                (begin[index].type() == Arg::Required) ? required_argument : 
-                (begin[index].type() == Arg::Optional) ? 
-                                        optional_argument : no_argument;
+        options[index].name = begin[index].name().c_str();
+        options[index].has_arg = setArgType(begin[index].type());
         options[index].flag = nullptr;
         options[index].val = begin[index].optionChar() ? 
-                begin[index].optionChar() : 0;
+                                            begin[index].optionChar() : 0;
     }
 }

@@ -86,6 +86,7 @@ class Arg
         static std::string makeOptStr(char const *optstring);
         static void buildLongOptArray(LongOption const *begin,
                             LongOption const *end, struct option *options);
+        static int setArgType(Arg::Type type);
 };
 
 // inline accessors:
