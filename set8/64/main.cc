@@ -32,6 +32,11 @@ try
     cout << arg.option("only") << '\n';
     cout << arg.option(value, "long") << '\n';
     cout << *value << '\n';
+
+    cout << arg.option(value, 'v') << '\n'
+        << *value << '\n'
+        << arg.option(value, "version") << '\n'
+        << *value << '\n';
 }
 catch (...)
 {}
