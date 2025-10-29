@@ -12,7 +12,6 @@ size_t ArgLongOption::size(string *val, char const *longOpt) const
             *val = *ptr->optVal[0];     // then return it
         else
             val->clear();               // else clear *value
-    }
-    
+    }    
     return ptr->size;                    // return this option's count.
 }
