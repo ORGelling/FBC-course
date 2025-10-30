@@ -14,7 +14,6 @@ class OptStructArray;
 class Arg
 {
     static Arg *s_instance;
-    //static bool s_initialised;
     
     ArgOption *d_option = nullptr;
     ArgLongOption *d_longOption = nullptr;
@@ -81,7 +80,7 @@ class Arg
         Arg() = delete;
         Arg(Arg const &) = delete;
         Arg &operator=(Arg const &other) = delete; // Probably already done
-        
+                                        // default member values irrelevant?
         static std::string setBaseName(char *argv0);
         static std::string makeOptStr(char const *optstring);
         static void buildLongOptArray
