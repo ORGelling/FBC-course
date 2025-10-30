@@ -23,7 +23,7 @@ Arg::Arg
     d_optStructArray = new OptStructArray(nLongOpts + 1);
     
     struct option *options = d_optStructArray->get();
-    buildLongOptArray(begin, end, options);
+    buildLongOptArray(optstr, begin, end, options);
     
     opterr = 0;
     int opt;
@@ -44,7 +44,7 @@ Arg::Arg
                 if (longIdx != -1 && options[longIdx].val == opt)
                 {
                     d_longOption->add(options[longIdx].name);   // broken
-                }
+                }       // use longOptions struct to conflate short/long?
             break;
         }
     }

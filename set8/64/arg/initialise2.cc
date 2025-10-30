@@ -17,7 +17,6 @@ Arg &Arg::initialise
     }
     
     s_instance = new Arg(optstring, begin, end, argc, argv);
-    //s_initialised = true;
     
     return *s_instance;
 }

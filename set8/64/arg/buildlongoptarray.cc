@@ -4,6 +4,7 @@
 
 void Arg::buildLongOptArray
 (
+    string const &optstring,
     LongOption const *begin, 
     LongOption const *end, 
     struct option *options
@@ -13,7 +14,7 @@ void Arg::buildLongOptArray
     for (size_t index = 0; index != nLongOpts; ++index)
     {
         options[index].name = begin[index].name().c_str();
-        options[index].has_arg = setArgType(begin[index].type());
+        options[index].has_arg = setArgType(begin[index], optstring);
         options[index].flag = nullptr;
         options[index].val = begin[index].optionChar() ? 
                                             begin[index].optionChar() : 0;

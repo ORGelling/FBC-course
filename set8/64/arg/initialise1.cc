@@ -11,7 +11,6 @@ Arg &Arg::initialise(char const *optstring, int argc, char **argv)
     }
     
     s_instance = new Arg(optstring, argc, argv);
-    //s_initialised = true;
     
     return *s_instance;
 }
