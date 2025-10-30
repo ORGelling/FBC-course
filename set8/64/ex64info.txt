@@ -1,13 +1,25 @@
 Exercise 64: 
 
-We have not been able to complete this exercise as it is rather complex and
-draws from a lot of material that is not actually covered yet, like Nested
-Classes (chapter 17). We will keep working on it and hope to have a version to
-hand in before next monday, but sadly we have to accept that we might not be
-able to complete this one, as it is rather complex.
+This exercise was a whole lot of work! We have a mostly functional version of
+Arg going, but it has a few (at times glaring) flaws:
 
-We have something working here! It is properly understanding how to handle
-short and long arguments and the values that come with them! It does not seem
-to recognise the long and short forms of options equivalently? -f works and
-consumes a commandline argument, but --filenames does not. The value is also
-not being passed properly.
+We can now use long variants of a short option to set a value in both of their
+arrays. Check. We cannot do the opposite of setting the value of a long option
+using its short counterpart.
+
+When we hand option() a string pointer that already points to an earlier
+assigned string, it is not properly clearing this value. We are not sure why
+this is. We have added an extra checks to our Arg::option()functions to clear,
+value, but it seems something is going wrong enough for the ArgOption and
+ArgLongOption size() functions to not be able to properly distinguish these
+cases, as those functions *should* already be able to clear the pointed-at
+string in the case no return value is present.
+
+We will also add a small comment to the graders: I (Olivier) took a look at
+Frank's Tom Poes -eh I mean- Bobcat class, and have made a decent bit of use
+of copilot for this exercise, especially to get started and see some structure
+arising from the chaos. Every line of code was of course written by me, and
+the main fix I have been working on these last few days was not inspired by
+peeking at bobcat's Arg__, although I will say it helped to see my solution 
+mostly verified! As such I would recommend limiting this exercise's score for
+us to half a point at most, even after resubmission.

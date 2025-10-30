@@ -41,9 +41,11 @@ Arg::Arg
             break;
             default:
                 d_option->add(opt);
-                if (longIdx != -1 && options[longIdx].val == opt)
+                if (longIdx != -1 && options[longIdx].val)// == opt)
                 {
-                    d_longOption->add(options[longIdx].name);   // broken
+                    cerr << "long info: " << options[longIdx].val 
+                        << " : " << opt << '\n';
+                    d_longOption->add(options[longIdx].name);
                 }       // use longOptions struct to conflate short/long?
             break;
         }

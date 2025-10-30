@@ -25,7 +25,6 @@ try
                     longOptions, longEnd, argc, argv);
     // code using arg, etc.
     string *value = new string;
-    string *value2 = new string;
     
     cerr << "x " << arg.option(value, 'x') << ": " << *value << '\n';
     cerr << "y " << arg.option(value, 'y') << ": " << *value << '\n';
@@ -33,11 +32,11 @@ try
     cerr << "only " << arg.option(value, "only") << ": "
         << *value << '\n';
     cerr << "f " << arg.option(value, 'f') << ": " << *value << '\n'
-        << "filenames " << arg.option(value2, "filenames") << ": "
-        << *value2 << '\n';
-    cerr << "v " << arg.option(value2, 'v') << ": " << *value2 << '\n'
-        << "version " << arg.option(value2, "version") << ": "
-        << *value2 << '\n';
+        << "filenames " << arg.option(value, "filenames") << ": "
+        << *value << '\n';
+    cerr << "v " << arg.option(value, 'v') << ": " << *value << '\n'
+        << "version " << arg.option(value, "version") << ": "
+        << *value << '\n';
     
 }
 catch (...)

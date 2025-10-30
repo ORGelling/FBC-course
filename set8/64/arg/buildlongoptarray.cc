@@ -15,7 +15,6 @@ void Arg::buildLongOptArray
     {
         options[index].name = begin[index].name().c_str();
         options[index].has_arg = setArgType(begin[index], optstring);
-        options[index].flag = nullptr;
         options[index].val = begin[index].optionChar() ? 
                                             begin[index].optionChar() : 0;
     }
