@@ -15,11 +15,32 @@ ArgLongOption size() functions to not be able to properly distinguish these
 cases, as those functions *should* already be able to clear the pointed-at
 string in the case no return value is present.
 
+Something else that is worth criticism is the large size of our second arg
+constructor. It makes sense for this member to be comprehensive, but it can
+definitely do with some further compactifying! We will leave it as-is for now.
+
+An example is the following output
+
+64$ tmp/bin/binary --filenames files
+f 1: files
+filenames 1: files
+
+64$ tmp/bin/binary -f files
+f 1: files
+filenames 0: 
+
+We see that calling --filenames triggers both option() calls, while calling -f
+leaves the long option's value blank. Before adding our somewhat crude value
+check it would also even show:
+filenames 0: files
+which is of course not right.
+
 We will also add a small comment to the graders: I (Olivier) took a look at
 Frank's Tom Poes -eh I mean- Bobcat class, and have made a decent bit of use
 of copilot for this exercise, especially to get started and see some structure
-arising from the chaos. Every line of code was of course written by me, and
+arising from the chaos. Every line of code was, of course, written by me, and
 the main fix I have been working on these last few days was not inspired by
 peeking at bobcat's Arg__, although I will say it helped to see my solution 
 mostly verified! As such I would recommend limiting this exercise's score for
-us to half a point at most, even after resubmission.
+us to half a point at most, even after resubmission. 0 points is fine as I
+would just be happy with feedback and a working class!

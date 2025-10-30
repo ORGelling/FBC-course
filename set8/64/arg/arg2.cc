@@ -21,7 +21,8 @@ Arg::Arg
     
     size_t nLongOpts = end - begin;
     d_optStructArray = new OptStructArray(nLongOpts + 1);
-    
+                                        // we build the struct and make a
+                                        // pointer to it for ease of use
     struct option *options = d_optStructArray->get();
     buildLongOptArray(optstr, begin, end, options);
     
@@ -36,19 +37,15 @@ Arg::Arg
             case '?':
             case ':':
             continue;
-            case 0: 
+            case 0:                         // exclusively long
                 d_longOption->add(options[longIdx].name);
             break;
             default:
-                d_option->add(opt);
+                d_option->add(opt);         // adding short
                 if (longIdx != -1 && options[longIdx].val)// == opt)
-                {
-                    cerr << "long info: " << options[longIdx].val 
-                        << " : " << opt << '\n';
                     d_longOption->add(options[longIdx].name);
-                }       // use longOptions struct to conflate short/long?
-            break;
-        }
+            break;                          // long with short counterpart
+        }       // only triggers for long. Should also work for counterpart 
     }
     d_nArgs = argc - optind;
 }
