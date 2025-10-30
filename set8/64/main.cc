@@ -35,7 +35,7 @@ try
     cerr << "f " << arg.option(value, 'f') << ": " << *value << '\n'
         << "filenames " << arg.option(value2, "filenames") << ": "
         << *value2 << '\n';
-    cerr << "v " << arg.option(value, 'v') << ": " << *value << '\n'
+    cerr << "v " << arg.option(value2, 'v') << ": " << *value2 << '\n'
         << "version " << arg.option(value2, "version") << ": "
         << *value2 << '\n';
     
