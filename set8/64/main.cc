@@ -4,12 +4,12 @@ namespace
 {
     Arg::LongOption longOptions[] = 
     {
-        Arg::LongOption{"debug", Arg::Required},
-        Arg::LongOption{"filenames", 'f'},
+        Arg::LongOption{"filename", 'f'},
         Arg::LongOption{"help", 'h'},
         Arg::LongOption{"version", 'v'},
-        Arg::LongOption{"only", Arg::Required},
-        Arg::LongOption{"long", Arg::Required},
+        Arg::LongOption{"input", 'i'}, // Arg::Required},
+        Arg::LongOption{"remove", 'r'},
+        Arg::LongOption{"display", 'd'},
     };
     auto longEnd = longOptions + std::size(longOptions);
 }
@@ -17,23 +17,57 @@ namespace
 int main(int argc, char **argv)
 try
 {
-    Arg &arg = Arg::initialise("f:h:v:qx:y:", 
+    //Arg &arg = Arg::initialise("f:h:v:qx:y:", argc, argv);
+    Arg &arg = Arg::initialise("hvf:i:r:d", 
                     longOptions, longEnd, argc, argv);
     // code using arg, etc.
-    string *value = new string;
+    string *filename = new string;
+    string *inputLineNr = new string;
+    [[maybe_unused]] string *value = new string;
     
-    cerr << "x " << arg.option(value, 'x') << ": " << *value << '\n';
-    cerr << "y " << arg.option(value, 'y') << ": " << *value << '\n';
-    cerr << "q " << arg.option(value, 'q') << ": " << *value << '\n';
-    cerr << "only " << arg.option(value, "only") << ": "
-        << *value << '\n';
-    cerr << "f " << arg.option(value, 'f') << ": " << *value << '\n'
-        << "filenames " << arg.option(value, "filenames") << ": "
-        << *value << '\n';
-    cerr << "v " << arg.option(value, 'v') << ": " << *value << '\n'
-        << "version " << arg.option(value, "version") << ": "
-        << *value << '\n';
+    if (arg.option('h'))
+        return usage(0);
+   
+    fstream file;
     
+    if (arg.option(filename, 'f'))
+    {
+        file.open(*filename, ios::in | ios::app);
+    
+        if (arg.option(inputLineNr, "input"))
+            file << *inputLineNr << endl;
+    }
+    
+    if (arg.option(inputLineNr, 'r') and file.is_open())
+    {
+        file.clear();
+        file.seekg(0);
+        size_t lineNr = 0;
+        string temp;
+        ofstream tempfile{ *filename + ".tmp" };
+        while (getline(file, temp))
+        {
+            if (lineNr != stoull(*inputLineNr))
+                tempfile << temp << '\n';
+            ++lineNr;
+        }
+        file.close();
+        tempfile.close();
+        remove(filename->c_str());
+        rename((*filename + ".tmp").c_str(), filename->c_str());
+    }
+    
+    if (arg.option('d'))
+    {
+        ifstream read{ *filename };
+        
+        if (not read.is_open())
+            return 1;
+        
+        string temp;
+        while(getline(read, temp))
+            cout << temp << '\n';
+    }
 }
 catch (...)
 {}

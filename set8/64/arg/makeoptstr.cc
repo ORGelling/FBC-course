@@ -5,6 +5,6 @@
 string Arg::makeOptStr(char const *optstring)
 {
     string optstr = (optstring[0] == ':') ?      
-                optstring : std::string(":") + optstring;
+                optstring : string(":") + optstring;
     return optstr;
 }

@@ -11,4 +11,4 @@ Arg &Arg::instance()
     }
     
     return *s_instance;
-}       // Needs work
+}

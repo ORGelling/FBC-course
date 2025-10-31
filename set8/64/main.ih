@@ -1,4 +1,7 @@
 #include "arg/arg.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
+
+int usage(int error);

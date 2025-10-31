@@ -9,7 +9,7 @@ Arg::Arg(char const *optstring, int argc, char **argv)
     d_argv(argv)
 {
     string optstr = makeOptStr(optstring);
-                                // to hijack getopt's error handling (?)
+                                // adds ":" to start of string
     d_option = new ArgOption();
     opterr = 0;
     
@@ -17,14 +17,9 @@ Arg::Arg(char const *optstring, int argc, char **argv)
     //int old_optind = optind;
     while ((opt = getopt(argc, argv, optstr.c_str())) != -1)
     {
-    //  cout << "SHORT:\n"
-    //      << "optarg: " << (optarg ? optarg : "none")                       
-    //      << " opt: " << opt                                                 
-    //      << " argv[optind] " << (optind < argc ? argv[optind] : "(end)")    
-    //      <<  '\n';
         if (opt == '?' || opt == ':')
             continue;
-        d_option->add(opt);     // use ArgOption's add function
+        d_option->add(opt);
     }
     
     d_nArgs = argc - optind;

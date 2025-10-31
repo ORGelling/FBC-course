@@ -16,6 +16,8 @@ Arg::Arg
 {
     string optstr = makeOptStr(optstring);
                                 // adds : to start of option string
+    // add dual opts to string? Such that optstring is only for short options
+    // and dual option arg requirement setting?
     d_option = new ArgOption();
     d_longOption = new ArgLongOption();
     
@@ -35,6 +37,7 @@ Arg::Arg
         switch (opt)
         {
             case '?':
+                
             case ':':
             continue;
             case 0:                         // exclusively long
@@ -42,10 +45,14 @@ Arg::Arg
             break;
             default:
                 d_option->add(opt);         // adding short
-                if (longIdx != -1 && options[longIdx].val)// == opt)
-                    d_longOption->add(options[longIdx].name);
+                // slower, but finds long directly, and when short used
+                for (size_t index = 0; index != nLongOpts; ++index)
+                    if (options[index].val == opt)
+                        d_longOption->add(options[index].name);
+                //if (longIdx != -1 && options[longIdx].val == opt)
+                //    d_longOption->add(options[longIdx].name);
             break;                          // long with short counterpart
-        }       // only triggers for long. Should also work for counterpart 
+        }
     }
     d_nArgs = argc - optind;
 }

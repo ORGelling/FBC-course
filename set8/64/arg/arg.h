@@ -15,14 +15,14 @@ class Arg
 {
     static Arg *s_instance;
     
-    ArgOption *d_option = nullptr;
-    ArgLongOption *d_longOption = nullptr;
-    OptStructArray *d_optStructArray = nullptr;
+    ArgOption *d_option;
+    ArgLongOption *d_longOption;
+    OptStructArray *d_optStructArray;
     
     std::string d_basename; // = ""; // ?
-    int d_argc = 0;
-    char **d_argv = nullptr;
-    size_t d_nArgs = 0;
+    int d_argc;
+    char **d_argv;
+    size_t d_nArgs;
     
     public:    
         enum Type
@@ -80,7 +80,7 @@ class Arg
         Arg() = delete;
         Arg(Arg const &) = delete;
         Arg &operator=(Arg const &other) = delete; // Probably already done
-                                        // default member values irrelevant?
+        
         static std::string setBaseName(char *argv0);
         static std::string makeOptStr(char const *optstring);
         static void buildLongOptArray

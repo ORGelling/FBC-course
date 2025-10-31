@@ -36,11 +36,18 @@ filenames 0: files
 which is of course not right.
 
 We will also add a small comment to the graders: I (Olivier) took a look at
-Frank's Tom Poes -eh I mean- Bobcat class, and have made a decent bit of use
+Frank's Tom Poes -eh I mean- Bobcat library, and have made a decent bit of use
 of copilot for this exercise, especially to get started and see some structure
 arising from the chaos. Every line of code was, of course, written by me, and
 the main fix I have been working on these last few days was not inspired by
 peeking at bobcat's Arg__, although I will say it helped to see my solution 
-mostly verified! As such I would recommend limiting this exercise's score for
-us to half a point at most, even after resubmission. 0 points is fine as I
-would just be happy with feedback and a working class!
+mostly verified! As such we (well, I, I am not sure my teammates would like me
+to be as overly honest as I tend to be!) understand entirely if a penalty is 
+in order. I would already be happy with feedback and a working class!
+
+As for the flaw in the class, it probably centres around the fact we are
+calling exit(1) when the Arg object is multiply initialised, or instance() is
+called before the Arg object is made. Currently we could simply skip the
+re-initialisation and hand back the existing object, maybe showing an error
+message, but as try/catch has not been covered yet it is not going to be very
+pretty for now.
