@@ -57,6 +57,7 @@ class Arg
             LongOption const *const end, 
             int argc, char **argv
         );
+        static void cleanUp();
         
         Arg &instance();
         
@@ -69,12 +70,14 @@ class Arg
         size_t option(std::string *value, int option) const;
         size_t option(std::string *value, char const *longOption) const;
         
-        ~Arg();
+
+
     private:
         // private constructors since singleton
         Arg(char const *optstring, int argc, char **argv);
         Arg(char const *optstring, LongOption const *begin, 
                         LongOption const *end, int argc, char **argv);
+        ~Arg();
         
         Arg() = delete;
         Arg(Arg const &) = delete;
