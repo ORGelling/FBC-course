@@ -4,5 +4,5 @@
 
 size_t Arg::nOptions() const
 {
-    return d_option ? d_option->size() : 0;
+    return d_option.size();
 }

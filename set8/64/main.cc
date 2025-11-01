@@ -15,7 +15,6 @@ namespace
 }   
 
 int main(int argc, char **argv)
-try
 {
     //Arg &arg = Arg::initialise("f:h:v:qx:y:", argc, argv);
     Arg &arg = Arg::initialise("hvf:w:i:r:d", 
@@ -38,6 +37,11 @@ try
     
     if (arg.option('d'))
         return read(*args[0]);
+
+    for (size_t index = 0; index != 4; ++index)         
+        delete args[index];
+    
+    delete[] args;
+
+    arg.~Arg();
 }
-catch (...)
-{}

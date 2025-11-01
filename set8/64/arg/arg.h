@@ -2,24 +2,22 @@
 #define INCLUDED_ARG_
 
 // include support classes
+#include "../argoption/argoption.h"
+#include "../arglongoption/arglongoption.h"
+#include "../optstructarray/optstructarray.h"
 
 #include <string>
 #include <cstddef> // for size_t
-
-// forward declaring to reduce dependencies
-class ArgOption;
-class ArgLongOption;
-class OptStructArray;
 
 class Arg
 {
     static Arg *s_instance;
     
-    ArgOption *d_option;
-    ArgLongOption *d_longOption;
-    OptStructArray *d_optStructArray;
+    ArgOption d_option;
+    ArgLongOption d_longOption;
+    OptStructArray d_optStructArray;
     
-    std::string d_basename; // = ""; // ?
+    std::string d_basename;
     int d_argc;
     char **d_argv;
     size_t d_nArgs;
@@ -71,6 +69,7 @@ class Arg
         size_t option(std::string *value, int option) const;
         size_t option(std::string *value, char const *longOption) const;
         
+        ~Arg();
     private:
         // private constructors since singleton
         Arg(char const *optstring, int argc, char **argv);
