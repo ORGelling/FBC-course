@@ -3,6 +3,6 @@
 Strings &Strings::operator=(Strings const &other)
 {
     Strings temp(other);
-    //swap(temp);
-    return *this = move(temp);
+    swap(temp);
+    return *this;// = move(temp);
 }

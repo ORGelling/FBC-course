@@ -7,7 +7,6 @@
 #include "../optstructarray/optstructarray.h"
 
 #include <string>
-#include <cstddef> // for size_t
 
 class Arg
 {
@@ -48,6 +47,7 @@ class Arg
         };
         
         // Arg's own member functions: 
+        Arg(Arg const &) = delete;
         
         static Arg &initialise(char const *optstring, int argc, char **argv);
         static Arg &initialise
@@ -78,10 +78,6 @@ class Arg
         Arg(char const *optstring, LongOption const *begin, 
                         LongOption const *end, int argc, char **argv);
         ~Arg();
-        
-        Arg() = delete;
-        Arg(Arg const &) = delete;
-        Arg &operator=(Arg const &other) = delete; // Probably already done
         
         static std::string setBaseName(char *argv0);
         static std::string makeOptStr(char const *optstring);
