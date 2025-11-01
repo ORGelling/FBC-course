@@ -7,7 +7,8 @@ Options:
   -h, --help            Show this help message and exit
   -v, --version         Show program version and exit
   -f, --filename NAME   Create or open file NAME
-  -i, --input TEXT      Write TEXT to NAME
+  -w, --write TEXT      Write TEXT to NAME
+  -i, --insert NUMBER   Insert TEXT at line nr
   -r, --remove LINE     Remove line of index LINE
   -d, --display         Displays file NAME contents
 
