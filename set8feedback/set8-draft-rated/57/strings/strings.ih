@@ -1,0 +1,7 @@
+#include "strings.h"
+
+#include <istream>
+#include <string>
+// #include <iostream> // for debugging
+
+using namespace std;

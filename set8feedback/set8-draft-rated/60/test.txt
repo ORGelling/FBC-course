@@ -1,0 +1,26 @@
+We construct an object:
+Demo demo1;
+calling basic constructor.
+
+We then call the copy constructor:
+Demo demo2(demo1);
+calling copy constructor.
+
+Now we will try to call the move constructor:
+Demo demo3(Demo::factory());
+calling factory.
+calling basic constructor.
+
+It was elided away! To do it correctly we call:
+Demo demo4(move(demo3));
+calling move constructor.
+
+Now we will show copy assignment in action:
+demo4 = demo3;
+executing copy assignment.
+
+and move assignment:
+demo2 = Demo::factory();
+calling factory.
+calling basic constructor.
+executing move assignment.

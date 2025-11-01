@@ -12,13 +12,13 @@ int main(int argc, char **argv)
     if (argc == 3)
         copy = false;
     
-    Strings stringsCin{ cin };
-    Strings stringsArgs{ argc, argv };
-    Strings stringsEnvs{ environ };
+    //Strings stringsCin{ cin };
+    //Strings stringsArgs{ argc, argv };
+    //Strings stringsEnvs{ environ };
     
     Strings stringsEnv{ iterations, copy };
     
-    stringsCin.display();
-    stringsArgs.display();
+    //stringsCin.display();
+    //stringsArgs.display();
     //stringsEnv.display();
 }

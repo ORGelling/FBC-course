@@ -1,0 +1,87 @@
+test length(): 10
+test data(), should be a pointer: 0x184b32e0
+test at(): 42
+
+test write:
+empty:
+emptySet:
+value 0: 0
+value 1: 0
+value 2: 0
+value 3: 0
+value 4: 0
+value 5: 0
+value 6: 0
+value 7: 0
+
+filling emptySet with values
+
+empty:
+emptySet:
+value 0: 6
+value 1: 9
+value 2: 4
+value 3: 2
+value 4: 0
+value 5: 1
+value 6: 3
+value 7: 7
+simpleSet:
+value 0: 42
+value 1: 42
+value 2: 42
+value 3: 42
+value 4: 42
+value 5: 42
+value 6: 42
+value 7: 42
+value 8: 42
+value 9: 42
+
+test copy assignment:
+empty:
+value 0: 6
+value 1: 9
+value 2: 4
+value 3: 2
+value 4: 0
+value 5: 1
+value 6: 3
+value 7: 7
+
+test move assignment:
+empty:
+value 0: 42
+value 1: 42
+value 2: 42
+value 3: 42
+value 4: 42
+value 5: 42
+value 6: 42
+value 7: 42
+value 8: 42
+value 9: 42
+simpleSet:
+
+test copy constructor:
+copyInto:
+value 0: 6
+value 1: 9
+value 2: 4
+value 3: 2
+value 4: 0
+value 5: 1
+value 6: 3
+value 7: 7
+
+test move constructor:
+moveInto:
+value 0: 6
+value 1: 9
+value 2: 4
+value 3: 2
+value 4: 0
+value 5: 1
+value 6: 3
+value 7: 7
+copyInto:

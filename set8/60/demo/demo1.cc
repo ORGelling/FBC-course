@@ -5,5 +5,5 @@
 Demo::Demo()
 //:
 {
-    cerr << "calling basic constructor.\n";
+    cerr << "calling default constructor.\n";
 }

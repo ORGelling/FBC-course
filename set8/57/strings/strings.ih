@@ -3,5 +3,6 @@
 #include <istream>
 #include <string>
 // #include <iostream> // for debugging
+#include <cstring> // for memcpy
 
 using namespace std;

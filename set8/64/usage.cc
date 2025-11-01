@@ -5,11 +5,10 @@ namespace {
 
 Options:
   -h, --help            Show this help message and exit
-  -v, --version         Show program version and exit
   -f, --filename NAME   Create or open file NAME
   -w, --write TEXT      Write TEXT to NAME
-  -i, --insert NUMBER   Insert TEXT at line nr
-  -r, --remove LINE     Remove line of index LINE
+  -i, --insert INDEX    Insert TEXT at INDEX
+  -r, --remove INDEX    Remove line at INDEX
   -d, --display         Displays file NAME contents
 
 Examples:
