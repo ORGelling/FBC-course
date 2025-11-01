@@ -4,9 +4,8 @@ namespace
 {
     Arg::LongOption longOptions[] = 
     {
-        Arg::LongOption{"filename", 'f'},
         Arg::LongOption{"help", 'h'},
-        Arg::LongOption{"version", 'v'},
+        Arg::LongOption{"filename", 'f'},
         Arg::LongOption{"write", 'w'}, // Arg::Required},
         Arg::LongOption{"insert", 'i'},
         Arg::LongOption{"remove", 'r'},

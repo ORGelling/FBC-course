@@ -5,8 +5,7 @@
 4
 5
 6
-6.666
 7
 8
 9
-9.9
+No more numbers left!
