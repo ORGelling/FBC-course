@@ -13,7 +13,7 @@ namespace
         Arg::LongOption{"display", 'd'},
     };
     auto longEnd = longOptions + std::size(longOptions);
-}
+}   
 
 int main(int argc, char **argv)
 try
