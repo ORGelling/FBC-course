@@ -9,6 +9,9 @@ void process
     int const clip
 )
 {
+    file.clear();
+    file.seekg(0);
+    
     int lineNr = 0;
     string temp;
     ofstream tempfile{ *args[0] + ".tmp" };
@@ -23,5 +26,6 @@ void process
     if (lineNr == add and arg.option('w'))
         tempfile << *args[1] << '\n';
 
+    file.close();
     tempfile.close();
 }
