@@ -23,7 +23,10 @@ int main(int argc, char **argv)
     string args[4];
     
     if (arg.option('h'))
+    {
+        Arg::cleanUp();
         return usage(0);
+    }
    
     fstream file;
     
