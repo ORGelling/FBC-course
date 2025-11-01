@@ -52,6 +52,8 @@ union Data
         void copyString(Data const &tmp);
         void copyValue(Data const &tmp);
         
+        void copyContents(double const *tmp);
+        
         // 9 swap members (oh god)
         void swap2Double(Data &other);      // check
         void swapDoubStr(Data &other);      // check

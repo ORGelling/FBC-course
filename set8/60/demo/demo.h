@@ -13,8 +13,6 @@ class Demo
         Demo &operator=(Demo &&tmp);
         
         static Demo factory();
-        
-    private:
 };
         
 #endif

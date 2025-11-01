@@ -29,26 +29,28 @@ class Wrap
         std::string const &word() const;
         size_t value() const;
         Type type() const;
-        
-    private:
 };
 
 inline double const *Wrap::array() const
 {
     return d_data.array();
 }
+
 inline double Wrap::doubles(size_t const index) const
 {
     return d_data.doubles(index);
 }
+
 inline std::string const &Wrap::word() const
 {
     return d_data.word();
 }
+
 inline size_t Wrap::value() const
 {
     return d_data.value();
 }
+
 inline Type Wrap::type() const
 {
     return d_type;
