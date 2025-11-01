@@ -1,0 +1,18 @@
+#include "arg/arg.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int usage(int error);
+int countlines(fstream &file);
+int read(string const &filename);
+int writeremove(Arg &arg, fstream &file, string **args);
+void process
+(
+    Arg &arg, 
+    fstream &file, 
+    string **args, 
+    int const add, 
+    int const clip
+);

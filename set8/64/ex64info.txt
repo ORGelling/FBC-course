@@ -1,0 +1,53 @@
+Exercise 64: 
+
+This exercise was a whole lot of work! We have a mostly functional version of
+Arg going, but it has a few (at times glaring) flaws:
+
+We can now use long variants of a short option to set a value in both of their
+arrays. Check. We cannot do the opposite of setting the value of a long option
+using its short counterpart.
+
+When we hand option() a string pointer that already points to an earlier
+assigned string, it is not properly clearing this value. We are not sure why
+this is. We have added an extra checks to our Arg::option()functions to clear,
+value, but it seems something is going wrong enough for the ArgOption and
+ArgLongOption size() functions to not be able to properly distinguish these
+cases, as those functions *should* already be able to clear the pointed-at
+string in the case no return value is present.
+
+Something else that is worth criticism is the large size of our second arg
+constructor. It makes sense for this member to be comprehensive, but it can
+definitely do with some further compactifying! We will leave it as-is for now.
+
+An example is the following output
+
+64$ tmp/bin/binary --filenames files
+f 1: files
+filenames 1: files
+
+64$ tmp/bin/binary -f files
+f 1: files
+filenames 0: 
+
+We see that calling --filenames triggers both option() calls, while calling -f
+leaves the long option's value blank. Before adding our somewhat crude value
+check it would also even show:
+filenames 0: files
+which is of course not right.
+
+We will also add a small comment to the graders: I (Olivier) took a look at
+Frank's Tom Poes -eh I mean- Bobcat library, and have made a decent bit of use
+of copilot for this exercise, especially to get started and see some structure
+arising from the chaos. Every line of code was, of course, written by me, and
+the main fix I have been working on these last few days was not inspired by
+peeking at bobcat's Arg__, although I will say it helped to see my solution 
+mostly verified! As such we (well, I, I am not sure my teammates would like me
+to be as overly honest as I tend to be!) understand entirely if a penalty is 
+in order. I would already be happy with feedback and a working class!
+
+As for the flaw in the class, it probably centres around the fact we are
+calling exit(1) when the Arg object is multiply initialised, or instance() is
+called before the Arg object is made. Currently we could simply skip the
+re-initialisation and hand back the existing object, maybe showing an error
+message, but as try/catch has not been covered yet it is not going to be very
+pretty for now.
