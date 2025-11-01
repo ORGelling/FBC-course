@@ -44,6 +44,7 @@ class Strings
 
     private:
         void fill(char **ntbs);                     // fill prepared d_str
+        void destroy();
 
         std::string &safeAt(size_t idx) const;      // private backdoor
         //std::string *enlarge(bool const copy = true);       // Fix/modify?

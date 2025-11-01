@@ -3,5 +3,5 @@
 Strings::~Strings()
 {
     delete[] d_str;
-    d_size = 0;
+    //d_size = 0;
 }
