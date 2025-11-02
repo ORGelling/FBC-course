@@ -1,8 +1,8 @@
 #include "strings.ih"
 
-Strings &Strings::operator=(Strings const &other)
+Strings &Strings::operator=(Strings const &tmp)
 {
-    Strings temp(other);
-    swap(temp);
+    Strings local(tmp);
+    swap(local);
     return *this;// = move(temp);
 }

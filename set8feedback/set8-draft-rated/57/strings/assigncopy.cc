@@ -6,5 +6,6 @@ Strings &Strings::operator=(Strings const &other)
     //swap(temp);
     return *this = move(temp);
     // HB: this works fine, but prefer the line above you commented out
-    // HB: although you basically do the same thing, you have an extra function call
+    // HB: although you basically do the same thing, 
+    // HB: you have an extra function call
 }
