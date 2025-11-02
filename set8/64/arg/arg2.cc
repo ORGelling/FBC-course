@@ -50,9 +50,7 @@ Arg::Arg
             default:
                 d_option.add(opt);         // adding short
                 // slower, but finds long directly, and when short used
-                for (size_t index = 0; index != nLongOpts; ++index)
-                    if (options[index].val == opt)
-                        d_longOption.add(options[index].name);
+                findLong(options, nLongOpts, opt);
                 //if (longIdx != -1 && options[longIdx].val == opt)
                 //    d_longOption->add(options[longIdx].name);
             break;                          // long with short counterpart

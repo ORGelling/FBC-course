@@ -16,7 +16,8 @@ Arg &Arg::initialise
         exit(1);
     }
     
-    s_instance = new Arg(optstring, begin, end, argc, argv);
+    static Arg instance(optstring, begin, end, argc, argv);
+    s_instance = &instance; //new Arg(optstring, begin, end, argc, argv);
     
     return *s_instance;
 }

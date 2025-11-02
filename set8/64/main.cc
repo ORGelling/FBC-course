@@ -24,7 +24,7 @@ int main(int argc, char **argv)
     
     if (arg.option('h'))
     {
-        Arg::cleanUp();
+        //Arg::cleanUp();
         return usage(0);
     }
    
@@ -39,5 +39,5 @@ int main(int argc, char **argv)
     if (arg.option('d'))
         read(args[0]);
     
-    Arg::cleanUp();
+    //Arg::cleanUp();
 }

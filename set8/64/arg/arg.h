@@ -48,6 +48,7 @@ class Arg
         
         // Arg's own member functions: 
         Arg(Arg const &) = delete;
+        ~Arg();
         
         static Arg &initialise(char const *optstring, int argc, char **argv);
         static Arg &initialise
@@ -57,7 +58,7 @@ class Arg
             LongOption const *const end, 
             int argc, char **argv
         );
-        static void cleanUp();
+        //static void cleanUp(); // not needed with function local object
         
         Arg &instance();
         
@@ -77,7 +78,13 @@ class Arg
         Arg(char const *optstring, int argc, char **argv);
         Arg(char const *optstring, LongOption const *begin, 
                         LongOption const *end, int argc, char **argv);
-        ~Arg();
+        
+        void findLong
+        (
+            struct option *options,
+            size_t const nLongOpts,
+            int opt
+        );
         
         static std::string setBaseName(char *argv0);
         static std::string makeOptStr(char const *optstring);

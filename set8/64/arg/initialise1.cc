@@ -10,7 +10,8 @@ Arg &Arg::initialise(char const *optstring, int argc, char **argv)
         exit(1);
     }
     
-    s_instance = new Arg(optstring, argc, argv);
+    static Arg instance(optstring, argc, argv);
+    s_instance = &instance; //new Arg(optstring, argc, argv);
     
     return *s_instance;
 }
