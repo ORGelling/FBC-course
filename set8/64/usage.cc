@@ -8,7 +8,7 @@ Options:
   -f, --filename NAME   Create or open file NAME
   -w, --write TEXT      Write TEXT to NAME
   -i, --insert INDEX    Insert TEXT at INDEX
-  -r, --remove INDEX    Remove line at INDEX
+  -r, --remove LINEIDX  Remove line at LINEIDX
   -d, --display         Displays file NAME contents
 
 Examples:

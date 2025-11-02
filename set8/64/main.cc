@@ -23,21 +23,16 @@ int main(int argc, char **argv)
     string args[4];
     
     if (arg.option('h'))
-    {
-        //Arg::cleanUp();
         return usage(0);
-    }
    
     fstream file;
     
     if (arg.option(&args[0], 'f'))
-        file.open(args[0], ios::in);
+        file.open(args[0], ios::in | ios::app);
     
     if (arg.option(&args[1], 'w') or arg.option('r'))
         writeremove(arg, file, args);
     
     if (arg.option('d'))
         read(args[0]);
-    
-    //Arg::cleanUp();
 }

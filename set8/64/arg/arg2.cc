@@ -10,25 +10,16 @@ Arg::Arg
     int argc, char **argv
 )
 :
-    d_option(),
-    d_longOption(),
     d_optStructArray(end - begin + 1),
     d_basename(setBaseName(argv[0])),
     d_argc(argc),
     d_argv(argv)
 {
     string optstr = makeOptStr(optstring);
-                                // adds : to start of option string
-    // add dual opts to string? Such that optstring is only for short options
-    // and dual option arg requirement setting?
-    
-    //d_option = new ArgOption();
-    //d_longOption = new ArgLongOption();
-    
+                            // adds : to start of option string to distinguish
+                            // unknown options and missing option arguments
     size_t nLongOpts = end - begin;
-    //d_optStructArray = new OptStructArray(nLongOpts + 1);
-                                        // we build the struct and make a
-                                        // pointer to it for ease of use
+    
     struct option *options = d_optStructArray.get();
     buildLongOptArray(optstr, begin, end, options);
     
@@ -40,9 +31,8 @@ Arg::Arg
     {
         switch (opt)
         {
-            case '?':
-                
-            case ':':
+            case '?':               // still need to do something with 
+            case ':':               // missing arguments I think
             continue;
             case 0:                         // exclusively long
                 d_longOption.add(options[longIdx].name);
@@ -51,8 +41,6 @@ Arg::Arg
                 d_option.add(opt);         // adding short
                 // slower, but finds long directly, and when short used
                 findLong(options, nLongOpts, opt);
-                //if (longIdx != -1 && options[longIdx].val == opt)
-                //    d_longOption->add(options[longIdx].name);
             break;                          // long with short counterpart
         }
     }
