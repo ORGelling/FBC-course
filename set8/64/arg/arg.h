@@ -17,8 +17,7 @@ class Arg
     OptStructArray d_optStructArray;
     
     std::string d_basename;
-    int d_argc;
-    char **d_argv;
+    std::string *d_argv;
     size_t d_nArgs;
     
     public:    
@@ -87,6 +86,7 @@ class Arg
         );
         bool argError(int opt) const;
         bool argLongError(struct option *options, int const longIdx) const;
+        void copyArgs(char const *const *from, char const *const *to);
         
         static std::string setBaseName(char *argv0);
         static std::string makeOptStr(char const *optstring);

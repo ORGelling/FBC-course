@@ -11,9 +11,9 @@ Arg::Arg
 )
 :
     d_optStructArray(end - begin + 1),
-    d_basename(setBaseName(argv[0])),
-    d_argc(argc),
-    d_argv(argv)
+    d_basename(setBaseName(argv[0]))
+    //d_argc(argc),
+    //d_argv(argv)
 {
     string optstr = makeOptStr(optstring);
                             // adds : to start of option string to distinguish
@@ -24,13 +24,15 @@ Arg::Arg
     buildLongOptArray(optstr, begin, end, options);
                             // Fill it with the callable options and rqrmnts
     opterr = 0;
-    int opt;
     int longIdx = -1;
-    while ((opt = getopt_long(
-                    argc, argv, optstr.c_str(), options, &longIdx)) != -1) 
+    while (true) 
     {
-        switch (opt)
+        switch (int opt = getopt_long(argc, argv, optstr.c_str(), 
+                                                        options, &longIdx))
         {
+            case -1:
+                copyArgs(argv + optind, argv + argc);
+            return;
             case '?': 
                 cerr << "unknown option -" << char(optopt) << '\n';
             break;

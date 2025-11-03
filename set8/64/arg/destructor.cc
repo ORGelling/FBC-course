@@ -3,6 +3,7 @@
     // by 
 
 Arg::~Arg()
-{                                   // Most work is done by sub classes
+{                               // Most work is done by sub classes
+    delete[] d_argv;
     s_instance = nullptr;
-}   // This seems to not even necessarily be needed!
+}                   // This seems to not even necessarily be needed!
