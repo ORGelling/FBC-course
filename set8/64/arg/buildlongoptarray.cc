@@ -12,7 +12,7 @@ void Arg::buildLongOptArray
 {
     size_t nLongOpts = end - begin;
     for (size_t index = 0; index != nLongOpts; ++index)
-    {
+    {                           // Filling option struct with program entries
         options[index].name = begin[index].name().c_str();
         options[index].has_arg = setArgType(begin[index], optstring);
         options[index].val = begin[index].optionChar() ? 

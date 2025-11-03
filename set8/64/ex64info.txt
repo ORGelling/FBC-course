@@ -29,12 +29,6 @@ filenames 1: files
 f 1: files
 filenames 0: 
 
-We see that calling --filenames triggers both option() calls, while calling -f
-leaves the long option's value blank. Before adding our somewhat crude value
-check it would also even show:
-filenames 0: files
-which is of course not right.
-
 We will also add a small comment to the graders: I (Olivier) took a look at
 Frank's Tom Poes -eh I mean- Bobcat library, and have made a decent bit of use
 of copilot for this exercise, especially to get started and see some structure

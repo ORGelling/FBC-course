@@ -19,10 +19,10 @@ Arg::Arg
                             // adds : to start of option string to distinguish
                             // unknown options and missing option arguments
     size_t nLongOpts = end - begin;
-    
+                                    // Fetch pointer to d_oSA for local use
     struct option *options = d_optStructArray.get();
     buildLongOptArray(optstr, begin, end, options);
-    
+                            // Fill it with the callable options and rqrmnts
     opterr = 0;
     int opt;
     int longIdx = -1;
@@ -44,5 +44,5 @@ Arg::Arg
             break;                          // long with short counterpart
         }
     }
-    d_nArgs = argc - optind;
+    d_nArgs = argc - optind;        // getopt leaves arguments at end of list
 }

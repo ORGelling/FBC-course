@@ -11,7 +11,7 @@ void Arg::findLong
 {
     for (size_t index = 0; index != nLongOpts; ++index)
     {
-        if (options[index].val == opt)                     
+        if (options[index].val == opt)  
             d_longOption.add(options[index].name);
-    }
+    }                       // Looping through short complements of long opt
 }
