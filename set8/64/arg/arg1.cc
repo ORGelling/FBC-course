@@ -4,7 +4,7 @@
 
 Arg::Arg(char const *optstring, int argc, char **argv)
 :
-    d_optStructArray(0),
+    d_optStructArray(1),                // set 1 to avoid freeing invalid ptr
     d_basename(setBaseName(argv[0])),
     d_argc(argc),
     d_argv(argv)

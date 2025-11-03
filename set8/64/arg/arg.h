@@ -85,6 +85,8 @@ class Arg
             size_t const nLongOpts,
             int opt
         );
+        bool argError(int opt) const;
+        bool argLongError(struct option *options, int const longIdx) const;
         
         static std::string setBaseName(char *argv0);
         static std::string makeOptStr(char const *optstring);
@@ -104,6 +106,7 @@ inline size_t Arg::nArgs() const
 {
     return d_nArgs;
 }
+
 inline std::string const &Arg::basename() const
 {
     return d_basename;
@@ -114,10 +117,12 @@ inline std::string const &Arg::LongOption::name() const
 {
     return d_name;
 }
+
 inline Arg::Type Arg::LongOption::type() const
 {
     return d_type;
 }
+
 inline int Arg::LongOption::optionChar() const
 {
     return d_optionChar;

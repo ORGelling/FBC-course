@@ -31,17 +31,24 @@ Arg::Arg
     {
         switch (opt)
         {
-            case '?':               // still need to do something with 
-            case ':':               // missing arguments I think
-            continue;
+            case '?': 
+                cerr << "unknown option -" << char(optopt) << '\n';
+            break;
+            case ':':
+                cerr << "option -" << char(optopt) 
+                                        << " requires an argument\n";
+            break;
             case 0:                         // exclusively long
+                if (argLongError(options, longIdx)) // check validity
+                    break;
                 d_longOption.add(options[longIdx].name);
             break;
             default:
+                if (argError(opt))                  // check validity
+                    break;
                 d_option.add(opt);         // adding short
-                // slower, but finds long directly, and when short used
                 findLong(options, nLongOpts, opt);
-            break;                          // long with short counterpart
+            break;                          // search for long counterpart
         }
     }
     d_nArgs = argc - optind;        // getopt leaves arguments at end of list
