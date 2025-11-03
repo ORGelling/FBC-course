@@ -7,4 +7,4 @@ int countlines(fstream &file)
     while (getline(file, temp))
         ++lines;
     return lines;
-}
+}                       // well it counts the lines in a file!

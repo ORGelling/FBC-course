@@ -3,7 +3,7 @@
 #include <fstream>
 
 using namespace std;
-
+                                // Helper functions for test program
 int usage(int error);
 int countlines(fstream &file);
 int read(string const &filename);

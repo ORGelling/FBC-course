@@ -27,5 +27,5 @@ void process
         tempfile << args[1] << '\n';
 
     file.close();
-    tempfile.close();
+    tempfile.close();               // tidying up
 }

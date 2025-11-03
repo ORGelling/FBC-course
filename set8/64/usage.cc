@@ -20,4 +20,4 @@ int usage(int error)
 {
     cout << message;
     return error;
-}
+}                           // handing off error code for compact calling
