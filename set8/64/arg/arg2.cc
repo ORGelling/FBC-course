@@ -12,8 +12,6 @@ Arg::Arg
 :
     d_optStructArray(end - begin + 1),
     d_basename(setBaseName(argv[0]))
-    //d_argc(argc),
-    //d_argv(argv)
 {
     string optstr = makeOptStr(optstring);
                             // adds : to start of option string to distinguish
@@ -48,7 +46,7 @@ Arg::Arg
             default:
                 if (argError(opt))                  // check validity
                     break;
-                d_option.add(opt);         // adding short
+                d_option.add(opt);              // adding short
                 findLong(options, nLongOpts, opt);
             break;                          // search for long counterpart
         }
