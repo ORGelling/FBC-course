@@ -1,6 +1,6 @@
 #include "arg.ih"
 
-    // by 
+    // by initialise1.cc
 
 Arg::Arg(char const *optstring, int argc, char **argv)
 :
@@ -11,23 +11,21 @@ Arg::Arg(char const *optstring, int argc, char **argv)
                             // adds ":" to start of string to distinguish
                             // unknown options from missing option arguments
     opterr = 0;
-    
-    while (true)
+    int opt;
+    while ((opt = getopt(argc, argv, optstr.c_str())) != -1)
     {
-        switch (int opt = getopt(argc, argv, optstr.c_str()))
+        switch (opt)
         {
-            case -1:
-                copyArgs(argv + optind, argv + argc);
-            return;
             case '?':
-                cerr << "unknown option -" << optopt << '\n';
+                cerr << "unknown option -" << char(optopt) << '\n';
             break;
             case ':':   // unknown options
-                cerr << "option -" << optopt << " requires an argument\n";
+                cerr << "option -" << char(optopt) 
+                                                << " requires an argument\n";
             break;                   
             default:
                 d_option.add(opt);              // storing info
         }
-    }
-    d_nArgs = argc - optind;            // Arguments sorted at end
-}
+    }                   
+    copyArgs(argv + optind, argv + argc);   
+}                   // Stores non option args in d_argv and counts d_nArgs

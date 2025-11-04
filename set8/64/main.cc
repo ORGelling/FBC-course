@@ -11,17 +11,18 @@ namespace
         Arg::LongOption{"insert", 'i'},
         Arg::LongOption{"remove", 'r'},
         Arg::LongOption{"display", 'd'},
+        Arg::LongOption{"stats", 's'},
     };
     auto longEnd = longOptions + std::size(longOptions);
 }   
 
 int main(int argc, char **argv)
 {
-    //Arg &arg = Arg::initialise("hf:w:i:r:d", argc, argv);
-    Arg &arg = Arg::initialise("hf:w:i:r:d", 
+    //Arg &arg = Arg::initialise("hf:w:i:r:ds:", argc, argv);
+    Arg &arg = Arg::initialise("hf:w:i:r:ds:", 
                                         longOptions, longEnd, argc, argv);
     
-    string args[4];         // to handle the arguments. Not exactly right for
+    string args[5];         // to handle the arguments. Not exactly right for
                             // setting pointers to 0/null if no arg present
     if (arg.option('h'))
         return usage(0);                // show help/usage text
@@ -36,4 +37,14 @@ int main(int argc, char **argv)
     
     if (arg.option('d'))                        // display contents of file
         read(args[0]);
+    
+    if (arg.option(&args[4], "stats"))
+    {
+        cout << "nArgs: " << arg.nArgs() 
+            << " | nOptions: " << arg.nOptions() 
+            << " | basename: \"" << arg.basename() 
+            << "\" | arg(" << args[4] 
+            << "): " << arg.arg( (stoul(args[4]) < arg.nArgs() 
+                    ? stoul(args[4]) : 0)) << '\n';
+    }
 }

@@ -1,6 +1,6 @@
 #include "arg.ih"
 
-    // by 
+    // by initialise2.cc
 
 Arg::Arg
 (
@@ -10,7 +10,7 @@ Arg::Arg
     int argc, char **argv
 )
 :
-    d_optStructArray(end - begin + 1),
+    d_optStructArray(static_cast<size_t>(end - begin + 1)),
     d_basename(setBaseName(argv[0]))
 {
     string optstr = makeOptStr(optstring);
@@ -21,24 +21,22 @@ Arg::Arg
     struct option *options = d_optStructArray.get();
     buildLongOptArray(optstr, begin, end, options);
                             // Fill it with the callable options and rqrmnts
-    opterr = 0;
-    int longIdx = -1;
-    while (true) 
+    opterr = 0;     // Quiets getopt error messages
+    int opt;
+    int longIdx;
+    while ((opt = getopt_long(argc, argv, 
+                            optstr.c_str(), options, &longIdx)) != -1) 
     {
-        switch (int opt = getopt_long(argc, argv, optstr.c_str(), 
-                                                        options, &longIdx))
+        switch (opt)
         {
-            case -1:
-                copyArgs(argv + optind, argv + argc);
-            return;
-            case '?': 
-                cerr << "unknown option -" << char(optopt) << '\n';
+            case '?':                       // Show erroneous option 
+                unknownOpt(argv, argc);
             break;
             case ':':
-                cerr << "option -" << char(optopt) 
-                                        << " requires an argument\n";
+                cerr << d_basename << ": option -" << char(optopt) 
+                                            << " requires an argument\n";
             break;
-            case 0:                         // exclusively long
+            case 0:                         // exclusive long option
                 if (argLongError(options, longIdx)) // check validity
                     break;
                 d_longOption.add(options[longIdx].name);
@@ -46,10 +44,10 @@ Arg::Arg
             default:
                 if (argError(opt))                  // check validity
                     break;
-                d_option.add(opt);              // adding short
+                d_option.add(opt);          // short option
                 findLong(options, nLongOpts, opt);
-            break;                          // search for long counterpart
+            break;                          // search for long complement
         }
     }
-    d_nArgs = argc - optind;        // getopt leaves arguments at end of list
-}
+    copyArgs(argv + optind, argv + argc);
+}                   // Stores non option args in d_argv and counts d_nArgs
