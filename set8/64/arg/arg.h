@@ -75,11 +75,17 @@ class Arg
         Arg(char const *optstring, LongOption const *begin, 
                         LongOption const *end, int argc, char **argv);
         
-        void findLong
-        (
+        void findLong(
             struct option *options,
             size_t const nLongOpts,
             int opt
+        );
+        void getOptions(
+            int argc, 
+            char **argv, 
+            size_t nLongOpts,
+            std::string optstr, 
+            struct option *options
         );
         bool argError(int opt) const;
         bool argLongError(struct option *options, int const longIdx) const;
