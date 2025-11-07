@@ -39,12 +39,5 @@ int main(int argc, char **argv)
         read(args[0]);
     
     if (arg.option(&args[4], "stats"))
-    {
-        cout << "nArgs: " << arg.nArgs() 
-            << " | nOptions: " << arg.nOptions() 
-            << " | basename: \"" << arg.basename() 
-            << "\" | arg(" << args[4] 
-            << "): " << arg.arg( (stoul(args[4]) < arg.nArgs() 
-                    ? stoul(args[4]) : 0)) << '\n';
-    }
+        stats(arg, args);
 }

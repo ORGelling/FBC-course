@@ -8,6 +8,7 @@ int usage(int error);
 int countlines(fstream &file);
 int read(string const &filename);
 int writeremove(Arg &arg, fstream &file, string *args);
+void stats(Arg &arg, string *args);
 void process
 (
     Arg &arg, 
