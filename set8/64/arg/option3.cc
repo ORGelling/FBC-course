@@ -4,10 +4,10 @@
 
 size_t Arg::option(string *value, int option) const
 {
-    size_t temp = d_option ? d_option->size(value, option) : 0;
+    size_t tmp = d_option.size(value, option);
     
-    if (not temp)
-        *value = "";
-    
-    return temp;
+    if (tmp == 0)               // Not exactly same as pointing value to
+        value->clear();         // 0/null but works well enough for now
+                                // But that doesn't quite work with passing
+    return tmp;                 // address of local string as recommended
 }

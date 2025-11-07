@@ -15,8 +15,9 @@ Arg &Arg::initialise
         cerr << "initialise called repeatedly\n";
         exit(1);
     }
-    
-    s_instance = new Arg(optstring, begin, end, argc, argv);
-    
+                            // Storing function local static here   
+    static Arg instance(optstring, begin, end, argc, argv);
+    s_instance = &instance; //new Arg(optstring, begin, end, argc, argv);
+                            // Pointer to it handed back
     return *s_instance;
 }

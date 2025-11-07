@@ -2,26 +2,22 @@
 #define INCLUDED_ARG_
 
 // include support classes
+#include "../argoption/argoption.h"
+#include "../arglongoption/arglongoption.h"
+#include "../optstructarray/optstructarray.h"
 
 #include <string>
-#include <cstddef> // for size_t
-
-// forward declaring to reduce dependencies
-class ArgOption;
-class ArgLongOption;
-class OptStructArray;
 
 class Arg
 {
     static Arg *s_instance;
     
-    ArgOption *d_option;
-    ArgLongOption *d_longOption;
-    OptStructArray *d_optStructArray;
+    ArgOption d_option;
+    ArgLongOption d_longOption;
+    OptStructArray d_optStructArray;
     
-    std::string d_basename; // = ""; // ?
-    int d_argc;
-    char **d_argv;
+    std::string d_basename;
+    std::string *d_argv;
     size_t d_nArgs;
     
     public:    
@@ -50,6 +46,8 @@ class Arg
         };
         
         // Arg's own member functions: 
+        Arg(Arg const &) = delete;
+        ~Arg();
         
         static Arg &initialise(char const *optstring, int argc, char **argv);
         static Arg &initialise
@@ -70,16 +68,29 @@ class Arg
         size_t option(std::string const &options) const;
         size_t option(std::string *value, int option) const;
         size_t option(std::string *value, char const *longOption) const;
-        
+
     private:
         // private constructors since singleton
         Arg(char const *optstring, int argc, char **argv);
         Arg(char const *optstring, LongOption const *begin, 
                         LongOption const *end, int argc, char **argv);
         
-        Arg() = delete;
-        Arg(Arg const &) = delete;
-        Arg &operator=(Arg const &other) = delete; // Probably already done
+        void findLong(
+            struct option *options,
+            size_t const nLongOpts,
+            int opt
+        );
+        void getOptions(
+            int argc, 
+            char **argv, 
+            size_t nLongOpts,
+            std::string optstr, 
+            struct option *options
+        );
+        bool argError(int opt) const;
+        bool argLongError(struct option *options, int const longIdx) const;
+        void copyArgs(char const *const *from, char const *const *to);
+        void unknownOpt(char const *const *argv, int argc) const;
         
         static std::string setBaseName(char *argv0);
         static std::string makeOptStr(char const *optstring);
@@ -99,6 +110,7 @@ inline size_t Arg::nArgs() const
 {
     return d_nArgs;
 }
+
 inline std::string const &Arg::basename() const
 {
     return d_basename;
@@ -109,10 +121,12 @@ inline std::string const &Arg::LongOption::name() const
 {
     return d_name;
 }
+
 inline Arg::Type Arg::LongOption::type() const
 {
     return d_type;
 }
+
 inline int Arg::LongOption::optionChar() const
 {
     return d_optionChar;

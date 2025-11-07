@@ -9,8 +9,9 @@ Arg &Arg::initialise(char const *optstring, int argc, char **argv)
         cerr << "initialise called repeatedly\n";
         exit(1);
     }
-    
-    s_instance = new Arg(optstring, argc, argv);
-    
+                                        // Static object initialised here
+    static Arg instance(optstring, argc, argv);
+    s_instance = &instance; //new Arg(optstring, argc, argv);
+                                        // Pointer handed back for use
     return *s_instance;
 }

@@ -2,4 +2,4 @@
 
     // by 
 
-Arg *Arg::s_instance = nullptr;
+Arg *Arg::s_instance = nullptr;         // Initialising static pointer

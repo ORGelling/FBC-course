@@ -1,7 +1,7 @@
 //#define CLS
 //#define LIBRARY             "modules"
-#define MAIN                "test.cc"
-#define BINARY              "main"
+#define MAIN                "demo.cc"
+//#define BINARY              "main"
 #define SOURCES             "*.cc"
 #define OBJ_EXT             ".o"
 //#define SHARED

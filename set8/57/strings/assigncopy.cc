@@ -2,7 +2,7 @@
 
 Strings &Strings::operator=(Strings const &other)
 {
-    Strings temp(other);
-    //swap(temp);
-    return *this = move(temp);
+    Strings tmp(other);
+    swap(tmp);
+    return *this;
 }

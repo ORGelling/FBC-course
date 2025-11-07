@@ -1,0 +1,37 @@
+// HB: rating: ?
+// HB: your first column contains some mistakes
+
+Exercise 61:
+
+Complete the table about the use of the default keyword in class construction
+
+Page 237 of the anno's:
+
+- for not provided by compiler
+CC copy constructor used instead
+MC move constructor used instead
+C= copy assignment used instead
+M= move assignment used instead
++ Compiler provides default
+Not all of these will be used
+
+-----------------------------------------------------------
+                    |   constructors     |  assignment ops.
+                    |------------------  |  ---------------  
+we define:          | default copy move  |    copy    move   
+-----------------------------------------------------------
+no constructor:     |    +     +    +          +       +  
+default cons:       |    -     +    +          +       +  
+copy cons (CC):     |    +     -    CC         +       C= 
+move cons (MC):     |    +     -    -          -       -  
+other cons:         |    +     +    +          +       +  
+                    |                                     
+no assignment:      |    +     +    +          +       +  
+copy assignmnt (C=):|    +     +    CC         -       C= 
+move assignmnt (M=):|    +     -    -          -       -  
+other assignmnt:    |    +     +    +          +       +  
+-----------------------------------------------------------
+
+We note that rather than being suppressed, in the case one defines a move
+constructor or assignment operator, the copy members are implicitly deleted,
+and not just suppressed. The result will be the same though

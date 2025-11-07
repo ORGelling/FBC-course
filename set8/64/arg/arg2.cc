@@ -1,6 +1,6 @@
 #include "arg.ih"
 
-    // by 
+    // by initialise2.cc
 
 Arg::Arg
 (
@@ -10,49 +10,23 @@ Arg::Arg
     int argc, char **argv
 )
 :
-    d_basename(setBaseName(argv[0])),
-    d_argc(argc),
-    d_argv(argv)
+    d_optStructArray(static_cast<size_t>(end - begin + 1)),
+    d_basename(setBaseName(argv[0]))
 {
-    string optstr = makeOptStr(optstring);
-                                // adds : to start of option string
-    // add dual opts to string? Such that optstring is only for short options
-    // and dual option arg requirement setting?
-    d_option = new ArgOption();
-    d_longOption = new ArgLongOption();
+    opterr = 0;     // Quiets getopt error messages
+
+    string optstr = makeOptStr(optstring); // adds ':' to start of optstring 
+                                           // to distinguish unknown options 
+                                           // and missing option arguments
     
-    size_t nLongOpts = end - begin;
-    d_optStructArray = new OptStructArray(nLongOpts + 1);
-                                        // we build the struct and make a
-                                        // pointer to it for ease of use
-    struct option *options = d_optStructArray->get();
+    struct option *options = d_optStructArray.get();
     buildLongOptArray(optstr, begin, end, options);
+                                // Fetch pointer to d_oSA for local use and
+                                // fill it with program options and rqrmnts
     
-    opterr = 0;
-    int opt;
-    int longIdx = -1;
-    while ((opt = getopt_long(
-                    argc, argv, optstr.c_str(), options, &longIdx)) != -1) 
-    {
-        switch (opt)
-        {
-            case '?':
-                
-            case ':':
-            continue;
-            case 0:                         // exclusively long
-                d_longOption->add(options[longIdx].name);
-            break;
-            default:
-                d_option->add(opt);         // adding short
-                // slower, but finds long directly, and when short used
-                for (size_t index = 0; index != nLongOpts; ++index)
-                    if (options[index].val == opt)
-                        d_longOption->add(options[index].name);
-                //if (longIdx != -1 && options[longIdx].val == opt)
-                //    d_longOption->add(options[longIdx].name);
-            break;                          // long with short counterpart
-        }
-    }
-    d_nArgs = argc - optind;
-}
+    getOptions(argc, argv, end - begin, optstr, options);
+                                        // uses getopt_long() to find and  
+                                        // process all called options
+    
+    copyArgs(argv + optind, argv + argc);
+}                   // Stores non option args in d_argv and counts d_nArgs

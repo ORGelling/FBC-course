@@ -10,6 +10,6 @@ int read(string const &filename)
     string temp;
     while(getline(read, temp))
         cout << temp << '\n';
-
+                                    // Showing contents of file line by line
     return 0;
 }

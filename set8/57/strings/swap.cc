@@ -2,7 +2,8 @@
 
 void Strings::swap(Strings &other)
 {
-    std::swap(d_data, other.d_data);
-    std::swap(d_size, other.d_size);
-    std::swap(d_capacity, other.d_capacity);
-}
+    char bytes[sizeof(Strings)];
+    memcpy(bytes, this, sizeof(Strings));
+    memcpy(this, &other, sizeof(Strings));
+    memcpy(static_cast<void *>(&other), bytes, sizeof(Strings));
+}   // Casting this one to appease the constructor
