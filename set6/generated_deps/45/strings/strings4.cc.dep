@@ -1,2 +1,0 @@
-45/strings/strings4.cc.o: 45/strings/strings4.cc 45/strings/strings.ih \
- 45/strings/strings.h

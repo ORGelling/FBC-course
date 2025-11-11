@@ -1,3 +1,0 @@
-48/handler/sum.cc.o: 48/handler/sum.cc 48/handler/handler.ih \
- 48/handler/handler.h 48/handler/../shared/shared.h \
- 48/handler/../shared/../data/data.h

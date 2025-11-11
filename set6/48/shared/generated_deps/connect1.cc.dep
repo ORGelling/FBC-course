@@ -1,1 +1,0 @@
-connect1.cc.o: connect1.cc shared.ih shared.h ../data/data.h

@@ -1,2 +1,0 @@
-handler/sum.cc.o: handler/sum.cc handler/handler.ih handler/handler.h \
- handler/../shared/shared.h handler/../shared/../data/data.h

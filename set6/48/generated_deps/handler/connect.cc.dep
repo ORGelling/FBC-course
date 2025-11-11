@@ -1,3 +1,0 @@
-handler/connect.cc.o: handler/connect.cc handler/handler.ih \
- handler/handler.h handler/../shared/shared.h \
- handler/../shared/../data/data.h

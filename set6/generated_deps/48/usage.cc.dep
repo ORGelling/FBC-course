@@ -1,2 +1,0 @@
-48/usage.cc.o: 48/usage.cc 48/main.ih 48/handler/handler.h \
- 48/handler/../shared/shared.h 48/handler/../shared/../data/data.h

@@ -1,2 +1,0 @@
-48/shared/kill.cc.o: 48/shared/kill.cc 48/shared/shared.ih \
- 48/shared/shared.h 48/shared/../data/data.h

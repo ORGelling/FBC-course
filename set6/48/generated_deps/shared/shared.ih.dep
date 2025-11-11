@@ -1,2 +1,0 @@
-shared/shared.ih.gch: shared/shared.ih shared/shared.h \
- shared/../data/data.h
