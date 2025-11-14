@@ -2,7 +2,7 @@
 #define INCLUDED_NUMBERS_H_
 
 #include <iosfwd>
-#include <compare>
+//#include <compare>
 #include <initializer_list>
 
 class Numbers
