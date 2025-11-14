@@ -2,11 +2,9 @@
 
     // by 
 
-Numbers::Numbers(Numbers &&tmp)
-//:
+Numbers::Numbers(size_t size, int *values)
+:
+    Numbers(size)
 {
-    //swap(tmp);
-    // When using swap, ensure that tmp's destructor detects that
-    // it may immediately return, e.g., by setting one of tmp's
-    // data members to 0
+    copyFrom(values);
 }
