@@ -5,4 +5,4 @@ repos:
         name: Check line width <= 80
         entry: python3 rules/max_line_width.py 80
         language: system
-        files: \.(txt|cpp|cc|h|hpp)$  # text, source, headers
+        files: \.(txt|cpp|cc|h|ih|hpp)$  # text, source, headers
