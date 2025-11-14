@@ -2,7 +2,7 @@
 #define INCLUDED_NUMBERS_H_
 
 #include <iosfwd>
-//#include <compare>
+//#include <compare>            // compare op is excessive
 #include <initializer_list>
 
 class Numbers
@@ -13,8 +13,9 @@ class Numbers
     
     // comparison operators == and !=
     friend bool operator==(Numbers const &lhs, Numbers const &rhs);
-    friend std::strong_ordering operator<=>(Numbers const &lhs, 
-                                            Numbers const &rhs);
+    friend bool operator!=(Numbers const &lhs, Numbers const &rhs);
+    //friend std::strong_ordering operator<=>(Numbers const &lhs, 
+    //                                        Numbers const &rhs);
     
     size_t d_size = 0;
     int *d_nums = 0;
@@ -45,6 +46,9 @@ class Numbers
         
         int &operatorIndex(size_t index) const;
         void boundary(size_t index) const;
+                                                    // helpers for operator==
+        static bool compareSize(Numbers const &lhs, Numbers const &rhs);
+        static bool compareContents(Numbers const &lhs, Numbers const &rhs);
 };
 
 #endif
