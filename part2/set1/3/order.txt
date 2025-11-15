@@ -1,1 +1,4 @@
 ex3info.txt
+
+main.ih
+main.cc
