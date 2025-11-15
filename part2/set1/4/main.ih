@@ -1,0 +1,8 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool promptGet1(istream &in, string &str);
+istream &promptGet2(istream &in, string &str);
+void process(string str);
