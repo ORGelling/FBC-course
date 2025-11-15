@@ -2,20 +2,17 @@
 #define INCLUDED_NUMBERS_H_
 
 #include <iosfwd>
-//#include <compare>            // compare op is excessive
 #include <initializer_list>
 
 class Numbers
 {
-    // insertion (?) operators
+    // insertion (?) operator // extraction unnecessary?
     friend std::ostream &operator<<(std::ostream &out, Numbers &nums);
     friend std::istream &operator>>(std::istream &in, Numbers &nums);
     
     // comparison operators
     friend bool operator==(Numbers const &lhs, Numbers const &rhs);
     friend bool operator!=(Numbers const &lhs, Numbers const &rhs);
-    //friend std::strong_ordering operator<=>(Numbers const &lhs, 
-    //                                        Numbers const &rhs);
     
     size_t d_size = 0;
     int *d_nums = 0;
