@@ -13,8 +13,12 @@ int main()
 
     Numbers nums2(nums);
     Numbers nums3(move(nums));
+    Numbers nums4{1, 5, 8, 7, 4, 36, 64, 6, 3};
     
-    cout << "1:\n" << nums << "\n2:\n" << nums2 << "\n3:\n" << nums3 << '\n';
+    cout << "1:\n" << nums 
+        << "\n2:\n" << nums2 
+        << "\n3:\n" << nums3 
+        << "\n4:\n" << nums4 << '\n';
     
     delete[] array;
 }

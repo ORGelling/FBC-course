@@ -6,9 +6,9 @@
 
 class Numbers
 {
-    // insertion (?) operator // extraction unnecessary?
+    // insertion operator
     friend std::ostream &operator<<(std::ostream &out, Numbers &nums);
-    friend std::istream &operator>>(std::istream &in, Numbers &nums);
+    // friend std::istream &operator>>(std::istream &in, Numbers &nums);
     
     // comparison operators
     friend bool operator==(Numbers const &lhs, Numbers const &rhs);
