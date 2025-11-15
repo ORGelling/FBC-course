@@ -1,1 +1,13 @@
-Exercise 3: 
+Exercise 3: Perform file operations without using iostream
+
+We use copy_file() and last_write_time to duplicate our file and set the 
+timestamp to the original one. We run the program as such:
+
+$ tmp/bin/binary main.cc main.copy
+
+and see:
+
+$ ls -l main.*
+-rw-rw-r-- 1 olivier olivier 279 Nov 15 22:46 main.cc
+-rw-rw-r-- 1 olivier olivier 279 Nov 15 22:46 main.copy
+-rw-rw-r-- 1 olivier olivier 236 Nov 15 22:47 main.ih

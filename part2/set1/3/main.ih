@@ -1,0 +1,5 @@
+#include <filesystem>           // for copy_file and last_write_time
+#include <iostream>             // for cerr!
+
+using namespace std;            // for both cerr and filesystem
+using namespace filesystem;     // for ease of use of fs
