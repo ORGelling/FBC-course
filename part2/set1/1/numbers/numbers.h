@@ -7,11 +7,11 @@
 
 class Numbers
 {
-    // insertion operators
+    // insertion (?) operators
     friend std::ostream &operator<<(std::ostream &out, Numbers &nums);
     friend std::istream &operator>>(std::istream &in, Numbers &nums);
     
-    // comparison operators == and !=
+    // comparison operators
     friend bool operator==(Numbers const &lhs, Numbers const &rhs);
     friend bool operator!=(Numbers const &lhs, Numbers const &rhs);
     //friend std::strong_ordering operator<=>(Numbers const &lhs, 

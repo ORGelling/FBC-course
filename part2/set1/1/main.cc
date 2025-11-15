@@ -14,5 +14,7 @@ int main()
     Numbers nums2(nums);
     Numbers nums3(move(nums));
     
+    cout << "1:\n" << nums << "\n2:\n" << nums2 << "\n3:\n" << nums3 << '\n';
+    
     delete[] array;
 }

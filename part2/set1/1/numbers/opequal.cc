@@ -2,7 +2,8 @@
 
     // by 
 
-bool operator==(Numbers const &lhs, Numbers const rhs)
+bool operator==(Numbers const &lhs, Numbers const &rhs)
 {
-    return compareSize(lhs, rhs) and compareContents(lhs, rhs);
+    return Numbers::compareSize(lhs, rhs) 
+                                and Numbers::compareContents(lhs, rhs);
 }                                       // scope selected by Koenig lookup

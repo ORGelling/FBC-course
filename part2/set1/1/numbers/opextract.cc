@@ -2,6 +2,8 @@
 
     // by 
 
-void Numbers::()
+istream &operator>>(istream &in, Numbers &nums)
 {
+    cerr << "Under construction\n";
+    return in;
 }
