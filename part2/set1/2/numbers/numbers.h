@@ -12,6 +12,7 @@ class Numbers
     // comparison operators
     friend bool operator==(Numbers const &lhs, Numbers const &rhs);
     friend bool operator!=(Numbers const &lhs, Numbers const &rhs);
+    // same here: != doesn't have to be a friend, following ones do I think
     
     // binary operators
     friend Numbers operator+(Numbers const &lhs, Numbers const &rhs);   // 1
@@ -25,8 +26,8 @@ class Numbers
     friend Numbers operator*(Numbers lhs, int const rhs);               // 1
     friend Numbers operator*(int const lhs, Numbers rhs);               // 2
     
-    friend Numbers operator/(Numbers const &lhs, int const rhs);
-    friend Numbers operator/(Numbers &&lhs, int const rhs);
+    friend Numbers operator/(Numbers const &lhs, int const rhs);        // 1
+    friend Numbers operator/(Numbers &&lhs, int const rhs);             // 2
     
     size_t d_size = 0;
     int *d_nums = 0;
@@ -48,14 +49,14 @@ class Numbers
         int &operator[](size_t index);                  // 1
         int const &operator[](size_t index) const;      // 2
         
-        Numbers &&operator+=(Numbers const &other) &&;
-        Numbers &operator+=(Numbers const &other) &;
-        Numbers &&operator-=(Numbers const &other) &&;
-        Numbers &operator-=(Numbers const &other) &;
-        Numbers &&operator*=(int const other) &&;
-        Numbers &operator*=(int const other) &;
-        Numbers &&operator/=(int const other) &&;
-        Numbers &operator/=(int const other) &;
+        Numbers &&operator+=(Numbers const &other) &&;  // 1
+        Numbers &operator+=(Numbers const &other) &;    // 2
+        Numbers &&operator-=(Numbers const &other) &&;  // 1
+        Numbers &operator-=(Numbers const &other) &;    // 2
+        Numbers &&operator*=(int const other) &&;       // 1
+        Numbers &operator*=(int const other) &;         // 2
+        Numbers &&operator/=(int const other) &&;       // 1
+        Numbers &operator/=(int const other) &;         // 2
 
         // members of the public interface, like accessors
         

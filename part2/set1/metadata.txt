@@ -1,5 +1,5 @@
 Set: Set 1
 
-Authors: Olivier Gelling, Leon Lan, Mohammad Habibi
+Authors: Olivier Gelling, Leon Lan, Mohammad Habibi, Frano Rajkovic
 
 Rater:
