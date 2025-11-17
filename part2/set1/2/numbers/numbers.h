@@ -12,9 +12,10 @@ class Numbers
     // comparison operators
     friend bool operator==(Numbers const &lhs, Numbers const &rhs);
     friend bool operator!=(Numbers const &lhs, Numbers const &rhs);
-    // same here: != doesn't have to be a friend, following ones do I think
+    // same here: != doesn't have to be a friend
+    // consider declaring after class interface
     
-    // binary operators
+    // binary operators. These do benefit from friend status 
     friend Numbers operator+(Numbers const &lhs, Numbers const &rhs);   // 1
     friend Numbers operator+(Numbers &&lhs, Numbers const &rhs);        // 2
     

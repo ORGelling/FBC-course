@@ -13,7 +13,7 @@ class Numbers
     // comparison operators
     friend bool operator==(Numbers const &lhs, Numbers const &rhs);
     friend bool operator!=(Numbers const &lhs, Numbers const &rhs);
-    // != does not have to be a friend.
+    // != does not have to be a friend. Consider declaring after interface.
     
     size_t d_size = 0;
     int *d_nums = 0;
