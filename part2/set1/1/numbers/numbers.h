@@ -8,12 +8,9 @@ class Numbers
 {
     // insertion operator
     friend std::ostream &operator<<(std::ostream &out, Numbers &nums);
-    // friend std::istream &operator>>(std::istream &in, Numbers &nums);
     
-    // comparison operators
+    // comparison operator. != is beneath interface
     friend bool operator==(Numbers const &lhs, Numbers const &rhs);
-    friend bool operator!=(Numbers const &lhs, Numbers const &rhs);
-    // != does not have to be a friend. Consider declaring after interface.
     
     size_t d_size = 0;
     int *d_nums = 0;
@@ -48,5 +45,7 @@ class Numbers
         static bool compareSize(Numbers const &lhs, Numbers const &rhs);
         static bool compareContents(Numbers const &lhs, Numbers const &rhs);
 };
+
+bool operator!=(Numbers const &lhs, Numbers const &rhs);
 
 #endif

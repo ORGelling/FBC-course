@@ -1,8 +1,12 @@
 #ifndef INCLUDED_STRINGS_
 #define INCLUDED_STRINGS_
 
-#include "../freefuncs/freefuncs.h"
+#include <string>
 
+class Strings;              // fwd declare for use in this free functions:
+void stdInsertion(std::ostream &out, Strings const &str, size_t index);
+                                                    // kept here for default 
+                                                    // initialising of d_manip
 class Strings
 {
     // insertion operator friend function
@@ -19,8 +23,8 @@ class Strings
 
     public:
         Strings() = default;
-        Strings(int argc, char **argv);    // 2.cc
-        Strings(char **environLike);       // 3.cc
+        Strings(int argc, char **argv);                     // 2.cc
+        Strings(char **environLike);                        // 3.cc
 
         Strings(Strings const &other);      // see part 1: allocation
         Strings(Strings &&tmp);             // see part 1: allocation
@@ -52,6 +56,11 @@ class Strings
         std::ostream &insertInto(std::ostream &out) const;
 
 };
+
+// other manipulator functions can be added here:
+void only2(std::ostream &out, Strings const &str, size_t index);
+
+//:
 
 inline size_t Strings::size() const         // potentially dangerous practice:
 {                                           // inline accessors

@@ -9,27 +9,9 @@ class Numbers
     // insertion operator
     friend std::ostream &operator<<(std::ostream &out, Numbers &nums);
     
-    // comparison operators
+    // comparison operators. != is beneath interface
     friend bool operator==(Numbers const &lhs, Numbers const &rhs);
-    friend bool operator!=(Numbers const &lhs, Numbers const &rhs);
-    // same here: != doesn't have to be a friend
-    // consider declaring after class interface
-    
-    // binary operators. These do benefit from friend status 
-    friend Numbers operator+(Numbers const &lhs, Numbers const &rhs);   // 1
-    friend Numbers operator+(Numbers &&lhs, Numbers const &rhs);        // 2
-    
-    friend Numbers operator-(Numbers const &lhs, Numbers const &rhs);   // 1
-    friend Numbers operator-(Numbers &&lhs, Numbers const &rhs);        // 2
-                                                    // Implementing the next
-                                                    // opts move-aware is TC 
-                                                    // They will stay simple
-    friend Numbers operator*(Numbers lhs, int const rhs);               // 1
-    friend Numbers operator*(int const lhs, Numbers rhs);               // 2
-    
-    friend Numbers operator/(Numbers const &lhs, int const rhs);        // 1
-    friend Numbers operator/(Numbers &&lhs, int const rhs);             // 2
-    
+        
     size_t d_size = 0;
     int *d_nums = 0;
     
@@ -83,5 +65,23 @@ class Numbers
         static bool compareSize(Numbers const &lhs, Numbers const &rhs);
         static bool compareContents(Numbers const &lhs, Numbers const &rhs);
 };
+
+bool operator!=(Numbers const &lhs, Numbers const &rhs);
+
+// binary operators. These do benefit from friend status, but can do w.o.
+Numbers operator+(Numbers const &lhs, Numbers const &rhs);          // 1
+Numbers operator+(Numbers &&lhs, Numbers const &rhs);               // 2
+
+Numbers operator-(Numbers const &lhs, Numbers const &rhs);          // 1
+Numbers operator-(Numbers &&lhs, Numbers const &rhs);               // 2
+                                                    // Implementing the next
+                                                    // opts move-aware is TC 
+                                                    // They will stay simple
+Numbers operator*(Numbers lhs, int const rhs);                      // 1
+Numbers operator*(int const lhs, Numbers rhs);                      // 2
+
+Numbers operator/(Numbers const &lhs, int const rhs);               // 1
+Numbers operator/(Numbers &&lhs, int const rhs);                    // 2
+
 
 #endif

@@ -1,4 +1,4 @@
-#include "freefuncs.ih"
+#include "strings.ih"
 
 void only2(ostream &out, Strings const &str, size_t index)
 {

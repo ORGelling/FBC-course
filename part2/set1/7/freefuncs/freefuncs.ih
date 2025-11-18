@@ -1,5 +1,0 @@
-#include "freefuncs.h"
-#include "../stringsbasic/strings.h"    // to avoid circular inclusion
-#include <iostream>
-
-using namespace std;
