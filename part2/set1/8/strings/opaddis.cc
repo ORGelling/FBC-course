@@ -1,7 +1,10 @@
 #include "strings.ih"
 
-void Strings::add(string const &next)
+Strings &Strings::operator+=(string const &next)
 {
+    cow();                              // When used to add strings 
+                                        // to existing Strings objects
+    
     string *tmp = enlarge();            // make room for the next string,
                                         // tmp is the new string *
 
@@ -11,4 +14,6 @@ void Strings::add(string const &next)
 
     d_str = tmp;                        // update d_str and d_size
     ++d_size;
+    
+    return *this;
 }

@@ -2,6 +2,10 @@
 
 void Strings::swap(Strings &other)
 {
+    size_t *count = d_share;
+    d_share = other.d_share;
+    other.d_share = count;
+    
     string *tmp = d_str;
     d_str = other.d_str;
     other.d_str = tmp;
