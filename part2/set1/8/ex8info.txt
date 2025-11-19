@@ -8,8 +8,12 @@ consider multiple different base objects being shared from. This is not
 compatible with a static (class wide) data member.
 
 We have added a converstion operator to the Proxy class that can promote a
-Proxy object to a const string, as such the insertion operator isn't actually
-strictly necessary, but we have added it as it is part of the exercise. This
-does imply that, in turn, our conversion operator is excessive and not part
-of the exercise. We have kept it since it was a nice bit of practice and is
-likely not a detriment to the class.
+Proxy object to a const string, our insertion operator in turn makes use of
+this conversion for ease.
+
+We had some trouble properly declaring our insertion operator as a friend
+inside the nested class. It was not picking up on the declaration properly and
+would thus not gain access to the Proxy object inside its parameter list. It
+has been placed at the top of the Strings interface instead, which makes
+enough sense, and solves our lookup troubles. Some feedback on what was going
+wrong there would be greatly appreciated though.

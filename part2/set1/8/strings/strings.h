@@ -41,8 +41,8 @@ class Strings
         std::string const *data() const;
         POD release();
 
-        Proxy operator[](size_t idx);                       // 1 uses cow
-        std::string const &operator[](size_t idx) const;    // 2 uses safeAt
+        Proxy operator[](size_t idx);                       // 2.cc uses cow
+        std::string const &operator[](size_t idx) const;    // inline below
 
         Strings &operator+=(std::string const &next);       // instead of add
                                             // uses cow, safe for public use
@@ -68,8 +68,8 @@ class Strings
             Proxy(Strings &str, size_t idx);
             
             public:
-                //std::string const &value() const;     // not needed
-                operator std::string const &() const;   // conversion rhs & <<
+                //std::string const &value() const;         // not needed
+                operator std::string const &() const;       // for rhs & <<
             
                 Proxy &operator=(std::string const &rhs);       // 1.cc
                 Proxy &operator=(std::string &&rhs);            // 2.cc
@@ -100,4 +100,3 @@ inline std::string const &Strings::operator[](size_t idx) const
 //}
 
 #endif
-
