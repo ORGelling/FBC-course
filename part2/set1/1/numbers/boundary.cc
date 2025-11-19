@@ -4,7 +4,7 @@
 
 void Numbers::boundary(size_t index) const
 {
-    if (index < d_size and index >= 0)
+    if (index < d_size)
         return;
     
     cerr << "index out of bounds\n";

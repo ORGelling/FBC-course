@@ -1,14 +1,11 @@
 ex7info.txt
 output.txt
 
-freefuncs/freefuncs.h
-freefuncs/freefuncs.ih
-freefuncs/only2.cc
-freefuncs/stdinsertion.cc
 
 stringsbasic/strings.h
 stringsbasic/strings.ih
 
+stringsbasic/stdinsertion.cc
 stringsbasic/opinsert.cc
 
 stringsbasic/destructor.cc
@@ -19,6 +16,7 @@ stringsbasic/opfncall1.cc
 stringsbasic/opfncall2.cc
 
 stringsbasic/insertinto.cc
+stringsbasic/only2.cc
 
 main.ih
 main.cc

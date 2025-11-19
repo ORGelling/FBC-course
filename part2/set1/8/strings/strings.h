@@ -7,9 +7,8 @@
 class Strings
 {
     class Proxy;                    // fwd declaring for use in retvals
-    friend class Proxy;
-    friend std::ostream &operator<<(std::ostream &out, 
-                                            Proxy const &proxy);
+    //friend class Proxy;
+    friend std::ostream &operator<<(std::ostream &out, Proxy const &proxy);
     
     size_t       d_size;
     std::string *d_str;
@@ -23,15 +22,15 @@ class Strings
             std::string *str;
         };
 
-        Strings();                                      // 1.cc
-        Strings(int argc, char *argv[]);                // 2.cc
-        Strings(char *environLike[]);                   // 3.cc
-        Strings(std::istream &in);                      // 4.cc
+        Strings();                                          // 1.cc
+        Strings(int argc, char *argv[]);                    // 2.cc
+        Strings(char *environLike[]);                       // 3.cc
+        Strings(std::istream &in);                          // 4.cc
         
-        Strings(Strings const &other);                  // 5.cc shares data!
-        Strings(Strings &&other);
+        Strings(Strings const &other);                      // 5.cc
+        Strings(Strings &&other);                           // 6.cc
         
-        ~Strings();                                     // share aware
+        ~Strings();                                         // share aware
         
         Strings &operator=(Strings const &other);
         Strings &operator=(Strings &&other);
@@ -42,11 +41,11 @@ class Strings
         std::string const *data() const;
         POD release();
 
-        Proxy operator[](size_t idx);                   // implement COW
-        std::string const &operator[](size_t idx) const;
+        Proxy operator[](size_t idx);                       // 1 uses cow
+        std::string const &operator[](size_t idx) const;    // 2 uses safeAt
 
-        Strings &operator+=(std::string const &next);   // move aware?
-                
+        Strings &operator+=(std::string const &next);       // instead of add
+                                            // uses cow, safe for public use
     private:
         void fill(char *ntbs[]);                    // fill prepared d_str
 
@@ -55,7 +54,7 @@ class Strings
 
         static size_t count(char *environLike[]);   // # elements in env.like
 
-        void cow();
+        void cow();                                 // copies for writing
         void freeCopy();                            // clean copy for COW
         
         // Proxy for cow string viewing and amending
@@ -69,8 +68,8 @@ class Strings
             Proxy(Strings &str, size_t idx);
             
             public:
-                //std::string const &value() const;
-                operator std::string const &() const;   // conversion for rhs
+                //std::string const &value() const;     // not needed
+                operator std::string const &() const;   // conversion rhs & <<
             
                 Proxy &operator=(std::string const &rhs);       // 1.cc
                 Proxy &operator=(std::string &&rhs);            // 2.cc
@@ -95,7 +94,7 @@ inline std::string const &Strings::operator[](size_t idx) const
     return safeAt(idx);
 }
 
-//inline std::string const &Strings::Proxy::value() const
+//inline std::string const &Strings::Proxy::value() const // not needed
 //{
 //    return p_owner->safeAt(p_idx);
 //}

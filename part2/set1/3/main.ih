@@ -2,4 +2,4 @@
 #include <iostream>             // for cerr!
 
 using namespace std;            // for both cerr and filesystem
-using namespace filesystem;     // for ease of use of fs
+namespace fs = filesystem;      // for ease of use of fs
