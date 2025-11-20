@@ -5,8 +5,8 @@ numbers/numbers.ih
 
 numbers/opinsert.cc
 numbers/opequal.cc
-numbers/opnotequal.cc
 
+numbers/swap.cc
 numbers/opidx1.cc
 numbers/opidx2.cc
 
@@ -16,6 +16,8 @@ numbers/operatorindex.cc
 numbers/boundary.cc
 numbers/comparesize.cc
 numbers/comparecontents.cc
+
+numbers/opnotequal.cc
 
 -main.cc
 

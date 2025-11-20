@@ -8,7 +8,13 @@ stringsbasic/strings.ih
 stringsbasic/stdinsertion.cc
 stringsbasic/opinsert.cc
 
+-stringsbasic/strings2.cc
+-stringsbasic/strings3.cc
+stringsbasic/strings5.cc
+stringsbasic/strings6.cc
 stringsbasic/destructor.cc
+stringsbasic/opassigncopy.cc
+stringsbasic/opassignmove.cc
 stringsbasic/swap.cc
 
 stringsbasic/sep.cc
@@ -20,3 +26,6 @@ stringsbasic/only2.cc
 
 main.ih
 main.cc
+
+-stringsbasic/add.cc
+-stringsbasic/duplicateandenlarge.cc

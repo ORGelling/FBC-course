@@ -9,9 +9,9 @@ void Strings::freeCopy()
     
     for (size_t index = 0; index != d_size; ++index)
         tmp.d_str[index] = d_str[index];        // copy contents of original
-    
+                                                        // refactor?
 //  for (size_t index = 0; index != d_size; ++index)
 //      tmp += d_str[index];                    // heavy but clear and direct
     
-    swap(tmp);                              // destructor decrements d_share
-}
+    swap(tmp);                              // destructor decrements source's
+}                                           // d_share when it destroys tmp

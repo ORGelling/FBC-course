@@ -1,13 +1,7 @@
 ex2info.txt
 
-numbers/opadd1.cc
-numbers/opadd2.cc
-numbers/opsubtract1.cc
-numbers/opsubtract2.cc
-numbers/opmultiply1.cc
-numbers/opmultiply2.cc
-numbers/opdivide1.cc
-numbers/opdivide2.cc
+numbers/numbers.h
+numbers/numbers.ih
 
 numbers/opaddis1.cc
 numbers/opaddis2.cc
@@ -25,5 +19,14 @@ numbers/subtractcontents.cc
 numbers/multiplycontents.cc
 numbers/divisionvalid.cc
 numbers/dividecontents.cc
+
+numbers/opadd1.cc
+numbers/opadd2.cc
+numbers/opsubtract1.cc
+numbers/opsubtract2.cc
+numbers/opmultiply1.cc
+numbers/opmultiply2.cc
+numbers/opdivide1.cc
+numbers/opdivide2.cc
 
 -main.cc

@@ -1,4 +1,4 @@
-Exercise 7: Learn to add pseuro manipulators to a class
+Exercise 7: Learn to add pseudo manipulators to a class
 
 We do exactly this, placing the free stdInsertion and only2 functions in their
 own directlry with a freefunc.h header such that they can be easily included

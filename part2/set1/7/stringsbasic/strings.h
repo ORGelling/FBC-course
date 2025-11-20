@@ -3,10 +3,9 @@
 
 #include <string>
 
-class Strings;              // fwd declare for use in this free functions:
+class Strings;              // fwd declared for use in this free function:
 void stdInsertion(std::ostream &out, Strings const &str, size_t index);
-                                                    // kept here for default 
-                                                    // initialising of d_manip
+                            // kept here for default initialising of d_manip
 class Strings
 {
     // insertion operator friend function
@@ -23,16 +22,16 @@ class Strings
 
     public:
         Strings() = default;
-        Strings(int argc, char **argv);                     // 2.cc
-        Strings(char **environLike);                        // 3.cc
+        Strings(int argc, char **argv);                             // 2.cc
+        Strings(char **environLike);                                // 3.cc
 
-        Strings(Strings const &other);      // see part 1: allocation
-        Strings(Strings &&tmp);             // see part 1: allocation
+        Strings(Strings const &other);              // see part 1: allocation
+        Strings(Strings &&tmp);                     // see part 1: allocation
 
         ~Strings();
 
-        Strings &operator=(Strings const &rhs); // see part 1: allocation
-        Strings &operator=(Strings &&rhs);      // see part 1: allocation
+        Strings &operator=(Strings const &rhs);     // see part 1: allocation
+        Strings &operator=(Strings &&rhs);          // see part 1: allocation
 
         void swap(Strings &other);              
 
@@ -41,12 +40,12 @@ class Strings
         std::string const &at(size_t idx) const;
         std::string &at(size_t idx);
 
-        void add(std::string const &next);          // add another element
+        void add(std::string const &next);              // add another string
         
         std::string sep() const;
-                                                // function call operators:
-        Strings const &operator()(char const *separator);       // 1.cc
-        Strings const &operator()(                              // 2.cc
+                                                        // function call ops
+        Strings const &operator()(char const *separator);           // 1.cc
+        Strings const &operator()(                                  // 2.cc
             void (*manip)(std::ostream &out, Strings const &str, size_t index)
         );
         

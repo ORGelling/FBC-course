@@ -45,7 +45,7 @@ class Strings
         std::string const &operator[](size_t idx) const;    // inline below
 
         Strings &operator+=(std::string const &next);       // instead of add
-                                            // uses cow, safe for public use
+                                             // uses cow, safe for public use
     private:
         void fill(char *ntbs[]);                    // fill prepared d_str
 
@@ -57,11 +57,13 @@ class Strings
         void cow();                                 // copies for writing
         void freeCopy();                            // clean copy for COW
         
-        // Proxy for cow string viewing and amending
-        class Proxy
+        
+        class Proxy             // Proxy for cow string viewing and amending
         {
             friend class Strings;
-            
+                                    // Lookup doesn't find this friend here
+        //  friend std::ostream &operator<<(std::ostream &out, 
+        //                                              Proxy const &proxy);
             Strings *p_owner;
             size_t   p_idx;
             
