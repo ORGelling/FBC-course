@@ -1,0 +1,10 @@
+Exercise 6: Learn to use operators on enums
+
+We do as the exercise dictates and define a separate not-exactly-class to hold
+our operators and helper functions. We use a namespace MsgOperators to
+encapsulate the operations on the enum types (to and from ints) somewhat.
+Simply use free agents all around should work as well but this feels more
+fitting as it is in line with class structure and encapsulation of actions
+that do not need to be public. Feedback is of course welcome.
+
+The output our program generates is included in the output.txt file:

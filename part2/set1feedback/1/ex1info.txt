@@ -1,0 +1,4 @@
+Exercise 1: Extend the Numbers class with overloaded operators
+
+We reconstruct Numbers to facilitate testing, and add index, an insertion, and
+comparison operators to it. 

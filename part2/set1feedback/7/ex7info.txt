@@ -1,0 +1,28 @@
+Exercise 7: Learn to add pseudo manipulators to a class
+
+We do exactly this, placing the free stdInsertion and only2 functions in their
+own directlry with a freefunc.h header such that they can be easily included
+in the Strings interface without cluttering things up. The freefuncs header
+declares the Strings class for use and thenfree functions, while including the
+full strings interface only in their internal header to avoid circular
+inclusion. We initially considered making these two friend functions but that
+ended up being somewhat messy, as such we use the .at() functions and have 
+added a .sep() function such that stdInsertion can use the chosen separator 
+phrase. We did not need to amend the constructors as we made sure the 
+manipulator members could be given default initialised values "\n" and 
+&stdInsertion, hence making sure our free functions were properly declared
+inside the strings header.
+
+We also note that we store d_sep as a string, and depend on ntbs's to be
+implicitly promoted. This should work just fine in general and we have not
+seen issues in our testing.
+
+We noted that the class as given in the zip was lacking a destructor! As such
+we have added one, it was of course rather trivial. After finalising our
+changes we also bumped into a compiler warning about the swap function, which
+was solved by adding another static_cast<void *>() around the second line's
+this object.
+
+Our output for the command 
+$ tmp/bin/binary one two three
+is shown in the file below:

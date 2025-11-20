@@ -1,0 +1,7 @@
+Exercise 2: Extend the Numbers class to make use of arithmetic operators.
+
+We do this, adding likely some TC aspects by following the flowchart from the
+lacture. Yet this does mean our operations (other than multiplication) are now
+move-aware, and implementing both the move aware and standard (no reference 
+qualifiers) has been useful practice. We hope demonstrating both options is
+appreciated, but will understand a TC mark-down.
