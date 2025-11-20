@@ -1,0 +1,33 @@
+// ES: 1
+Exercise 5: Familiarise ourselves with namespaces and function selection.
+
+1: Why is First::fun called? How do we call Second::fun instead?
+
+We define the namespaces, enum, and functions as directed, and note that
+calling fun will automatically call the fun from namespace First, since its
+argument is also from that namespace (we have defined a First::Enum empty{} to
+use as argument). Koenig lookup dictates that the function is selected from 
+the namespace that corresponds to that of the argument(s).
+
+Second::fun is called if we explicitly use the namespace that function is
+from:
+
+Second::fun(empty);
+
+2: Explain how/why operator<<'s use is simplified due to Koenig lookup.
+
+Koenig lookup dictates that a function (which an operator is as well) is
+selected by the namespace of its arguments. Overloaded versions of operator<<
+will as such not have trouble being found since the argument is the one
+dictating which version is used. If that were not the case inserting uniquely
+defined class objects into cout would become much trickier.
+
+3: Add another fun(First::Enum symbol) declaration just above main.cc.
+
+The compiler is now deeply troubled as an ambiguity arises between this fun
+and First::fun. Koenig lookup is no longer able to properly determine which
+fun should be used (although the one from Second is not an issue here) as both
+of these accept the exact same parameters, and the newly added, global, fun
+is already in its correct namespace. The only proper way to resolve this is to 
+explicitly call ::fun (for the global one) and First::fun for the one from, of
+course, namespace First.

@@ -1,0 +1,17 @@
+std:
+tmp/bin/binary
+one
+two
+three
+
+separated by spaces:
+tmp/bin/binary one two three 
+only 2 strings, separated by text:
+tmp/bin/binary, and: one
+
+std:
+tmp/bin/binary
+one
+two
+three
+
