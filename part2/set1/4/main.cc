@@ -3,6 +3,6 @@
 int main()
 {
     string str;
-    while (promptGet2(cin, str))
+    while (promptGet1(cin, str))
         process(str);
 }
