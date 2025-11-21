@@ -1,0 +1,66 @@
+
+Constructor of 'main object'
+
+|------------------ 1st Match ------------------|
+
+Constructor of 'local object'
+Pitching 'main object'
+Copy constructor of 'local object' (copy)
+Destructor of 'local object'
+Copy constructor of 'local object' (copy) (copy)
+Caught exception
+Snapshot of 'local object' (copy) (copy)
+Destructor of 'local object' (copy) (copy)
+Destructor of 'local object' (copy)
+
+|------------------ 2nd Match ------------------|
+
+Constructor of 'local object'
+Pitching 'main object'
+Copy constructor of 'local object' (copy)
+Destructor of 'local object'
+Caught exception
+Snapshot of 'local object' (copy)
+Destructor of 'local object' (copy)
+
+|------------------ Half time ------------------|
+
+Constructor of Ref object
+
+|------------------ 3rd Match ------------------|
+
+Fast pitch of Ref object
+Copy constructor of Ref object (copy)
+Copy constructor of Ref object (copy) (copy)
+Caught exception
+Snapshot of Ref object (copy) (copy)
+Destructor of Ref object (copy) (copy)
+Destructor of Ref object (copy)
+
+|------------------ 4th Match ------------------|
+
+Fast pitch of Ref object
+Copy constructor of Ref object (copy)
+Caught exception
+Snapshot of Ref object (copy)
+Destructor of Ref object (copy)
+
+|------------------ Tie break ------------------|
+
+|------------------ Wide ball ------------------|
+
+Constructor of 'local object'
+Pitching 'main object'
+Copy constructor of 'local object' (copy)
+Destructor of 'local object'
+Caught and rethrowing exception
+Snapshot of 'local object' (copy)
+Destructor of Ref object
+Destructor of 'main object'
+
+|---------------- Out of bounds ----------------|
+
+Snapshot of 'local object' (copy)
+Final catch!
+Snapshot of 'local object' (copy)
+Destructor of 'local object' (copy)
