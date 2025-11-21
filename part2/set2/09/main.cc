@@ -6,8 +6,9 @@ int main()
 try
 {
     Demo demo{1};
-}
-catch (...)
+}/*
+^ The destructor is called here */
+catch (...)                                 // none of this even runs
 {
     cerr << "main\n";
 }

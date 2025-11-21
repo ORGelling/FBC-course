@@ -15,7 +15,7 @@ called when it goes out of scope.
 
 Q3: When is the destructor called?
 As mentioned above, when the object goes out of scope, which is at the end of
-main()'s (function) try block. The catch block is never even used now, can 
-even be omitted now, together with its try block, as the exception is handled
-inside the constructor and, as is the only good practice in such matters, does
+main()'s (function) try block. The catch block is never even used now, and can 
+even be omitted together with its try block. The exception is handled inside 
+the constructor and, as is the only good practice in such matters, does
 not leave it!
