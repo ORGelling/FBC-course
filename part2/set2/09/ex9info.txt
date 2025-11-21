@@ -13,6 +13,11 @@ constructor. Control will now properly reach the end of this constructor and
 as such this object's construction is finalised. As such the destructor is now
 called when it goes out of scope.
 
+What can also be done here is adding the use of constructor delegation, where
+we call the default constructor inside the initialisation list. This means
+that the default constructor finishes running and as such there is a
+constructed object that the destructor will be called to destroy.
+
 Q3: When is the destructor called?
 As mentioned above, when the object goes out of scope, which is at the end of
 main()'s (function) try block. The catch block is never even used now, and can 

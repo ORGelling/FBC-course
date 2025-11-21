@@ -1,1 +1,8 @@
 ex11info.txt
+catch-and-throw.txt
+
+demo/demo.h
+demo/demo.ih
+
+main.ih
+main.cc
