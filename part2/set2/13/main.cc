@@ -1,6 +1,12 @@
 #include "main.ih"
 
 int main()
+try
 {
-    MaxFour tenObjects[10];
+    [[maybe_unused]] MaxFour *tenObjects = new MaxFour[10];
+    //MaxFour tenObjects[10];
+}
+catch (exception const &exc)
+{
+    cerr << "Catching exception: " << exc.what() << '\n';
 }

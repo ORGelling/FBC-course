@@ -4,5 +4,6 @@
 
 MaxFour::~MaxFour()
 {
-    cout << "Calling destructor on: " << d_number << '\n';
+    --s_count;
+    cerr << "Calling destructor  on: " << d_number << '\n';
 }
