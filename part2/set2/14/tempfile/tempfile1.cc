@@ -16,12 +16,12 @@ TempFile::TempFile(fs::path const &directory,
     {
         d_file.open(d_filename, ios::in | ios::out | ios::trunc);
         
-        if (d_file.is_open())
-        {
-            cout << "opened " << d_filename << '\n';
+        //if (d_file.is_open())
+        //{
+        cout << "opened " << d_filename << '\n';
             
-            fs::permissions(d_filename, permissions);   // set perms
-        }
+        fs::permissions(d_filename, permissions);   // set perms
+        //}
     
     //create this file and open a stream to it. delegate?
     // check if parent path exists
