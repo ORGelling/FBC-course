@@ -26,4 +26,5 @@ tempfile/removefile.cc
 
 main.ih
 basic.cc
+samename.cc
 main.cc
