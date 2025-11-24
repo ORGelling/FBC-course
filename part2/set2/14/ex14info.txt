@@ -20,6 +20,10 @@ then again destroyed. We can see that
 
 We show these operations in the basic.cc file.
 
+We make sure that the constructor throws when a file it is about to create
+already exists, as to not run into issues with files being handled by multiple
+objects.
+
 The class is also extended to contain a conversion operator that "steals" the
 stream and file name, and clears out the data members to prevent the
 destructor from meddling with this process. It then removes/unlinks the file
