@@ -28,7 +28,6 @@ public:
     void swap(TempFile &other);
     
     operator std::fstream() &&;
-                            // explicitly delete other conv ops for clarity?
 
     std::filesystem::path const &name() const;
     std::fstream &stream();

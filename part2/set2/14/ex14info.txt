@@ -27,3 +27,22 @@ and hands the stream object off. We show it at work in our main.cc where some
 text is first input into the file before it is converted. We then insert more
 text into the unlinked stream object and finally insert its entire buffer into
 cout, which works!
+
+Final questions:
+
+Q1- Rule of thumb for catch clauses:
+A - Keep things minimal and tidy. Catch errors locally and specifically (1:1)
+    when they are fixable locally. Wrap exceptions in their own little
+    dedicated functions when possible. Large program-breaking errors get
+    escalated back up the chain, either by not catching (anything there), or
+    by catching and handing off. In short:
+    Fix what you can, where you can, escalate when the program is on fire.
+Q2- How about other types? ptrs to dynamic allocations, variables that hold
+    resources etc.
+A - This likely depends heavily on the program in question. Having pointers to
+    dynamically allocated (or function local static) memory can work great,
+    but all much be cleaned up tidily, exception or no. Ownership of any
+    resource or item should be simple and clear, and as such easy to clean up.
+    Things should be local when their lifetime is (supposed to be) limited,
+    global basically never, and class data members when they are an integral
+    part of the object or its behaviour.
