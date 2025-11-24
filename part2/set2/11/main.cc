@@ -25,7 +25,7 @@ try
     {
         test.pitch();
     }
-    catch (Demo &cth)
+    catch (Demo const &cth)
     {
         cout << "Caught exception\n";
         cth.snapShot();
@@ -54,7 +54,7 @@ try
     {
         Demo::fastBall(referee);
     }
-    catch (Demo &cth)
+    catch (Demo const &cth)
     {
         cout << "Caught exception\n";
         cth.snapShot();
@@ -67,7 +67,7 @@ try
         cout << "\n|------------------ Wide ball ------------------|\n\n";
         test.pitch();
     }
-    catch (Demo &cth)
+    catch (Demo const &cth)
     {
         cout << "Caught and rethrowing exception\n";
         cth.snapShot();
@@ -75,7 +75,7 @@ try
     }
 
 }
-catch (Demo &cth)
+catch (Demo const &cth)
 {
     cout << "\n|---------------- Out of bounds ----------------|\n\n";
     cth.snapShot();
@@ -83,7 +83,7 @@ catch (Demo &cth)
     {
         throw;
     }
-    catch (Demo &cth2)
+    catch (Demo const &cth2)
     {
         cout << "Final catch!\n";
         cth2.snapShot();

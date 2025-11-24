@@ -22,6 +22,20 @@ terminate called after throwing an instance of 'std::runtime_error'
   what():  max. number of objects reached
 Aborted (core dumped)
 
+and valgrind even shows us that memory has leaked:
+
+    HEAP SUMMARY:
+        in use at exit: 75,039 bytes in 5 blocks
+      total heap usage: 7 allocs, 2 frees, 75,102 bytes allocated
+
+    LEAK SUMMARY:
+       definitely lost: 0 bytes in 0 blocks
+       indirectly lost: 0 bytes in 0 blocks
+         possibly lost: 144 bytes in 1 blocks
+       still reachable: 74,895 bytes in 4 blocks
+                          of which reachable via heuristic:
+                            stdstring          : 55 bytes in 1 blocks
+
 If we include a simple catch statement we see that everything ends tidily:
 
 $ tmp/bin/binary 
@@ -34,3 +48,11 @@ Calling destructor  on: 3
 Calling destructor  on: 2
 Calling destructor  on: 1
 Catching exception: max. number of objects reached
+
+With valgrind kindly telling us:
+
+    HEAP SUMMARY:
+        in use at exit: 0 bytes in 0 blocks
+      total heap usage: 6 allocs, 6 frees, 75,070 bytes allocated
+
+    All heap blocks were freed -- no leaks are possible
