@@ -17,11 +17,18 @@ public:
                  = std::filesystem::perms::owner_read
                  | std::filesystem::perms::owner_write
         );
-    TempFile(std::string filename);
+    TempFile(TempFile const &other) = delete;
+    TempFile(TempFile &&other);
+    
+    TempFile &operator=(TempFile const &other) = delete;
+    TempFile &operator=(TempFile &&other);
     
     ~TempFile();
     
-    // Value class ctors and assignment ops
+    void swap(TempFile &other);
+    
+    operator std::fstream() &&;
+                            // explicitly delete other conv ops for clarity?
 
     std::filesystem::path const &name() const;
     std::fstream &stream();
@@ -31,6 +38,12 @@ private:
                                 std::filesystem::path const &pattern) const;
     void randomName(std::string &temp) const;
     char generateChars() const;
+    
+    bool openFile();
+    void setPerms(std::filesystem::perms permissions);
+    
+    void closeStream();
+    static void removeFile(std::filesystem::path const &filename);
 };
 
 

@@ -4,10 +4,7 @@
 
 TempFile::~TempFile()
 {
-    if (d_file.is_open())
-    {
-        d_file.close();
-        remove(d_filename);
-        cout << "closed and removed temp file\n";
-    }
+    closeStream();
+    
+    removeFile(d_filename);
 }

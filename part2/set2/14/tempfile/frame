@@ -2,6 +2,6 @@
 
     // by 
 
-void TempFile::()
+TempFile::()
 {
 }

@@ -7,11 +7,8 @@ fs::path TempFile::setName(fs::path const &directory,
 {
     fs::path tempPath = directory;
     
-    // modify pattern
     string temp = pattern.filename();
     randomName(temp);
     
-    tempPath /= temp;
-    
-    return tempPath;
+    return tempPath /= temp;            // /-append new randomised filename
 }

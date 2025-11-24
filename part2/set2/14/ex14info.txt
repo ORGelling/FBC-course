@@ -1,1 +1,29 @@
-Exercise 14: 
+Exercise 14: TempFile class and cleaning up (you guessed it!) temporary files
+
+We make TempFile, using chrono to seed random numbers inside a lambda
+function. We add move construction and assignment to the class, deleting copy
+operations as we do not want to and cannot properly copy streams between 
+opjects.
+
+We had our operations output demonstration messages to help testing what
+happens for clarity, but can of course look in the /tmp/ directory, where
+temp_directory_path() points to on my device, to see if they are created, and
+then again destroyed. We can see that 
+
+- files are neatly removed when the destructor is called.
+- unrelated throws do not cause issues when main is provided with a catch
+  block (that triggers). The file is removed all the same as the destructor 
+  properly runs.
+- *Not* catching the exception causes a dangling temp file. The destructor
+  does not properly run in this case. I am left with the file "TMPg1%qB.tmp"
+  in my /tmp/ directory.
+
+We show these operations in the basic.cc file.
+
+The class is also extended to contain a conversion operator that "steals" the
+stream and file name, and clears out the data members to prevent the
+destructor from meddling with this process. It then removes/unlinks the file
+and hands the stream object off. We show it at work in our main.cc where some
+text is first input into the file before it is converted. We then insert more
+text into the unlinked stream object and finally insert its entire buffer into
+cout, which works!
