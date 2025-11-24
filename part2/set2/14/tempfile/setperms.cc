@@ -2,7 +2,7 @@
 
     // by 
 
-void TempFile::setPerms(fs::perms permissions)
+void TempFile::setPerms(fs::perms permissions) const
 {
     try
     {

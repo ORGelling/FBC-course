@@ -16,6 +16,8 @@ tempfile/setname.cc
 tempfile/randomname.cc
 tempfile/generatechars.cc
 
+tempfile/alreadyexists.cc
+
 tempfile/openfile.cc
 tempfile/setperms.cc
 

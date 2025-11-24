@@ -10,6 +10,9 @@ TempFile::TempFile(fs::path const &directory,
 {
     d_file.exceptions(ios::failbit | ios::badbit);  // set stream to throw
     
+    // check if file exists already, throw if so.
+    alreadyExists();
+    
     if (openFile())
         setPerms(permissions);      // we check if parent path exists. if not
 }                                   // we simply throw. User errs, user fixes

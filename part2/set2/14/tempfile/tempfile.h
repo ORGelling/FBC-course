@@ -38,8 +38,10 @@ private:
     void randomName(std::string &temp) const;
     char generateChars() const;
     
+    void alreadyExists() const;
+    
     bool openFile();
-    void setPerms(std::filesystem::perms permissions);
+    void setPerms(std::filesystem::perms permissions) const;
     
     void closeStream();
     static void removeFile(std::filesystem::path const &filename);

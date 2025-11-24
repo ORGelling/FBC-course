@@ -1,5 +1,6 @@
 #include "tempfile/tempfile.h"
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
