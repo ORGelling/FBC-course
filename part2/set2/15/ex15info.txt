@@ -35,4 +35,6 @@ using exceptions is much safer and more useful than calling exit. We see that
 if we simply create a TempFile object and then call exit(1) (return value 1
 for erroneous program end) the TempFile lingers in the /tmp/ directory. If we,
 on the other hand, throw an error and catch it, we see that the file is neatly
-cleaned up again.
+cleaned up again by the destructor, and if we want or even need to we could
+use exceptions to neatly wind down the program and all its operating resources
+in whichever way they require.
