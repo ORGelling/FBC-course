@@ -9,6 +9,12 @@ A - No. rawPointers can throw an exception like, for instance, bad_alloc. We
 
 What happens when:
 1 - The default constructor fails and throws an exception?
-A - 
+A - Construction of the object is incomplete. The object is not considered
+    constructed. Any partially allocated resources will be deleted, but fully
+    allocated ones might be left dangling.
     
 2 - The calling constructor fails and throws an exception?
+    The object is considered built, albeit partially. If the exception is
+    caught its (already allocated) resources will be neatly tidied up, as long
+    as the dtoris set to do that. If intermediate resources are used that the
+    dtor does not deal with these should be addressed inside the catch clause.
