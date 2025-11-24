@@ -17,4 +17,6 @@ A - Construction of the object is incomplete. The object is not considered
     The object is considered built, albeit partially. If the exception is
     caught its (already allocated) resources will be neatly tidied up, as long
     as the dtoris set to do that. If intermediate resources are used that the
-    dtor does not deal with these should be addressed inside the catch clause.
+    dtor does not deal with these should be addressed inside the catch
+    clause. Any resources that were only partially built (new couldn't finish
+    for instance) will be tidied up by new itself.
