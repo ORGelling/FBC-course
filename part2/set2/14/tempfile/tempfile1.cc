@@ -13,12 +13,12 @@ try
     
     alreadyExists();
     
-    throw ios_base::failure("Failed to open stream"s);    // test throw
+    //throw ios_base::failure("Failed to open stream"s);    // test throw
     d_file.open(d_filename, ios::in | ios::out | ios::trunc);
                                 // We want errors in this to leave ctor
     
     setPerms(permissions);      // not this one tho, as file now exists.
-}
+}                           // Perms default to writeable so should be ok?
 catch (...)
 {
     handleExceptions();
