@@ -32,8 +32,6 @@ class TempFile
 
         std::filesystem::path const &name() const;
         std::fstream &stream();
-
-        static int handleExceptions();
         
     private:
         std::filesystem::path setName(std::filesystem::path const &directory,
@@ -48,6 +46,8 @@ class TempFile
         
         void closeStream();
         static void removeFile(std::filesystem::path const &filename);
+        
+        int handleExceptions();
 };
 
 #endif
