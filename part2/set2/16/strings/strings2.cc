@@ -3,8 +3,9 @@
     // by 
 
 Strings::Strings(size_t argc, char **argv)
+try
 :
-    Strings()
+    Strings()                       // object is considered constructed.
 {
     d_size = argc;                  // overwriting default ctor values
     d_capacity = argc;
@@ -13,4 +14,8 @@ Strings::Strings(size_t argc, char **argv)
     //throw bad_alloc{};              // simulating throw
     
     fill(argv);                     // write contents (this can too)
+}
+catch (...)
+{
+    handleExceptions();
 }

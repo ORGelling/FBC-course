@@ -6,11 +6,7 @@ try
     Strings strings(argc, argv);
     strings.show();
 }
-catch (bad_alloc const &memFault)       // single big handleException()
-{                                       // function would be prettier
-    cerr << "Strings: " << memFault.what() << '\n';
-}
-catch (int value)
+catch (...)
 {
-    cerr << "Basic error value: " << value << '\n';
+    return 1;
 }

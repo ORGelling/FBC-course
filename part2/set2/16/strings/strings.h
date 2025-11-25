@@ -19,6 +19,10 @@ class Strings
     private:
         std::string **rawPointers(size_t size);
         void fill(char **ntbs);
+        
+        void clearContents();
+        
+        void handleExceptions();
 };
         
 #endif

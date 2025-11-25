@@ -12,5 +12,8 @@ strings/show.cc
 strings/rawpointers.cc
 strings/fill.cc
 
+strings/clearcontents.cc
+strings/handleexceptions.cc
+
 main.ih
 main.cc

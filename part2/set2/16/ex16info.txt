@@ -4,9 +4,11 @@ Q1- Is the default Strings constructor as shown exception safe?
 A - No. rawPointers can throw an exception like, for instance, bad_alloc. We
     could have the default constructor initialise the members to 0 instead and
     then allocate the memory in a constructor that has already delegated the
-    base initialisation to the default one, where we catch the possible
-    exceptions.
-
+    base initialisation to the default one, where we catch possible
+    exceptions, deal with them, or escalate and make sure the object is
+    cleaned up properly. Since the default ctor completed there will be an
+    object for the destructor to be called on.
+    
 What happens when:
 1 - The default constructor fails and throws an exception?
 A - Construction of the object is incomplete. The object is not considered
@@ -16,7 +18,8 @@ A - Construction of the object is incomplete. The object is not considered
 2 - The calling constructor fails and throws an exception?
     The object is considered built, albeit partially. If the exception is
     caught its (already allocated) resources will be neatly tidied up, as long
-    as the dtoris set to do that. If intermediate resources are used that the
-    dtor does not deal with these should be addressed inside the catch
-    clause. Any resources that were only partially built (new couldn't finish
-    for instance) will be tidied up by new itself.
+    as the destructor is set up to do this, which it likely is if it functions
+    normally. If intermediate resources are used that the dtor does not deal 
+    with, these should be addressed inside the catch clause. Any resources 
+    that were only partially built (new couldn't finish for instance) will be
+    tidied up by new itself.
