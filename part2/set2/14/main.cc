@@ -19,4 +19,6 @@ try
     grab.close();                       // closes and lets file finally die
 }
 catch (...)
-{}
+{
+    return TempFile::handleExceptions();
+}                                       // Handle ctor exceptions here

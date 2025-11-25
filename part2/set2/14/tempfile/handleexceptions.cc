@@ -1,0 +1,28 @@
+#include "tempfile.ih"
+
+    // by 
+
+int TempFile::handleExceptions()
+{
+    try
+    {
+        rethrow_exception(current_exception());
+    }
+    catch (ios_base::failure const &streamExcept)
+    {
+        cerr << "TempFile: " << streamExcept.what() << '\n';
+    }
+    catch (fs::filesystem_error const &fileExcept)
+    {
+        cerr << "TempFile: " << fileExcept.what() << '\n';
+    }
+    catch (runtime_error const &except)
+    {
+        cerr << "TempFile: " << except.what() << '\n';
+    }
+    catch (...)
+    {
+        cerr << "TempFile: unexpected exception\n";
+    }
+    return 1;
+}

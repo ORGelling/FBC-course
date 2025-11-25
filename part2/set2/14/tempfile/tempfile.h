@@ -33,6 +33,8 @@ class TempFile
         std::filesystem::path const &name() const;
         std::fstream &stream();
 
+        static int handleExceptions();
+        
     private:
         std::filesystem::path setName(std::filesystem::path const &directory,
                                 std::filesystem::path const &pattern) const;
@@ -41,7 +43,7 @@ class TempFile
         
         void alreadyExists() const;
         
-        bool openFile();
+        //bool openFile();
         void setPerms(std::filesystem::perms permissions) const;
         
         void closeStream();

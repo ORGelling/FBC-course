@@ -13,5 +13,7 @@ try
     
     cin >> stall;                       // allows us to look up the files
 }
-catch (...) //string &notAnInt)         // bad or no catch: file dangles
-{}
+catch (...)
+{
+    return TempFile::handleExceptions();
+}                                       // Handle ctor exceptions here

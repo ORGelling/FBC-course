@@ -9,5 +9,5 @@ void TempFile::randomName(string &temp) const
         if (ch == 'X')
             ch = generateChars();
     }
-    temp.replace(0, 3, "TMP");
-}
+    temp.replace(0, 3, "TMP");                      // prepend base. Problem
+}                                                   // if pattern too short

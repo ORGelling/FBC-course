@@ -12,9 +12,9 @@ namespace {
     [[maybe_unused]] static const bool seeded = []  // lambda expr to seed rng
         {
             srandom(chrono::steady_clock::now().time_since_epoch().count());
-            return true;            // probably TC, can use srandom & now
-        }();                        // but that's c-code. This has better
-}                                   // rng, and Lambdas are in Ch 11!
+            return true;            // probably TC, can use srandom & now in
+        }();                        // ctor but that's c-ish. This has better
+}                                   // rng, and Lambdas are in last week's Ch!
 
 char TempFile::generateChars() const
 {
