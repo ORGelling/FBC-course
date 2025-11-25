@@ -18,11 +18,12 @@ tempfile/generatechars.cc
 
 tempfile/alreadyexists.cc
 
-tempfile/openfile.cc
 tempfile/setperms.cc
 
 tempfile/closestream.cc
 tempfile/removefile.cc
+
+tempfile/handleexceptions.cc
 
 main.ih
 basic.cc

@@ -2,7 +2,7 @@
 
     // by 
 
-int TempFile::handleExceptions()
+void TempFile::handleExceptions()
 {
     try
     {
@@ -24,5 +24,4 @@ int TempFile::handleExceptions()
     {
         cerr << "TempFile: unexpected exception\n";
     }
-    return 1;
 }

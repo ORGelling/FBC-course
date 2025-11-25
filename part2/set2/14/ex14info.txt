@@ -22,7 +22,9 @@ We show these operations in the basic.cc file.
 
 We make sure that the constructor throws when a file it is about to create
 already exists, as to not run into issues with files being handled by multiple
-objects.
+objects. We do the same for an error creating the file itself, and an error
+with setting the permissions. The latter also handles file removal since it
+runs after the creation of the file does.
 
 The class is also extended to contain a conversion operator that "steals" the
 stream and file name, and clears out the data members to prevent the

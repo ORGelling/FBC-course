@@ -46,7 +46,7 @@ class TempFile
         void closeStream();
         static void removeFile(std::filesystem::path const &filename);
         
-        int handleExceptions();
+        void handleExceptions();
 };
 
 #endif

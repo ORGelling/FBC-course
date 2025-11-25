@@ -8,7 +8,7 @@ try
     Demo demo{1};
 }/*
 ^ The destructor is called here */
-catch (...)                                 // none of this even runs
+catch (...)                                 // 
 {
     cerr << "main\n";
 }
