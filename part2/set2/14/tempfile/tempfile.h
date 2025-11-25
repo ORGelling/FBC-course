@@ -41,8 +41,7 @@ class TempFile
         
         void alreadyExists() const;
         
-        //bool openFile();
-        void setPerms(std::filesystem::perms permissions) const;
+        void setPerms(std::filesystem::perms permissions);
         
         void closeStream();
         static void removeFile(std::filesystem::path const &filename);

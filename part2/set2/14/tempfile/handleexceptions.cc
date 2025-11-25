@@ -8,10 +8,10 @@ int TempFile::handleExceptions()
     {
         rethrow_exception(current_exception());
     }
-//  catch (fs::filesystem_error const &fileExcept)
-//  {
-//      cerr << "TempFile: " << fileExcept.what() << '\n';
-//  }                                               // caught inside ctor
+    catch (fs::filesystem_error const &fileExcept)
+    {
+        cerr << "TempFile: " << fileExcept.what() << '\n';
+    }
     catch (ios_base::failure const &streamExcept)
     {
         cerr << "TempFile: " << streamExcept.what() << '\n';
