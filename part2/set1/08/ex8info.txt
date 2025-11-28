@@ -1,0 +1,19 @@
+Exercise 8: Extend the Strings class to use reference counting and proxies
+
+Subquestion: Why can the shared-count member not be static?
+Making it static would make it a shared data member for the entire class,
+rather than for one specific object that is sharing its data. We need to keep
+track of how many objects are sharing data with each other, and have to
+consider multiple different base objects being shared from. This is not
+compatible with a static (class wide) data member.
+
+We have added a conversion operator to the Proxy class that can promote a
+Proxy object to a const string, our insertion operator in turn makes use of
+this conversion for ease.
+
+We had some trouble properly declaring our insertion operator as a friend
+inside the nested class. It was not picking up on the declaration properly and
+would thus not gain access to the Proxy object inside its parameter list. It
+has been placed at the top of the Strings interface instead, which makes
+enough sense, and solves our lookup troubles. Some feedback on what was going
+wrong there would be greatly appreciated though.

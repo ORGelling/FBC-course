@@ -1,1 +1,6 @@
 ex9info.txt
+
+demo/demo.h
+-demo/demo.ih
+
+main.cc

@@ -1,1 +1,43 @@
-Exercise 15: 
+Exercise 15: Understand why exceptions are better than terminating.
+
+Calling exit(3), according to the manpage:
+
+    The  exit() function causes normal program termination and
+    the value of status is returned to the parent.  All  func­
+    tions registered with atexit() and on_exit() are called in
+    the reverse order of  their  registration,  and  all  open
+    streams are flushed and closed.
+
+To not simply plagiarise the manpage: when exit is called anything that is not
+explicitly setup to synergise with its way of terminating the program will not
+be able to run properly, which means, generally, destructors. If an error
+happens it is also often still perfectly fixable, or at least might allow for
+further processes of the program to complete before it is closed, rather than
+simply axing the whole thing. As such exceptions come in as a much better
+alternative. If a program breaking exception appears one can set the program
+up such that it terminates after safely and tidily cleaning up any resources
+in use, but smaller scale exceptions can be dealt with locally without
+necessarily ceasing the program altogether. Exceptions can then also be used
+more effectively to report to the user (or programmer) what has gone wrong and
+wat needs to be fixed (or what the user should (not) be doing).
+
+As we saw in the previous exercise, exceptions can lead to resources being
+left dangling. A computer's OS will reclaim leaked memory at program
+termination, but temporary files for instance, will not be automatically
+deleted when the program unwinds. The user must then know to go into (for
+instance) the /tmp/ directory to manually get rid of the dangling files, which
+can cause issues if those files take up a lot of memory and the user is left
+unaware.
+
+Since the previous exercise has given us an excellent set of tools to
+demonstrate this, we will go ahead and use its temporary files to show why
+using exceptions is much safer and more useful than calling exit. We see that
+if we simply create a TempFile object and then call exit(1) (return value 1
+for erroneous program end) the TempFile lingers in the /tmp/ directory. If we,
+on the other hand, throw an error and catch it, we see that the file is neatly
+cleaned up again by the destructor, and if we want or even need to we could
+use exceptions to neatly wind down the program and all its operating resources
+in whichever way they require. We can catch errors more deeply in the program
+and add extra info to them to learn about issues and more easily fix them, and
+can generally deal with them much more effectively when we do not just
+outright destroy the program with naught but a single int as feedback.
