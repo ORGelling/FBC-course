@@ -1,1 +1,48 @@
-Exercise 19: 
+Exercise 19: Constructon and delegation order under inheritance.
+
+Q1- Explain why the Base class component of a Derived class is constructed
+    before the Derived parts, and destroyed only after them?
+A - Since objects from classes that use inheritance take the Base class's
+    properties and either extend from them or add to them (data members or
+    member functions) it is often the case that the Derived components depend
+    on the Base ones. De facto then, whenever constructing an object from a
+    class using inheritance, the Base part is built first, and only then the
+    Derived parts. One could make the analogy of a Derived being a wrapper 
+    class around Base's properties, but more compactly and interconnected.
+    
+    One could see Derived's objects as shown below:
+    _________   
+    |______ |   here it will always make the most sense to start with the
+    ||    | |   "nested" Base object before creating the parts around it.
+    ||Base| |   
+    ||____| |   When destroying an object, similarly but in reverse, it makes
+    |       |   the most sense to start on the outside and then work one's
+    |Derived|   way in. Removing first the parts that Derived adds to the
+    |_______|   inherited functionality, before getting rid of the Base
+                components. Once again we might even run into trouble
+    reversing the order, as the Derived part of this object might even depend
+    on data members of Base, consider for instance a size_t d_side, that
+    counts the amount of allocated resources. One cannot properly allocate
+    these resources before having this member set up, and can not properly 
+    destroy them after already having deleted this member. Doing so would
+    lead to either a segfault or leaked memory, as depending on what happens
+    to the size_t the destructor will either not be able to clean up all the
+    allocated data, or might start looking into (or even deleting) data it has
+    no access to.
+    
+    We have included demo/demo.h which shows (in one file) a Base and Derived
+    class where Base stores d_size and Derived stores the actual pointer to
+    strings. We have left the implementations of these functions out.
+    
+Q2- When using explicit destructor calls, like with placement new or 
+    unrestricted unions, why does a Derived class still not have to explicitly
+    call the Base class's destructor?
+A - Similarly to what we did in the previous exercise: Base's destructor will
+    automatically be called after Derived's destructor. If Base contains an UU
+    or uses placement new, it is assumed that it neatly cleans up its memory
+    and does not leak. As such, this automatic call to ~Base(), or the other
+    members of Base that explicitly call its destructor, should already take 
+    care of everything that needs to be done. Explicitly calling the 
+    destructor is only needed inside the implementation. If the destruction is
+    being delegated by the inheritor, the inheritee's code will do exactly 
+    what it is built (assumedly leak-free) to do.
