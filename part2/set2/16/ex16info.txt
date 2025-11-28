@@ -1,5 +1,10 @@
 Exercise 16: Learn to make existing code exception safe
 
+Like with ex 14 we have not gone for a general handleException() in main, but
+instead one inside the constructor's function catch block, such that we deal
+with issues but can still hand them off to a simple catch (...) block in main.
+We can also throw a 1; from this handleException(). Feedback is welcome.
+
 Q1- Is the default Strings constructor as shown exception safe?
 A - No. rawPointers can throw an exception like, for instance, bad_alloc. We
     could have the default constructor initialise the members to 0 instead and

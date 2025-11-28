@@ -24,7 +24,12 @@ We make sure that the constructor throws when a file it is about to create
 already exists, as to not run into issues with files being handled by multiple
 objects. We do the same for an error creating the file itself, and an error
 with setting the permissions. The latter also handles file removal since it
-runs after the creation of the file does.
+runs after the creation of the file does. We use a handleExceptions()
+functions not in the catch clause of main, but in the catch clause of the
+constructor. This might be a bit unconventional but it works rather well to
+deal with issues. We may benefit from throwing not the original exception, but
+just an exit code 1, but as of now this is hopefully a nice answer to the
+exercise.
 
 The class is also extended to contain a conversion operator that "steals" the
 stream and file name, and clears out the data members to prevent the

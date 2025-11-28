@@ -40,7 +40,7 @@ class Demo
             throw receiver;
         }
         
-        void snapShot()
+        void snapShot() const
         {
             cout << "Snapshot of " << d_name << '\n';
         }

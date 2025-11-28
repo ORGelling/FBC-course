@@ -7,7 +7,7 @@ track of how many objects are sharing data with each other, and have to
 consider multiple different base objects being shared from. This is not
 compatible with a static (class wide) data member.
 
-We have added a converstion operator to the Proxy class that can promote a
+We have added a conversion operator to the Proxy class that can promote a
 Proxy object to a const string, our insertion operator in turn makes use of
 this conversion for ease.
 
