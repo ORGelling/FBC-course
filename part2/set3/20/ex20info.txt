@@ -1,1 +1,10 @@
 Exercise 20: 
+
+In order to use all the functionality from std::string we simply publicly
+inherit it, add the relevant "using" directives, and then declare all the
+constructors and operators we need as default inside our interface.
+
+We add one extra constructor to repeat-initialise our string, using a small
+private helper function. It is not particularly efficient as it simply 
+appends str count times, but it is exactly as clear and functional as we need
+it to be.
