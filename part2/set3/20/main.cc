@@ -5,8 +5,9 @@ using namespace std;
 
 int main()
 {
-    size_t count = 4;
-    Strings test(count, "testing"s);
+    Strings test(6, "testing "s);
     
-    cout << test << '\n';
+    Strings test2("lalalalala");
+    
+    cout << test << '\n' << test + test2 << '\n';
 }
