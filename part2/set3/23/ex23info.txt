@@ -1,1 +1,28 @@
-Exercise 23: 
+Exercise 23: Compare the coupling of inheritance versus composition
+
+Q1- What is the problem with inheriting from an unfinished WIP class into
+    OpusMagnum?
+A - When one inherits from an unfinished class that might change the
+    implementation of our class OpusMagnum might be completely broken once WIP
+    is finally finished. Maybe unaccounted for behaviour is added, maybe its
+    members have different names, maybe its API has extra members, we simply
+    do not know.
+    
+Q2- What if instead of inheriting from WIP we compose our class with a WIP
+    data member?
+A - This is a lot safer already but still requires care and may break our
+    implementation if WIP changes before it is finished, similarly to above.
+    At the very least our library and any programs that use it will have to be
+    recompiled as it has to include WIP's interface entirely.
+
+Q3- Show the problem can be avoided using a slightly different kind of
+    composition.
+A - We can instead use pimpl: Pointer to the IMPLementation. Instead of using
+    a data member "WIP d_wip" we use a data member "WIP *d_wimpl". This keeps
+    the implementations separate and does not require a complete recompilation
+    of anything that uses WIP, as the libraries are now separate, and WIP is
+    not included in OpusMagnum's interface. Assuming the API of WIP is
+    functional, members are not renamed, nor their actions entirely changed,
+    any changes or additions that have been made will not interfere with the
+    OpusMagnum class nor programs that use it. The final version of the WIP
+    library itself will simply have to be reinstalled and linked.
