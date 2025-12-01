@@ -1,8 +1,8 @@
-#include "strings.ih"
+#include "main.ih"
 
     // by 
 
-void Strings::handleExceptions()
+int handleExceptions()
 {
     try
     {
@@ -20,5 +20,5 @@ void Strings::handleExceptions()
     {
         cerr << "Strings: unexpected exception\n";
     }
-    throw;      // can throw 1; for ease of use in program
+    return 1;
 }

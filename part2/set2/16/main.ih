@@ -3,3 +3,5 @@
 #include <new>
 
 using namespace std;
+
+int handleExceptions();
