@@ -14,33 +14,17 @@ class Demo
 };
 
 inline Demo::Demo(int number)
-//try                                       // using function try block
-{                                           // inside constructor is BAD. 
-    try                                 // We use nested try/catch instead
-    {
-        std::cerr << "Constructor running for: " << number << '\n';
-        throw number;
-    }
-    catch (...)                             // Catching exception here so it
-    {                                       // does not leave the constructor
-        std::cerr << "Catching exception\n";
-    }                                   // after this catch control proceeds
-}                                       // and finishes construction of demo
-
-/*
-inline Demo::Demo(int number)
-try                                         // using function try block
-:                                           // while making sure dtor
-    Demo()                                  // is called:
-{
+try
+:                                           // We delegate to default ctor
+    Demo()                                  // so we have a constructed
+{                                           // object for the dtor to run on
     std::cerr << "Constructor running for: " << number << '\n';
-    throw number;
-} 
-catch (...)
-{
-    std::cerr << "Catching exception\n";
+    throw number;                           // even if this throws
 }
-*/
+catch (...)
+{    
+    std::cerr << "Catching exception\n";
+}                                   
 
 inline Demo::~Demo()
 {
