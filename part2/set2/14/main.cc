@@ -20,6 +20,5 @@ try
 }
 catch (...)
 {
-    return 1;
-    //return TempFile::handleExceptions();
+    return handleExceptions();
 }                                       // Handle ctor exceptions here

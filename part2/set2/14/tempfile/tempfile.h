@@ -17,12 +17,12 @@ class TempFile
                  std::filesystem::perms permissions
                      = std::filesystem::perms::owner_read
                      | std::filesystem::perms::owner_write
-            );
+        );
         TempFile(TempFile const &other) = delete;
-        TempFile(TempFile &&other);
+        TempFile(TempFile &&other) = default;
         
         TempFile &operator=(TempFile const &other) = delete;
-        TempFile &operator=(TempFile &&other);
+        TempFile &operator=(TempFile &&other) = default;
         
         ~TempFile();
         
@@ -36,17 +36,27 @@ class TempFile
     private:
         std::filesystem::path setName(std::filesystem::path const &directory,
                                 std::filesystem::path const &pattern) const;
-        void randomName(std::string &temp) const;
-        char generateChars() const;
         
-        void alreadyExists() const;
+        //void alreadyExists() const;
         
         void setPerms(std::filesystem::perms permissions);
         
-        void closeStream();
         static void removeFile(std::filesystem::path const &filename);
-        
-        void handleExceptions();
 };
+
+inline std::filesystem::path const &TempFile::name() const
+{
+    return d_filename;
+}
+
+inline std::fstream &TempFile::stream()
+{
+    return d_file;
+}
+
+inline TempFile::~TempFile()
+{
+    removeFile(d_filename);
+}
 
 #endif

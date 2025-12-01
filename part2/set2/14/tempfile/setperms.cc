@@ -3,17 +3,14 @@
     // by 
 
 void TempFile::setPerms(fs::perms permissions)
-{
-    try
-    {                                                           
-//      throw fs::filesystem_error( "permissions", d_filename,  // test throw
+try
+{                                                           
+//  throw fs::filesystem_error( "permissions", d_filename,  // test throw
 //                          make_error_code(std::errc::permission_denied));
-        fs::permissions(d_filename, permissions);       // set perms
-    }
-    catch (fs::filesystem_error const &fileExcept)
-    {
-        closeStream();
-        removeFile(d_filename);
-        throw;
-    }                               // clears object contents and rethrows
+    fs::permissions(d_filename, permissions);       // set perms
 }
+catch (fs::filesystem_error const &fileExcept)
+{
+    removeFile(d_filename);
+    throw;
+}                               // clears object contents and rethrows
