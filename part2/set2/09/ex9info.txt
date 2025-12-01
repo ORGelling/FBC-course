@@ -1,1 +1,26 @@
-Exercise 9: 
+Exercise 9: Understand the behaviour of incompletely constructed objects
+
+Q1: Explain why demo's destructor is not called:
+The destructor is not called since the constructor never finishes running. The
+closing '}' of this constructor is never reached and as such this object is
+not considered (fully) constructed.
+
+Q2: Modify the constructor so that demo's destructor *is* called. Explain why
+it is actually called now.
+We remove the "function try" block and instead use a nested try/catch *inside*
+the constructor's body such that the throw is now handled inside the
+constructor. Control will now properly reach the end of this constructor and
+as such this object's construction is finalised. As such the destructor is now
+called when it goes out of scope.
+
+What can also be done here is adding the use of constructor delegation, where
+we call the default constructor inside the initialisation list. This means
+that the default constructor finishes running and as such there is a
+constructed object that the destructor will be called to destroy.
+
+Q3: When is the destructor called?
+As mentioned above, when the object goes out of scope, which is at the end of
+main()'s (function) try block. The catch block is never even used now, and can 
+even be omitted together with its try block. The exception is handled inside 
+the constructor and, as is the only good practice in such matters, does
+not leave it!
