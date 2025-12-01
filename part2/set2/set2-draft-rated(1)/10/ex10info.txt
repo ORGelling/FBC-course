@@ -1,0 +1,9 @@
+Exercise 10: Apply a 1:1 error handling coordinate design
+
+We used the Arg class we made for 64 of part one, which is why the arguments
+of the Arg::initialise() are in a different order. It has been added to my
+/usr/local/ directories such that it can be included using #include
+<arg/arg.h> as long as icmconf specifies the library path.
+
+We catch all different types of exceptions inside an handleException()
+function such that we do indeed get a 1:1 (exception : handler) design.
