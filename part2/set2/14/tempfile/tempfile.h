@@ -37,11 +37,9 @@ class TempFile
         std::filesystem::path setName(std::filesystem::path const &directory,
                                 std::filesystem::path const &pattern) const;
         
-        //void alreadyExists() const;
-        
         void setPerms(std::filesystem::perms permissions);
         
-        static void removeFile(std::filesystem::path const &filename);
+        void removeFile();
 };
 
 inline std::filesystem::path const &TempFile::name() const
@@ -56,7 +54,7 @@ inline std::fstream &TempFile::stream()
 
 inline TempFile::~TempFile()
 {
-    removeFile(d_filename);
+    removeFile();
 }
 
 #endif

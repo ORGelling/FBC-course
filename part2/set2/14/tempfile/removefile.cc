@@ -2,13 +2,13 @@
 
     // by 
 
-void TempFile::removeFile(fs::path const &filename)
+void TempFile::removeFile()
 {
-    if (not filename.empty())
+    if (not d_filename.empty())
     {
         try
         {
-            remove(filename);     // 
+            remove(d_filename);     // 
         }
         catch (fs::filesystem_error const &fileExcept)
         {

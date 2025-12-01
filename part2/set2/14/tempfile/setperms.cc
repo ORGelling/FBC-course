@@ -11,6 +11,6 @@ try
 }
 catch (fs::filesystem_error const &fileExcept)
 {
-    removeFile(d_filename);
+    removeFile();
     throw;
 }                               // clears object contents and rethrows
