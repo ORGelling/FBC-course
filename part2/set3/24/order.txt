@@ -1,1 +1,12 @@
 ex24info.txt
+
+base/base.h
+base/base.ih
+base/base1.cc
+
+derived/derived.h
+derived/derived.ih
+derived/derived1.cc
+
+-main.cc
+-test.txt
