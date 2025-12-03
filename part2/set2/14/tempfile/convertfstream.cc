@@ -5,8 +5,7 @@
 TempFile::operator fstream() &&
 {
     fstream tempStream = move(d_file);          // steal fstream
+    removeFile();                               // simply remove the file
     
-    TempFile tmp = move(*this);                 // make object file go out
-                                                // of scope at function end
     return tempStream;                          // return open stream
 }

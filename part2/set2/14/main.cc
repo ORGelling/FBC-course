@@ -18,7 +18,7 @@ try
     
     grab.close();                       // closes and lets file finally die
 }
-catch (...)
+catch (...) 
 {
     return handleExceptions();
 }                                       // Handle ctor exceptions here

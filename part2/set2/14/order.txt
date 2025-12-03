@@ -4,7 +4,6 @@ tempfile/tempfile.h
 tempfile/tempfile.ih
 
 tempfile/tempfile1.cc
-tempfile/destructor.cc
 tempfile/swap.cc
 tempfile/convertfstream.cc
 

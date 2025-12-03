@@ -15,14 +15,14 @@ A - Construction of the object is incomplete. The object is not considered
     as the default constructor upholds the basic guarantee.
     
 2 - The calling constructor fails and throws an exception?
-    If the calling constructor handles the way it expands on the default
-    object well, it should still be exception safe. Since the default ctor
-    could finish its main body there is now an object that will be destructed
-    at program end (or when an exception is thrown). If d_size is incremented
-    every time a string is allocated (and a pointer to it is stored in d_str)
-    then the destructor will nicely clean up whatever was already placed. The
-    array of double pointers itself will also be destroyed properly, as the
-    destructor should already take care of that too. All in all, due to there
-    being a completed object that the destructor will run on, as long as the
-    exception is caught, and thus the dtor will actually be called, this
-    should be exception safe as well.
+    If the calling constructor handles the way it expands on the object well,
+    it should still be exception safe. Since the default ctor could finish its
+    main body there is now an object that will be destructed at program end
+    (or when an exception is thrown). If d_size is incremented every time a
+    string is allocated (and a pointer to it is stored in d_str) then the
+    destructor will nicely clean up whatever was already placed. The array of
+    double pointers itself will also be destroyed properly, as the destructor
+    should already take care of that too. All in all, due to there being a
+    completed object that the destructor will run on, as long as the exception
+    is caught, and thus the dtor will actually be called, this should be
+    exception safe as well.

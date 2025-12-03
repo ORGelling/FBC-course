@@ -8,7 +8,7 @@ void TempFile::removeFile()
     {
         try
         {
-            remove(d_filename);     // 
+            remove(d_filename); 
         }
         catch (fs::filesystem_error const &fileExcept)
         {

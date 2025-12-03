@@ -1,7 +1,8 @@
 // HB: rating: 0
 // HB: very much overengineered
-// HB: try and put some funcitons in anonymous namespaces if you can, that declutters the interface
-// HB: some functions also look completely redundant to me
+// HB: try and put some funcitons in anonymous namespaces if you can, 
+// HB: that declutters the interface. Some functions also look completely 
+// HB: redundant to me
 
 // HB: NOTE BENE:
 // HB: 1) dtors call dtors of their subobjects automatically

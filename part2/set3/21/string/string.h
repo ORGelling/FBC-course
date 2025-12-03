@@ -2,7 +2,7 @@
 #define INCLUDED_STRING_
 
 #include <string>
-#include <compare>
+//#include <compare>      // for spaceship op
 #include <iostream>     // To show String vs std::string comp op with output
 
 class String: public std::string

@@ -2,8 +2,8 @@
 
     // by 
 
-// HB: all of this is totally unnecessary: you can assume main will deal with this
-// HB: (provided your class is exception safe, of course)
+// HB: all of this is totally unnecessary: you can assume main will deal with 
+// HB: this. (provided your class is exception safe, of course)
 void TempFile::handleExceptions()
 {
     try

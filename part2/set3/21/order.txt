@@ -5,5 +5,4 @@ string/string.h
 string/string.ih
 string/insert.cc
 
-main.h
 main.cc
