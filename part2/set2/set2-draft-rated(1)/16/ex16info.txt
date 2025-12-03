@@ -15,7 +15,8 @@ A - No. rawPointers can throw an exception like, for instance, bad_alloc. We
     exceptions, deal with them, or escalate and make sure the object is
     cleaned up properly. Since the default ctor completed there will be an
     object for the destructor to be called on.
-    // HB: just because an exception may be thrown does not mean it is not exception safe
+    // HB: just because an exception may be thrown does not mean it is not 
+    // HB: exception safe
     
 What happens when:
 1 - The default constructor fails and throws an exception?
