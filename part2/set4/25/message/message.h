@@ -1,7 +1,7 @@
 #ifndef INCLUDED_MESSAGE_
 #define INCLUDED_MESSAGE_
 
-#include "../derived/derived.h"
+#include "../base/base.h"
 
 class Message
 {

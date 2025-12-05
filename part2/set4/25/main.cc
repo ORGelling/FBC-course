@@ -1,6 +1,7 @@
 #include "main.ih"
+#include <fstream>
 
-int main()
+int main(int argc, char **argv)
 {
     Base base;
     Derived derived{ "This is a Derived object"s };

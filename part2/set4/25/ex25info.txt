@@ -1,6 +1,11 @@
 Exercise 25: Define a base class and use it polymorphically
 
 Q - How many Vtables and how many v_pointers are defined by the program?
-A - 3 Vtables are defined, one for each object *type*. One for Base objects, 
-    one for Derived objects, and one for Message objects.
-    ... v-pointers are defined. One for each function in each Vtable.
+A - 2 Vtables are defined, one for each object *type* that has virtual
+    functions. One for Base objects, and one for Derived objects.
+    2 v-pointers are defined. One for each object that has a corresponding
+    Vtable. The Message objects only take references, so a new object is not
+    created, hence we only have v_pointers for: 
+    
+    Derived derived;
+    Base base;
