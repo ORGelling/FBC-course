@@ -23,4 +23,4 @@ Q4- What changes if Derived uses private inheritance?
 A - Now even the public and protected members of Base are no longer available
     to classes inheriting from Derived. Only the interface Derived itself
     exposes to deriving classes (public and protected members) is available
-    for use by the designer of DDerived.
+    for use by the designer of DDerived. 
