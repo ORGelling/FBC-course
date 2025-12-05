@@ -1,1 +1,1 @@
-Exercise 26: 
+Exercise 26: Leak free polymorphism
