@@ -9,13 +9,13 @@ class Derived: public Base
     std::string d_string;
     
     public:
-        Derived(std::string text)
+        explicit Derived(std::string const &text)
         :
             d_string(text)
         {}
     
-    private:
-        vHello(std::ostream &out) override
+    protected:
+        void vHello(std::ostream &out) const override
         {
             out << d_string << '\n';
         }

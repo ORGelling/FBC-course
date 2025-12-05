@@ -3,17 +3,19 @@
 
 #include "../derived/derived.h"
 
-class Message: public Derived
+class Message
 {
+    Base &d_base;
+    
     public:
-        Message(Base &base)
+        explicit Message(Base &base)
         :
-            Base(base)
+            d_base(base)
         {}
         
-        void show()
+        void show(std::ostream &out) const
         {
-            this->hello();
+            d_base.hello(out);
         }
 };
         
