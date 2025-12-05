@@ -1,0 +1,16 @@
+#include "tempfile.ih"
+
+    // by 
+
+namespace {
+    static const char allowed[] =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz"
+        "1234567890"
+        "!@#$%&()-_;[]{}~";
+}
+
+char TempFile::generateChars() const
+{
+    return allowed[random() % (sizeof(allowed) - 1)];
+}

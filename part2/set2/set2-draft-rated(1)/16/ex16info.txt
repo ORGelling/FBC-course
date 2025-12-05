@@ -1,0 +1,36 @@
+// HB: rating: 0
+
+Exercise 16: Learn to make existing code exception safe
+
+Like with ex 14 we have not gone for a general handleException() in main, but
+instead one inside the constructor's function catch block, such that we deal
+with issues but can still hand them off to a simple catch (...) block in main.
+We can also throw a 1; from this handleException(). Feedback is welcome.
+
+Q1- Is the default Strings constructor as shown exception safe?
+A - No. rawPointers can throw an exception like, for instance, bad_alloc. We
+    could have the default constructor initialise the members to 0 instead and
+    then allocate the memory in a constructor that has already delegated the
+    base initialisation to the default one, where we catch possible
+    exceptions, deal with them, or escalate and make sure the object is
+    cleaned up properly. Since the default ctor completed there will be an
+    object for the destructor to be called on.
+    // HB: just because an exception may be thrown does not mean it is not 
+    // HB: exception safe
+    
+What happens when:
+1 - The default constructor fails and throws an exception?
+A - Construction of the object is incomplete. The object is not considered
+    constructed. Any partially allocated resources will be deleted, but fully
+    allocated ones might be left dangling.
+    // HB: I am not sure what you mean by this
+    
+2 - The calling constructor fails and throws an exception?
+    The object is considered built, albeit partially. If the exception is
+    caught its (already allocated) resources will be neatly tidied up, as long
+    as the destructor is set up to do this, which it likely is if it functions
+    normally. If intermediate resources are used that the dtor does not deal 
+    with, these should be addressed inside the catch clause. Any resources 
+    that were only partially built (new couldn't finish for instance) will be
+    tidied up by new itself.
+    // HB: caught where? the calling ctor?
