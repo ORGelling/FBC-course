@@ -1,0 +1,15 @@
+Exercise 26: Leak free polymorphism
+
+We expand on the previous exercise significantly, implementing the members
+properly and running a test program to see if everything works. We make sure
+Base has a virtual destructor and Derived has an overriding one (default is
+fine for both).
+
+We make derivedFactory a free function and add a derivedDeleter to make the 
+cleanup nice and simple.
+
+We make sure to catch exceptions inside our factory function, and to keep it
+easily readable we use a tip that was given by the rater of our set 2 and
+place refactorable code inside an anonymous namespace in the same file. Keeps
+the header nice and uncluttered. This ANS function is also the one that 
+catches exceptions and clears out any memory that will otherwise leak.

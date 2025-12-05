@@ -1,0 +1,14 @@
+ex26info.txt
+
+base/base.h
+-base/base.ih
+-base/vhello.cc
+
+derived/derived.h
+-derived/derived.ih
+-derived/vhello.cc
+
+main.ih
+derivedfactory.cc
+deriveddeleter.cc
+main.cc
