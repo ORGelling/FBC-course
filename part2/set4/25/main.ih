@@ -1,0 +1,3 @@
+#include "message/message.h"
+
+using namespace std;
