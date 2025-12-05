@@ -1,0 +1,7 @@
+#include "strings/strings.h"
+#include <iostream>
+#include <new>
+
+using namespace std;
+
+int handleExceptions();

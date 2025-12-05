@@ -1,0 +1,8 @@
+#include "tempfile.ih"
+
+    // by 
+
+TempFile::~TempFile()
+{
+    removeFile();
+}
