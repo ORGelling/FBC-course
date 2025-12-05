@@ -5,9 +5,8 @@ properly and running a test program to see if everything works. We make sure
 Base has a virtual destructor and Derived has an overriding one (default is
 fine for both).
 
-We make the derivedFactory function as a free function and place it inside the
-Derived header (probably fits nicely there). We add a derivedDeleter to make
-the cleanup nice and simple.
+We make derivedFactory a free function and add a derivedDeleter to make the 
+cleanup nice and simple.
 
 We make sure to catch exceptions inside our factory function, and to keep it
 easily readable we use a tip that was given by the rater of our set 2 and

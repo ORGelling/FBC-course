@@ -7,8 +7,8 @@ base/base.h
 derived/derived.h
 -derived/derived.ih
 -derived/vhello.cc
-derived/derivedfactory.cc
-derived/deriveddeleter.cc
 
 main.ih
+derivedfactory.cc
+deriveddeleter.cc
 main.cc

@@ -17,13 +17,9 @@ class Derived: public Base
         void vHello(std::ostream &out) const override;
 };
 
-//:
-
-// free functions
-Base **derivedFactory(size_t size);
-void derivedDeleter(Base **basePtr, size_t size);
 
 //:
+
 
 // inline definitions
 inline Derived::Derived()
