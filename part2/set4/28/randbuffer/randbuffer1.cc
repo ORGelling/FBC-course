@@ -11,5 +11,5 @@ RandBuffer::RandBuffer(int min, int max, size_t seed)
         throw range_error{" min. value must be smaller than max. value"};
 
     srandom(seed);
-    setg(0, 0, 0);              // initially no buffer
-}
+    setg(0, 0, 0);                      // initially no buffer, until
+}                                       // underflow() generates one
