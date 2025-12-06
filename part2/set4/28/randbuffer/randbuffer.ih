@@ -1,5 +1,5 @@
 #include "randbuffer.h"
 #include <stdexcept>
 
-using namespace std;
 
+using namespace std;
