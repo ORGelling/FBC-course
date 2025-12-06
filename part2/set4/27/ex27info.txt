@@ -1,1 +1,5 @@
-Exercise 27: 
+Exercise 27: Learn to use escalation
+
+We wrap our enum class inside a small base class, making sure it is inside a
+protected section, such that including it in processor.h and handler.h does
+not expose it (directly) to whomever includes those.
