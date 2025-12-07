@@ -1,3 +1,4 @@
+JB: 1
 Exercise 17: Understand the different forms of inheritance
 
 Q1- What members can be accessed by users of a Derived class that publicly
@@ -23,4 +24,4 @@ Q4- What changes if Derived uses private inheritance?
 A - Now even the public and protected members of Base are no longer available
     to classes inheriting from Derived. Only the interface Derived itself
     exposes to deriving classes (public and protected members) is available
-    for use by the designer of DDerived. 
+    for use by the designer of DDerived.

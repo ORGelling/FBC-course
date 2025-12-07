@@ -1,0 +1,59 @@
+Exercise 14: TempFile class and cleaning up (you guessed it!) temporary files
+
+We make TempFile, using chrono to seed random numbers inside a lambda
+function. We add move construction and assignment to the class, deleting copy
+operations as we do not want to and cannot properly copy streams between 
+opjects.
+
+We had our operations output demonstration messages to help testing what
+happens for clarity, but can of course look in the /tmp/ directory, where
+temp_directory_path() points to on my device, to see if they are created, and
+then again destroyed. We can see that 
+
+- files are neatly removed when the destructor is called.
+- unrelated throws do not cause issues when main is provided with a catch
+  block (that triggers). The file is removed all the same as the destructor 
+  properly runs.
+- *Not* catching the exception causes a dangling temp file. The destructor
+  does not properly run in this case. I am left with the file "TMPg1%qB.tmp"
+  in my /tmp/ directory.
+
+We show these operations in the basic.cc file.
+
+We make sure that the constructor throws when a file it is about to create
+already exists, as to not run into issues with files being handled by multiple
+objects. We do the same for an error creating the file itself, and an error
+with setting the permissions. The latter also handles file removal since it
+runs after the creation of the file does. We use a handleExceptions()
+functions not in the catch clause of main, but in the catch clause of the
+constructor. This might be a bit unconventional but it works rather well to
+deal with issues. We may benefit from throwing not the original exception, but
+just an exit code 1, but as of now this is hopefully a nice answer to the
+exercise.
+
+The class is also extended to contain a conversion operator that "steals" the
+stream and file name, and clears out the data members to prevent the
+destructor from meddling with this process. It then removes/unlinks the file
+and hands the stream object off. We show it at work in our main.cc where some
+text is first input into the file before it is converted. We then insert more
+text into the unlinked stream object and finally insert its entire buffer into
+cout, which works!
+
+Final questions:
+
+Q1- Rule of thumb for catch clauses:
+A - Keep things minimal and tidy. Catch errors locally and specifically (1:1)
+    when they are fixable locally. Wrap exceptions in their own little
+    dedicated functions when possible. Large program-breaking errors get
+    escalated back up the chain, either by not catching (anything there), or
+    by catching and handing off. In short:
+    Fix what you can, where you can, escalate when the program is on fire.
+Q2- How about other types? ptrs to dynamic allocations, variables that hold
+    resources etc.
+A - This likely depends heavily on the program in question. Having pointers to
+    dynamically allocated (or function local static) memory can work great,
+    but all much be cleaned up tidily, exception or no. Ownership of any
+    resource or item should be simple and clear, and as such easy to clean up.
+    Things should be local when their lifetime is (supposed to be) limited,
+    global basically never, and class data members when they are an integral
+    part of the object or its behaviour.

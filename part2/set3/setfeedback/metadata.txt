@@ -1,5 +1,6 @@
-Set: Set 3 Addition
+Set: Set 3
 
 Authors: Olivier Gelling, Leon Lan, Mohammad Habibi, Frano Rajkovic
 
-Rater: JB
+Rater: 
+n
