@@ -11,8 +11,8 @@ void TempFile::removeFile()
         {
             remove(d_filename); 
         }
-        catch (fs::filesystem_error const &fileExcept) // HB: error_code is faster
-        {
+        catch (fs::filesystem_error const &fileExcept) 
+        {                                       // HB: error_code is faster
             cerr << "TempFile: " << fileExcept.what() << '\n';
         }
     }
