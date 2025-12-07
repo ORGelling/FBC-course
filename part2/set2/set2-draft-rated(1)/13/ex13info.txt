@@ -1,0 +1,58 @@
+Exercise 13: Study the way exceptions work with delete[] and destructors
+
+We write a small class to demonstrate, using an inline static member to keep
+track of how many class objects have been created so that we can throw after 4
+already exist. We have the constructors and destructors print messages for
+demonstration.
+
+ALl that needs to be done here is to make sure main has a catch clause to deal
+with this error being thrown. If the error is caught the program can properly
+continue, and as such will clean up the memory that has been allocated. If we
+don't catch this error the program terminates and leaves the memory
+undestructed. The destructors are neatly called before the catch clause even 
+runs. The interesting aspect is that an *empty* catch clause is already enough
+to fix this error, as it prevents the program from terminating right away, and
+as such allows for the RSS to execute its job and clean up the memory that was
+being allocated.
+
+If we do not include a catch statement that receives this exception we get an
+error:
+
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  max. number of objects reached
+Aborted (core dumped)
+
+and valgrind even shows us that memory has leaked:
+
+    HEAP SUMMARY:
+        in use at exit: 75,039 bytes in 5 blocks
+      total heap usage: 7 allocs, 2 frees, 75,102 bytes allocated
+
+    LEAK SUMMARY:
+       definitely lost: 0 bytes in 0 blocks
+       indirectly lost: 0 bytes in 0 blocks
+         possibly lost: 144 bytes in 1 blocks
+       still reachable: 74,895 bytes in 4 blocks
+                          of which reachable via heuristic:
+                            stdstring          : 55 bytes in 1 blocks
+
+If we include a simple catch statement we see that everything ends tidily:
+
+$ tmp/bin/binary 
+Calling constructor on: 1
+Calling constructor on: 2
+Calling constructor on: 3
+Calling constructor on: 4
+Calling destructor  on: 4
+Calling destructor  on: 3
+Calling destructor  on: 2
+Calling destructor  on: 1
+Catching exception: max. number of objects reached
+
+With valgrind kindly telling us:
+
+    HEAP SUMMARY:
+        in use at exit: 0 bytes in 0 blocks
+      total heap usage: 6 allocs, 6 frees, 75,070 bytes allocated
+
+    All heap blocks were freed -- no leaks are possible

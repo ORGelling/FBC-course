@@ -8,5 +8,5 @@ try
 }
 catch (...)
 {
-    return 1;
+    return handleExceptions();
 }

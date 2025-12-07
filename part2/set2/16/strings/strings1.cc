@@ -4,8 +4,7 @@
 
 Strings::Strings()
 :                               // others are defult initialised
-    d_str(0)
+    d_str(rawPointers(1))
 {
-    //cout << "default constructor\n";
-    //throw 1;
+    cout << "default constructor\n";
 }

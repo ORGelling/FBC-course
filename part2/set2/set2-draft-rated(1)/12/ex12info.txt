@@ -1,0 +1,10 @@
+Exercise 12: create a makeshift "finally" clause
+
+We use cctype's isdigit() to check if the first character in argv[1] is a
+digit, but have a commented out line that does the same without using c-style
+code, showing that we know this is precarious. That line is, however, much
+less pretty and significantly longer.
+
+Other than that this exercise should speak for itself. The main try/catch
+clause functions as the finally clause, and all the nested ones throw an int
+to signify which clause was activated.

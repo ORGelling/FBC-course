@@ -2,22 +2,13 @@
 
     // by 
 
-void Strings::fill(char **ntbs)
+void Strings::fill(size_t argc, char **argv)
 {
-//  try
-//  {
-        for (size_t index = 0; index != d_size; ++index)
-        {
-    //      if (index == 2)
-    //          throw bad_alloc{};
-            
-            d_str[index] = new string(ntbs[index]);
-        }
-//  }                                   // This will be taken care of by the 
-//    catch (bad_alloc const &memFault) // destructor. We can do it here only
-//  {                                   // if we also reset d_size to prevent
-//      clearContents();                // double deletion. Dtor is tidier.
-//      d_size = 0;
-//      throw;
-//  }
-}
+    for (size_t index = 0; index != argc; ++index)
+    {
+        //if (index == 2)
+          //  throw bad_alloc{};
+        d_str[index] = new string(argv[index]);
+        ++d_size;                               // we only increment d_size
+    }                                           // after new allocates another
+}                                               // string to simplify cleanup.

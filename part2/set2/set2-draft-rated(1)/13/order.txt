@@ -1,0 +1,9 @@
+ex13info.txt
+
+maxfour/maxfour.h
+maxfour/maxfour.ih
+maxfour/maxfour1.cc
+maxfour/destructor.cc
+
+main.ih
+main.cc

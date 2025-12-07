@@ -4,12 +4,8 @@
 
 TempFile::operator fstream() &&
 {
-    fstream tempStream = move(d_file);          // steal recources
-    fs::path tempPath = move(d_filename);
-    
-    d_filename.clear();
-    
-    removeFile(tempPath);                       // use static fn to kill file
+    fstream tempStream = move(d_file);          // steal fstream
+    removeFile();                               // simply remove the file
     
     return tempStream;                          // return open stream
 }

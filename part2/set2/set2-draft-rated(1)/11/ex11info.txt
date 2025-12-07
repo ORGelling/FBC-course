@@ -1,0 +1,23 @@
+// HB: rating: 1
+
+Exercise 11: Show how the memory of thrown and caught objects works
+
+We follow the example from chapter 10.3 very closely, writing implementations
+inside the header for ease, as this is merely a demonstration.
+
+We have set up a Demo class similar to the Object class from the annotations,
+now exploring all the different options we must test. We can see from our
+output (included below) that:
+
+A copy is always made of the object when it is initially thrown, even if it
+is a reference.
+// HB: sometimes copy elision can be used
+
+If the handler does not take its parameter by reference a second copy is made.
+
+Q: Does "throw;" result in copying the currently available exception?
+If an object is rethrown it is *not* copied again. We can see this in the very
+last test we did, where the locally created object is copied once when it is 
+initially thrown, but is then passed on by the "throw;" statement without 
+another copy being made. To make double sure we even re-throw the object one
+last time *inside* the catch block outside of main.

@@ -3,19 +3,15 @@
     // by 
 
 Strings::Strings(size_t argc, char **argv)
-try
+//try
 :
     Strings()                       // object is considered constructed.
 {
-    d_size = argc;                  // overwriting default ctor values
     d_capacity = argc;
     
-    d_str = rawPointers(argc);      // THIS can throw
     //throw bad_alloc{};              // simulating throw
+    operator delete(d_str);         // ugly but for debugging fill
+    d_str = rawPointers(argc);      // allocates new memory, can throw
     
-    fill(argv);                     // write contents (this can too)
-}
-catch (...)
-{
-    handleExceptions();
-}
+    fill(argc, argv);               // write contents, increments d_str
+}                                   // can throw too

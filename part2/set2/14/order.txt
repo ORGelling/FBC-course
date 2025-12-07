@@ -4,28 +4,17 @@ tempfile/tempfile.h
 tempfile/tempfile.ih
 
 tempfile/tempfile1.cc
-tempfile/tempfile2.cc
-tempfile/opassign.cc
-tempfile/destructor.cc
 tempfile/swap.cc
 tempfile/convertfstream.cc
-tempfile/name.cc
-tempfile/stream.cc
 
 tempfile/setname.cc
-tempfile/randomname.cc
-tempfile/generatechars.cc
-
-tempfile/alreadyexists.cc
 
 tempfile/setperms.cc
 
-tempfile/closestream.cc
 tempfile/removefile.cc
 
-tempfile/handleexceptions.cc
-
 main.ih
+handleexceptions.cc
 basic.cc
 samename.cc
 main.cc
