@@ -1,0 +1,21 @@
+Exercise 9: Understand the behaviour of incompletely constructed objects
+
+Q1: Explain why demo's destructor is not called:
+The destructor is not called since the constructor does not finish its job.
+The closing '}' of the (a) ctor's body is not reached so there is no object
+returned in the statement invoked inside main().
+
+Q2: Modify the constructor so that demo's destructor *is* called. Explain why
+it is actually called now.
+We amend the constructor to first call the default ctor inside the initialiser
+list, and then run whatever has to be done on top of that (and thus leads to
+it throwing). Since *a* constructor could reacht eh closing '}' of its body
+there is now a constructed object bound to our declaration in main, even if an
+exception is thrown. This means that when the program ends (without being
+abruptly terminated) the destructor is called to clean up this object.
+
+Q3: When is the destructor called?
+The destructor is called when the object goes out of scope, which is not at
+the end of main here! It instead is called right after the exception is
+thrown, and before the catch body even runs, as this is when cleanup happens
+of the objects that are present inside a try block.
