@@ -3,29 +3,20 @@
 int main()
 try
 {
-    cout << "Creating and writing a line to file\n";
-    
     TempFile temp;
-    temp.stream() << "This line was written while the file was linked\n";
+    temp.stream() << "currently linked\n";
     temp.stream().flush();
-    
-    //char stall;
-    //cin >> stall;
     
     fstream grab = move(temp);
     
-    cout << "File has been unlinked\n";
+    cout << "unlinked, still around?\n";
     
-    grab << "Writing this line when the file is already unlinked\n";
+    grab << "unlinked, still around!\n";        // adding more contents
     grab.flush();
     grab.seekg(0);
-    cout << "\nWriting to and reading from removed file:\n\n" << grab.rdbuf();
-    
-    //cin >> stall;
+    cout << grab.rdbuf();                   // reading what's in the file
     
     grab.close();                       // closes and lets file finally die
-    
-    //cin >> stall;
 }
 catch (...) 
 {
