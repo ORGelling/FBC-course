@@ -4,15 +4,6 @@
 
 void TempFile::removeFile()
 {
-    if (not d_filename.empty())
-    {
-        try
-        {
-            remove(d_filename); 
-        }
-        catch (fs::filesystem_error const &fileExcept)
-        {
-            cerr << "TempFile: " << fileExcept.what() << '\n';
-        }
-    }
+    error_code ec;                      // swallows up exceptions
+    remove(d_filename, ec);             // thrown from here
 }
