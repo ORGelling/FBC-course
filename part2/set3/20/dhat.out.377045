@@ -1,0 +1,69 @@
+{"dhatFileVersion":2
+,"mode":"heap","verb":"Allocated"
+,"bklt":true,"bkacc":true
+,"tu":"instrs","Mtu":"Minstr"
+,"tuth":500
+,"cmd":"tmp/bin/binary"
+,"pid":377045
+,"te":2011573
+,"tg":1994736
+,"pps":
+ [{"tb":73728,"tbk":1
+  ,"tl":27960
+  ,"mb":73728,"mbk":1
+  ,"gb":73728,"gbk":1
+  ,"eb":0,"ebk":0
+  ,"rb":0,"wb":16
+  ,"fs":[1,2,3,4,5,6]
+  }
+ ,{"tb":92,"tbk":2
+  ,"tl":13043
+  ,"mb":92,"mbk":2
+  ,"gb":61,"gbk":1
+  ,"eb":0,"ebk":0
+  ,"rb":120,"wb":77
+  ,"fs":[7,8,9,10,11]
+  }
+ ,{"tb":1024,"tbk":1
+  ,"tl":21005
+  ,"mb":1024,"mbk":1
+  ,"gb":1024,"gbk":1
+  ,"eb":0,"ebk":0
+  ,"rb":108,"wb":108
+  ,"acc":[-49,4,-10,2,-965,0]
+  ,"fs":[1,12,13,14,15,16,17,18,19]
+  }
+ ,{"tb":59,"tbk":1
+  ,"tl":1448
+  ,"mb":59,"mbk":1
+  ,"gb":59,"gbk":1
+  ,"eb":0,"ebk":0
+  ,"rb":116,"wb":61
+  ,"acc":[4,-47,3,4,-9,3,1]
+  ,"fs":[7,20]
+  }
+ ]
+,"ftbl":
+ ["[root]"
+ ,"0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_dhat-amd64-linux.so)"
+ ,"0x492538E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)"
+ ,"0x400571E: call_init.part.0 (dl-init.c:74)"
+ ,"0x4005823: call_init (dl-init.c:120)"
+ ,"0x4005823: _dl_init (dl-init.c:121)"
+ ,"0x401F59F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)"
+ ,"0x4846FA3: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_dhat-amd64-linux.so)"
+ ,"0x40177A: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /home/olivier/Projects/Olivier/FBC++/part2/set3/20/tmp/bin/binary)"
+ ,"0x40169A: Strings::repeatString(unsigned long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/olivier/Projects/Olivier/FBC++/part2/set3/20/tmp/bin/binary)"
+ ,"0x4018CE: Strings::Strings(unsigned long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/olivier/Projects/Olivier/FBC++/part2/set3/20/tmp/bin/binary)"
+ ,"0x401184: main (in /home/olivier/Projects/Olivier/FBC++/part2/set3/20/tmp/bin/binary)"
+ ,"0x4C881B4: _IO_file_doallocate (filedoalloc.c:101)"
+ ,"0x4C98523: _IO_doallocbuf (genops.c:347)"
+ ,"0x4C95F8F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)"
+ ,"0x4C96AAE: _IO_new_file_xsputn (fileops.c:1244)"
+ ,"0x4C96AAE: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)"
+ ,"0x4C89A11: fwrite (iofwrite.c:39)"
+ ,"0x49C4DC3: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)"
+ ,"0x4011D3: main (in /home/olivier/Projects/Olivier/FBC++/part2/set3/20/tmp/bin/binary)"
+ ,"0x4012A6: main (in /home/olivier/Projects/Olivier/FBC++/part2/set3/20/tmp/bin/binary)"
+ ]
+}
