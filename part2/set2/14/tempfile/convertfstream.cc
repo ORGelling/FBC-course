@@ -8,4 +8,5 @@ TempFile::operator fstream() &&
     removeFile();                               // simply remove the file
     
     return tempStream;                          // return open stream
+    //return move(d_file);                // it was this simple all along?
 }
