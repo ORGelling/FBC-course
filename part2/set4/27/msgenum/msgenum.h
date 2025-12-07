@@ -1,9 +1,9 @@
 #ifndef ENUM_MSG_
 #define ENUM_MSG_
 
-class MsgEnum
-{
-    protected:
+class MsgEnum                           // [ Overengineered. See .ih
+{                                       // 
+    protected:                          // 
         enum class Msg
         {
             NONE = 0,
@@ -17,6 +17,6 @@ class MsgEnum
             EMERG   = 1 << 7,
             ALL     = (1 << 8) - 1
         };
-};
+};                                      // ]
 
 #endif

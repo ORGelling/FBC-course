@@ -3,7 +3,7 @@
 
 #include "../msgenum/msgenum.h"
 
-class Processor: private MsgEnum
+class Processor: private MsgEnum        // Overengineered. See .ih
 {
     public:
         Processor() = default;

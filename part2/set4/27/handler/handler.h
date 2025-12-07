@@ -3,7 +3,7 @@
 
 #include "../msgenum/msgenum.h"
 
-class Handler: private MsgEnum
+class Handler: private MsgEnum          // overengineered. See .ih
 {
     public:
         Handler() = default;
