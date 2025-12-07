@@ -1,1 +1,11 @@
 ex28info.txt
+
+randbuffer/randbuffer.h
+randbuffer/randbuffer.ih
+randbuffer/randbuffer1.cc
+randbuffer/destructor.cc
+randbuffer/underflow.cc
+randbuffer/randomnumber.cc
+
+main.ih
+main.cc

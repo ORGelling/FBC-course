@@ -1,1 +1,10 @@
-Exercise 28: 
+Exercise 28: Construct our own streambuf class
+
+We use the constructor as given by the exercise, and make an underflow
+function that can feed a stream that uses this streambuf a random number every
+time it runs out of buffer. To make sure we can use the full range of integers
+(although we can amend it to use size_t's instead!) we make use of a char
+*d_buffer that we hand a character complement of a random number generated
+within the confines (and with the modulo bias removed) of the user's dictated
+range. We can test our randbuffer by plugging it into a stream and then
+extracting ints from it!
