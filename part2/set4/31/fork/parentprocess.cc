@@ -4,5 +4,5 @@
 
 void Fork::parentProcess()
 {
-    
+    // empty on purpose, not inline since virtual
 }

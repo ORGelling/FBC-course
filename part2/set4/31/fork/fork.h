@@ -6,10 +6,11 @@
 
 class Fork
 {
-    pid_t d_pid;
+    pid_t d_pid = 0;
     
     public:
-        Fork();
+        Fork() = default;
+        virtual ~Fork() = default;
         
         Fork(Fork const &) = delete;
         Fork(Fork &&) = delete;
@@ -27,13 +28,14 @@ class Fork
         virtual void childProcess() = 0;               // actions of child
                                         // can still implement. Unnecessary
 
+
 };
 
 //: inline simple members
 
-inline pid_t Fork::pid() const
-{
-    return d_pid;       // return current pid. Should distinguish child/prnt
+inline pid_t Fork::pid() const                      // returns child's PID
+{                                                   // if no child has been
+    return d_pid;                                   // forked d_pid == 0 
 }
 
 #endif
