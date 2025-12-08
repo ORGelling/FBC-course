@@ -1,0 +1,6 @@
+#include "bistreambuffer.h"
+#include <iostream>
+
+using namespace std;
+using int_type = streambuf::int_type;
+using traits = streambuf::traits_type;

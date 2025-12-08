@@ -1,1 +1,24 @@
-Exercise 30: 
+Exercise 30: Construct an ostream class
+
+We construct a BiStreamBuffer which we then use as a composed datamember in
+our BiStream class. Bistream is very barebones. It has a ctor that binds our
+BiStreamBuffer datamember to the inherited ostream subobject, and calls
+BiStreamBuffer's ctor with both ostreams as arguments. That's basically it.
+
+BiStreamBuffer has a bit more going on. We override the overflow and sync
+functions to work with dual output streams, and define a ctor that takes two
+ostream references. We did not override xsputn since we do not expect to need
+to write big chunks of text in one go, and want to keep things simple and
+clean. BiStreamBuffer has a pointer to two streambufs, both of which are
+extracted from the ostreams using .rdbuf() inside the ctor. Sync is simple and
+does what sync would for a regular (singular) streambuf, but now for two of
+them parallel.
+
+The overflow function is a bit more comprehensive. Copilot was adamant that 
+using int_type and char_type types from streambuf would be the right thing to
+do in this situation, along with checking equivalence with streambuf's 
+traits_type::eq_int_type. Its arguments seemed convincing. The annotations 
+however simply use ints and chars. We can simplify the function by relying 
+less on std::streambuf::traits_type functions and simply use == operators and
+maybe a defined EOF enum, but since streambuf comes with these functions it 
+seems rather fitting to just use them!

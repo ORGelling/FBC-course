@@ -1,0 +1,4 @@
+#include "bistream/bistream.h"
+#include <fstream>
+
+using namespace std;
