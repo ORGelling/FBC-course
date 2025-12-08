@@ -1,19 +1,19 @@
 #ifndef INCLUDED_FORK_
 #define INCLUDED_FORK_
 
-#include <iosfwd>
+//#include <iosfwd>
 #include <unistd.h>     // for fork
 
 class Fork
 {
-    pid_t d_pid = 0;
-    
+    pid_t d_pid = -1;                               // init at -1 to signal 
+                                                    // not child or parent
     public:
         Fork() = default;
         virtual ~Fork() = default;
         
-        Fork(Fork const &) = delete;
-        Fork(Fork &&) = delete;
+        Fork(Fork const &) = delete;                // explicitly deleting 
+        Fork(Fork &&) = delete;                     // these as PSA/warning
         Fork &operator=(Fork const &) = delete;
         Fork &operator=(Fork &&) = delete;
         

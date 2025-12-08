@@ -1,0 +1,3 @@
+#include "testfork/testfork.h"
+
+using namespace std;

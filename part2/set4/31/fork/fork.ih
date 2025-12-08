@@ -1,7 +1,8 @@
 #include "fork.h"
 
 #include <sys/wait.h>       // for waitpid()
+#include <stdexcept>        // for runtime_error
 //#include <sys/types.h>
+//#include <cstdlib>          // for _Exit()
 
 using namespace std;
-

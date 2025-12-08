@@ -1,1 +1,10 @@
-Exercise 31: 
+Exercise 31: Implement an Abstract Base Class for forkable processes
+
+We do this, and it should be quite self-explanatory what is shown. Code is
+minimal and clear. We force exit the child process after its childProcess
+function runs to make sure nothing is left dangling, using unistd.h's _exit,
+with exit code 0 as the function will have successfully finished running by
+then.
+
+We also construct a very small Derived class and main functionto actually test
+our Fork ABC. It seems everything is perfectly in order!
