@@ -2,14 +2,14 @@
 #define INCLUDED_TESTFORK_
 
 #include "../fork/fork.h"
-#include <iosfwd>
+//#include <iosfwd>
 
 class TestFork: public Fork
 {
     inline static size_t s_processCount = 0;
     
     public:
-        TestFork();
+        TestFork() = default;
         ~TestFork() override = default;
 
     private:
