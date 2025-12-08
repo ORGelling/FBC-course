@@ -9,11 +9,11 @@ void Fork::fork()
     switch (d_pid)
     {
         case -1:
-            throw runtime_error{"Failed to create child"};
+            throw runtime_error{"Fork falied"};
         break;
         case 0:
-            childProcess();
-            _exit(0);           // exit status is simply 0 for now
+            childProcess();     // Might want to catch exceptions?
+            _exit(0);           // kill possible zombie
         break;
         default:
             parentProcess();

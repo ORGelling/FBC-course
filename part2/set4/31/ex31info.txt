@@ -8,3 +8,8 @@ then.
 
 We also construct a very small Derived class and main functionto actually test
 our Fork ABC. It seems everything is perfectly in order!
+
+We have elected to not focus on exceptions here. We do throw one if forking
+fails, but are not set up to handle complexer ones if, for instance, a child
+process fails. The exercise is about the Abstract Base Class, not about our
+TestFork.

@@ -4,9 +4,9 @@
 
 void TestFork::childProcess()
 {
-    cerr << "Hello from child " << s_processCount 
-        << " PID: " << getpid() << '\n';
+    cerr << "Hello from child " << ++s_processCount 
+        << " with PID: " << getpid() << '\n';
     
-  //if (s_processCount++ != 15)
-    //  fork();
+    if (s_processCount != 5)
+        fork();
 }
