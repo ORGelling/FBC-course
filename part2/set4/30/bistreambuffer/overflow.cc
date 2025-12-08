@@ -18,7 +18,7 @@ int_type BiStreamBuffer::overflow(int_type ch)
     char_type next = traits::to_char_type(ch);  // convert to char safely
                                     
     return (isEOF(d_bufOne->sputc(next)) | isEOF(d_bufTwo->sputc(next)) ?
-                            traits::eof() : traits::not_eof(ch));
+                                    traits::eof() : traits::not_eof(ch));
 }                                       // writes next char to both streams
                                         // checks if either returns an EOF
                                         // returns ch or EOF appropriately

@@ -1,0 +1,7 @@
+#include "fork.h"
+
+#include <sys/wait.h>       // for waitpid()
+//#include <sys/types.h>
+
+using namespace std;
+
