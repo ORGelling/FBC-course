@@ -14,7 +14,7 @@ void Fork::fork()
         case 0:
             childProcess();
             // call exit on child
-            exit(0);
+            _Exit(0);           // we do not want to erase forked resources!
         break;
         default:
             parentProcess();
