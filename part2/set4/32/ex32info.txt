@@ -1,1 +1,70 @@
 Exercise 32: 
+
+When we build and run the contents of the zip we get:
+
+$ tmp/bin/binary 
+pure virtual method called
+terminate called without an active exception
+Aborted (core dumped)
+
+If we look inside Request, we see that it has a Base *d_base member, which is
+initialised with a dynaically allocated Derived object in its constructor. A
+Base & can be returned from a Request object using the base() member. Request
+does *not* inherit from Base though, but Derived does. 
+
+run() is one of Base's two pure virtual function, meaning that Base is 
+Abstract.
+
+Doing some debugging, we see that the issue persists even if we don't run the
+second and third statements in main. The problem already shows up by simply
+defining:
+
+Request req;
+
+Derived's ctor is empty, as such the only thing running there is Base's
+default constructor. Inside Base's constructor we can see that prepare() is
+called, which in turn calls v_prepare, which should be overridden as it is a
+pure virtual member. When v_prepare is called here it will try to find the
+object's vtable so it can find the right overriding function, but no Derived
+object exists yet, which means the function being called is Base's pure
+virtual v_prepare. Hence the RSS tells us we are calling a pure virtual
+method, and terminates the program.
+
+Solutions could take multiple forms. Mainly we have to change the way these
+objects are constructed such that prepare() is only called after the Derived
+override of v_prepare is available, like inside Derived's ctor. This does
+require putting Base's prepare() inside a protected section. Since it is clear
+that the purpose is to prepare the objects in the way that befits each Derived
+class the best, we try to imitate that, but delegating all this effort to
+Base's ctor seems undoable since Base is constructed before anything else, and
+as such we cannot automatically have Base delegate this facility to the
+deriving classes. Implementing a Base::v_prepare would not make much sense
+here either, as it should only be called directly (with the scope selecting it
+explicitly) from members that need it, and it will not be able to properly
+construct derived class objects regardless of its implementation. Implemented
+pure virtuals should only be called from deriving members directly in rather
+specific situations.
+
+We keep the construction where prepare() is called, which in turn calls the
+derived class's v_prepare, as it gives a clear signal to all classes deriving
+from this abstract base to trigger a similar post-construction initialisation
+process for their objects. However, instead of calling it from Base's ctor, we
+call it from Derived's, such that the virtual function is able to be called
+appropriately.
+
+Aside from this we also made Base::run() properly call v_run() after posting a
+debug message, in the original zip's implementation it only prints a debug
+message.
+
+After fixing the class and adding some extra debugging messages for clarity
+we get output:
+
+$ tmp/bin/binary 
+Base::Base
+Base::prepare
+Derived::v_prepare is called
+Derived::Derived done
+Base::run
+Derived::v_run is called
+
+Showing everything should work as intended!

@@ -3,4 +3,6 @@
 Request::Request()
 :
     d_base(new Derived())
-{}
+{
+    //
+}

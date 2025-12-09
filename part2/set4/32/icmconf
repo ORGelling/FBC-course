@@ -1,6 +1,6 @@
 // see also ~/.icmake/icmconf.mod for a possible module-using icmconf 
 
-#define CLS
+//#define CLS
 
 #define MAIN                "main.cc"
 #define SOURCES             "*.cc"

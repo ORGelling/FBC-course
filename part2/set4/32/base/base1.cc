@@ -2,5 +2,6 @@
 
 Base::Base()
 {
-    prepare();
+    //prepare();
+    cout << "Base::Base\n";
 }

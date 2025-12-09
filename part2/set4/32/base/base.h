@@ -10,8 +10,10 @@ struct Base
 
     void run();
 
-    private:
+    protected:
         void prepare();
+        
+    private:
         virtual void v_run() = 0;       // must be implemented by derived 
         virtual void v_prepare() = 0;   // classes
                                         
