@@ -2,5 +2,5 @@
 
 int main()
 {
-    Multi multi;    //      aa
+    Multi multi;    //
 }

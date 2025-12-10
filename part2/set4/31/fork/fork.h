@@ -2,7 +2,7 @@
 #define INCLUDED_FORK_
 
 //#include <iosfwd>
-#include <unistd.h>     // for fork
+#include <unistd.h>     // for fork and exit and pid_t
 
 class Fork
 {
@@ -33,9 +33,9 @@ class Fork
 
 //: inline simple members
 
-inline pid_t Fork::pid() const                      // returns child's PID
-{                                                   // if no child has been
-    return d_pid;                                   // forked d_pid == 0 
+inline pid_t Fork::pid() const                  // returns 0 if child
+{                                               // child's PID if parent
+    return d_pid;
 }
 
 #endif

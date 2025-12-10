@@ -7,8 +7,8 @@ namespace
     bool isEOF(int_type toCheck)
     {
         return traits::eq_int_type(toCheck, traits::eof());
-    }
-}                           // This one small refactor saves a lot of clutter
+    }                       // This one small refactor saves a lot of clutter
+}
 
 int_type BiStreamBuffer::overflow(int_type ch)
 {
@@ -16,14 +16,14 @@ int_type BiStreamBuffer::overflow(int_type ch)
         return sync() == 0 ? traits::not_eof(ch) : traits::eof();
     
     char_type next = traits::to_char_type(ch);  // convert to char safely
-                                    
+    
     return (isEOF(d_bufOne->sputc(next)) | isEOF(d_bufTwo->sputc(next)) ?
-                                    traits::eof() : traits::not_eof(ch));
-}                                       // writes next char to both streams
-                                        // checks if either returns an EOF
-                                        // returns ch or EOF appropriately
-//
-//                                  // above ternary return does all this:
+                                traits::eof() : traits::not_eof(ch));
+}                                   // Bitwise check (always runs both) if
+                                    // inserting char to streams gives EOF.
+                                    // If so, returns EOF, else int_type ch
+
+//                  // above ternary stmt does all this:
 // 
 //  int_type checkOne = d_bufOne->sputc(next);  // insert into both streams
 //  int_type checkTwo = d_bufTwo->sputc(next);

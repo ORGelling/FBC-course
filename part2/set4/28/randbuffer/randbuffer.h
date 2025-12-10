@@ -5,10 +5,10 @@
 
 class RandBuffer: public std::streambuf
 {
-    int  d_min;         // should be size_t's?
-    int  d_range;
-    int  d_end;
-    char *d_buffer;
+    int const d_min;            // could be size_t's
+    int const d_range;          // if we do not need 
+    int const d_end;            // negative numbers
+    char     *d_buffer;
     
     public:
         RandBuffer(int min, int max, size_t seed);
@@ -18,7 +18,7 @@ class RandBuffer: public std::streambuf
         std::streambuf::int_type underflow() override;
         
     private:
-        int randomNumber() const;
+        int randomNumber() const;       // amend for size_t
 };
 
 #endif
