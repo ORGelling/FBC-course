@@ -1,15 +1,17 @@
 Exercise 22: Learn about base class references.
 
 We can call Derived::hello() from Base &obj using a static_cast<Derived>() or
-static_cast<Derived &>(). This is bad practice since promoting an object like
-this can lead to undefined behaviour when the missing data that Derived might
-add around Base is needed. static_cast<>() does not verify whether the
+static_cast<Derived &>(). static_cast<>() does not verify whether the
 conversion is safe or whether anything will go wrong when using Derived's
-functions on the casted object.
+functions on the casted object, but it does construct a proper Derived &
+without changing the object that is being referenced. Hence it does not slice.
+This is a safe form of downcasting as long as we actually are looking at a 
+Derived object. Once we are allowed to use polymorphism though, this should
+usually be done using a dynamic_cast<>() instead (and does require a virtual
+member to be present in Base), as this checks at runtime if the cast is valid.
 
-Another way to do this is by implementing an assignment operator that allows
-us to bind a Base object to a Derived object and thus calling hello() on that
-will call Derived::hello(). The same danger can appear here if the assignment
-operator is not implemented safely. Slicing is hard to avoid in this case too.
-This approach however is likely safer depending on if the programmer
-implements the assignment operator well. (We did not!)
+Another way to do this (badly) is by implementing an assignment operator that
+allows us to bind a Base object to a Derived object and thus calling hello()
+on that will call Derived::hello(). This option is very dangerous, and will
+certainly lead to slicing if the assignment operator is not implemented
+safely. (We did not implement a safe version of this!)
