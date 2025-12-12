@@ -1,0 +1,5 @@
+#include "randbuffer.h"
+#include <stdexcept>
+//#include <iostream> // for debugging messages
+
+using namespace std;

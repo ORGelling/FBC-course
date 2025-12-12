@@ -1,0 +1,17 @@
+ex29info.txt
+
+basic/basic.h
+-basic/basic.ih
+
+deriv1/deriv1.h
+-deriv1/deriv1.ih
+
+deriv2/deriv2.h
+-deriv2/deriv2.ih
+
+multi/multi.h
+multi/multi.ih
+multi/multi1.cc
+
+main.ih
+main.cc

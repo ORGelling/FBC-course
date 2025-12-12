@@ -1,0 +1,7 @@
+#include "bistreambuffer.ih"
+
+    // by 
+
+void BiStreamBuffer::()
+{
+}

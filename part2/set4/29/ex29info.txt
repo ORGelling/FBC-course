@@ -1,0 +1,104 @@
+Exercise 29: Learn how Multiple Inheritance works
+
+Q1- Draw Multi's class hierarchy:
+
+The class heirarchy will look like this:
+         _________
+         |       |
+         | Basic |
+         |_______|
+           ^   ^
+          /     \
+         /       \
+________/_       _\________
+|        |       |        |
+| Deriv1 |       | Deriv2 |
+|________|       |________|
+       ^           ^
+        \         /
+         \       /
+         _\_____/_
+         |       |
+         | Multi |
+         |_______|
+         
+Although if Multi does not inherit virtually it will have two different
+instances of Basic subobjects:
+____________________________
+| ___________  ___________ |
+| |_________|  |_________| |
+| ||       ||  ||       || |
+| || Basic ||  || Basic || |
+| ||_______||  ||_______|| |
+| |         |  |         | |
+| | Deriv1  |  |  Deriv2 | |
+| |_________|  |_________| |
+|                          |
+|           Multi          |
+|__________________________|
+
+
+Q2- Add a static cast to Base * to Multi's ctor and explain what happens:
+Q3- Change the statement such that it compiles correctly:
+
+After adding the extra line to Multi's ctor the compiler tells us:
+
+multi/multi.h: In constructor ‘Multi::Multi()’:
+multi/multi.h:15:43: error: ‘Basic’ is an ambiguous base of ‘Multi’
+   15 |     std::cout << static_cast<Basic *>(this) << '\n';
+      |                                           ^
+
+The reason for this is exactly what we mention above: There are two instances
+of a Basic object inside our Multi object: One for Deriv1 and one for Deriv2!
+We can disambiguate this call by first casting our *this object to either a
+Deriv1 or a Deriv2 object, after which the ambiguity will be gone, as the only
+available Base constructor then is the one inside that subobject:
+
+std::cout << static_cast<Basic *>(static_cast<Deriv1 *>(this)) << '\n';
+std::cout << static_cast<Basic *>(static_cast<Deriv2 *>(this)) << '\n';
+
+Thus we select which Base we will be using by first selecting which Deriv
+subobject we will descend (ascend?) into.
+
+
+Q4- Keep the original statement and make sure it compiles
+
+We can have our original static_cast<Basic *>(*this) compile just fine if we
+amend the way Deriv1 and Deriv2 inherit Basic. If both of them inherit
+virtually:
+
+class Deriv1: virtual public Basic
+class Deriv2: virtual public Basic
+
+there is only one Basic subobject in our Multi objects, which Deriv1 and 
+Deriv2 both 'take' from.
+
+
+Q5- How do we make sure the only Basic ctor that is called is the one that
+    takes an int?
+    
+Once we virtually inherit Basic into Derived 1 and 2 we can simply call
+Base(int) from the initialiser list of Multi's constructor:
+
+Multi::Multi()
+:
+    Basic(5)
+    
+This way the Multi ctor will only construct this one Basic subobject. We see
+the output from our program confirm this:
+
+$ tmp/bin/binary 
+Basic int 5 ctor
+0x7ffcd436c690
+
+
+Q6- Have Deriv1's ctor explicitly call Basic's second ctor that expects an
+    int, then ensure that *only* Basic's default ctor is called anyways
+
+This is also solved nicely by the virtual inheritance. If we set Multi's ctor
+to simply call Basic() directly any ctor calls inside Deriv1 or Deriv2's ctors
+will be ignored:
+
+$ tmp/bin/binary 
+Basic default ctor
+0x7ffc73298400

@@ -1,0 +1,21 @@
+// see also ~/.icmake/icmconf.mod for a possible module-using icmconf 
+
+//#define CLS
+
+#define MAIN                "main.cc"
+#define SOURCES             "*.cc"
+#define OBJ_EXT             ".o"
+#define TMP_DIR             "tmp"
+
+#define USE_ECHO              ON
+#define IH                  ".ih"
+
+#define CXX                 "g++"
+#define CXXFLAGS            "-Wall -Werror -O2 -fdiagnostics-color=never"
+
+#define REFRESH
+#define LDFLAGS             "-s"
+#define ADD_LIBRARIES       ""
+#define ADD_LIBRARY_PATHS   ""
+
+#define DEFCOM     "program"

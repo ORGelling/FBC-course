@@ -1,0 +1,7 @@
+#include "derived/derived.h"
+#include <iostream>
+
+using namespace std;
+                                                        // free functions
+Base **derivedFactory(size_t size);
+void derivedDeleter(Base **basePtr, size_t size);

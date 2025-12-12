@@ -1,0 +1,16 @@
+ex30info.txt
+one.txt
+two.txt
+
+bistreambuffer/bistreambuffer.h
+bistreambuffer/bistreambuffer.ih
+bistreambuffer/bistreambuffer1.cc
+bistreambuffer/overflow.cc
+bistreambuffer/sync.cc
+
+bistream/bistream.h
+bistream/bistream.ih
+bistream/bistream1.cc
+
+main.ih
+main.cc

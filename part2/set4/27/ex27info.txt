@@ -1,0 +1,18 @@
+Exercise 27: Learn to use escalation
+
+This exercise has two interpretations. Either we stick with the theme of the
+set and overengineer a solution that uses inheritance and polymorphism, or we
+simply do the exact minimum that we need to do to fulfill its requirement.
+
+Solution 1 is to inherit (virtually or otherwise) from a class MsgEnum that
+contains only this enum Msd, in a protected section, into Handler and
+Processor. This makes it available to any inheriting classes to use, but does
+not expose it to any users or these classes, or to classes deriving from it.
+
+Solution 2 is to simply include our enum class in the internal headers of both
+Handler and Processor. This does exactly what we need. We want exactly to have
+this enum available for all of our implementation's contents, but do not want
+to expose it to further users. Including it in the .ih files means it is not
+available through the class headers and any use of it is nicely tucked inside
+of this library's object files. Inheriting it is just a roundabout way of
+overengineering this exercise.
