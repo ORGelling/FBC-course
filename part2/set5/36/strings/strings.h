@@ -3,15 +3,16 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 class Strings
 {
-    std::vector<std::string> d_data;
+    std::vector<std::shared_ptr<std::string>> d_data;
     
     public:
         Strings() = default;
         ~Strings() = default;
-        
+
         Strings &operator+=(std::string const &str);
         std::string &operator[](size_t idx);
         std::string const &operator[](size_t idx) const;
@@ -22,16 +23,12 @@ class Strings
         void reserve(size_t newCap);
         std::string &at(size_t idx);
         std::string const &at(size_t idx) const;
-};
 
-inline std::string &Strings::operator[](size_t idx)
-{
-    return d_data[idx];
-}
+};
 
 inline std::string const &Strings::operator[](size_t idx) const
 {
-    return d_data[idx];
+    return *d_data[idx];
 }
 
 inline size_t Strings::size() const
@@ -54,14 +51,9 @@ inline void Strings::reserve(size_t newCap)
     d_data.reserve(newCap);
 }
 
-inline std::string &Strings::at(size_t idx)
-{
-    return d_data.at(idx);
-}
-
 inline std::string const &Strings::at(size_t idx) const
 {
-    return d_data.at(idx);
+    return *d_data.at(idx);
 }
 
 #endif
