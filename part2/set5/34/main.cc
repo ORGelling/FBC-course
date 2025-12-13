@@ -2,12 +2,12 @@
 
 int main()                                  // Refactoring either the while 
 {                                           // or for loop is possible but
-    set<string> sortList;                   // does not seem to be relevant
+    map<string, size_t> sortList;           // does not seem to be relevant
     string word;                            // to the exercise materials
     
     while (cin >> word)
-        sortList.insert(word);
+        ++sortList[word];
   
-    for (string const &entry : sortList)
-        cout << entry << '\n';
+    for (auto const &[word, count] : sortList)
+        cout << word << " : " << count << '\n';
 }   

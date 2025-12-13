@@ -1,1 +1,3 @@
-Exercise 34: 
+Exercise 34: Select the right container for the task at hand
+
+We use map this time, such that we can store a word (key) and count (value).

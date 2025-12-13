@@ -1,6 +1,4 @@
 Exercise 33: Learn to use containers to solve simple tasks
 
-We need relatively little for our program. We use a map to automatically order
-our contents, and simply fill it with a string we extract from cin. The index
-operator here works excellently in adding the contents alphabetically, and cin
-cuts the words up by spaces.
+We need relatively little for our program. We use a set to automatically order
+our contents, and simply fill it with a string we extract from cin.
