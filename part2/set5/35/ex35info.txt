@@ -1,1 +1,10 @@
-Exercise 35: 
+Exercise 35: Simplify the Strings class using containers
+
+We do not need to implement the constructor as a default one is just fine with
+our vector setup, same for the destructor. 
+
+We have a very simple implementation for +=, using push_back.
+
+In main we use getline rather than direct extraction since the original
+Strings class also stored all the lines as individual strings, rather than
+separating them by spaces. We have left the other option commented out.

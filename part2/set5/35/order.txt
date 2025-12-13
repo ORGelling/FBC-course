@@ -1,1 +1,8 @@
 ex35info.txt
+
+strings/strings.h
+strings/strings.ih
+strings/opaddis.cc
+
+main.ih
+main.cc
