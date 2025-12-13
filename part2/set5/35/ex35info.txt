@@ -8,3 +8,10 @@ We have a very simple implementation for +=, using push_back.
 In main we use getline rather than direct extraction since the original
 Strings class also stored all the lines as individual strings, rather than
 separating them by spaces. We have left the other option commented out.
+
+Of note is the fact we can, if we want to live dangerously and irresponsibly,
+make our vector data member private, or even inherit vector altogether, to
+avoid needing to implement anything! This is omega bad practice of course, but
+it is funny to think vector is basically the class we made, and we are simply
+wrapping the parts we want to expose in small functions that just call exactly
+the vector member.
