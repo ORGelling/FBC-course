@@ -1,3 +1,4 @@
+JB: 1
 Exercise 22: Learn about base class references.
 
 We can call Derived::hello() from Base &obj using a static_cast<Derived>() or

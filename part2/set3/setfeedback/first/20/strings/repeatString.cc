@@ -1,7 +1,7 @@
 //JB: ?
 #include "strings.ih"
 
-    // by 
+    // by strings1.cc
 
 void Strings::repeatString(size_t count, string const &str)
 {
