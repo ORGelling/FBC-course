@@ -1,1 +1,10 @@
 ex37info.txt
+
+strings/strings.h
+strings/strings.ih
+strings/opaddis.cc
+strings/addunique
+
+main.ih
+main2.cc
+main.cc

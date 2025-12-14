@@ -1,1 +1,41 @@
-Exercise 37: 
+Exercise 37: Shed excess capacity of a vector
+
+Q - Store all unique words from a file into a vector and display its size and
+    capacity, then add a word and do it again. Then do the same but shrink
+    the capacity to fit.
+
+We write the program and have it go through our main.cc showing the size and
+capacity before and after adding an extra word, and after calling
+shrink_to_fit on the vector:
+
+$ tmp/bin/binary < main.cc
+(output)
+size: 46
+capacity: 64
+size: 47
+capacity: 64
+size: 47
+capacity: 47
+
+Q - Write a class with a vector<string> datamember and do the same using only
+    standard available/expected member functions
+
+We import the class from exercise 35, add a member to it that allows for
+easily adding only unique words to the vector, and then also add a swap
+function, which was not needed for 35. With the swap function we can now do:
+
+    Strings tmp{ list };
+    list.swap(tmp);
+
+Which mimics the 
+
+    vector<string>(sortVec).swap(sortVec);
+
+format from before, and from the lecture.
+
+Q - Explain why shrink_to_fit shouldn't be used
+
+shrink_to_fit shouldn't be used because it isn't binding: even the annotations
+state that it "optionally reduces the amount of memory allocated". The
+library is free to ignore this request and leave the data unshrunk, making the
+use of this function unpredictable and possibly inconsistent.
