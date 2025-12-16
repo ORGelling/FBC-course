@@ -1,1 +1,27 @@
-Exercise 39: 
+Exercise 39: Solve the reversing train cars riddle
+
+We implement Factory's put, revert, and reverse functions, seemingly
+simplifying some of the steps implied by the exercise. 
+
+We do not need the min function inlined in the .ih, instead we check available
+cars from the source stack and space on the side track directly in our while
+loop. 
+
+We also do not use a while and a breaking if inside our revert function, as we
+can simply compute the amount of cycles we must go through before all the cars
+have been successfully reversed.
+
+We do admit that our solution is slightly less elegant in its final step, as
+the last put() operation in our revert function sets all the used cars back
+into d_rhs for the next loop to start clean. This means that, at the end of
+the last iteration the cars are moved back and forth a bit unnecessarily. We
+take this as it is since it seems to be a functional and efficient solution
+all the same. Timing the program with 100000 cars gives us a time of:
+
+real	0m1,597s
+user	0m1,582s
+sys	    0m0,015s
+
+one million will take a whole damn while though, but a train with one million
+cars is likely not even going to be seen in the US! (Let alone some poor
+engine be able to pull that!) 

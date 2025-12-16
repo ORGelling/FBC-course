@@ -6,7 +6,7 @@
 #include <iosfwd>
 
 using PostalInfo = std::pair<std::string, std::string>;
-using Occupants = std::vector<std::string>;    
+using Occupants = std::vector<std::string>;
 
 class Address
 {

@@ -42,7 +42,7 @@ istream &Address::extractFrom(istream &source)
         info.first = extractPostal(iss);
         info.second = extractPostal(iss);
         
-        //d_umap.emplace(info, extractOccupants(iss));  // forces elision
+        //d_umap.emplace(info, extractOccupants(iss));  // forces 'elision'
         d_umap[info] = extractOccupants(iss);   // probably happens already
     }
     return source;

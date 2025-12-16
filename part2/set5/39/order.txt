@@ -1,1 +1,16 @@
 ex39info.txt
+
+-train/train.h
+-train/train.ih
+-train/train1.cc
+-train/insert.cc
+
+factory/factory.h
+factory/factory.ih
+factory/factory1.cc
+factory/reverse.cc
+factory/put.cc
+factory/revert.cc
+
+-main.ih
+-main.cc
