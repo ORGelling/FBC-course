@@ -9,7 +9,8 @@ loop.
 
 We also do not use a while and a breaking if inside our revert function, as we
 can simply compute the amount of cycles we must go through before all the cars
-have been successfully reversed.
+have been successfully reversed. Since we thus know the amount of cycles we
+need here, using a while should not be necessary!
 
 We do admit that our solution is slightly less elegant in its final step, as
 the last put() operation in our revert function sets all the used cars back
