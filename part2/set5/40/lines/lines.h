@@ -7,8 +7,8 @@
 class Lines
 {   
     // ?????
-    static std::vector<std::vector<std::string>> s_shared;
-    static size_t s_count;
+    //static std::vector<std::vector<std::string>> s_shared;
+    //static size_t s_count;
     // ?????
     
     public:
