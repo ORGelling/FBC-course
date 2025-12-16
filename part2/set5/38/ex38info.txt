@@ -1,3 +1,16 @@
 Exercise 38: Learn to work with unordered_maps
 
+We keep our hash function in a separate little class/struct that is included,
+and do everything else exactly as needed, refactoring what is needed into ANS
+segments above the public members that will not be sharing refactored code
+with other functions. We mimic the insertion operator's method of calling a
+private member when building extract, and have opted not to use erase_if()
+(which seems to be a fitting function to use as it acts on containers de
+facto) since it is likely not covered, and honestly doesn't really make the
+code all that much more readable, and needs a Lambda function which is NC
+too. We hope this fulfills the exercise.
 
+Rather than using a filestream for writing we can simply use a stream and then
+redirect the output, as we do in our main, but it is not much work to declare
+ofstream write("target.txt"); 
+and write to that.

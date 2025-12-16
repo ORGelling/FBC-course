@@ -1,6 +1,6 @@
 #ifndef INCLUDED_ADDRESS_
 #define INCLUDED_ADDRESS_
-#include "../postalhash/postalhash.h"     // has PostalInfo and PostalHash
+#include "../postalhash/postalhash.h"     // PostalHash
 #include <unordered_map>
 #include <vector>
 #include <iosfwd>
@@ -17,12 +17,10 @@ class Address
     
     public:
         size_t remove(std::string const &postCode);
-        // postal code, should work w/ initial part to remove multiple areas
-        // returns remaining nr of elements
 
     private:
-        std::ostream &insertInto(std::ostream &dest);
         std::istream &extractFrom(std::istream &source);
+        std::ostream &insertInto(std::ostream &dest);
 };
         
 #endif

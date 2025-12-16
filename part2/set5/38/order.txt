@@ -1,1 +1,13 @@
 ex38info.txt
+
+postalhash/postalhash.h
+postalhash/postalhash.ih
+postalhash/opfncall.cc
+
+address/address.h
+address/address.ih
+address/opextract.cc
+address/opinsert.cc
+address/remove.cc
+address/extractfrom.cc
+address/insertinto.cc
