@@ -1,8 +1,8 @@
-#include "keyhash.ih"
+#include "postalhash.ih"
 
     // by 
 
-size_t PostalHash::operator()(pair<string, string> const &info)
+size_t PostalHash::operator()(pair<string, string> const &info) const
 {
     hash<string> hash;
     return hash(info.first) + hash(info.second);
