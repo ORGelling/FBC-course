@@ -9,8 +9,8 @@ class Strings
     std::vector<std::string> d_data;
     
     public:
-        Strings() = default;
-        ~Strings() = default;
+        Strings() = default;            // probably SF
+        ~Strings() = default;           //
         
         Strings &operator+=(std::string const &str);
         std::string &operator[](size_t idx);

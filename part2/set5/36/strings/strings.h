@@ -10,8 +10,8 @@ class Strings
     std::vector<std::shared_ptr<std::string>> d_data;
     
     public:
-        Strings() = default;
-        ~Strings() = default;
+        Strings() = default;            // Probably SF
+        ~Strings() = default;           //
 
         Strings &operator+=(std::string const &str);
         std::string &operator[](size_t idx);
