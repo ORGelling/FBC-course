@@ -1,1 +1,17 @@
-Exercise 40: 
+Exercise 40: Define a class with its data being elsewhere
+
+We use a helper function only visible to the internal header and member
+functions, that handles an unordered_map that contains pairs of size_t's
+(object index) and vector<string>s (te actual liens of text). We considered
+using a vector of tuples, or a vector of structs, but with an unordered_map we
+can use the address of the current object (this) as the key, to easily find
+our object with get() and to make delecting the right object in the destructor
+easier. This does mean we need to search through the whole map when calling
+get(size_t idx), but all in all we consider this the most effective approach.
+
+We add the output of our test run that was redirected into return.txt, to show
+how our program works. We added some extra lines and accessed the data in the
+objects beyond the first one through their direct get() functions without the
+index, as it seems strange the main function given by the exercise does not
+attempt this. We hope our answer to this exercise is not overengineered, and
+instead a nice, albeit slightly elaborate, approach to this quandry.

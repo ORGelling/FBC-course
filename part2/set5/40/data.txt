@@ -1,0 +1,8 @@
+line of obj 1
+
+1st line obj 2
+2nd line obj 2
+
+1st line obj 3
+2nd line obj 3
+3rd line obj 3

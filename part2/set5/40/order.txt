@@ -1,1 +1,15 @@
 ex40info.txt
+
+data.txt
+return.txt
+
+lines/lines.h
+lines/lines.ih
+lines/lines1.cc
+lines/destructor.cc
+lines/get1.cc
+lines/get2.cc
+lines/datacontainer.cc
+
+main.ih
+main.cc

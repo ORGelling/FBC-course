@@ -2,8 +2,9 @@
 
     // by 
 
-vector<string> const &Lines::get() const
+Lines::~Lines()
 {
     LinesData &container = dataContainer();
-    return container[this].second;
+    
+    container.erase(this);
 }

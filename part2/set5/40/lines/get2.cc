@@ -8,10 +8,14 @@ namespace {
 
 vector<string> const &Lines::get(size_t idx) const
 {
-    // if idx refers to non existent object
-    //if (idx >= (...).size())?
+    LinesData &container = dataContainer();         // retrieve data
+    
+    for (auto const &[key, value] : container)
     {
-        emptyReturn.clear();
-        return emptyReturn;
+        if (value.first == idx)                     // find idx
+            return value.second;                    // return contents
     }
+    
+    emptyReturn.clear();
+    return emptyReturn;
 }
