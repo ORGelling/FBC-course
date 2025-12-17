@@ -6,7 +6,8 @@ Q - Store all unique words from a file into a vector and display its size and
 
 We write the program and have it go through our main.cc showing the size and
 capacity before and after adding an extra word, and after calling
-shrink_to_fit on the vector:
+shrink_to_fit (and comparing it to vector<string>(sortVec).swap(sortVec)) on
+the vector:
 
 $ tmp/bin/binary < main.cc
 (output)

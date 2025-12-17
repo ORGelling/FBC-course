@@ -10,9 +10,6 @@ class Strings
     std::vector<std::shared_ptr<std::string>> d_data;
     
     public:
-        Strings() = default;            // Probably SF
-        ~Strings() = default;           //
-
         Strings &operator+=(std::string const &str);
         std::string &operator[](size_t idx);
         std::string const &operator[](size_t idx) const;
@@ -23,7 +20,6 @@ class Strings
         void reserve(size_t newCap);
         std::string &at(size_t idx);
         std::string const &at(size_t idx) const;
-
 };
 
 inline std::string const &Strings::operator[](size_t idx) const
