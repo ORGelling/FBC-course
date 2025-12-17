@@ -11,3 +11,8 @@ address/opinsert.cc
 address/remove.cc
 address/extractfrom.cc
 address/insertinto.cc
+
+-main.ih
+-main.cc
+-data.txt
+-target.txt

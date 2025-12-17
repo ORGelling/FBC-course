@@ -1,5 +1,5 @@
 #include "factory.h"
-#include <iostream>     // debugging
+//#include <iostream>     // debugging
 
 using namespace std;
 
