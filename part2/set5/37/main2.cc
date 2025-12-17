@@ -3,13 +3,6 @@
 int main() 
 {
     string word;
-
-//  set<string> sortSet;
-//  while (cin >> word)
-//      sortSet.insert(word);               // rather than using find:
-
-//  vector<string> sortVec(sortSet.begin(), sortSet.end());
-
     vector<string> sortVec;
     while (cin >> word)
     {
@@ -17,9 +10,6 @@ int main()
             sortVec.push_back(word);
     }
     
-//  for (const auto& word : sortVec)
-//      cout << word << '\n';
-
     cout << "size: " << sortVec.size() 
         << "\ncapacity: " << sortVec.capacity() << '\n';
     
