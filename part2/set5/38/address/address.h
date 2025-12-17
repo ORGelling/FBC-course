@@ -5,13 +5,15 @@
 #include <vector>
 #include <iosfwd>
 
-using PostalInfo = std::pair<std::string, std::string>;
-using Occupants = std::vector<std::string>;
+using PostalInfo = std::pair<std::string, std::string>; // this does pollute
+using Occupants = std::vector<std::string>;             // global namespace
 
 class Address
 {
     friend std::istream &operator>>(std::istream &in, Address &address);
     friend std::ostream &operator<<(std::ostream &out, Address &address);
+    
+    // Can declare an extra public section up here to place the using decls?
     
     std::unordered_map<PostalInfo, Occupants, PostalHash> d_umap;
     

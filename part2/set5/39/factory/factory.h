@@ -11,17 +11,17 @@ class Factory
 
     size_t d_sideSize;
 
-    Stack d_rhs;        // RHS of the main track
-    Stack d_side;       // max size: d_sideSize
+    Stack d_rhs;                                    // RHS of the main track
+    Stack d_side;                                   // max size: d_sideSize
 
     public:
         Factory(size_t maxSide = 10);
 
-        void reverse(Train &train); // reverse the order of the train's cars
+        void reverse(Train &train);     // reverses order of the train's cars
 
     private:
         void put(Stack &to, Stack &from, size_t nCars);
-        void revert(Stack &train);
+        void revert(Stack &train);      // mechanical loop of reverse.cc
 
         static size_t min(size_t left, size_t right);               // .ih
 };

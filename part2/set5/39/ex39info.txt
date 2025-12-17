@@ -21,7 +21,7 @@ all the same. Timing the program with 100000 cars gives us a time of:
 
 real	0m1,597s
 user	0m1,582s
-sys	    0m0,015s
+sys     0m0,015s
 
 one million will take a whole damn while though, but a train with one million
 cars is likely not even going to be seen in the US! (Let alone some poor

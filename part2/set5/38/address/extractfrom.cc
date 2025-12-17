@@ -6,9 +6,9 @@ namespace
 {
     string trim(string const &str)
     {
-        size_t start = str.find_first_not_of(" \t\n\r\f\v");
-        size_t end = str.find_last_not_of(" \t\n\r\f\v");
-        
+        size_t start = str.find_first_not_of(" \t\n\r\f\v");  // too much?
+        size_t end = str.find_last_not_of(" \t\n\r\f\v");     // just " \t"?
+                                                                
         return (start == string::npos) ? 
                         "" : str.substr(start, end - start + 1);
     }
