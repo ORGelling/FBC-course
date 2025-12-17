@@ -6,11 +6,6 @@
 
 class Lines
 {   
-    // ?????
-    //static std::vector<std::vector<std::string>> s_shared;
-    //static size_t s_count;
-    // ?????
-    
     public:
         Lines(std::istream &in);
         Lines(Lines const &tmp) = delete;   // deletes other ctors & op='s
