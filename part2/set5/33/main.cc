@@ -5,7 +5,8 @@ int main()                                  // Refactoring either the while
     set<string> sortList;                   // does not seem to be relevant
     string word;                            // to the exercise materials
     
-    while (cin >> word)
+    // Make sortList const
+    while (cin >> word) // MLR/COCO
         sortList.insert(word);
   
     for (string const &entry : sortList)

@@ -8,6 +8,9 @@
 using PostalInfo = std::pair<std::string, std::string>; // this does pollute
 using Occupants = std::vector<std::string>;             // global namespace
 
+// Improve namings. Add 3rd using clause? Reconsider format.
+// Consider changing Address. Extra subclass for occupants?
+
 class Address
 {
     friend std::istream &operator>>(std::istream &in, Address &address);

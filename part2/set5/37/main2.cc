@@ -5,7 +5,7 @@ int main()
     string word;
     vector<string> sortVec;
     while (cin >> word)
-    {
+    {                       // use initial version: read into set and copy
         if (find(sortVec.begin(), sortVec.end(), word) == sortVec.end())
             sortVec.push_back(word);
     }
