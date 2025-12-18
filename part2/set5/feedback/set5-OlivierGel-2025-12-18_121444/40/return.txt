@@ -1,0 +1,23 @@
+[Lines1's lines, direct]
+line of obj 1
+-
+[Lines2's lines, direct]
+1st line obj 2
+2nd line obj 2
+-
+[Lines2 doesn't exist anymore. lines1.get(1) shows]
+-
+[Lines3's lines, through lines1]
+1st line obj 3
+2nd line obj 3
+3rd line obj 3
+-
+[Lines3's lines, direct]
+1st line obj 3
+2nd line obj 3
+3rd line obj 3
+-
+[Lines1's lines, through lines3]
+line of obj 1
+-
+[Non-existing 4th Lines object's lines]
