@@ -11,7 +11,7 @@ ostream &Address::insertInto(ostream &out)
         
         for (string const &str: value.second)   // the people (maybe 
             out << "; " << str;                 // define a function?)
-        
+                                                // Yes, refactor
         out << '\n';
     }
     return out;

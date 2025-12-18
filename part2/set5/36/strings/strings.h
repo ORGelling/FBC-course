@@ -5,6 +5,8 @@
 #include <string>
 #include <memory>
 
+// Add Proxy for proper COW
+
 class Strings
 {
     std::vector<std::shared_ptr<std::string>> d_data;

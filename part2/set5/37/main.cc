@@ -15,8 +15,8 @@ int main()
     cout << "size: " << list.size() 
         << "\ncapacity: " << list.capacity() << '\n';
     
-    Strings tmp{ list };
-    list.swap(tmp);
+    Strings tmp{ list };            // Avoid named temporary
+    list.swap(tmp);                 // other way around?
     
     cout << "size: " << list.size() 
         << "\ncapacity: " << list.capacity() << '\n';
