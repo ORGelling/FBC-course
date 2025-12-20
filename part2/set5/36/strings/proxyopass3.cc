@@ -2,6 +2,6 @@
 
     // by 
 
-void Strings::()
+Proxy &Strings::Proxy::operator=()
 {
 }
