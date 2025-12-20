@@ -9,19 +9,40 @@
 
 class Strings
 {
+    class Proxy;                        // fwd declare for at and op[]
+    
     std::vector<std::shared_ptr<std::string>> d_data;
     
     public:
         Strings &operator+=(std::string const &str);
-        std::string &operator[](size_t idx);
+        Proxy &operator[](size_t idx);
         std::string const &operator[](size_t idx) const;
         
         size_t size() const;
         size_t capacity() const;
         void resize(size_t newSize);
         void reserve(size_t newCap);
-        std::string &at(size_t idx);
+        Proxy &at(size_t idx);
         std::string const &at(size_t idx) const;
+    
+    private:
+        
+        void cow();                         // copy on write
+        
+        class Proxy                         // proxy to facilitate COW
+        {
+            friend class Strings;           // Strings to access pvt ctor
+            
+            Strings *p_owner;
+            size_t   p_idx;
+            
+            Proxy(Strings &str, size_t idx);
+            
+            public:
+                Proxy &operator=(std::string const &rhs);
+                Proxy &operator=(std::string &&rhs);
+                Proxy &operator=(Proxy const &rhs);
+        }
 };
 
 inline std::string const &Strings::operator[](size_t idx) const
