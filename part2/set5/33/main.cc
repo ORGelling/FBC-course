@@ -1,14 +1,28 @@
 #include "main.ih"
 
-int main()                                  // Refactoring either the while 
-{                                           // or for loop is possible but
-    set<string> sortList;                   // does not seem to be relevant
-    string word;                            // to the exercise materials
+namespace {
+    set<string> getSet(istream &in)
+    {
+        string word;
+        set<string> textSet;
+        while (cin >> word)
+            textSet.insert(word);
+        
+        return textSet;
+    }
     
-    // Make sortList const
-    while (cin >> word) // MLR/COCO
-        sortList.insert(word);
-  
-    for (string const &entry : sortList)
-        cout << entry << '\n';
+    ostream &operator<<(ostream &out, set<string> textSet)
+    {
+        for (string const &entry : textSet)
+            out << entry << '\n';
+        
+        return out;
+    }
+}
+
+int main() 
+{    
+    set<string> const sortList = getSet(cin);
+    
+    cout << sortList;
 }   
