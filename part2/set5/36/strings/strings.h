@@ -10,6 +10,7 @@
 class Strings
 {
     class Proxy;                        // fwd declare for at and op[]
+    friend std::ostream &operator<<(std::ostream &out, Proxy const &proxy);
     
     std::vector<std::shared_ptr<std::string>> d_data;
     
@@ -28,7 +29,7 @@ class Strings
     private:
         
         void cow(size_t idx);                       // copy on write
-        //std::string &safeAt(size_t idx) const;      // private backdoor
+        std::string &safeAt(size_t idx) const;      // private backdoor
         
         class Proxy                         // proxy to facilitate COW
         {
@@ -40,10 +41,12 @@ class Strings
             Proxy(Strings &str, size_t idx);
             
             public:
+                operator std::string const &() const;
+                
                 Proxy &operator=(std::string const &rhs);
                 Proxy &operator=(std::string &&rhs);
                 Proxy &operator=(Proxy const &rhs);
-        }
+        };
 };
 
 inline std::string const &Strings::operator[](size_t idx) const
