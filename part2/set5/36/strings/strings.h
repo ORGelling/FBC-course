@@ -15,19 +15,20 @@ class Strings
     
     public:
         Strings &operator+=(std::string const &str);
-        Proxy &operator[](size_t idx);
+        Proxy operator[](size_t idx);
         std::string const &operator[](size_t idx) const;
         
         size_t size() const;
         size_t capacity() const;
         void resize(size_t newSize);
         void reserve(size_t newCap);
-        Proxy &at(size_t idx);
+        Proxy at(size_t idx);
         std::string const &at(size_t idx) const;
     
     private:
         
-        void cow();                         // copy on write
+        void cow(size_t idx);                       // copy on write
+        //std::string &safeAt(size_t idx) const;      // private backdoor
         
         class Proxy                         // proxy to facilitate COW
         {

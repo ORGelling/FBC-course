@@ -2,7 +2,7 @@
 
     // by 
 
-string &Strings::operator[](size_t idx)
+Strings::Proxy Strings::operator[](size_t idx)
 {
     return Proxy(*this, idx);
 }
