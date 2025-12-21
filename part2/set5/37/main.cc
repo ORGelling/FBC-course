@@ -1,24 +1,24 @@
 #include "main.ih"
 
-int main()
+int main() 
 {
-    Strings list;
     string word;
-    while (cin >> word)
-        list.addUnique(word);
-
-    cout << "size: " << list.size() 
-        << "\ncapacity: " << list.capacity() << '\n';
+    set<string> sortSet;                            // we use set to sort 
+    while (cin >> word)                             // and filter duplicates
+        sortSet.insert(word);
+                                            // and then make a vector from it
+    vector<string> sortVec{ sortSet.begin(), sortSet.end() };
     
-    list += "addition";
+    cout << "size: " << sortVec.size() 
+        << "\ncapacity: " << sortVec.capacity() << '\n';
     
-    cout << "size: " << list.size() 
-        << "\ncapacity: " << list.capacity() << '\n';
+    sortVec.push_back("Addition");
     
-    Strings tmp{ list };            // Avoid named temporary
-    list.swap(tmp);                 // other way around?
+    cout << "size: " << sortVec.size() 
+        << "\ncapacity: " << sortVec.capacity() << '\n';
     
-    cout << "size: " << list.size() 
-        << "\ncapacity: " << list.capacity() << '\n';
-
+    vector<string>(sortVec).swap(sortVec);
+    
+    cout << "size: " << sortVec.size() 
+        << "\ncapacity: " << sortVec.capacity() << '\n';
 }

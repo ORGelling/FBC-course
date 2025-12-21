@@ -36,16 +36,17 @@ istream &Address::extractFrom(istream &source)
 {
     string line;
     while (getline(source, line))
-    {
-        // Commit or Roll Back!
-        istringstream iss(line);
+    {                                           // using a stringstream for
+        istringstream iss(line);                // ease of extraction
         
-        PostalInfo info;
-        info.first = extractPostal(iss);
-        info.second = extractPostal(iss);
+        PostCodeAndAddress postal;              // extracting info from file
+        postal.first = extractPostal(iss);      // PostCode
+        postal.second = extractPostal(iss);     // Address
         
-        //d_umap.emplace(info, extractOccupants(iss));  // forces 'elision'
-        d_umap[info] = extractOccupants(iss);   // probably happens already
+        Occupants occs = extractOccupants(iss); // Occupants
+        
+        d_umap[postal] = occs;          // components are extracted and built, 
+                                        // now we can safely commit:
     }
     return source;
 }

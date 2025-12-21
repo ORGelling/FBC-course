@@ -1,0 +1,23 @@
+#include "main.ih"
+
+int main()
+{
+    Strings list;
+    string word;
+    while (cin >> word)
+        list.addUnique(word);
+
+    cout << "size: " << list.size() 
+        << "\ncapacity: " << list.capacity() << '\n';
+    
+    list += "addition";
+    
+    cout << "size: " << list.size() 
+        << "\ncapacity: " << list.capacity() << '\n';
+    
+    Strings{ list }.swap(list);                 // No named temporary!
+    
+    cout << "size: " << list.size() 
+        << "\ncapacity: " << list.capacity() << '\n';
+
+}
