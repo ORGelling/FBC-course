@@ -2,9 +2,17 @@ ex36info.txt
 
 strings/strings.h
 strings/strings.ih
+strings/proxyopinsert.cc
 strings/opaddis.cc
 strings/opindex.cc
 strings/at1.cc
+strings/cow.cc
+strings/safeat.cc
+strings/proxy.cc
+strings/proxyconvertstring.cc
+strings/proxyopass1.cc
+strings/proxyopass2.cc
+strings/proxyopass3.cc
 
 main.ih
 main.cc
