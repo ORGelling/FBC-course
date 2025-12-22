@@ -14,8 +14,12 @@ namespace {
 
 string &Strings::safeAt(size_t idx) const
 {
+    cerr << "safeAt returning ";
     if (idx >= d_data.size())
+    {
+        cerr << "empty\n";
         return getEmptyString();
-    
+    }
+    cerr << "valid \n";
     return *d_data[idx];
 }

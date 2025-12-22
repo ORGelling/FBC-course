@@ -29,7 +29,7 @@ class Strings
     private:
         
         void cow(size_t idx);                       // copy on write
-        std::string &safeAt(size_t idx) const;      // private backdoor
+        //std::string &safeAt(size_t idx) const;      // private backdoor
         
         class Proxy                         // proxy to facilitate COW
         {
