@@ -7,8 +7,8 @@ int main()
     while (cin >> word)
         list.addUnique(word);
 
-    cout << "size: " << list.size() 
-        << "\ncapacity: " << list.capacity() << '\n';
+    cout << "size: " << list.size()                     // could use a  
+        << "\ncapacity: " << list.capacity() << '\n';   // refactor?
     
     list += "addition";
     

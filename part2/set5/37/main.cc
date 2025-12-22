@@ -9,8 +9,8 @@ int main()
                                             // and then make a vector from it
     vector<string> sortVec{ sortSet.begin(), sortSet.end() };
     
-    cout << "size: " << sortVec.size() 
-        << "\ncapacity: " << sortVec.capacity() << '\n';
+    cout << "size: " << sortVec.size()                      // could use a 
+        << "\ncapacity: " << sortVec.capacity() << '\n';    // refactor
     
     sortVec.push_back("Addition");
     
