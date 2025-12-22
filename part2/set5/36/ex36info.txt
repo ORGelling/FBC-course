@@ -11,4 +11,11 @@ strings (from inside Proxy's members) using *p_owner->d_data[p_idx]. This
 keeps efficiency high an behaviour exactly as expected as long as we make sure
 bounds are being checked in the non-const Strings::at() function. Passing the
 bounds check down to Proxy::operator string const &() interferes with the
-intended function
+intended functionality of op[], as this operator is meant to be quick and
+leave bounds checking to the user. Segfaults are thus entirely fine in this
+case, as we can also see happen in vector's op[] itself.
+
+As such we keep a manual out_of_range throw inside non-const Strings::at() 
+(the static_cast<void> of d_data.at()'s return value' was a fun find though),
+and implement Proxy's conversion and assignment operators using vector::op[] 
+for efficiency.
