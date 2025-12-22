@@ -1,16 +1,8 @@
 #include "main.ih"
 
-int main(int argc, char **argv)
+int main()
 {
-    ifstream read("main.ih");
-    string line;
-    
-    size_t count = 0;
-    while (count != 10)
-    {
-        cout << read.rdbuf();               // useful
-        //cout << line << " : " << read.tellg() << '\n';
-        //read.seekg(5, ios::cur);
-        ++count;
-    }
+    vector<string> stringVec;
+    stringVec.push_back("A string");
+    cout << stringVec[0] << '\n' << stringVec[1] << '\n';
 }

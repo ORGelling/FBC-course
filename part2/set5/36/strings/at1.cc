@@ -3,10 +3,10 @@
     // by 
 
 Strings::Proxy Strings::at(size_t idx)
-{
-    if (idx >= d_data.size())
+{                                           // maybe WHEEL since vector.at()
+    if (idx >= d_data.size())               // can already check bounds?
         throw out_of_range{ "Index is out of range" };
-    // this check is kinda weird and unclear
-    // static_cast<void>(d_data.at(idx));       // test oob with vctr's at()
-    return Proxy(*this, idx);                   // rest can simply use op[]
+    // this check is kinda weird and unclear:
+    // static_cast<void>(d_data.at(idx));       // test oob with vctr's at()?
+    return Proxy(*this, idx);                   // Proxies handle cow
 }
