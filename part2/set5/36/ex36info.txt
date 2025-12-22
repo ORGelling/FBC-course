@@ -1,4 +1,14 @@
 Exercise 36: Use smart pointers in the Strings class
 
-We once again let vector do most of the work for us and have shared_ptr keep
-track of whether we need to COW or not.
+I have decided to remove safeAt altogether and make it clear that the index
+being sought through op[] was oob by giving the user a very handy (and
+deserved) segfault. This is probably a safer way of implementing this aspect
+of the class since an empty line being handed back could slip through and 
+cause the issue to be left unnoticed and unaddressed. It seems fine to reach
+into Strings' data members directly through Proxy if we can call at() on the
+vector d_data, and as such we will mainly be interacting with the actual
+strings (from inside Proxy's members) using *p_owner->d_data[p_idx]. This
+keeps efficiency high an behaviour exactly as expected as long as we make sure
+bounds are being checked in the non-const Strings::at() function. Passing the
+bounds check down to Proxy::operator string const &() interferes with the
+intended function
