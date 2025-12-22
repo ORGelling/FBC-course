@@ -5,8 +5,6 @@
 #include <string>
 #include <memory>
 
-// Add Proxy for proper COW
-
 class Strings
 {
     class Proxy;                        // fwd declare for at and op[]
