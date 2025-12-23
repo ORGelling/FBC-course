@@ -22,5 +22,5 @@ int main()
         cout << stringVector.at(index) << '\n';
     
     //cerr << '\n' << stringVector[100];        // returns empty from safeAt
-    cerr << stringVector.at(100);
+    //cerr << stringVector.at(100);
 }
