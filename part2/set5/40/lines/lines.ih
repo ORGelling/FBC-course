@@ -1,0 +1,11 @@
+#include "lines.h"
+#include <unordered_map>
+#include <iostream>
+#include <utility>
+
+using namespace std;
+
+using LinesElement = pair<size_t, vector<string>>;
+using LinesData = unordered_map<Lines const *, LinesElement>;
+                                                // This helper fn stores and
+LinesData &dataContainer();                     // returns the data container 

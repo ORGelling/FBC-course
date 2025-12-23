@@ -1,0 +1,30 @@
+JB: 1
+Exercise 21: Hiding members
+
+Q1- Why is it bad practice to use std::string as a base class?
+A - Inheriting from std::string comes with a lot of inherited aspects that are
+    not necessary and hard to account for. If one can absorb all the needed
+    functionality by simply composing these aspects (using a string data
+    member) that is always preferred. Inheriting comes with very strong
+    coupling which can lead to dangerous and unpredictable behaviour down the
+    line. An example of erroneous use coming from the public inheritance of
+    std::string here could be slicing that results from some of string's
+    functions. Hiding string's member functions can still let users interact 
+    with them by calling them explicitly.
+    
+We implemented the comparison operators initially by having the constructor
+build us the defaults for operator== and operator<=>, but since the final part
+of the exercise requires some clarity about which are being called we have
+commented these out and have instead made free function comparison operators
+to which we have added cerr print statements to show when String's comparison
+operators are used, and when they aren't (and as such when std::string's are
+used instead). This does make two of our inline functions have an extra line,
+but we take this for granted knowing it is only to show this error message and
+not for a proper implementation of a library/program.
+
+We can call std::string's insert by simply prepending it with the string:: 
+scope. std::string's comparison operators will go into effect when a string is
+used as one of the comparison's operands. We could bind std::string references
+to (one of) the String objects, or static cast (at least) one to a string. The
+effect would be the same. We demonstrate a few in our main function, and show
+the output in test.txt.

@@ -1,0 +1,13 @@
+#include "main.ih"
+
+int main()
+{
+    Strings stringVector;
+    string str;
+  //while (cin >> str)
+    while (getline(cin, str))
+        stringVector += str;
+    
+    for (size_t index = 0; index != stringVector.size(); ++index)
+        cout << stringVector.at(index) << '\n';
+}

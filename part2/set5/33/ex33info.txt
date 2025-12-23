@@ -1,0 +1,4 @@
+Exercise 33: Learn to use containers to solve simple tasks
+
+We need relatively little for our program. We use a set to automatically order
+our contents, and simply fill it with a string we extract from cin.

@@ -1,0 +1,10 @@
+ex36info.txt
+
+strings/strings.h
+strings/strings.ih
+strings/opaddis.cc
+strings/opindex.cc
+strings/at1.cc
+
+main.ih
+main.cc

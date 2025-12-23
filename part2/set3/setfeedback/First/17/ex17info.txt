@@ -1,0 +1,27 @@
+JB: 1
+Exercise 17: Understand the different forms of inheritance
+
+Q1- What members can be accessed by users of a Derived class that publicly
+    inherits from Base?
+A - Users of Derived will have direct access to all the public members of 
+    Base. Only those are exposed for direct use by the inheritance process, as
+    Base's Protected members are encapsulated by the class as private
+    members, and its private members are not directly accessible by both the 
+    Deriving class or its users.
+
+Q2- What members can be accessed by its designer?
+A - The designer of the class can make use of public and protected members of
+    Base class. Any others are not directly accessible by the deriving class.
+    
+Q3- What changes if Derived uses protected inheritance?
+A - for the design and use of Derived itself, nothing, however any class
+    inheriting *from* derived, so a class DDerived, will only be able to
+    reach the members of Base from inside the class DDerived itself, or in the
+    wording of this exercise: Only the designer of DDerived can use Base's
+    public members. They are closed off from DDerived's users.
+    
+Q4- What changes if Derived uses private inheritance?
+A - Now even the public and protected members of Base are no longer available
+    to classes inheriting from Derived. Only the interface Derived itself
+    exposes to deriving classes (public and protected members) is available
+    for use by the designer of DDerived.
