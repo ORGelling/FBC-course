@@ -1,7 +1,7 @@
 #include "main.ih"
 
 namespace {
-    set<string> getSet(istream &in)
+    set<string> getUniqueWords(istream &in)
     {
         string word;
         set<string> textSet;
@@ -22,7 +22,7 @@ namespace {
 
 int main() 
 {    
-    set<string> const sortList = getSet(cin);
+    set<string> const sortList = getUniqueWords(cin);
     
     cout << sortList;
 }   
