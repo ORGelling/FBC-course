@@ -1,1 +1,11 @@
-Exercise 41: 
+Exercise 41: Learn to use generic algorithms
+
+And so it is. We make a program and the two classes, FillUnique and Random, to
+exercise specifics. It feels a bit off to make a fill() function and not just
+implement a function call operator for our FillUnique class instead, such that
+we can simply call:
+
+FillUnique filler{ (args) };
+filler(rngVec);
+
+The exercise specifics work just fine as well though.
