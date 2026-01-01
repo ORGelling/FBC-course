@@ -1,1 +1,11 @@
-Exercise 42: 
+Exercise 42: Learn to use promotion with generic algorithms and predefined
+function objects when manipulating basic data types
+
+We do exactly this, following the template of the annotations. We can run the
+program like so:
+
+$ tmp/bin/binary q r s u v w
+q r s tmp/bin/binary u v w 
+w v u tmp/bin/binary s r q
+
+and see that it neatly orders everything correctly!
