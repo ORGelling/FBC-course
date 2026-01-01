@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <iterator>
-#include <functional>
-#include <algorithm>
+#include <functional>           // seem to be included already
+#include <algorithm>            // including might still be wise
 
 using namespace std;
 
