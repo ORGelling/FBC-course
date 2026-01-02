@@ -26,7 +26,6 @@ istream &Student::extractFrom(istream &source)
     }
     
     istringstream iss(line);
-    
     vector<string> tokens{ istream_iterator<string>{iss}, 
                                             istream_iterator<string>{} };
     d_score = stof(tokens.back());

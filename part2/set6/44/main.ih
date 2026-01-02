@@ -4,9 +4,12 @@
 #include <algorithm>
 #include <functional>
 #include <iostream>
+#include <numeric>
+#include <iterator>
+#include <string.h>         // for strcasecmp
 
 using namespace std;
 
 vector<Student> read(string const &fileName);
-void writeNames(ostream &out);
-void writeNrs(ostream &out);
+void writeNames(vector<Student> &studVec, ostream &out);
+void writeNrs(vector<Student> &studVec, ostream &out);

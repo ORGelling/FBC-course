@@ -1,1 +1,32 @@
-Exercise 44: 
+Exercise 44: Learn to sort fields in POD or data classes/structs
+
+We do exactly this, finding nice ways to use generic algorithms over for loops
+since that is now the relevant material. We opted for not putting too much
+effort in finding a good way to format the output data when the full names are
+being shown, as that would be a bit of finnicking with setting the stream
+width to the length of the widest line or what have you, (lest we pick a width
+that is too short for some silly extra long name), and figured the purpose of
+the exercise is to focus on making a functional class to extract and store the
+info, and then sorting and showing it with algorithms and the like.
+
+We did take great care to neatly refactor everything that seemed fitting to
+refactor! Stored tidily in an ANS above the function where that is doable.
+
+This is our program's output:
+
+$ tmp/bin/binary data.txt
+Sorting by last name:
+Lars Apol 2101650 8.5
+Anco Gietema 1624154 7.5
+Emanuel Holdijk 2533878 9
+Tom Koelewijn 3757436 6
+R.L. Nae 2931951 6
+Razvan Andrei Pronk 1914651 7.5
+
+Sorting by student number:
+1624154 7.5
+1914651 7.5
+2101650 8.5
+2533878 9
+2931951 6
+3757436 6

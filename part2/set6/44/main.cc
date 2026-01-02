@@ -6,7 +6,8 @@ int main(int argc, char **argv)
         return 1;
     
     vector<Student> studVec = read(argv[1]);
-    
-    for(auto element : studVec)
-        cout << element;
+    cout << "Sorting by last name:\n";
+    writeNames(studVec, cout);
+    cout << "\nSorting by student number:\n";
+    writeNrs(studVec, cout);
 }
