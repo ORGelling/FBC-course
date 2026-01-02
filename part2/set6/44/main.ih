@@ -7,6 +7,6 @@
 
 using namespace std;
 
-vector<Student> read(istream &in);
+vector<Student> read(string const &fileName);
 void writeNames(ostream &out);
 void writeNrs(ostream &out);
