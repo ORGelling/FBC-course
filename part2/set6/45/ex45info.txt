@@ -1,1 +1,10 @@
-Exercise 45: 
+Exercise 45: Broaden your view on reducing capacity
+
+Q1- Why doesn't d_vect.clear() followed by pushing strings into it result in
+    extra capacity when process() is repeatedly called?
+    
+The handmadeMove() function is not mentioned in the exercise directions. It is
+shown in the given Shrink interface, and is also present in the provided main
+function, but not in the output shown shortly beneath that. We will simply
+omit creating and using it as we do not know what this function should look
+like.

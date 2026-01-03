@@ -1,0 +1,7 @@
+#include "shrink.h"
+#include <vector>
+#include <iterator>
+#include <algorithm>
+
+using namespace std;
+
