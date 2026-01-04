@@ -23,7 +23,7 @@ class Shrink
         static void copySwap(std::vector<std::string> &vect);
         static void moveSwap(std::vector<std::string> &vect);
         static void moveFails(std::vector<std::string> &vect);
-        static void handmadeMove(std::vector<std::string> &vect);
+    //  static void handmadeMove(std::vector<std::string> &vect);
 
     private:
         void time(FunPtr fun);

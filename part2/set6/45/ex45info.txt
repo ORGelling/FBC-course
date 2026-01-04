@@ -2,9 +2,45 @@ Exercise 45: Broaden your view on reducing capacity
 
 Q1- Why doesn't d_vect.clear() followed by pushing strings into it result in
     extra capacity when process() is repeatedly called?
-    
+A - After the first successful shrink operation of the vector, it will have a
+    capacity exactly the magnitude of the amount og strings it carries. Using
+    clear() and then re-filling it will leave it (if the default argument is
+    used) at size == capacity == 100'000, since clear() does not reduce a
+    vector's capacity, it just empties out the contents.
+
 The handmadeMove() function is not mentioned in the exercise directions. It is
 shown in the given Shrink interface, and is also present in the provided main
 function, but not in the output shown shortly beneath that. We will simply
 omit creating and using it as we do not know what this function should look
 like.
+
+Q2- Why does moveFails fail?
+A - moveFails first moves the entirety of vect to a new temporary vector, and
+    then swaps vect (now entirely empty) with that temporary vector. When
+    moving into tmp the members of the vector are all moved together, which
+    means that the overshooting buffer is simply passed along to the temporary
+    vector tmp, and thus its capacity remains as it was.
+
+We run our program and get the output that matches that of the exercise quite
+cleanly:
+
+[04/01 11:02] (p2s6) 45 $ tmp/bin/binary 
+starting. capacity = 131072
+copyswap used time:
+             10 ms.
+size: 100000, capacity: 100000
+
+starting. capacity = 131072
+move failure used time:
+              0 ms.
+size: 100000, capacity: 131072
+
+starting. capacity = 131072
+moveswap used time:
+              2 ms.
+size: 100000, capacity: 100000
+
+Since we must only include the files that weren't provided by the exercise
+itself we do not include the header files in our answers. The .ih files
+however were not included, so those will be left in. Looks a bit strange but
+alas.

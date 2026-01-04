@@ -8,4 +8,5 @@ int main(int argc, char **argv)
     shrink.process("move failure", Shrink::moveFails);
 //  shrink.process("hand-made", Shrink::handmadeMove);
     shrink.process("moveswap", Shrink::moveSwap);
+//  shrink.process("moveswap2", Shrink::moveSwap2);
 }
