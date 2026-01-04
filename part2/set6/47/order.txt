@@ -1,1 +1,8 @@
 ex47info.txt
+
+doublestep/doublestep.h
+doublestep/doublestep.ih
+doublestep/opincr.cc
+
+main.ih
+main.cc
