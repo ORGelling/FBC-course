@@ -1,6 +1,7 @@
 #include "main.ih"
 
 namespace {
+    
     set<string> getUniqueWords(istream &in)
     {
         string word;

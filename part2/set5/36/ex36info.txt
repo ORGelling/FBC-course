@@ -1,21 +1,25 @@
 Exercise 36: Use smart pointers in the Strings class
 
-I have decided to remove safeAt altogether and make it clear that the index
-being sought through op[] was oob by giving the user a very handy (and
-deserved) segfault. This is probably a safer way of implementing this aspect
-of the class since an empty line being handed back could slip through and 
-cause the issue to be left unnoticed and unaddressed. It seems fine to reach
-into Strings' data members directly through Proxy if we can call at() on the
-vector d_data, and as such we will mainly be interacting with the actual
-strings (from inside Proxy's members) using *p_owner->d_data[p_idx]. This
-keeps efficiency high an behaviour exactly as expected as long as we make sure
-bounds are being checked in the non-const Strings::at() function. Passing the
-bounds check down to Proxy::operator string const &() interferes with the
-intended functionality of op[], as this operator is meant to be quick and
-leave bounds checking to the user. Segfaults are thus entirely fine in this
-case, as we can also see happen in vector's op[] itself.
+I have decided to remove checking the index inside or beyond the Proxies
+altogether and make it clear that the index being sought through op[] was oob
+by letting the user run into a very handy (and deserved) segfault. This is
+probably a safer way of implementing this aspect of the class than handing
+them back an empty string (like in set 1's Strings class) since an empty line
+being handed back could slip through and cause the issue to be left unnoticed
+and unaddressed. Since reaching into an object's data members from a proxy
+directly is haram we have our private safeAt() back door member simply return
+*d_data[p_idx]. This keeps efficiency high an behaviour exactly as expected as
+long as we make sure bounds are being checked in the non-const Strings::at()
+function. This is the only place where we have to make sure bounds are being
+checked without simply using vector's at() directly. Passing the bounds check
+down to Proxy::operator string const &() interferes with the intended
+functionality of op[], as this operator is meant to be quick and leave bounds
+checking to the user. Segfaults are thus entirely fine in this case, as we can
+also see happen in the vector template's op[] itself.
 
 As such we keep a manual out_of_range throw inside non-const Strings::at() 
-(the static_cast<void> of d_data.at()'s return value' was a fun find though),
-and implement Proxy's conversion and assignment operators using vector::op[] 
-for efficiency.
+(the static_cast<void> of d_data.at()'s return value' was a fun find, but is
+overly complex and unclear), and implement Proxy's conversion and assignment
+operators using vector::op[] for efficiency. Testing bounds is thus taken care
+of and implemented exactly where needed, without overzealously nosing around
+in operator[]'s business.
