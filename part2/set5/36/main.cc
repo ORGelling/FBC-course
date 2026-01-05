@@ -8,15 +8,15 @@ int main()
     while (getline(cin, str))
         stringVector += str;
     
-    cerr << "Object constructed. Operations follow:\n\nFirst:\n";
+  //cerr << "Object constructed. Operations follow:\n\nFirst:\n";
     
     stringVector[2] = "Inserting line using Proxy";
-    cerr << "\nSecond:\n";
+  //cerr << "\nSecond:\n";
     stringVector += stringVector[2];
-    cerr << "\nThird:\n";
-    stringVector[4] = stringVector[0];
+  //cerr << "\nThird:\n";
+    stringVector[3] = stringVector[0];
     
-    cerr << "\nOperations done. Printing follows:\n\n";
+  //cerr << "\nOperations done. Printing follows:\n\n";
     
     for (size_t index = 0; index != stringVector.size(); ++index)
         cout << stringVector.at(index) << '\n';

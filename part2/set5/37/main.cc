@@ -1,24 +1,23 @@
 #include "main.ih"
 
-int main() 
+int main()
 {
+    Strings list;
     string word;
-    set<string> sortSet;                            // we use set to sort 
-    while (cin >> word)                             // and filter duplicates
-        sortSet.insert(word);
-                                            // and then make a vector from it
-    vector<string> sortVec{ sortSet.begin(), sortSet.end() };
+    while (cin >> word)
+        list.addUnique(word);
+
+    cout << "size: " << list.size()                     // could use a  
+        << "\ncapacity: " << list.capacity() << '\n';   // refactor?
     
-    cout << "size: " << sortVec.size()                      // could use a 
-        << "\ncapacity: " << sortVec.capacity() << '\n';    // refactor
+    list += "addition";
     
-    sortVec.push_back("Addition");
+    cout << "size: " << list.size() 
+        << "\ncapacity: " << list.capacity() << '\n';
     
-    cout << "size: " << sortVec.size() 
-        << "\ncapacity: " << sortVec.capacity() << '\n';
+    Strings{ list }.swap(list);                 // No named temporary!
     
-    vector<string>(sortVec).swap(sortVec);
-    
-    cout << "size: " << sortVec.size() 
-        << "\ncapacity: " << sortVec.capacity() << '\n';
+    cout << "size: " << list.size() 
+        << "\ncapacity: " << list.capacity() << '\n';
+
 }
