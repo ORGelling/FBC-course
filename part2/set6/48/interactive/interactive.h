@@ -3,16 +3,16 @@
 
 #include <unordered_map>
 #include <string>
-#include <chrono>
+#include <ctime>                // for time_t
 
 class Interactive
 {
     struct Fields 
     {
         size_t count;
-        std::time_t seconds;
-        std::string date;
-        //std::chrono::system_clock::time_point date;
+        std::time_t epoch_seconds;              // full epoch seconds
+        std::string date;                       // date only
+        std::string time;                       // time only
     };
     
     std::unordered_map<std::string, Fields> d_data;
@@ -23,7 +23,10 @@ class Interactive
         
         void read();            // reads file, stores data in a umap
         void session();         // interactively 
+        
     private:
+        void storeLines(std::string const &line);
+        
 };
         
 #endif
