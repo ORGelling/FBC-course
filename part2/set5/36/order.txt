@@ -7,7 +7,7 @@ strings/opaddis.cc
 strings/opindex.cc
 strings/at1.cc
 strings/cow.cc
-strings/safeat.cc
+strings/idx.cc
 
 strings/proxy.cc
 strings/proxyconvertstring.cc
