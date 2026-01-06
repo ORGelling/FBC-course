@@ -1,8 +1,0 @@
-ex21info.txt
-test.txt
-
-string/string.h
-string/string.ih
-string/insert.cc
-
-main.cc

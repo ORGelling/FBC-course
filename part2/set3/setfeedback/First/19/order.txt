@@ -1,3 +1,0 @@
-ex19info.txt
-
-demo/demo.h
