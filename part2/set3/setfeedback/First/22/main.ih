@@ -1,5 +1,0 @@
-#include "derived/derived.h"
-
-using namespace std;
-
-void caller(Base &obj);
