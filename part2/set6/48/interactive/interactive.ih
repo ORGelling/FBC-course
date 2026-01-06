@@ -1,4 +1,10 @@
 #include "interactive.h"
+#include <sstream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
+#include <iterator>
+#include <stdexcept>
 
 
 using namespace std;

@@ -2,7 +2,7 @@
 
     // by 
 
-Interactive::Interactive()
-//:
-{
-}
+Interactive::Interactive(string const &file)
+:
+    d_filename(file)
+{}
