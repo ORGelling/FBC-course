@@ -1,0 +1,4 @@
+Exercise 36: Use smart pointers in the Strings class
+
+We once again let vector do most of the work for us and have shared_ptr keep
+track of whether we need to COW or not.
