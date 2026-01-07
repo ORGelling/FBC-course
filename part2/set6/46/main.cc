@@ -1,7 +1,10 @@
 #include "main.ih"
 
-namespace {
-    
+namespace {                         // modern form is to define a type that 
+                                    // overloads op>>, and use range_view
+                                    
+                                            // remove one while here? Seems 
+                                            // more trouble than it's worth
     FieldVect getFieldVect(string const &line)
     {
         FieldVect row;
@@ -18,7 +21,7 @@ namespace {
     {
         Fields fieldsTmp;
         string line;
-        while (getline(in, line))
+        while(getline(in, line)) 
             fieldsTmp.push_back(getFieldVect(line));
         
         return fieldsTmp;
@@ -70,7 +73,7 @@ int main()
     Fields fields = getFields(file);
     
     cout << "fields size: " << fields.size() << '\n';
-    
+    //showCSVs(fields);
                                             // Initial sort to group entries
                                             // together so unique can run
     stable_sort(fields.begin(), fields.end(), orderNameFirst);
