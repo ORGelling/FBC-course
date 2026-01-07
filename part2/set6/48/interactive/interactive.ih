@@ -1,12 +1,11 @@
 #include "interactive.h"
 #include <vector>
-#include <sstream>
+#include <iostream>
 #include <fstream>
 #include <iomanip>
 #include <algorithm>
 #include <iterator>
 #include <stdexcept>
 
-
 using namespace std;
-
+using FullLine = pair<string, Fields>;

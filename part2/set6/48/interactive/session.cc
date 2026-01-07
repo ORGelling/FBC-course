@@ -2,6 +2,11 @@
 
     // by 
 
-void Interactive::()
+void Interactive::session()
 {
+    // take command
+    // 
+    // fill temp
+    // 
+    // swap
 }

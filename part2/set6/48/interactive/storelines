@@ -1,0 +1,10 @@
+#include "interactive.ih"
+
+    // by 
+
+void Interactive::storeLines(pair<string, Fields> const &line)
+{
+    //Fields data{ line.second };
+    
+    d_data[line.first] = line.second;
+}

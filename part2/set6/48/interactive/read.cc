@@ -2,19 +2,6 @@
 
     // by 
 
-namespace {
-    
-    vector<string> getLines(istream &in)
-    {
-        vector<string> tmp;
-        string line;
-        while (getline(in, line))
-            tmp.push_back(line);
-        
-        return tmp;
-    }
-    
-}
 
 void Interactive::read()
 {
@@ -23,14 +10,15 @@ void Interactive::read()
     if (!in)
         throw runtime_error("Cannot open file: " + d_filename);
     
-    vector<string> lines = getLines(in);
-    
     d_data.clear();
     
-    for_each(lines.begin(), lines.end(),
-        [this](string const &line)
+    for_each(istream_iterator<FullLine>{ in }, istream_iterator<FullLine>{},
+        [this](FullLine const &line)
         {
-            storeLines(line);
+            d_data[line.first] = line.second;
         }
     );
+    
+    copy(d_data.begin(), d_data.end(), 
+                    ostream_iterator<FullLine>(cout));
 }
