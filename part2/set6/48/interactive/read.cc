@@ -10,15 +10,12 @@ void Interactive::read()
     if (!in)
         throw runtime_error("Cannot open file: " + d_filename);
     
-    d_data.clear();
+    d_data.clear();         // not needed probably
     
     for_each(istream_iterator<FullLine>{ in }, istream_iterator<FullLine>{},
         [this](FullLine const &line)
         {
             d_data[line.first] = line.second;
-        }
-    );
-    
-    copy(d_data.begin(), d_data.end(), 
-                    ostream_iterator<FullLine>(cout));
+        }                           // This probably isn't MLR I think?
+    );                              // Refactoring this seems... unfitting
 }
