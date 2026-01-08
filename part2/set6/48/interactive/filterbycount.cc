@@ -24,6 +24,14 @@ bool Interactive::filterByCount(MailData &tmpData, string const &input) const
     if (not parsedCutoff(cutoff, input))
         return false;
     
+    erase_if(tmpData, 
+        [&](pair<string, Fields> const &entry)
+        {
+            return entry.second.count < cutoff;
+        }
+    );
+    
+    /*
     for (auto it = tmpData.begin(); it != tmpData.end(); )
     {
         if (it->second.count >= cutoff)         // we select the given count.
@@ -31,5 +39,7 @@ bool Interactive::filterByCount(MailData &tmpData, string const &input) const
         else                                    // 
             it = tmpData.erase(it);             // 
     }
+    */
+    
     return true;
 }

@@ -8,5 +8,5 @@ void Interactive::show() const
     
     copy(d_data.begin(), d_data.end(), ostream_iterator<FullLine>(cout));
     
-    cout << "\nNew size: " << d_data.size() << "\n\n";
+    cout << "\nNew size: " << d_data.size() << "\n";
 }

@@ -25,6 +25,14 @@ bool Interactive::filterByDate(MailData &tmpData, string const &input) const
     if (not correctDate(input))
         return false;
     
+    erase_if(tmpData, 
+        [&](pair<string, Fields> const &entry)
+        {
+            return entry.second.date != input;
+        }
+    );
+    
+    /*
     for (auto it = tmpData.begin(); it != tmpData.end(); )
     {
         if (it->second.date == input)           // we select the given date.
@@ -32,5 +40,6 @@ bool Interactive::filterByDate(MailData &tmpData, string const &input) const
         else                                    // as string comparison works
             it = tmpData.erase(it);             // fine for that (a > b).
     }
+    */
     return true;
 }
