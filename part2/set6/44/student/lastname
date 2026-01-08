@@ -1,0 +1,12 @@
+#include "student.ih"
+
+    // by 
+
+namespace {
+    static string const spaces = " \t\n\r\f\v";
+}
+
+string Student::lastName() const
+{
+    return substr(0, d_name.find_first_of(spaces) + 1);
+}

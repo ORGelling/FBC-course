@@ -1,0 +1,37 @@
+Exercise 43: learn to find ranges in sorted data
+
+We found two solutions that would be fitting to the exercise description. The
+first is a bit suspect, as it makes a copy of the vector and then uses
+the unique() algorithm to sort the duplicate elements to the back. The
+iterator that unique() returns is then used to find the amount of "removed" 
+elements, which is thus the amount of duplicates present. 
+
+The fact we have to copy the const vector for this makes us believe that
+might not be entirely according to the exercise, so we found a second option
+as well:
+
+We use count_if() to go through our vector, and then write a lambda function
+to specify the count only happens when this element is the same as the next
+one. We do this by receiving its parameter by const ref rather than by value.
+We can then use its address to find the next size_t in the vector.
+
+Out of curiosity we also times both running a million times (without the cout
+statement) and found:
+
+$ time main
+
+real	0m0,096s
+user	0m0,092s
+sys     0m0,004s
+
+$ time main2
+
+real	0m0,156s
+user	0m0,152s
+sys     0m0,003s
+
+The difference especially in real and user time is quite staggering. main2 is
+the one that uses the copied vector, which of course makes sense this copy
+operation is not present in the function that uses count_if! Hence, if we had
+to pick one to hand in as foremost solution, it would indeed be the one that
+uses count_if.

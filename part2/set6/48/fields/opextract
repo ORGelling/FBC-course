@@ -1,0 +1,11 @@
+#include "fields.ih"
+
+    // by 
+
+istream &operator>>(istream &in, Fields &fields)
+{
+    return in >> fields.count 
+              >> fields.epoch_seconds
+              >> fields.date
+              >> fields.time;
+}

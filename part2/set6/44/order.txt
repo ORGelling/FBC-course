@@ -1,0 +1,14 @@
+ex44info.txt
+
+student/student.h
+student/student.ih
+student/opextract.cc
+student/extractfrom.cc
+
+main.ih
+read.cc
+writenames.cc
+writenrs.cc
+main.cc
+
+-data.txt
