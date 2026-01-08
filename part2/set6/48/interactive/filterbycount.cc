@@ -31,15 +31,13 @@ bool Interactive::filterByCount(MailData &tmpData, string const &input) const
         }
     );
     
-    /*
-    for (auto it = tmpData.begin(); it != tmpData.end(); )
-    {
-        if (it->second.count >= cutoff)         // we select the given count.
-            ++it;                               // 
-        else                                    // 
-            it = tmpData.erase(it);             // 
-    }
-    */
+//  for (auto it = tmpData.begin(); it != tmpData.end(); )
+//  {
+//      if (it->second.count >= cutoff)         // we select the given count.
+//          ++it;                               // 
+//      else                                    // 
+//          it = tmpData.erase(it);             // 
+//  }
     
     return true;
 }

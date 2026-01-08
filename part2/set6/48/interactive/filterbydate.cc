@@ -32,14 +32,13 @@ bool Interactive::filterByDate(MailData &tmpData, string const &input) const
         }
     );
     
-    /*
-    for (auto it = tmpData.begin(); it != tmpData.end(); )
-    {
-        if (it->second.date == input)           // we select the given date.
-            ++it;                               // Can also use >= if needed
-        else                                    // as string comparison works
-            it = tmpData.erase(it);             // fine for that (a > b).
-    }
-    */
+//  for (auto it = tmpData.begin(); it != tmpData.end(); )
+//  {
+//      if (it->second.date == input)           // we select the given date.
+//          ++it;                               // Can also use >= if needed
+//      else                                    // as string comparison works
+//          it = tmpData.erase(it);             // fine for that (a > b).
+//  }
+    
     return true;
 }
