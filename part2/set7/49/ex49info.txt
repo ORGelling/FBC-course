@@ -1,1 +1,14 @@
-Exercise 49: 
+Exercise 49: Apply basic multi-threading
+
+We do exactly so, ending with a program that has output:
+
+$ tmp/bin/binary 50000
+...
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 
+(etc)
+611729 611753 611791 611801 611803 611827 611833 611837 611839 611873 611879 
+611887 611903 611921 611927 611939 611951 611953 
+
+Starting time: Fri Jan  9 15:40:32 2026
+Ending time:   Fri Jan  9 15:40:35 2026
+Computation of 50000 primes took 3 seconds
