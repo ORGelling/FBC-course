@@ -1,1 +1,9 @@
-Exercise 50: 
+Exercise 50: Perform time conversions
+
+We can use duration_cast<[destination type]>([target]) to convert both, but
+note that the first conversion (from hours to minutes) can be done implicitly,
+while the second can not, since it breaks down the unit into a larger one and
+thus might end up with fractions.
+
+We choose to output the duration objects in full, but can also simply output
+their value using .count()
