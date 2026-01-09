@@ -32,7 +32,7 @@
 // LIBRARIES REQUIRED BY THE CONSTRUCTED PROGRAM OR LIBRARY:
 // =========================================================
 //#define ADD_LIBRARIES       ""
-#define ADD_LIBRARY_PATHS   "/usr/local/lib"
+//#define ADD_LIBRARY_PATHS   "/usr/local/lib"
 
 
 ////////////////////////////////////////////////////////////////////////
