@@ -1,1 +1,3 @@
-Exercise 51: 
+Exercise 51: Use chrono/clock facilities
+
+We do exactly that, using %c to format our output.
