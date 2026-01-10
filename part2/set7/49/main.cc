@@ -37,9 +37,12 @@ namespace {
         cerr << '\n';
     }
     
-    void show(system_clock::time_point const &start, 
-              system_clock::time_point const &end, 
-              size_t max)
+    void show
+    (
+        system_clock::time_point const &start, 
+        system_clock::time_point const &end, 
+        size_t max
+    )
     {
         auto localStart = zoned_time{ current_zone(), start };
         auto localEnd = zoned_time{ current_zone(), end };
