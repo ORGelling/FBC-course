@@ -1,0 +1,5 @@
+#include "multiout.h"
+
+
+using namespace std;
+
