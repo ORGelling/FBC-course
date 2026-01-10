@@ -1,1 +1,13 @@
 ex52info.txt
+
+output.txt
+output2.txt
+
+handler/handler.h
+handler/handler.ih
+handler/shift.cc
+
+main.ih
+getinput.cc
+main0.cc
+main.cc

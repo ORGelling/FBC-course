@@ -1,0 +1,10 @@
+#include "handler/handler.h"
+#include <iostream>
+#include <fstream>
+#include <thread>
+#include <stdexcept>
+//#include <string>
+
+using namespace std;
+
+void getInput(int argc, char **argv, ofstream &out, string &text);
