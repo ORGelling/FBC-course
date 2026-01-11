@@ -1,1 +1,7 @@
-Exercise 54: 
+Exercise 54: Make the class Storage which has a thread that acts on a queue
+
+For this exercise we do not need to guard our queue's front and pop yet it 
+seems, as we have only a single thread acting on it. The other thread only 
+keeps track of the progress of the program. We may still want to lock our
+queue when it is being accessed to keep issues from popping up, so we will add
+a mutex all the same.
