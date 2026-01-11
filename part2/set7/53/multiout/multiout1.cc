@@ -2,7 +2,7 @@
 
     // by 
 
-MultiOut::MultiOut()
-//:
-{
-}
+MultiOut::MultiOut(char const *count)
+:
+    d_nThreads(stoul(count))
+{}
