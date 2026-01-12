@@ -3,6 +3,6 @@
     // by 
 
 Storage::Storage()
-//:
-{
-}
+:
+    d_finished(false)
+{}
