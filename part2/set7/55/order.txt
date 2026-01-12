@@ -1,1 +1,13 @@
 ex55info.txt
+
+client/client.h
+client/client.ih
+client/s_mutex.cc
+client/client1.cc
+client/start.cc
+client/join.cc
+client/run.cc
+client/processline.cc
+
+main.ih
+main.cc

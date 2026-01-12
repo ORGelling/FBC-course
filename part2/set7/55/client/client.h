@@ -13,7 +13,6 @@ class Client
     std::ofstream d_out;
     size_t d_count;
 
-    // could have a d_thread member and run them here?
     std::thread d_thread;
     
     public:
