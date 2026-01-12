@@ -1,0 +1,9 @@
+Exercise 48: Use generic algorithms to process an unordered map
+
+Even though the exercise tells us there is no generic algorithm that can 
+modify the wip u_map for us we found that erase_if does exactly what we need
+it to. erase_if seems to have been added with C++20, so maybe the exercise
+description is slightly out of date! Other than that we use generic algorithms
+as generously as we can while still making sense, and dip back into our
+pointer knowledge to make a little array of function pointers to more tidily
+select and execute our Date and Count filtering.
