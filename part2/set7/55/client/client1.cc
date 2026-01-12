@@ -2,10 +2,12 @@
 
     // by 
 
-Client::Client(Storage &queue, mutex &lock, string const &file)
+Client::Client(string const &fileName)
 :
-    d_storage(queue),
-    d_sMutex(lock),
-    d_fileName(file),
-    d_size(0)
-{}
+    d_fileName(fileName),
+    d_out(fileName),
+    d_count(0)
+{
+    if (not d_out.is_open())
+        throw runtime_error("Could not open output file: " + fileName);
+}
