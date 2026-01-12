@@ -1,4 +1,4 @@
-Exercise 53: 
+Exercise 53: Use mutexes to guard output mangling
 
 First form, without locks or mutexes wasn't even very mangled. Running it 4
 times we get 2 instances of perfectly ordered data, and two of mangled ones,
