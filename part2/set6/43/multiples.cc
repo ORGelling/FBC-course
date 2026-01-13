@@ -6,6 +6,6 @@ size_t multiples(vector<size_t> const &vs)
         [&vs](size_t const &value)
         {
             return value == *(&value + 1);
-        }
-    );
-}
+        }                                   // we count if value is the same
+    );                                      // as the next one in the vector
+}                                   // by dereferencing (value's address + 1)
