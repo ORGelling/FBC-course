@@ -9,3 +9,15 @@ both vowels and hex digits, but we think that is simply the intended behaviour
 of the program. Running the program over our main.cc and a specific text file
 test.txt containing all letters (upper and lower case) and digits shows output
 as expected within these parameters.
+
+When we run the program we get the following output:
+
+$ tmp/bin/binary ../../../utilities/Makefiles/Makefile 
+Counted:
+8280 vowels
+61 digits
+8006 hexadecimals
+4747 punctuation characters
+in file: ../../../utilities/Makefiles/Makefile
+
+Using our copy of Jurjen's Makefile as target
