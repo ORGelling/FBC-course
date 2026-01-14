@@ -3,28 +3,18 @@
 
 #include "../task/task.h"
 #include <thread>
+#include <cctype>   // for isdigit, isxdigit, and ispunct
 
-class FileName
+class TaskThreads
 {
-    protected:
-        char const *b_filename;
-    
-    public:
-        FileName(char const *filename);
-        char const *getFileName() const;
-};
-
-class TaskThreads : private FileName
-{
-    char const *d_file;
     bool const  d_seq;
     
     Task d_tasks[4] = 
     {
-        Task(Action::VOWELS, getFileName()),        // might not need this
-        Task(Action::DIGITS, getFileName()),        // inheritance at all
-        Task(Action::HEXADECS, getFileName()),
-        Task(Action::PRINTABLES, getFileName())
+        Task(Task::isvowel, "vowels"),        // might not need this
+        Task(std::isdigit, "digits"),        // inheritance at all
+        Task(std::isxdigit, "hexadecimals"),
+        Task(std::ispunct, "printables")
     };
         
     std::thread  d_threads[4];
@@ -34,6 +24,7 @@ class TaskThreads : private FileName
     public:
         TaskThreads(char **argv);
         
+        void setFile(char const *filename);
         void run();
     private:
         void parallel();

@@ -4,5 +4,10 @@
 
 size_t Task::operator()()
 {
-    return (this->*s_count[d_type])();
+    return count_if(d_file.begin(), d_file.end(), 
+        [&]()
+        {
+            
+        }
+    );
 }

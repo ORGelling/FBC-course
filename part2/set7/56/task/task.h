@@ -3,31 +3,19 @@
 
 #include <fstream>
 
-enum Action
-{
-    VOWELS,
-    DIGITS,
-    HEXADECS,
-    PRINTABLES,
-};
-
 class Task
 {
-    static size_t (Task::*s_count[])();
-    
-    Action const d_type;
+    bool (*d_pred)(int);
+    char const *d_action;
     std::ifstream d_file;
     
     public:
-        Task(Action action, char const *filename);
+        Task(bool (*funptr)(int), char const *action);
         
+        void setFile(char const *filename);
         size_t operator()();
 
-    private:
-        size_t vowels();
-        size_t digits();
-        size_t hexadecs();
-        size_t printables();
+        static size_t isvowel();
 };
         
 #endif
