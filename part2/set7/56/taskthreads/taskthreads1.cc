@@ -2,9 +2,9 @@
 
     // by 
 
-TaskThreads::TaskThreads(int argc, char **argv)
+TaskThreads::TaskThreads(char **argv)
 :                                   // exception guarding? Can do in main.
-    d_file(argv[1]),
+    FileName(argv[1]),
     d_seq(argv[2])                  // should convert to bool
 {}
 

@@ -2,7 +2,8 @@
 
     // by 
 
-Task::Task(Action action)
+Task::Task(Action action, char const *filename)
 :
-    d_taskType(action)
+    d_type(action),
+    d_file(filename)
 {}

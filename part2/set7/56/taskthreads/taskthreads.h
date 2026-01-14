@@ -2,28 +2,37 @@
 #define INCLUDED_TASKTHREADS_
 
 #include "../task/task.h"
-#include <string>
 #include <thread>
 
-class TaskThreads
+class FileName
 {
-    std::string const d_file;
-    bool const        d_seq;
+    protected:
+        char const *b_filename;
+    
+    public:
+        FileName(char const *filename);
+        char const *getFileName() const;
+};
+
+class TaskThreads : private FileName
+{
+    char const *d_file;
+    bool const  d_seq;
     
     Task d_tasks[4] = 
     {
-        Task(Task::Action::VOWELS),
-        Task(Task::Action::DIGITS),
-        Task(Task::Action::HEXADECS),
-        Task(Task::Action::PRINTABLES)
+        Task(Action::VOWELS, getFileName()),        // might not need this
+        Task(Action::DIGITS, getFileName()),        // inheritance at all
+        Task(Action::HEXADECS, getFileName()),
+        Task(Action::PRINTABLES, getFileName())
     };
         
-    thread  d_threads[4];
+    std::thread  d_threads[4];
     
     static void (TaskThreads::*s_run()[])();
     
     public:
-        TaskThreads(int argc, char **argv);
+        TaskThreads(char **argv);
         
         void run();
     private:
