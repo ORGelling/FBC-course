@@ -2,8 +2,9 @@
 
     // by 
 
-Task::Task(bool (*funptr)(int), char const *filename)
+Task::Task(int (*funptr)(int), char const *action)
 :
     d_pred(funptr),
-    d_type(action),
+    d_action(action),
+    d_count(0)
 {}

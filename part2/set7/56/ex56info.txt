@@ -1,1 +1,11 @@
-Exercise 56: 
+Exercise 56: Design a multithreading program that handles reusable objects
+
+We do exactly this, making sure all the Task objects look at the given file by
+setting their d_file member with a setFile() function (the on in TaskThreads
+calls the Task objects' ones). 
+
+We note that when running the program it will double count A, E, a and e as
+both vowels and hex digits, but we think that is simply the intended behaviour
+of the program. Running the program over our main.cc and a specific text file
+test.txt containing all letters (upper and lower case) and digits shows output
+as expected within these parameters.

@@ -1,5 +1,7 @@
 ex54info.txt
 
+-data.txt
+
 storage/storage.h
 storage/storage.ih
 storage/storage1.cc

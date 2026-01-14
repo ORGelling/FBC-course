@@ -16,4 +16,7 @@ A - Ending main (exiting the program) without joining the thread causes
 
 We also change the signature to return a string by value, rather than by
 reference, as in the context of multithreading returning it by reference can
-easily lead to dangling references.
+easily lead to dangling references. From testing we note that the original
+signature (passing by reference) does not seem to cause issues for both this
+exercise and the next one (since make front and pop atomic anyways), but it
+still seems fitting to pass this string by value here just to be sure.

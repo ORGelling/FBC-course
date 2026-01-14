@@ -2,9 +2,10 @@
 
     // by 
 
-TaskThreads::TaskThreads(char **argv)
-:                                   // exception guarding? Can do in main.
-    d_seq(argv[2])                  // should convert to bool
-{
+TaskThreads::TaskThreads(char **argv)           // should convert to bool:
+:                                               // true if 2nd cl argument 
+    d_seq(argv[2]),                             // is given, null if not
+    d_filename(argv[1]) 
+{                      
     setFile(argv[1]);
 }

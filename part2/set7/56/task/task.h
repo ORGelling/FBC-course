@@ -5,17 +5,32 @@
 
 class Task
 {
-    bool (*d_pred)(int);
+    int (*d_pred)(int);
     char const *d_action;
     std::ifstream d_file;
     
+    size_t d_count;
+    
     public:
-        Task(bool (*funptr)(int), char const *action);
+        Task(int (*funptr)(int), char const *action);
         
         void setFile(char const *filename);
-        size_t operator()();
-
-        static size_t isvowel();
-};
+        void operator()();
         
+        size_t count() const;
+        char const *type() const;
+
+        static int isvowel(int const ch);
+};
+
+inline size_t Task::count() const
+{
+    return d_count;
+}
+
+inline char const *Task::type() const
+{
+    return d_action;
+}
+
 #endif

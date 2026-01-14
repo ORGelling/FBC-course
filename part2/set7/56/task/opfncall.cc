@@ -2,12 +2,14 @@
 
     // by 
 
-size_t Task::operator()()
-{
-    return count_if(d_file.begin(), d_file.end(), 
-        [&]()
+void Task::operator()()                 // run counter with already stored
+{                                       // params on stream opened by setFile
+    d_count = count_if(
+        istreambuf_iterator<char>(d_file), 
+        istreambuf_iterator<char>(), 
+        [&](int const ch)
         {
-            
+            return (*d_pred)(ch);
         }
     );
 }
