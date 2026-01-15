@@ -4,7 +4,7 @@ namespace {
     
     void parseLines(istream &in, Storage &queue)
     {
-        size_t lineCount = 0;
+        size_t lineCount = 0;               // bookkeeping: The reference
         string line;
         while (getline(in, line))
         {
@@ -17,8 +17,8 @@ namespace {
     
     void finalOutput(vector<Client> const &clients)
     {
-        size_t totalCounts = 0;
-        for (Client const &client : clients) 
+        size_t totalCounts = 0;                 // bookkeeping: Checks if
+        for (Client const &client : clients)    // threads are duping lines
         {
             totalCounts += client.count();
             cout << "Written " << client.count() << " lines to " 
@@ -29,8 +29,8 @@ namespace {
     
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv)     // Wrapping the threads inside the CLient
+{                                   // objects makes this look *very* tidy!
     Storage queue;
     vector<Client> clients;
     

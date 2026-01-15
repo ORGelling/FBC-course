@@ -50,9 +50,9 @@ namespace {
                 localEnd.get_local_time() - localStart.get_local_time()
             ).count();
         
-        cout << "\n\nStarting time: " << format("{:%c}", localStart) << '\n'
-         << "Ending time:   " << format("{:%c}", localEnd) << '\n'
-         << "Computation of " << max << " primes took " 
+        cout << "\n\nStarting time: " << format("{:%c}", localStart)
+         << "\nEnding time:   " << format("{:%c}", localEnd)
+         << "\nComputation of " << max << " primes took " 
                 << elapsed << " seconds\n";
     }
     
@@ -62,24 +62,22 @@ int main(int argc, char **argv)
 try
 {
     size_t maxPrimes = stoul(argv[1]);      // already checks input
-    
     vector<size_t> primes{ 2 };
     atomic<bool> running = true;
     
-    //         //         //         //         //         //         //
+    
     time_point start = system_clock::now();     // the core process
-//                                                                          //
+    
     thread eratosthenes(findPrimes, maxPrimes, ref(primes), ref(running));
     thread progress(showProgress, ref(running));
-//                                              // refactor these 4?        //
-    eratosthenes.join();                        // seems odd
-    progress.join();
-//                                                                          //
+                                                // refactor these 4?
+    eratosthenes.join();                        // seems unnecessary
+    progress.join();                            
+    
     time_point end = system_clock::now();       // prime finding done
-    //         //         //         //         //         //         //
+    
     
     copy(primes.begin(), primes.end(), ostream_iterator<size_t>(cout, " "));
-    
     show(start, end, maxPrimes);
 }
 catch (...)

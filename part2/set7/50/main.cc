@@ -17,4 +17,5 @@ try
 catch (...)
 {
     cerr << "Error parsing input with stoul\n";
+    return 1;
 }

@@ -12,18 +12,18 @@ namespace {
             case 's':
                 offset = seconds{ offsetValue };
                 cout << "\nChanging time by " << offsetValue << " seconds\n";
-                break;
+            break;
             case 'm':
                 offset = minutes{ offsetValue };
                 cout << "\nChanging time by " << offsetValue << " minutes\n";
-                break;
+            break;
             case 'h':
                 offset = hours{ offsetValue };
                 cout << "\nChanging time by " << offsetValue << " hours\n";
-                break;
+            break;
             default:
                 cerr << "Time type must be s, m, or h\n";
-                throw;                          // simple throw to trigger 
+            throw;                              // simple throw to trigger 
         }                                       // main's input error catch
         
         return offset;
@@ -38,10 +38,8 @@ try
     time_point now = system_clock::now();
     time_t now_t = system_clock::to_time_t(now);
     
-    cout << "Local time: "
-         << put_time(localtime(&now_t), "%c")
-         << "\nGMT time:   "
-         << put_time(gmtime(&now_t), "%c") << '\n';
+    cout << "Local time: " << put_time(localtime(&now_t), "%c")
+         << "\nGMT time:   " << put_time(gmtime(&now_t), "%c") << '\n';
     
     if (argc != 2)
         return 1;

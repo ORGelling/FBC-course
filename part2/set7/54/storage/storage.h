@@ -10,8 +10,8 @@ class Storage
     std::queue<std::string> d_queue;
     mutable std::mutex      d_qMutex;
     
-    mutable bool            d_finished;
-    
+    mutable bool            d_finished;     // Probably doesn't need mutable
+                                            // but can't hurt I think
     public:
         Storage();
         
@@ -26,6 +26,3 @@ class Storage
 };
 
 #endif
-
-// Make sure the write thread keeps looking in the queue until read thread is
-// entirely done! Could use atomic variable?

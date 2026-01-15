@@ -10,7 +10,10 @@ try
     getInput(argc, argv, out, text);
     
     Handler textShift;
+        // We pass:                     v address of object to run it on
     thread getShifty1{ &Handler::shift, &textShift, ref(out), ref(text) };
+        // we pass:    ^ address of function        ^         ^ fn arguments
+    
     getShifty1.join();
 }
 catch (int const errCode)

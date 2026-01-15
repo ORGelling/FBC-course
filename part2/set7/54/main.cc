@@ -8,7 +8,7 @@ namespace {
         while (getline(in, line))
             queue.push(line);
         
-        queue.setFinished();
+        queue.setFinished();            // signal all lines parsed
     }
     
     void writeLines(Storage &queue, string const &fileName)
@@ -17,11 +17,11 @@ namespace {
         if (not out.is_open())
             throw "Could not open file."s;
         
-        while (not queue.done())
+        while (not queue.done())        // write until finished and empty
         {
             if (not queue.empty())
             {
-                out << queue.front() << endl;
+                out << queue.front() << endl;       // endl to flush stream
                 queue.pop();
             }
             
@@ -39,9 +39,9 @@ try
     
     string fileName = argv[1];
     Storage queue;
-    
+                                    // we start the writing thread
     thread writeThread(writeLines, ref(queue), ref(fileName));
-    parseLines(cin, queue);
+    parseLines(cin, queue);         // and then we parse the lines from cin
     
     writeThread.join();
 }

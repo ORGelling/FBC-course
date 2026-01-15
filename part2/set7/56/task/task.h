@@ -20,9 +20,9 @@ class Task
         size_t count() const;
         char const *type() const;
 
-        static int isvowel(int const ch);
-};
-
+        static int isvowel(int const ch);       // placing this here
+};                                              // for convenience, not 
+                                                // the cleanest though
 inline size_t Task::count() const
 {
     return d_count;
