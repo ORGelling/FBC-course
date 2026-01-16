@@ -3,16 +3,16 @@
 int main(int argc, char **argv)
 try
 {
-    hours hrs{ stoul(argv[1]) };
+    hours const hrs{ stoul(argv[1]) };
     
-    minutes hrsToMins = hrs;                                // implicit
-    minutes hrsToMins2 = duration_cast<minutes>(hrs);       // explicit
+    minutes const hrsToMins = hrs;                              // implicit
+    minutes const hrsToMins2 = duration_cast<minutes>(hrs);     // explicit
     cout << hrsToMins << ' ' << hrsToMins2 << '\n';
     
-    seconds scnds{ stoul(argv[2]) };
+    seconds const scnds{ stoul(argv[2]) };
     
-    minutes scndsToMins = duration_cast<minutes>(scnds);    // only explicit
-    cout << scndsToMins << '\n';
+    minutes const scndsToMins = duration_cast<minutes>(scnds);  // explicit
+    cout << scndsToMins << '\n';                                // only!
 }
 catch (...)
 {
