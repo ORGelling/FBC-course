@@ -4,7 +4,7 @@ namespace {
     
     system_clock::duration getOffset(char const *offsetRaw)
     {
-        size_t const offsetValue = stoul(offsetRaw);  // is rather forgiving
+        int const offsetValue = stoi(offsetRaw);    // is rather forgiving
         system_clock::duration offset{};
         
         switch(offsetRaw[strlen(offsetRaw) - 1])
@@ -29,6 +29,7 @@ namespace {
     void showTime(time_point<system_clock> const timePoint)
     {
         time_t const time = system_clock::to_time_t(timePoint);
+        
         cout <<   "Local:   " << put_time(localtime(&time), "%c")
             << "\nGMT:     " << put_time(gmtime(&time), "%c")
             << '\n';
