@@ -26,13 +26,12 @@ namespace {
         return offset;
     }
     
-    void showTimes(time_t const now_t, time_t const offset_t)
+    void showTime(time_point<system_clock> const timePoint)
     {
-        cout <<   "Local time:   " << put_time(localtime(&now_t), "%c")
-             << "\nGMT time:     " << put_time(gmtime(&now_t), "%c")
-             << "\nOffset local: " << put_time(localtime(&offset_t), "%c")
-             << "\nOffset GMT:   " << put_time(gmtime(&offset_t), "%c") 
-             << '\n';
+        time_t const time = system_clock::to_time_t(timePoint);
+        cout <<   "Local:   " << put_time(localtime(&time), "%c")
+            << "\nGMT:     " << put_time(gmtime(&time), "%c")
+            << '\n';
     }
 }
 
@@ -46,8 +45,10 @@ try
     time_point now = system_clock::now();
     system_clock::duration offset = getOffset(argv[1]);
     
-    showTimes(system_clock::to_time_t(now),             // still kinda clunky
-              system_clock::to_time_t(now + offset));
+    cout << "Current:\n";
+    showTime(now);
+    cout << "Offset:\n";
+    showTime(now + offset);
 }
 catch (...)
 {
