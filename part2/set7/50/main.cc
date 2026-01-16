@@ -3,16 +3,23 @@
 int main(int argc, char **argv)
 try
 {
-    hours const hrs{ stoul(argv[1]) };
+    hours const inputHours{ stoul(argv[1]) };       // receive input from cl
+    seconds const inputSeconds{ stoul(argv[2]) };
     
-    minutes const hrsToMins = hrs;                              // implicit
-    minutes const hrsToMins2 = duration_cast<minutes>(hrs);     // explicit
-    cout << hrsToMins << ' ' << hrsToMins2 << '\n';
+    minutes const convertHoursToMinutes = inputHours;
+                                        // implicit conversion is available 
+                                        // when no fractions will result
+
+//  minutes const hrsToMins2 = duration_cast<minutes>(inputHours); 
+                                        // the explicit version
     
-    seconds const scnds{ stoul(argv[2]) };
+    minutes const convertSecondsToMinutes = 
+                                        duration_cast<minutes>(inputSeconds);
+                                            // only explicit cast possible, 
+                                            // takes the floor value
     
-    minutes const scndsToMins = duration_cast<minutes>(scnds);  // explicit
-    cout << scndsToMins << '\n';                                // only!
+    cout << convertHoursToMinutes << '\n' 
+         << convertSecondsToMinutes << '\n';    
 }
 catch (...)
 {
