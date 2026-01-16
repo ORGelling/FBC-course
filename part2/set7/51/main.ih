@@ -1,6 +1,6 @@
 #include <iostream>
 #include <chrono>
-#include <string>
+#include <cstring>  // for strlen()
 
 using namespace std;
 using namespace chrono;

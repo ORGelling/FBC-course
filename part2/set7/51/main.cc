@@ -2,57 +2,55 @@
 
 namespace {
     
-    system_clock::duration getOffset(string const &offsetRaw)
+    system_clock::duration getOffset(char const *offsetRaw)
     {
-        int offsetValue = stoul(offsetRaw.substr(0, offsetRaw.size() - 1));
+        size_t const offsetValue = stoul(offsetRaw);  // is rather forgiving
         system_clock::duration offset{};
         
-        switch(offsetRaw.back())
+        switch(offsetRaw[strlen(offsetRaw) - 1])
         {
             case 's':
                 offset = seconds{ offsetValue };
-                cout << "\nChanging time by " << offsetValue << " seconds\n";
             break;
             case 'm':
                 offset = minutes{ offsetValue };
-                cout << "\nChanging time by " << offsetValue << " minutes\n";
             break;
             case 'h':
                 offset = hours{ offsetValue };
-                cout << "\nChanging time by " << offsetValue << " hours\n";
             break;
             default:
                 cerr << "Time type must be s, m, or h\n";
-            throw;                              // simple throw to trigger 
-        }                                       // main's input error catch
+            break;
+        }
         
         return offset;
     }
     
+    void showTimes(time_t const now_t, time_t const offset_t)
+    {
+        cout <<   "Local time:   " << put_time(localtime(&now_t), "%c")
+             << "\nGMT time:     " << put_time(gmtime(&now_t), "%c")
+             << "\nOffset local: " << put_time(localtime(&offset_t), "%c")
+             << "\nOffset GMT:   " << put_time(gmtime(&offset_t), "%c") 
+             << '\n';
+    }
 }
 
 
 int main(int argc, char **argv)
 try
 {
-    time_point now = system_clock::now();
-    time_t now_t = system_clock::to_time_t(now);
-    
-    cout << "Local time: " << put_time(localtime(&now_t), "%c")
-         << "\nGMT time:   " << put_time(gmtime(&now_t), "%c") << '\n';
-    
     if (argc != 2)
         return 1;
     
+    time_point now = system_clock::now();
     system_clock::duration offset = getOffset(argv[1]);
     
-    time_t newNow = system_clock::to_time_t(now + offset);
-    
-    cout << "\nNew local:  " << put_time(localtime(&newNow), "%c")
-         << "\nNew GMT:    " << put_time(gmtime(&newNow), "%c") << '\n';
+    showTimes(system_clock::to_time_t(now),             // still kinda clunky
+              system_clock::to_time_t(now + offset));
 }
 catch (...)
 {
     cerr << "Could not parse input\n";
-    return 1;
+    throw;
 }
