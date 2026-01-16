@@ -30,7 +30,8 @@ namespace {
             break;
             default:
                 cerr << "Time type must be s, m, or h\n";
-                //JB: Will there be an active exception? Half a point if there is.)
+                //JB: Will there be an active exception? 
+                //JB: Half a point if there is.)
             throw;                              // simple throw to trigger 
         }                                       // main's input error catch
         
