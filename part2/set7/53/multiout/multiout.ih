@@ -3,6 +3,7 @@
 #include <vector>
 #include <thread>
 #include <iostream>
+#include <syncstream>
 
 using namespace std;
 

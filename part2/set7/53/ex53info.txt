@@ -15,35 +15,76 @@ Line 2 from thread 2
 Line 1 from thread 1
 Line 2 from thread 1
 
-We then add a mutex data member d_oMutex (for ostream-mutex), that allows our
-threads to see when another is using cout, and get neatly unmangled output
-like so:
+Now, instead of adding a mutex, we re-read the annotations chapter 20.15 and
+realise there is a perfect option right here for us already: syncstream! We
+declare an osyncstream inside the act function that will be written to, that
+regulates the output for us.
+
+Keeping the mangled part of the direct cout like the exercise shows, and
+writing the "Line X ..." to the syncstream we get:
 
 $ tmp/bin/binary 
-thread 2
-Line 0 from thread 2
-Line 1 from thread 2
-Line 2 from thread 2
-Line 3 from thread 2
+thread 1thread 
+thread 1
+thread thread 1
+thread 1
+thread Line 0 from thread 1
+Line 1 from thread 1
+Line 2 from thread 1
+Line 3 from thread 1
+2
 thread 4
+thread 4
+thread 34
+thread 4
+
 Line 0 from thread 4
 Line 1 from thread 4
 Line 2 from thread 4
 Line 3 from thread 4
-thread 0
-Line 0 from thread 0
-Line 1 from thread 0
-Line 2 from thread 0
-Line 3 from thread 0
-thread 1
-Line 0 from thread 1
-Line 1 from thread 1
-Line 2 from thread 1
-Line 3 from thread 1
+thread 2
+thread 2
+thread 2
+0Line 0 from thread 2
+Line 1 from thread 2
+Line 2 from thread 2
+Line 3 from thread 2
+
+thread 3
+thread 3
 thread 3
 Line 0 from thread 3
 Line 1 from thread 3
 Line 2 from thread 3
 Line 3 from thread 3
+thread 0
+thread 0
+thread 0
+Line 0 from thread 0
+Line 1 from thread 0
+Line 2 from thread 0
+Line 3 from thread 0
 
-Where we shake things up a tad by using 5 threads rather than 1.
+Which, if we remove the direct cout line will give us (different run):
+
+$ tmp/bin/binary 
+Line 0 from thread 3
+Line 1 from thread 3
+Line 2 from thread 3
+Line 3 from thread 3
+Line 0 from thread 2
+Line 1 from thread 2
+Line 2 from thread 2
+Line 3 from thread 2
+Line 0 from thread 1
+Line 1 from thread 1
+Line 2 from thread 1
+Line 3 from thread 1
+Line 0 from thread 0
+Line 1 from thread 0
+Line 2 from thread 0
+Line 3 from thread 0
+Line 0 from thread 4
+Line 1 from thread 4
+Line 2 from thread 4
+Line 3 from thread 4

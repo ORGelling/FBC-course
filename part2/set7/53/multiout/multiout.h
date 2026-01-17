@@ -1,12 +1,11 @@
 #ifndef INCLUDED_MULTIOUT_
 #define INCLUDED_MULTIOUT_
-//#include <cstddef>
-#include <mutex>
+#include <cstddef>      // for size_t
 
 class MultiOut
 {
     size_t d_nThreads;
-    mutable std::mutex d_oMutex;
+    //mutable std::mutex d_oMutex;
     
     public:
         MultiOut(char const *count);
