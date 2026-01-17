@@ -1,0 +1,107 @@
+ifeq ($(UNAME_S), FreeBSD)
+It assumes a GNU C++ compiler, and GNU Make:
+
+
+  determine their include dependencies.
+* A convenience library will be composed of all non-program object files.
+## Influencing the Makefile:
+necessary, as they auto-adapt to files found.
+
+    PCH=no      prevents precompiled headers from being built,
+
+    mkdir parser
+To make header files, a utility to create uuids must be present and configured
+Try:
+    $(error There are spaces in the path to your current directory. Make and this Makefile in particular don't handle that.)
+# We recognize files by their extensions, because file magic doesn't always
+CXXFLAGS ?= -std=c++26 -Wall -Werror
+-include hooks.mk
+CXX_PCH_EXTENSION ?= $(CXX_INTERNAL_HEADER_EXTENSION).gch
+
+# turned off. Try: make DEP=no
+SHAREDLIB_EXTENSION = so
+BISONCXX ?= bisonc++
+endif
+   $(error cannot interpret $(1) as boolean)\
+USE_PRECOMPILED_HEADERS := $(call boolalpha,$(PCH))
+undefine VERBOSE
+# Reverses a word list, to list deepest directories first after sort.
+
+CXX_SOURCE_DEPS := $(call deps_of,$(CXX_SOURCES))
+CXX_PROG_OBJECTS := $(patsubst %.$(CXX_SOURCE_EXTENSION),%.$(CXX_OBJECT_EXTENSION),$(CXX_PROG_SOURCES))
+# From every internal header we can build a precompiled (internal) header.
+BISONCXX_DEPS := $(call deps_of,$(BISONCXX_PARSERSPECS))
+
+
+%.o: %.cc
+%.C.o: %.C     ; $(RUN-CPPCOMPILE)
+# Assumption: all programs need the convenience library.
+$(SHAREDLIB_FILE): METHOD = Collect
+# When a source file is deleted, the object files may linger. Let Make warn then.
+#$(info ever generated: $(EVER_GENERATED_FILES))
+# A rule says two things:
+$(CONVLIB_FILE): $(CXX_NONPROG_OBJECTS)
+
+# 1. the member is a transient prerequisite that causes remakes,
+	$(ECHO_ACTION)
+	$(QUIET) rm -f $(CXX_PRECOMPILED_HEADERS) $(CXX_OBJECTS) $(CONVLIB_FILE) $(SHAREDLIB_FILE)
+
+
+# If asked explicitly, we can make a metadata.txt... maybe.
+
+	@echo
+endif
+	@echo
+	@echo "You may therefore want to make clean before making order.txt."
+    METADATAS = $(filter %metadata.txt,$(ALL_FILES))
+            $(info Assuming that we are in an exercise directory and the parent directory)
+            $(error No metadata.txt in current dir. Perhaps we are not in a set directory.)
+    ifeq (1,$(words $(METADATAS)))
+            $(warn Multiple metadata.txt files found: $(METADATAS))
+    endif
+    $(info You asked for a zip. Assuming we are in a set directory,)
+    # Zip is simply an alias for the zipfile.
+	zip $(ZIPFLAGS) $(ZIPFILE) $(ORDER_TXTS) $(FILES_MENTIONED_IN_ORDER_TXTS) metadata.txt
+    # Every subdir must have an order.txt.
+	@if grep -q "John Doe" metadata.txt || grep -q 'Set 0' metadata.txt ; then echo "metadata.txt still contains bogus info." ; false ; fi
+
+# So we use this trick: 'make foo.cc:program' will create a program 'foo.cc'.
+%\:program:
+
+# To detect (internal) headers that already exist in the dir.
+endef
+endef
+{
+int main(int argc, char *argv[])
+
+    {
+    }
+# Scanner (tokenizer) specification template.
+//%%debug
+//%%namespace = "identifer"
+
+define BISONCXX_PARSERSPEC_TEMPLATE
+
+// %%target-directory: defining the directory where files must be written
+
+;
+# Order.txt template (also not in TEMPLATABLE_GOALS)
+# because it would do so whenever it needs a file 'foo'. So we allow it to
+TEMPLATABLE_GOALS = $(foreach EXTENSION,$(TEMPLATABLE_EXTENSIONS),$(filter %.$(EXTENSION),$(MAKECMDGOALS)))
+    %.$(CXX_HEADER_EXTENSION): UUID := $(subst -,_,$(shell $(UUIDGEN)))
+# Generated dependencies are enabled by default. To suppress: make DEP=no
+    # Prevent dependency generation if MAKECMDGOALS is non-empty and consists
+    ifneq (,$(NEED_DEP_INCLUDES))
+
+    # Meaning:
+	$(QUIET) $(CXX) $(CPPFLAGS) $(CXXFLAGS) $<
+    # This overrides any internal %target-directory directives.
+    $(BISONCXX_DEPS): METHOD = $(BISONCXX)   
+	$(QUIET) touch $@
+
+	$(QUIET) rm -fd $(call rdirs,$(ALL_DEPS))
+# which when simplified reads:      bar.ih.gch.
+endef
+# Postpone double expansion to as late as possible.
+
+    $(CXX_OBJECTS): $$(patsubst %.$(CXX_INTERNAL_HEADER_EXTENSION),%.$(CXX_PCH_EXTENSION),$$^)

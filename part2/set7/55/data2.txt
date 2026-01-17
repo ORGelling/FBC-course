@@ -1,0 +1,108 @@
+UNAME_S := $(shell uname -s)
+It requires very little extra configuration.
+Put Makefile and sources in one directory and there issue the command:
+
+* Bisonc++ will be called on any parser specification files (grammars).
+  executable programs.
+
+
+    CXX_INTERNAL_HEADER_EXTENSION (defaults to: $(CXX_INTERNAL_HEADER_EXTENSION))
+
+source file includes which internal header, so it will not create or
+    mkdir mc
+    make myprog.cc:program
+source files will find the internal header in turn.
+exercise dirs. Make can generate examples, but you need to edit them.
+# Recursive wildcard to find all files in the current directory and subdirs.
+# work to distinguish C++ from C.
+
+CXX_SOURCE_EXTENSION ?= $(call first_extension_found, cc cpp C)
+
+# Try: make PCH=no
+CONVLIB = $(notdir $(CURDIR))
+DEPDIR ?= generated_deps
+ifneq ($(firstword $(filter GNU,$(DETECTED_MAKEVERSION))),GNU)
+   $(if $(filter $(1),t true  True  TRUE  yes Yes YES YESS! on  On  ON  one  One  ONE  1),true,),\
+define NEWLINE
+undefine DEP
+# On e.g. foo/bar/baz returns foo/bar/ foo/
+reverse=$(if $(wordlist 2,2,$(1)),$(call reverse,$(wordlist 2,$(words $(1)),$(1))) $(firstword $(1)),$(1))
+CXX_SOURCES := $(filter %.$(CXX_SOURCE_EXTENSION),$(ALL_FILES))
+# Anything that mentions a main function is a program source.
+
+
+
+endef
+# Rules for creating C++ object files.
+%.cc.o: %.cc   ; $(RUN-CPPCOMPILE)
+$(CXX_OBJECTS): METHOD = Compile    
+$(CXX_OBJECTS): INPUTS = $(filter %.$(CXX_SOURCE_EXTENSION),$^)
+
+endif
+ACTION = $(if $(filter $@,$(ALL_FILES)),->,=>)
+# In the recipe of the rule,
+	$(ECHO_ACTION)
+# 3. the individual archiving actions clutter our output,
+	$(QUIET) $(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $< $(LDFLAGS)
+
+.PHONY: all clean mostlyclean test help check
+# Don't create unless needed:
+.DELETE_ON_ERROR:
+    #$(or $(filter metadata.txt,$(METADATA_TXT)),$(filter ../metadata.txt,$(METADATA_TXT)),$(error Will only create metadata.txt in current or parent directory, and nowhere else.))
+	@echo "Change at least the set number and the authors."
+# If asked explicitly, we can make an initial order.txt.
+	$(QUIET) printf '$(subst $(NEWLINE),\n,$(TEMPLATE))' >> $(@)
+	@echo "Per class we prefer header files, then internal headers, then sources."
+# If we're in a set directory, and if asked explicitly, we can create a zip.
+        ifeq (../metadata.txt,$(wildcard ../metadata.txt))
+            $(info Depending on whether we are in a set or an exercise directory, you can)
+        ifneq (metadata.txt,$(filter metadata.txt,$(METADATAS)))
+        # Multiple metadata.txts found.
+    endif
+    $(info the exercises should be in the top-level subdirs, and we found these:)
+
+	echo "To be done: create $(@)"
+    # Every file in an order.txt must contain only file names that exist.
+	@echo "metadata.txt exists and was edited."
+# Give Make no way to make hooks.mk. User has to create it.
+ACTUAL_FILE = $(addsuffix .$(EXTENSION),$(patsubst %.$(EXTENSION),%,$*))
+	$(QUIET) printf '$(subst $(NEWLINE),\n,$(TEMPLATE))' >> "$(ACTUAL_FILE)" && echo "$(ACTUAL_FILE) made from template"
+# Header template. We use a UUID to keep the header guard unique.
+
+
+
+
+
+        return handle_exceptions(std::current_exception());
+
+    {
+
+//%%implementation-header = "filename"
+//%%print-tokens
+%%%%
+//  With multiple parsers in one project, give each one its own namespace.
+//  Flexc++-generated default. Adjust to needs.
+// %%parsefun-source: defining the parse() function sourcefile
+
+define METADATA_TXT_TEMPLATE
+
+
+TEMPLATABLE_EXTENSIONS = $(foreach TTYPE,$(TEMPLATE_TYPES),$($(TTYPE)_EXTENSION))
+    %.$(BISONCXX_PARSERSPEC_EXTENSION): TEMPLATE = $(BISONCXX_PARSERSPEC_TEMPLATE)
+
+
+    MAKECMDGOALS_IS_EMPTY := $(if $(MAKECMDGOALS),,yes)
+
+    $(CXX_SOURCE_DEPS): CPPFLAGS += -E -fdirectives-only -MQ $(patsubst %.$(CXX_SOURCE_EXTENSION),%.$(CXX_OBJECT_EXTENSION),$<) -MM -MF $@
+    $(CXX_SOURCE_DEPS) $(CXX_PCH_DEPS): $(call deps_of,%): %
+    # flexc++ whenever the spec is newer.
+	$(QUIET) $(FLEXCXX) $(FLEXCXXFLAGS) --target-directory=$(or $(*D),.) $< 
+    # Note that both bisonc++ and flexc++ are run merely to update the empty
+
+    depclean:
+
+define PATH_STRAIGHTENING_RECIPE
+$(foreach DIR,$(DIRECTORIES_FOUND), $(eval $(PATH_STRAIGHTENING_RECIPE)))
+ifeq ($(USE_PRECOMPILED_HEADERS),true)
+    # (Leaving the internal header in is simpler and doesn't hurt.)
+	cat /dev/null > $@  # Clear target

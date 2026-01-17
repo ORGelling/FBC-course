@@ -27,7 +27,7 @@ namespace {
         cout << "Total lines read: " << totalCounts << '\n';
     }
     
-}
+}   // namespace
 
 int main(int argc, char **argv)     // Wrapping the threads inside the CLient
 {                                   // objects makes this look *very* tidy!
@@ -43,8 +43,8 @@ int main(int argc, char **argv)     // Wrapping the threads inside the CLient
     
     parseLines(cin, queue);
     
-    for (Client &client : clients)
-        client.join();
+    for (Client &client : clients)  // Could go for jthreads instead, but
+        client.join();              // joining here is needed for output
     
     finalOutput(clients);
 }

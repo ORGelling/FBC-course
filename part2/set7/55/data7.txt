@@ -1,0 +1,108 @@
+
+
+# So one can say: make help
+
+To remove all the generated files (which should seldom be necessary):
+following steps are taken.
+* C++ source files will be compiled into object files.
+header file will cause all source files that (indirectly) include it to be
+[How variables get their values](https://www.gnu.org/software/make/manual/html_node/Values.html#Values)
+    CXX_HEADER_EXTENSION (defaults to: $(CXX_HEADER_EXTENSION))
+
+update precompiled headers.
+    make mc/myclass.hh
+
+internal header will subsequently find and include it. The template for
+ifneq ($(CURDIR),$(firstword $(CURDIR)))
+rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
+
+# You could put project-specific settings there.
+CXX_HEADER_EXTENSION ?= $(call first_extension_found, hh hpp H h)
+BISONCXX_PARSERSPEC_EXTENSION ?= $(call first_extension_found, bc++ bcpp bcxx bisonc++ bisoncpp bisoncxx )
+# We analyze and heed generated dependencies by default. But they can be
+CONVLIB_EXTENSION = a
+
+# This Makefile requires GNU Make.
+   $(if $(filter $(1),f false False FALSE no  No  NO  NOO!  off Off OFF zero Zero ZERO 0),false,),\
+endef
+
+
+rdirs=$(call reverse,$(sort $(foreach dir,$1,$(call rdir,$(dir)))))
+# Anything with a CXX_SOURCE_EXTENSION is a C++ source file.
+# Not bulletproof, but KISS.
+
+CXX_PRECOMPILED_HEADERS := $(CXX_INTERNAL_HEADERS:%=%.gch)
+
+# Suppress making .o from .cc, because we only want to create .cc.o
+# Cancel the built-in rules for C++ sources/objects.
+
+
+$(CONVLIB_FILE): METHOD = Collect
+GENERATED_EXTENSIONS = $(CXX_OBJECT_EXTENSION) $(CONVLIB_EXTENSION) $(SHAREDLIB_EXTENSION) $(CXX_PCH_EXTENSION) $(DEP_EXTENSION)
+ifneq (,$(UNKNOWN_GENERATED_FILES))
+# 1. To build any of the target, i.e. $(CONVLIB_FILE),
+	$(QUIET) $(AR) rcs $@ $^
+
+# we rebuild the program, by linking the object file against the convenience library.
+$(CXX_OBJECTS): %.$(CXX_OBJECT_EXTENSION): %.$(CXX_SOURCE_EXTENSION)
+# Remove everything Make created.
+%_tested: %
+# Any files created by failed recipes should be deleted.
+
+    $(METADATA_TXT):
+	@echo
+    ORDER_TXTS = $(filter %order.txt,$(MAKECMDGOALS))
+    $(ORDER_TXTS): %order.txt: clean
+	@echo "Per project we prefer calling order."
+
+            $(info You asked for a zip, but there is no metadata.txt in the tree.)
+        else
+            $(info A metadata.txt was found: $(METADATAS))
+            $(info There is one in the current directory.)
+        endif
+    ifneq ($(DIRECT_SUBDIRS),$(NUMERIC_DIRECT_SUBDIRS))
+
+    .PHONY: metadatatxt_check build_check ordertxt_check
+	@echo "Exercises are buildable."
+    metadatatxt_check:
+hooks.mk:
+# Add proper extension if there was none, and remove e.g. ':program'.
+	$(QUIET) if test -e "$(ACTUAL_FILE)" ; then echo "$(ACTUAL_FILE) already exists." ; false ; fi
+#exist yet, can be created. Use like: make bar.hh
+endef
+define CXX_INTERNAL_HEADER_TEMPLATE
+$(include-internal-headers-in-same-dir)
+#include <stdexcept>
+
+    catch (...)
+{
+        std::rethrow_exception(excp);
+
+//%%class-header = "filename"
+//%%input-implementation = "sourcefile"
+//%%s start-conditions
+# Parser specification (grammar) template:
+// %%debug: adding debugging code to the parse() member
+// %%implementation-header: defining the implementation header
+%%token TERMINAL
+endef
+define ORDER_TXT_TEMPLATE
+endef
+ifneq (,$(TEMPLATABLE_GOALS))
+    %.$(FLEXCXX_SCANNERSPEC_EXTENSION): TEMPLATE = $(FLEXCXX_SCANNERSPEC_TEMPLATE)
+
+    # But it cannot be told to include such dependencies only for sources that
+        include $(ALL_DEPS)
+    undefine TARGETS_THAT_DONT_NEED_DEPS
+    #-MM:    Output dependencies, not preprocessor output. Implies -E.
+    # To create a .dep file from a source or internal header file.
+    # as the specification file they were generated from.
+	$(QUIET) touch $@
+	$(QUIET) mkdir -p $(dir $@)
+    .SECONDARY: $(ALL_DEPS)
+
+# Make does not canonicalize relative paths in generated dependencies. As a
+
+.SECONDEXPANSION:
+    $(CXX_PRECOMPILED_HEADERS): %.$(CXX_PCH_EXTENSION): %.$(CXX_INTERNAL_HEADER_EXTENSION)
+    # For each internal header in the prerequisites, add a precompiled header.

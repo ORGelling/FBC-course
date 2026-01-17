@@ -2,7 +2,7 @@
 
     // by 
                                                 // we return by value to
-string Storage::front()                         // prevent dangling refs
+string Storage::front() const                   // prevent dangling refs
 {
     lock_guard<mutex> _{ d_qMutex };
     return d_queue.front();                 // no guard for empty queue on 

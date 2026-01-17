@@ -1,0 +1,107 @@
+    MAKE ?= gmake
+define HELP_TEXT
+It was written for Linux, but has been reported to work on Macs and under
+    make
+are no program sources, to build a convenience library. To do so, the
+* If included anywhere, C++ internal header files will be precompiled.
+remade. On one hand, this consumes time. On the other hand it saves time by
+(defaults to: $(BISONCXX)) These can be set in the usual ways:
+    FLEXCXX_SCANNERSPEC_EXTENSION (defaults to: $(FLEXCXX_SCANNERSPEC_EXTENSION))
+Some variables change the behaviour more extensively:
+
+
+    make parser/tokenizer.fc++
+
+
+# Using a $(shell find...) would also work, but depend on the find utility.
+
+CURRENT_MAKEFILE = $(firstword $(MAKEFILE_LIST))
+# https://www.gnu.org/software/make/manual/html_node/Environment.html#Environment
+FLEXCXX_SCANNERSPEC_EXTENSION ?= $(call first_extension_found, fc++ fcpp fcxx flexc++ flexcpp flexcxx )
+# We use precompiled headers by default. But they can be turned off.
+# The name of our convenience library.
+# Directory where dependencies are stored.
+DETECTED_MAKEVERSION = $(shell $(MAKE) --version)
+boolalpha = $(or \
+
+USE_GENERATED_DEPENDENCIES := $(call boolalpha,$(DEP))
+maybe_dir=$(filter-out ./,$(dir $1))
+# Lists dirs recursively, deepest first, with no duplicates.
+# Get object names by replacing the extension.
+
+CXX_NONPROG_SOURCES := $(filter-out $(CXX_PROG_SOURCES),$(CXX_SOURCES))
+FLEXCXX_DEPS := $(call deps_of,$(FLEXCXX_SCANNERSPECS))
+
+	$(ECHO_ACTION)
+%.o: %.C
+
+$(CXX_PROGS): $(CONVLIB_FILE)
+$(CXX_PRECOMPILED_HEADERS): INPUTS = $(filter %.$(CXX_INTERNAL_HEADER_EXTENSION),$^)
+$(CXX_PRECOMPILED_HEADERS): CXXFLAGS += -x c++-header
+EVER_GENERATED_FILES = $(filter $(addefix %.,$(GENERATED_EXTENSIONS)),$(ALL_FILES))
+
+#    we need to rebuild the target.
+# $^ is the list of preprequisites, i.e. $(CXX_NONPROG_OBJECTS)
+# 2. allegedly it's slow on large projects,
+# Clean everything except the programs.
+# Even if a file 'clean' exists, 'make clean' keeps working.
+	@$(<)
+
+
+    $(METADATA_TXT): TEMPLATE = $(METADATA_TXT_TEMPLATE)
+	@cat $@
+	@echo "If it is the second, specify the initials of whoever rated the first attempt."
+	@cat $@
+	@echo "A '-' prefix means the file should be in the zip, but should not be shown."
+ifneq (,$(filter zip,$(MAKECMDGOALS)))
+            $(info contains the set, you can still create the zip.)
+            $(info 'make metadata.txt' or 'make ../metadata.txt' and edit the example.)
+            $(info but it is in a subdir.)
+    else
+            $(info We have no idea how to handle this.)
+    DIRECT_SUBDIRS = $(patsubst %/,%,$(filter-out generated_deps/,$(wildcard */)))
+    $(info $(DIRECT_SUBDIRS))
+
+
+    FILES_MENTIONED_IN_ORDER_TXTS = $(foreach OTXT,$(ORDER_TXTS),$(foreach LINE,$(patsubst -%,%,$(filter-out -,$(shell cat $(OTXT)))),$(dir $(OTXT))$(LINE)))
+
+
+
+# Not used. Using just extensions is shorter.
+#ifndef def_$(UUID)_$(HID)_$(CXX_HEADER_EXTENSION)
+
+# Ordinary source template
+
+int handle_exceptions(std::exception_ptr excp);
+    {
+int handle_exceptions(std::exception_ptr excp)
+    }
+    }
+
+//%%lex-function-name = "funname"
+//%%startcondition-name = "startconditionName"
+
+%%scanner Scanner.h
+
+
+Set: Set 0
+endef
+
+# Templatable goals can be made from a template, and are by definition nonexistent.
+    %.$(CXX_HEADER_EXTENSION): TEMPLATE = $(CXX_HEADER_TEMPLATE)
+ifeq ($(USE_GENERATED_DEPENDENCIES),true)
+    # (With C++ Modules, we'll need to anyway.)
+    # When only e.g. cleaning, we don't need dependencies.
+    $(CXX_SOURCE_DEPS) $(CXX_PCH_DEPS): METHOD = Analyze    
+    #-MQ $@: Change target of rule.
+
+    $(FLEXCXX_DEPS): METHOD = $(FLEXCXX)    
+    # directory of the parser specification by default. No options needed.
+    # .dep file for inclusion. The files they generate are side effects. The
+    # When cleaning, we should get rid of the deps again.
+    .PHONY: depclean
+# result it may want to make foo/../bar.ih.gch,
+# Evaluating the path straightening recipe for all available dirs.
+### End of Parallel Make measures. ###
+	$(ECHO_ACTION)
+endif

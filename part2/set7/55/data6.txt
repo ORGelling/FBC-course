@@ -1,0 +1,108 @@
+endif
+
+[Make manual](https://www.gnu.org/software/make/manual/)
+
+The Makefile causes `make` to want to build programs, or if there
+  [internal headers explained](https://stackoverflow.com/questions/11063355/is-anyone-familiar-with-the-implementation-internal-header-ih)
+Because the Makefile detects which files include which others, updating a
+LDFLAGS etc.) as well as FLEXCXX (defaults to: $(FLEXCXX)) and BISONCXX
+    CXX_SOURCE_EXTENSION (defaults to: $(CXX_SOURCE_EXTENSION))
+    VERBOSE=yes causes commands in recipes to be echoed.
+Note that without analyzing dependencies, Make will not know which
+    make mc/myclass.ih
+file extension with non-program sources.
+
+endef
+
+first_extension_found = $(patsubst .%,%,$(or $(firstword $(foreach X,$1,$(filter %.$X,$(suffix $(ALL_FILES))))),$(firstword $1)))
+# The file hooks.mk will be included if it exists.
+CXX_INTERNAL_HEADER_EXTENSION ?= $(call first_extension_found, ihh ihpp IH ih)
+# By default, this Makefile does not echo recipe commands. But it can.
+
+
+FLEXCXX ?= flexc++
+    $(error This Makefile requires GNU Make. Detected: $(DETECTED_MAKEVERSION))
+   $(if $(strip $(1)),,false),\
+
+
+# Acts as 'dir', but may return the empty string instead of './'
+
+
+MAIN_REGEX := int[[:space:]]+main[[:space:]]*\(
+CXX_NONPROG_OBJECTS := $(CXX_NONPROG_SOURCES:%.$(CXX_SOURCE_EXTENSION)=%.$(CXX_OBJECT_EXTENSION))
+BISONCXX_PARSERSPECS := $(filter %.$(BISONCXX_PARSERSPEC_EXTENSION),$(ALL_FILES))
+.SUFFIXES:
+
+%.cpp.o: %.cpp ; $(RUN-CPPCOMPILE)
+all: $(CXX_PROGS) $(if $(CXX_NONPROG_SOURCES),$(CONVLIB_FILE))
+$(CXX_PROGS): METHOD = Link       
+
+# When compiling a precompiled header, specify that it's a header.
+    $(warning $(NEWLINE)Warning: Make may once have generated, but cannot update any more the following files:$(NEWLINE)$(NEWLINE)  $(UNKNOWN_GENERATED_FILES)$(NEWLINE)$(NEWLINE)Perhaps their sources do not exist any more. Consider cleaning them up.)
+ECHO_ACTION = @echo "    [ $(METHOD)  $(or $(INPUTS),$^)\t$(ACTION)\t$(or $(TARGET),$@)\t]"
+# 2. If any of the preprequisites are newer than the target,
+shared: $(SHAREDLIB_FILE)
+
+
+	$(QUIET) rm -f $(CXX_PROGS) includes.txt
+check: all $(patsubst %,%_tested,$(CXX_TESTPROGS))
+.SECONDARY: $(CXX_PRECOMPILED_HEADERS) $(CXX_OBJECTS)
+ifneq (,$(filter %metadata.txt,$(MAKECMDGOALS)))
+	@echo "$(@) made from template:"
+	@echo "The metadata.txt tells us what set this is, who worked on the exercises, and who should rate them."
+ifneq (,$(filter %order.txt,$(MAKECMDGOALS)))
+	@echo
+
+
+            $(info Tell make to switch directories and still use the current makefile)
+            $(error No metadata.txt found.)
+            $(info We need to be in the top-level directory of the exercise set to create the zip.)
+            # This is good: metadata.txt found in current dir.
+            $(info Multiple metadata.txt files found in the tree, but none in the current directory.)
+    NUMERIC_DIRECT_SUBDIRS = $(shell echo $(DIRECT_SUBDIRS)|grep -Eo '[0-9]{1,2}')
+    $(error Other than exercise dirs present. (Perhaps we are not in a set dir.))
+    # Require 'all' to check that everything compiles.
+    # If something doesn't compile, we don't build the zip.
+	@echo "Files mentioned in order.txt files exist."
+endif
+# The program source template shares its suffix with other sources.
+%\:program: EXTENSION = $(CXX_SOURCE_EXTENSION)
+
+#endif //def_$(UUID)_$(HID)_$(CXX_HEADER_EXTENSION)\n
+include-internal-headers-in-same-dir = $(foreach IHEADER,$(wildcard $(@D)/*.$(CXX_INTERNAL_HEADER_EXTENSION)),#include "$(notdir $(IHEADER))"\n)
+define CXX_SOURCE_TEMPLATE
+#include <exception>
+};
+    }
+    if (!excp)
+    catch (std::exception const &exc)
+endef
+//%%baseclass-header = "filename"
+//%%interactive
+//%%x miniscanners
+endef
+// %%class-name: defining the name of the parser class
+// %%filenames: specifying a generic filename
+//               VECT: std::vector<double>
+
+
+# Giving Make a recipe to create any file 'foo.cc' from thin air is dangerous,
+TEMPLATES = $(filter %_TEMPLATE,$(.VARIABLES))
+
+    $(TEMPLATABLE_GOALS):
+
+    GOALS_THAT_NEED_DEPS := $(strip $(filter-out $(TARGETS_THAT_DONT_NEED_DEPS),$(MAKECMDGOALS)))
+    undefine GOALS_THAT_NEED_DEPS
+    $(CXX_PCH_DEPS): CXXFLAGS += -x c++-header
+    #-MF Specify file to write dependencies to.
+    # specification file is hard. So we simply keep a touchfile and rerun
+
+	$(ECHO_ACTION)
+    # before source deps?
+    # So we remove the files first, then remove empty dirs only.
+### Some measures to help Parallel Make ( make --jobs n) ###
+$(DIR)../%: $(patsubst ./%,%,$(dir $(DIR:%/=%))%)
+
+# make PCH=no
+
+includes.txt:

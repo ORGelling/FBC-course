@@ -7,8 +7,6 @@
 
 class Client
 {
-    static std::mutex s_qMutex;
-    
     std::string const d_fileName;
     std::ofstream d_out;
     size_t d_count;

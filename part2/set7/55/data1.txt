@@ -1,0 +1,108 @@
+# Detect the OS using uname
+
+MinGW64. It does not seem to break when make is told to run parallel jobs.
+## Default behavior:
+
+* Program object files (detected by grepping the source for a `main`
+keeping sources and headers in sync, so `make clean` should seldom have to be
+The Makefile accepts the usual variables (CXX, CXXFLAGS, CPPFLAGS,
+
+DEPDIR (defaults to: $(DEPDIR)) can also be set but is best left alone.
+
+E.g.:
+The command for creating a program source differs because it shares its
+## Making submission zip files.
+
+# Simply list all files we can find.
+# Autodetection of file extensions.
+
+# Some use h
+
+PCH ?= true
+CONVLIB_FILE = lib$(CONVLIB).$(CONVLIB_EXTENSION)
+
+
+# Use any of these words to indicate true or false.
+# NEWLINE is for use with printf, which is more reliable than echo.
+undefine PCH
+
+# Useful to remove a tree of empty dirs, recursively:
+CXX_OBJECTS := $(CXX_SOURCES:%.$(CXX_SOURCE_EXTENSION)=%.$(CXX_OBJECT_EXTENSION))
+CXX_PROG_SOURCES := $(if $(CXX_SOURCES),$(shell grep -El '$(MAIN_REGEX)' $(CXX_SOURCES)))
+# Sources that aren't program sources, are non-program sources.
+
+ALL_DEPS = $(CXX_SOURCE_DEPS) $(CXX_PCH_DEPS) $(FLEXCXX_DEPS) $(BISONCXX_DEPS)
+define RUN-CPPCOMPILE
+
+
+$(CXX_PROGS): LDFLAGS += -L. -l$(CONVLIB)
+
+KNOWN_GENERATED_FILES = $(CONVLIB_FILE) $(SHAREDLIB_FILE) $(CXX_OBJECTS) $(CXX_PRECOMPILED_HEADERS) $(ALL_DEPS)
+#$(info known generated: $(KNOWN_GENERATED_FILES))
+
+#    we need the prerequisites, i.e. $(CXX_NONPROG_OBJECTS)
+
+# We don't archive object files member my member, because
+$(CXX_PROGS): %: %.$(CXX_OBJECT_EXTENSION)
+mostlyclean:
+	@echo -n "Running $< ... "
+.INTERMEDIATE: $(CXX_OBJECTS) $(CXX_PRECOMPILED_HEADERS)
+
+    # Only create metadata.txt here or in parent.
+	@echo "Please edit it to replace the bogus information in there."
+
+    $(ORDER_TXTS): TEMPLATE = $(ORDER_TXT_TEMPLATE)
+	@echo
+
+        # No metadata.txt found.
+            $(info     make -C .. -f $(notdir $(CURDIR))/$(notdir $(CURRENT_MAKEFILE)) zip)
+        endif
+            $(error Metadata.txt in unexpected directory.)
+            $(info Proceeding anyway on the assumption we are in a set directory.)
+
+    $(info However, exercise dirs should have numerical names, and not all of them do.)
+    zip: $(ZIPFILE)
+    # Here's why we only create zips from the set dir.
+    ORDER_TXTS = $(patsubst %,%/order.txt,$(DIRECT_SUBDIRS))
+help:
+###  Below follow some templates that will create source and header files. ###
+%\:program: TEMPLATE = $(CXX_PROGRAM_TEMPLATE)
+#%\:cxx_class: %\:cxx_header %\:cxx_internal_header
+#define def_$(UUID)_$(HID)_$(CXX_HEADER_EXTENSION)
+# Internal header template.
+
+define CXX_PROGRAM_TEMPLATE
+    FAILURE = 1
+
+        return ExitCode::SUCCESS;
+    {
+}
+//%%class-name = "className"
+//%%input-interface = "interface"
+//%%skeleton-directory = "pathname"
+.|\\n   return 0x100;
+// %%baseclass-preinclude: specifying a header included by the baseclass
+// %%class-header: defining the parser class header
+nonterminal:
+
+Rater: AZ
+# then only if they don't exist yet.
+TEMPLATE_TYPES = $(patsubst %_TEMPLATE,%,$(TEMPLATES))
+    %.$(CXX_SOURCE_EXTENSION): TEMPLATE = $(CXX_SOURCE_TEMPLATE)
+	printf '$(subst $(NEWLINE),\n,$(TEMPLATE))' >> $@
+    # Make can be told to include generated dependency files.
+    NEED_DEP_INCLUDES := $(or $(MAKECMDGOALS_IS_EMPTY),$(GOALS_THAT_NEED_DEPS))
+    undefine MAKECMDGOALS_IS_EMPTY
+    $(CXX_PCH_DEPS): CPPFLAGS += -E -fdirectives-only -MQ $(patsubst %.$(CXX_INTERNAL_HEADER_EXTENSION),%.$(CXX_PCH_EXTENSION),$<) -MM -MF $@
+	$(QUIET) mkdir -p $(dir $@)
+    # We use --target-directory to put generated files in the same directory
+    # In contrast to flexc++, bisonc++ puts the generated files in the
+	$(QUIET) $(BISONCXX) $(BISONCXXFLAGS) $< 
+    # FixMe: why does Make consistently update bisonc++ and flexc++ deps
+    # An rm -rf is always dangerous.
+endif
+# To mitigate, we tell Make how to remove the /../ from paths:
+#$(foreach DIR,$(DIRECTORIES_FOUND), $(info $(PATH_STRAIGHTENING_RECIPE)))
+# To work without precompiled headers:
+	$(QUIET) test -f $@ || echo "WARNING: $@ not created despite trying. Might want to increase resources or resort to PCH=no."
+# Inclusion is transitive, but we only record direct includes. 

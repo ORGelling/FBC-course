@@ -1,0 +1,108 @@
+
+UUIDGEN ?= uuidgen
+
+
+* Flexc++ will be called on any scanner specification files.
+
+run.
+included. Extensions can be set there too, though it should seldom be
+    BISONCXX_PARSERSPEC_EXTENSION (defaults to: $(BISONCXX_PARSERSPEC_EXTENSION))
+    DEP=no      causes dependency analysis to be skipped.
+## Creating files from templates:
+    make mc/ctor1.cc
+near the top of this file.
+    make zip
+endif
+
+#LDFLAGS += -lrt -ldl -lpthread -lm -lz -ltinfo
+# Extensions can be set here, or in the environment:
+CXX_OBJECT_EXTENSION ?= $(CXX_SOURCE_EXTENSION).o
+VERBOSE ?= false
+
+SHAREDLIB = $(notdir $(CURDIR))
+
+undefine DETECTED_MAKEVERSION
+)
+
+QUIET := $(if $(filter true,$(call boolalpha,$(VERBOSE))),,@)
+
+
+
+CXX_PROGS := $(CXX_PROG_SOURCES:%.$(CXX_SOURCE_EXTENSION)=%)
+CXX_INTERNAL_HEADERS := $(filter %.$(CXX_INTERNAL_HEADER_EXTENSION),$(ALL_FILES))
+CXX_PCH_DEPS := $(call deps_of,$(CXX_INTERNAL_HEADERS))
+###
+#%.o: %.$(CXX_SOURCE_EXTENSION)
+%.o: %.cpp
+###
+# To create an executable program is called: 'Linking'.
+$(CXX_OBJECTS): CXXFLAGS += -c
+
+#$(info unknown generated: $(UNKNOWN_GENERATED_FILES))
+# Action tells whether we're updating or creating.
+# $@ is the target, i.e. $(CONVLIB_FILE)
+	$(QUIET) $(CXX) --shared $(LDFLAGS) -o $@ $^
+# If any program object file is newer than the program itself,
+
+clean: mostlyclean
+	@echo ok
+# Once created, don't delete unless by make clean.
+    METADATA_TXT = $(filter %metadata.txt,$(MAKECMDGOALS))
+
+	@echo
+
+
+	@echo "Please edit it, because an auto-generated one is almost certainly wrong."
+endif
+    ifeq (0,$(words $(METADATAS)))
+            $(info with the command:)
+    else
+        endif
+        else
+
+    $(info (Please note that any 'generated_deps' is not the problem.))
+    $(ZIPFILE): metadatatxt_check build_check ordertxt_check
+    build_check: all
+    ordertxt_check: $(FILES_MENTIONED_IN_ORDER_TXTS)
+
+
+
+# Only files that are explictly mentioned on the command line and that don't
+
+$(include-headers-in-same-dir)
+
+# Program template
+    SUCCESS = 0,
+    {
+
+        return ExitCode::FAILURE;
+        throw;
+//%%case-insensitive
+//%%lex-source = "filename"
+//%%target-directory = "pathname"
+
+
+// %%baseclass-header: defining the parser base class header
+// %%polymorphic INT: int; STRING: std::string; 
+TERMINAL
+Authors: John Smith, Jane Doe
+$(foreach FILE,$(patsubst /%,%,$(patsubst $(@D)/%,%,$(call rwildcard,$(@D)/,*))),-$(FILE)$(NEWLINE))
+NONEXISTENT_GOALS = $(filter-out $(ALL_FILES),$(MAKECMDGOALS))
+    %.$(CXX_INTERNAL_HEADER_EXTENSION): TEMPLATE = $(CXX_INTERNAL_HEADER_TEMPLATE)
+
+    # actually must be compiled. So we simply always include all dependencies.
+    TARGETS_THAT_DONT_NEED_DEPS := clean mostlyclean depclean help $(TEMPLATABLE_GOALS) $(ZIPFILE) $(ORDER_TXTS) $(ORDER_TXT) $(METADATA_TXT)
+    endif
+    # These are flags for generating dependencies.
+
+    # Predicting which files flexc++ will generate from a given scanner
+	$(ECHO_ACTION)
+    $(BISONCXX_DEPS): $(call deps_of,%): %
+    # any other recipes.
+    mostlyclean: depclean
+
+# With Parallel Make this more often turns out to be a problem. FixMe: why?
+DIRECTORIES_FOUND = $(sort $(filter-out ./,$(dir $(ALL_FILES:./%=%))))
+
+	$(QUIET) $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+
