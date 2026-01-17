@@ -1,0 +1,13 @@
+#include "student.ih"
+
+    // by 
+
+Student::Student(string const &name, size_t number, float score)
+:
+    d_name(name),
+    d_lastname(lastName()),         // exceptions here are very rare it seems
+    d_number(number),
+    d_score(score),
+{
+                                    // lastname cutter member function?
+}

@@ -1,0 +1,8 @@
+Exercise 47: Think outside the box writing tables of two with iota
+
+Since iota only increments a value over and over we cannot hand it a custom
+function for each step, but we *can* hand it something that, when incremented,
+will move up in steps of two! We define a small struct DoubleStep with an
+operator++ and a conversion operator to unsigned, and hand our iota algorithm
+a DoubleStep(0) as its last argument. The incrementing that iota performs
+after each step now gives us exactly what we need.

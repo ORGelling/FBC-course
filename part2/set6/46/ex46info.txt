@@ -1,0 +1,41 @@
+Exercise 46: Learn to use generic algorithms to sort and keep a subset of
+sorted information
+
+To retrieve the data from the .csv file we, against our best intentions, could
+only really find a way to do this using two while loops that each use getline.
+The first uses it as is, and the second specifies the delimiter ',' to
+properly separate all the values only by comma. Using generic algorithms for
+this is more cumbersome than it's worth. If we parse the data lines with
+for_each and a stream_iterator we see that it cuts at the space inbetween the
+first and last names, causing unnecessary hassle. The only simple and clear
+way we could think of was to stick to the true and tested while(getline())
+method.
+
+We note that there are some entries that have "ID [number]" attached to the
+subject names. This might be an error, or it might be some form of secondary
+representation. Whichever it is, we keep the data as is and accept the
+potential duplicates from this. We found at least one set that is affected by
+this:
+
+2023-09-19 2023-09-19 2023-09-19  ruksana khatoon 2012-12-24 2 
+2023-08-11 2023-08-11 2023-08-11  Ruksana Khatoon ID 120 2005-05-21 2 
+
+Other than that we approach the sorting and cutting as follows:
+
+First we group everything by name primarily, and then by date (latest on top)
+secondarily. We then use unique to filter out duplicate name entries. The
+predicate here also prints the entry that is being removed. We know this is
+MLR but we found it hard to limit our program to only three statements
+otherwise.
+
+We note that rather than using lambda functions with multiline bodies we
+instead simply use functions that get called as function objects. This way the
+code looks nice and clean, but the functionality is exactly the same.
+
+We probably have an MLR in here, and maybe a TC. I am not entirely sure how to
+keep this within 3 statements (not counting file processing and output). There
+is the option of using an unordered set to check for duplicates, which means
+we only have to sort once (as the data starts with dates in ascending order,
+which I assume we can use consistently). That however would also require some
+extra shenanigans, and leans more on containers than generic algorithms.
+Feedback on this matter is very welcome.
