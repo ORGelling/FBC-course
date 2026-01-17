@@ -1,1 +1,8 @@
 ex57info.txt
+
+semaphore/semaphore.h
+semaphore/semaphore.ih
+semaphore/semaphore1.cc
+semaphore/notify.cc
+semaphore/notify_all.cc
+semaphore/wait.cc
