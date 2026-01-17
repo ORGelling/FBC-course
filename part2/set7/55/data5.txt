@@ -1,108 +1,107 @@
+    MAKE ?= gmake
+# So one can say: make help
+MinGW64. It does not seem to break when make is told to run parallel jobs.
+To remove all the generated files (which should seldom be necessary):
+are no program sources, to build a convenience library. To do so, the
+  [internal headers explained](https://stackoverflow.com/questions/11063355/is-anyone-familiar-with-the-implementation-internal-header-ih)
 
-UUIDGEN ?= uuidgen
 
+necessary, as they auto-adapt to files found.
+When setting extensions, do NOT include the dot in the extension!
+                but not necessarily from being used if they exist.
+Some files can be created from templates integrated in this Makefile.
+    make parser/grammar.bc++
+It is convenient to create the header first, because the template for the
 
-* Flexc++ will be called on any scanner specification files.
-
-run.
-included. Extensions can be set there too, though it should seldom be
-    BISONCXX_PARSERSPEC_EXTENSION (defaults to: $(BISONCXX_PARSERSPEC_EXTENSION))
-    DEP=no      causes dependency analysis to be skipped.
-## Creating files from templates:
-    make mc/ctor1.cc
-near the top of this file.
-    make zip
-endif
-
+# Recursive wildcard to find all files in the current directory and subdirs.
+# Autodetection of file extensions.
 #LDFLAGS += -lrt -ldl -lpthread -lm -lz -ltinfo
-# Extensions can be set here, or in the environment:
-CXX_OBJECT_EXTENSION ?= $(CXX_SOURCE_EXTENSION).o
-VERBOSE ?= false
+# https://www.gnu.org/software/make/manual/html_node/Environment.html#Environment
 
-SHAREDLIB = $(notdir $(CURDIR))
+# Try: make PCH=no
+CONVLIB_EXTENSION = a
+# Directory where dependencies are stored.
+# This Makefile requires GNU Make.
+boolalpha = $(or \
+# NEWLINE is for use with printf, which is more reliable than echo.
 
-undefine DETECTED_MAKEVERSION
-)
-
-QUIET := $(if $(filter true,$(call boolalpha,$(VERBOSE))),,@)
-
-
-
-CXX_PROGS := $(CXX_PROG_SOURCES:%.$(CXX_SOURCE_EXTENSION)=%)
-CXX_INTERNAL_HEADERS := $(filter %.$(CXX_INTERNAL_HEADER_EXTENSION),$(ALL_FILES))
-CXX_PCH_DEPS := $(call deps_of,$(CXX_INTERNAL_HEADERS))
+maybe_dir=$(filter-out ./,$(dir $1))
+# Useful to remove a tree of empty dirs, recursively:
+# Anything with a CXX_SOURCE_EXTENSION is a C++ source file.
+# Not bulletproof, but KISS.
+CXX_TESTPROGS := $(filter tests/%,$(CXX_PROGS))
+CXX_PRECOMPILED_HEADERS := $(CXX_INTERNAL_HEADERS:%=%.gch)
 ###
 #%.o: %.$(CXX_SOURCE_EXTENSION)
-%.o: %.cpp
-###
+# Cancel the built-in rules for C++ sources/objects.
+%.cpp.o: %.cpp ; $(RUN-CPPCOMPILE)
 # To create an executable program is called: 'Linking'.
-$(CXX_OBJECTS): CXXFLAGS += -c
+$(CXX_OBJECTS): INPUTS = $(filter %.$(CXX_SOURCE_EXTENSION),$^)
 
-#$(info unknown generated: $(UNKNOWN_GENERATED_FILES))
-# Action tells whether we're updating or creating.
-# $@ is the target, i.e. $(CONVLIB_FILE)
-	$(QUIET) $(CXX) --shared $(LDFLAGS) -o $@ $^
-# If any program object file is newer than the program itself,
+ifneq (,$(UNKNOWN_GENERATED_FILES))
 
-clean: mostlyclean
-	@echo ok
-# Once created, don't delete unless by make clean.
-    METADATA_TXT = $(filter %metadata.txt,$(MAKECMDGOALS))
+# 2. If any of the preprequisites are newer than the target,
 
-	@echo
+# 1. the member is a transient prerequisite that causes remakes,
+$(CXX_PROGS): %: %.$(CXX_OBJECT_EXTENSION)
 
 
-	@echo "Please edit it, because an auto-generated one is almost certainly wrong."
+
+# Any files created by failed recipes should be deleted.
+    $(METADATA_TXT):
+	@cat $@
 endif
-    ifeq (0,$(words $(METADATAS)))
-            $(info with the command:)
-    else
-        endif
-        else
+    ORDER_TXTS = $(filter %order.txt,$(MAKECMDGOALS))
+	@echo "A '-' prefix means the file should be in the zip, but should not be shown."
 
-    $(info (Please note that any 'generated_deps' is not the problem.))
-    $(ZIPFILE): metadatatxt_check build_check ordertxt_check
+
+            $(info Tell make to switch directories and still use the current makefile)
+    ifeq (1,$(words $(METADATAS)))
+            $(warn Multiple metadata.txt files found: $(METADATAS))
+            $(info Multiple metadata.txt files found in the tree, but none in the current directory.)
+    NUMERIC_DIRECT_SUBDIRS = $(shell echo $(DIRECT_SUBDIRS)|grep -Eo '[0-9]{1,2}')
+    $(info $(DIRECT_SUBDIRS))
+
     build_check: all
-    ordertxt_check: $(FILES_MENTIONED_IN_ORDER_TXTS)
+    metadatatxt_check:
+
+# The program source template shares its suffix with other sources.
+%\:program: EXTENSION = $(CXX_SOURCE_EXTENSION)
+# Not used. Using just extensions is shorter.
+#ifndef def_$(UUID)_$(HID)_$(CXX_HEADER_EXTENSION)
+include-headers-in-same-dir = $(foreach HEADER,$(wildcard $(@D)/*.$(CXX_HEADER_EXTENSION)),#include "$(notdir $(HEADER))"\n)
+endef
+
+    FAILURE = 1
 
 
+    }
+    }
+//%%baseclass-header = "filename"
+//%%interactive
+//%%print-tokens
 
-# Only files that are explictly mentioned on the command line and that don't
-
-$(include-headers-in-same-dir)
-
-# Program template
-    SUCCESS = 0,
-    {
-
-        return ExitCode::FAILURE;
-        throw;
-//%%case-insensitive
-//%%lex-source = "filename"
-//%%target-directory = "pathname"
+// %%namespace pns
 
 
-// %%baseclass-header: defining the parser base class header
-// %%polymorphic INT: int; STRING: std::string; 
-TERMINAL
-Authors: John Smith, Jane Doe
-$(foreach FILE,$(patsubst /%,%,$(patsubst $(@D)/%,%,$(call rwildcard,$(@D)/,*))),-$(FILE)$(NEWLINE))
-NONEXISTENT_GOALS = $(filter-out $(ALL_FILES),$(MAKECMDGOALS))
-    %.$(CXX_INTERNAL_HEADER_EXTENSION): TEMPLATE = $(CXX_INTERNAL_HEADER_TEMPLATE)
+endef
+# Order.txt template (also not in TEMPLATABLE_GOALS)
 
-    # actually must be compiled. So we simply always include all dependencies.
-    TARGETS_THAT_DONT_NEED_DEPS := clean mostlyclean depclean help $(TEMPLATABLE_GOALS) $(ZIPFILE) $(ORDER_TXTS) $(ORDER_TXT) $(METADATA_TXT)
-    endif
-    # These are flags for generating dependencies.
 
-    # Predicting which files flexc++ will generate from a given scanner
-	$(ECHO_ACTION)
-    $(BISONCXX_DEPS): $(call deps_of,%): %
-    # any other recipes.
-    mostlyclean: depclean
+    %.$(CXX_HEADER_EXTENSION): TEMPLATE = $(CXX_HEADER_TEMPLATE)
+# Generated dependencies are enabled by default. To suppress: make DEP=no
 
-# With Parallel Make this more often turns out to be a problem. FixMe: why?
-DIRECTORIES_FOUND = $(sort $(filter-out ./,$(dir $(ALL_FILES:./%=%))))
+    # When only e.g. cleaning, we don't need dependencies.
 
-	$(QUIET) $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+
+	$(QUIET) mkdir -p $(dir $@)
+    $(FLEXCXX_DEPS): METHOD = $(FLEXCXX)    
+    # In contrast to flexc++, bisonc++ puts the generated files in the
+	$(QUIET) touch $@
+
+	$(QUIET) rm -fd $(call rdirs,$(ALL_DEPS))
+# Make does not canonicalize relative paths in generated dependencies. As a
+endef
+### End of Parallel Make measures. ###
+ifeq ($(USE_PRECOMPILED_HEADERS),true)
 

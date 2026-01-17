@@ -4,6 +4,7 @@
 #include <queue>
 #include <mutex>
 #include <string>
+#include <optional>
 
 class Storage
 {
@@ -19,8 +20,8 @@ class Storage
         std::string front() const;          // pass by value lest refs dangle
         void pop();
         
-        bool popFront(std::string &front);  // for 55: atomic empty+pop+front
-        
+        std::optional<std::string> popFront();  
+                                            // for 55: atomic empty+pop+front
         bool empty() const;
         
         void setFinished();                 // done parsing lines

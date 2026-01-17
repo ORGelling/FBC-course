@@ -1,107 +1,108 @@
-    MAKE ?= gmake
+UNAME_S := $(shell uname -s)
 define HELP_TEXT
 It was written for Linux, but has been reported to work on Macs and under
     make
-are no program sources, to build a convenience library. To do so, the
-* If included anywhere, C++ internal header files will be precompiled.
-remade. On one hand, this consumes time. On the other hand it saves time by
-(defaults to: $(BISONCXX)) These can be set in the usual ways:
-    FLEXCXX_SCANNERSPEC_EXTENSION (defaults to: $(FLEXCXX_SCANNERSPEC_EXTENSION))
-Some variables change the behaviour more extensively:
+The Makefile causes `make` to want to build programs, or if there
+* C++ source files will be compiled into object files.
+Because the Makefile detects which files include which others, updating a
+LDFLAGS etc.) as well as FLEXCXX (defaults to: $(FLEXCXX)) and BISONCXX
+    CXX_SOURCE_EXTENSION (defaults to: $(CXX_SOURCE_EXTENSION))
 
 
-    make parser/tokenizer.fc++
+    mkdir mc
+    make myprog.cc:program
+
+endef
+rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
 
-# Using a $(shell find...) would also work, but depend on the find utility.
+# Extensions can be set here, or in the environment:
+DEP_EXTENSION ?= dep
 
-CURRENT_MAKEFILE = $(firstword $(MAKEFILE_LIST))
-# https://www.gnu.org/software/make/manual/html_node/Environment.html#Environment
-FLEXCXX_SCANNERSPEC_EXTENSION ?= $(call first_extension_found, fc++ fcpp fcxx flexc++ flexcpp flexcxx )
-# We use precompiled headers by default. But they can be turned off.
-# The name of our convenience library.
-# Directory where dependencies are stored.
-DETECTED_MAKEVERSION = $(shell $(MAKE) --version)
-boolalpha = $(or \
 
-USE_GENERATED_DEPENDENCIES := $(call boolalpha,$(DEP))
-maybe_dir=$(filter-out ./,$(dir $1))
-# Lists dirs recursively, deepest first, with no duplicates.
-# Get object names by replacing the extension.
+SHAREDLIB_FILE = lib$(SHAREDLIB).$(SHAREDLIB_EXTENSION)
+## No editing below this line unless you know what you're doing. ##
 
-CXX_NONPROG_SOURCES := $(filter-out $(CXX_PROG_SOURCES),$(CXX_SOURCES))
-FLEXCXX_DEPS := $(call deps_of,$(FLEXCXX_SCANNERSPECS))
 
-	$(ECHO_ACTION)
-%.o: %.C
+undefine PCH
+undefine VERBOSE
+reverse=$(if $(wordlist 2,2,$(1)),$(call reverse,$(wordlist 2,$(words $(1)),$(1))) $(firstword $(1)),$(1))
+CXX_SOURCES := $(filter %.$(CXX_SOURCE_EXTENSION),$(ALL_FILES))
 
-$(CXX_PROGS): $(CONVLIB_FILE)
-$(CXX_PRECOMPILED_HEADERS): INPUTS = $(filter %.$(CXX_INTERNAL_HEADER_EXTENSION),$^)
-$(CXX_PRECOMPILED_HEADERS): CXXFLAGS += -x c++-header
-EVER_GENERATED_FILES = $(filter $(addefix %.,$(GENERATED_EXTENSIONS)),$(ALL_FILES))
 
+FLEXCXX_SCANNERSPECS := $(filter %.$(FLEXCXX_SCANNERSPEC_EXTENSION),$(ALL_FILES))
+# Could be used to suppress all built-in rules.
+endef
+# To allow for a separate C library, *.cc builds *.cc.o, not *.o.
+%.cc.o: %.cc   ; $(RUN-CPPCOMPILE)
+
+$(CXX_OBJECTS): CXXFLAGS += -c
+
+KNOWN_GENERATED_FILES = $(CONVLIB_FILE) $(SHAREDLIB_FILE) $(CXX_OBJECTS) $(CXX_PRECOMPILED_HEADERS) $(ALL_DEPS)
+# This output usually shows instead of the actual command.
 #    we need to rebuild the target.
 # $^ is the list of preprequisites, i.e. $(CXX_NONPROG_OBJECTS)
 # 2. allegedly it's slow on large projects,
-# Clean everything except the programs.
-# Even if a file 'clean' exists, 'make clean' keeps working.
-	@$(<)
+	$(ECHO_ACTION)
+	$(QUIET) rm -f $(CXX_PRECOMPILED_HEADERS) $(CXX_OBJECTS) $(CONVLIB_FILE) $(SHAREDLIB_FILE)
+.PHONY: all clean mostlyclean test help check
+# Once created, don't delete unless by make clean.
 
 
-    $(METADATA_TXT): TEMPLATE = $(METADATA_TXT_TEMPLATE)
-	@cat $@
-	@echo "If it is the second, specify the initials of whoever rated the first attempt."
-	@cat $@
-	@echo "A '-' prefix means the file should be in the zip, but should not be shown."
-ifneq (,$(filter zip,$(MAKECMDGOALS)))
-            $(info contains the set, you can still create the zip.)
-            $(info 'make metadata.txt' or 'make ../metadata.txt' and edit the example.)
-            $(info but it is in a subdir.)
+	@echo
+	@echo "If this is your first submission, leave the rater blank."
+	@echo "$(@) made from template:"
+	@echo
+endif
+    ifeq (0,$(words $(METADATAS)))
+            $(info     make -C .. -f $(notdir $(CURDIR))/$(notdir $(CURRENT_MAKEFILE)) zip)
     else
-            $(info We have no idea how to handle this.)
+            $(info We need to be in the top-level directory of the exercise set to create the zip.)
+            $(info Proceeding anyway on the assumption we are in a set directory.)
     DIRECT_SUBDIRS = $(patsubst %/,%,$(filter-out generated_deps/,$(wildcard */)))
-    $(info $(DIRECT_SUBDIRS))
-
-
+    $(info However, exercise dirs should have numerical names, and not all of them do.)
+    zip: $(ZIPFILE)
+    # If something doesn't compile, we don't build the zip.
     FILES_MENTIONED_IN_ORDER_TXTS = $(foreach OTXT,$(ORDER_TXTS),$(foreach LINE,$(patsubst -%,%,$(filter-out -,$(shell cat $(OTXT)))),$(dir $(OTXT))$(LINE)))
+help:
 
 
+# Header template. We use a UUID to keep the header guard unique.
 
-# Not used. Using just extensions is shorter.
-#ifndef def_$(UUID)_$(HID)_$(CXX_HEADER_EXTENSION)
+$(include-headers-in-same-dir)
+$(include-internal-headers-in-same-dir)
+#include <stdexcept>
+int main(int argc, char *argv[])
+        return handle_exceptions(std::current_exception());
+    if (!excp)
+    catch (...)
 
-# Ordinary source template
-
-int handle_exceptions(std::exception_ptr excp);
-    {
-int handle_exceptions(std::exception_ptr excp)
-    }
-    }
-
+//%%class-name = "className"
 //%%lex-function-name = "funname"
-//%%startcondition-name = "startconditionName"
-
-%%scanner Scanner.h
 
 
-Set: Set 0
-endef
+// %%debug: adding debugging code to the parse() member
+// %%token-path: defining the path of the file containing the Tokens_ enumeration
 
-# Templatable goals can be made from a template, and are by definition nonexistent.
-    %.$(CXX_HEADER_EXTENSION): TEMPLATE = $(CXX_HEADER_TEMPLATE)
-ifeq ($(USE_GENERATED_DEPENDENCIES),true)
+
+Authors: John Smith, Jane Doe
+# because it would do so whenever it needs a file 'foo'. So we allow it to
+TEMPLATABLE_GOALS = $(foreach EXTENSION,$(TEMPLATABLE_EXTENSIONS),$(filter %.$(EXTENSION),$(MAKECMDGOALS)))
+    %.$(CXX_HEADER_EXTENSION): HID = $(basename $(notdir $@))
+
     # (With C++ Modules, we'll need to anyway.)
-    # When only e.g. cleaning, we don't need dependencies.
-    $(CXX_SOURCE_DEPS) $(CXX_PCH_DEPS): METHOD = Analyze    
-    #-MQ $@: Change target of rule.
 
-    $(FLEXCXX_DEPS): METHOD = $(FLEXCXX)    
+    undefine NEED_DEP_INCLUDES
+    #-MQ $@: Change target of rule.
+	$(QUIET) $(CXX) $(CPPFLAGS) $(CXXFLAGS) $<
+    # This overrides any internal %target-directory directives.
     # directory of the parser specification by default. No options needed.
     # .dep file for inclusion. The files they generate are side effects. The
-    # When cleaning, we should get rid of the deps again.
-    .PHONY: depclean
-# result it may want to make foo/../bar.ih.gch,
-# Evaluating the path straightening recipe for all available dirs.
-### End of Parallel Make measures. ###
-	$(ECHO_ACTION)
-endif
+    .SECONDARY: $(ALL_DEPS)
+    depclean:
+
+
+# Postpone double expansion to as late as possible.
+# make PCH=no
+	$(QUIET) $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+	cat /dev/null > $@  # Clear target
