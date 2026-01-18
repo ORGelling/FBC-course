@@ -1,5 +1,7 @@
 #include <iostream>
 #include <numeric>      // for inner_product
-#include <iterator>     // for begin() and end()
+#include <future>
+#include <thread>
 
 using namespace std;
+using Task = packaged_task<double(double const *, double const *, size_t)>;
