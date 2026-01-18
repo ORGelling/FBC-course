@@ -3,12 +3,11 @@
 
 namespace {
     
-    
     double innerProduct(double const *lhs, double const *rhs, size_t size)
     {
         return inner_product(lhs, lhs + size, rhs, 0.0);
     }                           // wrapper since inner_product is a template
-    
+                                // so the arguments are unspecified
     
     void showMatrix(double const (*matrix)[6], size_t const lhSize, 
                                                         size_t const rhSize)
@@ -23,8 +22,8 @@ namespace {
     
     
     void multiplyMatrices(
-        double const (*lhs)[5], 
-        double const (*rhs)[5],
+        double const (*lhs)[5],             // hard-coding the sizes cuz we
+        double const (*rhs)[5],             // don't need to scale this
         future<double> fut[][6]
     )
     {
@@ -32,9 +31,13 @@ namespace {
         {
             for (size_t idxJ = 0; idxJ != 6; ++idxJ)
             {
-                Task task{ innerProduct };
+                Task task{ innerProduct };      // prep packaged task with
+                                                // inner_product fn wrapper
                 fut[idxI][idxJ] = task.get_future();
+                                                // connect it to our 
+                                                // futures matrix
                 thread(move(task), &lhs[idxI][0], &rhs[idxJ][0], 5).detach();
+                                                // run and detatch thread
             }
         }
     }

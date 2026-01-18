@@ -1,5 +1,5 @@
 ex59info.txt
 
 main.ih
-qsort.cc
+mtqsort.cc
 main.cc

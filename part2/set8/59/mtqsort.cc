@@ -1,6 +1,6 @@
 #include "main.ih"
 
-void myqsort(int *beg, int *end)
+void mtqsort(int *beg, int *end)
 {
     if (end - beg <= 1)
         return;
@@ -15,9 +15,9 @@ void myqsort(int *beg, int *end)
 
     swap(*beg, *(mid - 1));
     
-    future<void> leftFuture = async(launch::async, myqsort, beg, mid);
+    future<void> leftFuture = async(launch::async, mtqsort, beg, mid);
     
-    myqsort(mid, end);                          // Use current thread for
+    mtqsort(mid, end);                          // Use current thread for
                                                 // next qsort execution
     leftFuture.get();
 }

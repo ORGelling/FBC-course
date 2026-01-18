@@ -18,7 +18,7 @@ int main()
     copy(intArr, intArr + arraySize, ostream_iterator<int>(cout, " "));
     cout << '\n';
     
-    myqsort(intArr, intArr + arraySize);
+    mtqsort(intArr, intArr + arraySize);
 
     copy(intArr, intArr + arraySize, ostream_iterator<int>(cout, " "));
     cout << '\n';

@@ -7,4 +7,4 @@
 
 using namespace std;
 
-void myqsort(int *beg, int *end);
+void mtqsort(int *beg, int *end);
