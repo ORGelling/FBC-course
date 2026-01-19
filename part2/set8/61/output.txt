@@ -1,0 +1,27 @@
+"hi.niam" edulcni#
+)vgra** rahc ,cgra tni(niam tni
+
+yrt
+)3 < cgra( fi    
+{    
+;"n\selif tuptuo dna tupni edivorp esaelP" << rrec        
+;1 nruter        
+}    
+{
+    
+;]1[vgra = eliFtupni tsnoc gnirts    
+;]2[vgra = eliFtuptuo tsnoc gnirts    
+    
+;nilffiMrednuD ecroFkroW    
+;)eliFtuptuo ,eliFtupni(nur.nilffiMrednuD    
+}
+)tpecxe& tsnoc noitpecxe( hctac
+{
+;'n\' << )(tahw.tpecxe << " :ecroFkroW" << rrec    
+;2 nruter    
+}
+)...( hctac
+{
+;"n\noitpecxe nwonknU :ecroFkroW" << rrec    
+;3 nruter    
+}
