@@ -1,1 +1,33 @@
-Exercise 60: 
+Exercise 60: Inspect an unfinished future from inside a repeat statement
+
+We consider the options to do this, and have found:
+
+1 - Manually working with promises and futures in pairs. This is what happens
+    behind the scenes and is usually wrapped inside async or packaged_task.
+    
+    This is actually decently tricky if we wish to keep the function's
+    signature the same, and don't want to add an extra wrapper around
+    threadFun (like the run function in the slides that connects the promise
+    to the encrypt function).
+    
+2 - Using a packaged task to run the thread and connect it to our future.
+    
+    This is useful and decently versatile, but also a tad overkill for our
+    single launched thread and our simple function.
+
+3 - Using async. Nice and lean, barely any work to do on our end.
+
+We choose to go for the simple and straightforward option and use async.
+
+Q - HowDescribe the required modifications if you run miltiple threads
+A - One would at least need multiple futures to store the return values of
+    said threads (one per thread of course). In this case using
+    packaged_tasks might be preferrable, but async should still work decently 
+    well. The clause that checks the future should check all of them, and only
+    break the while loop if all futures have been "made ready". Using an array
+    or vector of threads and one of futures could simplify this task greatly.
+    If a large enough amount of threads is spawned one might even need to
+    consider available computing resources. As all the threads are launched at
+    the same time, a thread pool would be used, one would then need queues for
+    tasks and finished work, and a scheduler to guide threads to take up new 
+    tasks when they are done processing their previous one.
