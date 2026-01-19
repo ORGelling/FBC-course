@@ -1,1 +1,17 @@
 ex61info.txt
+
+-output.txt
+-reverse.txt
+
+workforce/workforce.h
+workforce/workforce.ih
+workforce/workforce1.cc
+workforce/run1.cc
+workforce/run2.cc
+workforce/worker.cc
+workforce/admin.cc
+workforce/getwork.cc
+workforce/another.cc
+
+main.ih
+main.cc

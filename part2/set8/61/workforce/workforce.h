@@ -13,7 +13,7 @@ class WorkForce
     Semaphore s_adminReady;
     Semaphore s_paperworkToDo;
     
-    mutable std::mutex d_workMutex;
+    std::mutex d_workMutex;
     
     std::queue<std::string> d_workQ;
     std::queue<std::string> d_doneQ;
@@ -21,8 +21,8 @@ class WorkForce
     public:
         WorkForce();
         
-        void run(std::string const read, std::string const write);
-        void run(std::istream &in, std::ostream &out);
+        void run(std::string const read, std::string const write);  // 1.cc
+        void run(std::istream &in, std::ostream &out);              // 2.cc
         
     private:
         void worker();

@@ -1,1 +1,6 @@
-Exercise 61: 
+Exercise 61: Implement a program using semaphores
+
+We stick to the example from the lecture slides quite closely, and thus use 4
+semaphores and 2 mutici. We note that we could leave out at least one
+semaphore to uncap the workToDo amout, but this seems like a nice way to
+practice using these tools!
