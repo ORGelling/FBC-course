@@ -1,1 +1,8 @@
-Exercise 64: 
+Exercise 64: End threads and child processes 
+
+We inherit our Fork class from P2S4's exercise 31, and flesh out the parent
+and child functions to fit the exercise's requirements. We have added wait_for
+and set to 57, adding comments in the interface to signify they belong to this
+exercise. We note however, that we did not see a use for set in this exercise.
+We could use wait_for just fine, but (re)setting the semaphore's counter does
+not factor in to our program at all.
