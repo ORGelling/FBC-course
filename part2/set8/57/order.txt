@@ -6,3 +6,5 @@ semaphore/semaphore1.cc
 semaphore/notify.cc
 semaphore/notify_all.cc
 semaphore/wait.cc
+semaphore/wait_for.cc
+semaphore/set.cc

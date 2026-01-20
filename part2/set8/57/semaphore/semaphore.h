@@ -17,7 +17,11 @@ class Semaphore
         void notify_all();
         
         size_t size() const;            // doesn't lock the mutex
+        
         void wait();
+        
+        bool wait_for(size_t duration);         // for ex 64
+        void set(size_t nAvailable);            // for ex 64
 };
 
 inline size_t Semaphore::size() const
