@@ -1,0 +1,5 @@
+Exercise 52: Define threads with objects that aren't functors
+
+We make a shift function making use of the handy rotate algorithm, a small
+getInput function, and two main functions to demonstrate both ways of calling
+Handler with or from a thread. Output is as follows:

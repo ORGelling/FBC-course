@@ -1,0 +1,27 @@
+Exercise 51: Use chrono/clock facilities
+
+We do exactly that, using %c to format our output.
+
+Working in the feedback: We have refactored the code that shows the time to
+the user, keeping it nice and lean overall, choosing a form that is readable,
+and doesn't leave too much finnickery with converting between time_points,
+durations and time_t's. 
+
+The output from getOffset has been removed entirely, as it was unnecessary and
+unfitting for a function that parses input into a variable to also give output
+about the parsing of that input.
+
+We hope this is ok now! 
+
+We note that an input of the form
+
+[valid number](bunch of letters)[valid letter] is taken in stride, as stoi
+parses just the first set of connected numbers from our character string, and
+the switch that checks which unit is being used only reads the last character.
+We take this as is, as it does what it should and needs to and doesn't throw
+exceptions unnecessarily. This does mean strange inputs like
+
+15AHUALGJSKL21485725s
+
+will simply be parsed, in this case as if it were simply "15s". Do with this
+what you will.

@@ -1,0 +1,25 @@
+Exercise 54: Make the class Storage which has a thread that acts on a queue
+
+The ecercise makes clear we should not combine front and pop into a single
+function, as such, even though we would like to, we have to split popping and
+reading the front element of the queue into two individual locked instances.
+Multithreaded access as is expected in the next exercise can keep a second
+mutex (in the Client class maybe) that pairs front and pop in one atomic
+action to keep issues pop(ha)ping up as a result of the short window inbetween
+front and pop being called inside a thread. front and pop are now thread
+safe, but not atomic.
+
+Q1- Why is ending main not a good way to separate between the queue simply 
+    being empty and the reading thread being done?
+A - Ending main (exiting the program) without joining the thread causes
+    terminate to be called. This is bad as data is not cleaned up.
+
+We also change the signature to return a string by value, rather than by
+reference, as in the context of multithreading returning it by reference can
+easily lead to dangling references. From testing we note that the original
+signature (passing by reference) does not seem to cause issues for both this
+exercise and the next one (since make front and pop atomic anyways), but it
+still seems fitting to pass this string by value here just to be sure.
+
+Addendum: We are adding this class's interface and popfront member since they
+are needed (and newly amended/added) for 55!

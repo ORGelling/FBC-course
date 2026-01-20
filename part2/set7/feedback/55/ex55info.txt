@@ -1,0 +1,60 @@
+Exercise 55: Extend the previous program to use multiple clients
+
+Since we mimic the previous exercise we will abstain from using the more
+complex methods shown in the slides that use unique locks and condition
+//JB: Fair enough.
+
+variables, instead we will poll and use the Storage class, while using an
+extra mutex to keep front and pop atomically paired, such that no other thread
+can call front before the one that just did pops that line off the queue. This
+prevents lines from possibly being read doubly.
+//JB: I'd rather not introduce extra mutexes.
+
+Changing the signatures of some
+//JB: member functions of Storage should already be enough.
+//JB: You're already aware that the problem is with front()/pop() not being
+//JB: paired. If you replace them with a member function of Storage that does
+//JB: pair them, you should have a solution.
+
+We wrap our clients inside a class that has a thread data member - which will
+run the run() function (very creative, yes) - holds a stream that connects to
+the output file of that object/thread, the name of that file (for easy
+printing at the end), and a count. The class has a shared static mutex to
+//JB: Taking a class that is not suitable, in this case to multiple consumers,
+//JB: and making it safe by wrapping it is an approach often taken.
+//JB: It does lead to odd piles of rubble when taken too far.
+//JB: In this case, the wrapper has another responsibility besides making
+//JB: Storage safe: dealing with the stream.
+//JB: That's multiple responsibilities per class.
+
+enforce the atomic use of front and pop. It does not need to interact with the
+function that parses lines, as the Storage class already keeps the individual
+actions atomic, and adding an extra line to the back of the queue inbetween
+our thread calling front and pop does not cause any issues as far as we are
+aware.
+
+With a d_thread data member the main function ends up looking particularly
+clean. I will say, I'm kinda proud of this one! Hope it's actually correct
+too! 
+
+We have our program read Jurjen's Makefile and store its lines using 8
+threads, setting the wait interval to 10 milliseconds to reduce the time it
+takes our program to parse all the lines into output files.
+//JB: So it can handle Big Data ;-p
+
+$ tmp/bin/binary data1.txt data2.txt data3.txt data4.txt data5.txt data6.txt 
+data7.txt data8.txt < ../../../utilities/Makefiles/Makefile 
+File has 862 lines
+Written 108 lines to data1.txt
+Written 108 lines to data2.txt
+Written 108 lines to data3.txt
+Written 108 lines to data4.txt
+Written 107 lines to data5.txt
+Written 107 lines to data6.txt
+Written 107 lines to data7.txt
+Written 109 lines to data8.txt
+Total lines read: 862
+
+The distribution of access to the queue is surprisingly equal between all of
+the threads, the ones with the most and least lines parsed differing only by
+2. This is also quite consistent across different runs of the program.

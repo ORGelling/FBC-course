@@ -1,0 +1,51 @@
+Exercise 55: Extend the previous program to use multiple clients
+
+Since we mimic the previous exercise we will abstain from using the more
+complex methods shown in the slides that use unique locks and condition
+variables, instead we will poll and use the Storage class, while using an
+extra mutex to keep front and pop atomically paired, such that no other thread
+can call front before the one that just did pops that line off the queue. This
+prevents lines from possibly being read doubly.
+
+We wrap our clients inside a class that has a thread data member - which will
+run the run() function (very creative, yes) - holds a stream that connects to
+the output file of that object/thread, the name of that file (for easy
+printing at the end), and a count. The class has a shared static mutex to
+enforce the atomic use of front and pop. It does not need to interact with the
+function that parses lines, as the Storage class already keeps the individual
+actions atomic, and adding an extra line to the back of the queue inbetween
+our thread calling front and pop does not cause any issues as far as we are
+aware.
+
+With a d_thread data member the main function ends up looking particularly
+clean. I will say, I'm kinda proud of this one! Hope it's actually correct
+too! 
+
+We have our program read Jurjen's Makefile and store its lines using 8
+threads, setting the wait interval to 10 milliseconds to reduce the time it
+takes our program to parse all the lines into output files.
+
+$ tmp/bin/binary data1.txt data2.txt data3.txt data4.txt data5.txt data6.txt 
+data7.txt data8.txt < ../../../utilities/Makefiles/Makefile 
+File has 862 lines
+Written 108 lines to data1.txt
+Written 108 lines to data2.txt
+Written 108 lines to data3.txt
+Written 108 lines to data4.txt
+Written 107 lines to data5.txt
+Written 107 lines to data6.txt
+Written 107 lines to data7.txt
+Written 109 lines to data8.txt
+Total lines read: 862
+
+The distribution of access to the queue is surprisingly equal between all of
+the threads, the ones with the most and least lines parsed differing only by
+2. This is also quite consistent across different runs of the program.
+
+Addendum:
+
+Since the only comment on the exercise seemed to be the fact that our Storage
+queue is the one that should be responsible for atomically pairing front() and
+pop(), we assume that having added popFront() to 54 (and sending it along),
+and of course working its functionality into this exercise, should be enough
+to complete it properly!
