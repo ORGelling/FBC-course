@@ -1,0 +1,5 @@
+#include "multicompile.h"
+
+
+using namespace std;
+
