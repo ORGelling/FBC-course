@@ -41,3 +41,11 @@ Total lines read: 862
 The distribution of access to the queue is surprisingly equal between all of
 the threads, the ones with the most and least lines parsed differing only by
 2. This is also quite consistent across different runs of the program.
+
+Addendum:
+
+Since the only comment on the exercise seemed to be the fact that our Storage
+queue is the one that should be responsible for atomically pairing front() and
+pop(), we assume that having added popFront() to 54 (and sending it along),
+and of course working its functionality into this exercise, should be enough
+to complete it properly!

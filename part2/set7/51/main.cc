@@ -5,7 +5,7 @@ namespace {
     system_clock::duration getOffset(char const *offsetRaw)
     {
         int const offsetValue = stoi(offsetRaw);    // is rather forgiving
-        system_clock::duration offset{};
+        system_clock::duration offset{};            // see info for comments
         
         switch(offsetRaw[strlen(offsetRaw) - 1])
         {
@@ -29,6 +29,9 @@ namespace {
     void showTime(time_point<system_clock> const timePoint)
     {
         time_t const time = system_clock::to_time_t(timePoint);
+                                        // we convert here so we don't need 
+                                        // multiple conversions inside main,
+                                        // keeps things clean and readable
         
         cout <<   "Local:   " << put_time(localtime(&time), "%c")
             << "\nGMT:     " << put_time(gmtime(&time), "%c")
@@ -41,18 +44,21 @@ int main(int argc, char **argv)
 try
 {
     if (argc != 2)
+    {
+        cerr << "Not enough arguments\n";       // could also throw here
         return 1;
+    }
     
-    time_point now = system_clock::now();
-    system_clock::duration offset = getOffset(argv[1]);
+    time_point const now = system_clock::now();
+    system_clock::duration const offset = getOffset(argv[1]);
     
-    cout << "Current:\n";
-    showTime(now);
-    cout << "Offset:\n";
+    cout << "Current:\n";               // I hope this is better!
+    showTime(now);                      // nicely refactored,
+    cout << "Offset:\n";                // responsibilities separated
     showTime(now + offset);
 }
 catch (...)
 {
-    cerr << "Could not parse input\n";
+    cerr << "Error parsing input\n";
     throw;
 }

@@ -18,7 +18,7 @@ optional<string> Storage::popFront()
 }
 
 /*
-bool Storage::popFront(string &front)
+bool Storage::popFront(string &front)       // the version without optional
 {
     lock_guard<mutex> _{ d_qMutex };
     
@@ -35,9 +35,5 @@ bool Storage::popFront(string &front)
 //  For the sake of exercise 55 we need this action to also be atomic with
 //  empty(), lest there be a gap between empty and popfront when processing
 //  lines in processLine(). As such we have paired them all together.
-//  
-//  It seems optional values are an option (ha) here, but I do not think those
-//  are part of the materials yet. They can be found in chapter 18.11, but I
-//  think the GA and Container topics skipped that one.
 
 */

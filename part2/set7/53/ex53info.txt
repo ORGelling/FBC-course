@@ -17,7 +17,7 @@ Line 2 from thread 1
 
 Now, instead of adding a mutex, we re-read the annotations chapter 20.15 and
 realise there is a perfect option right here for us already: syncstream! We
-declare an osyncstream inside the act function that will be written to, that
+declare an osyncstream inside the act function that will be written to, which
 regulates the output for us.
 
 Keeping the mangled part of the direct cout like the exercise shows, and
@@ -65,7 +65,8 @@ Line 1 from thread 0
 Line 2 from thread 0
 Line 3 from thread 0
 
-Which, if we remove the direct cout line will give us (different run):
+Which, if we remove the direct cout line from the program will give us (from
+a different run):
 
 $ tmp/bin/binary 
 Line 0 from thread 3

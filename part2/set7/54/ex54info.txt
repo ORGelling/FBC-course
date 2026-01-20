@@ -20,3 +20,6 @@ easily lead to dangling references. From testing we note that the original
 signature (passing by reference) does not seem to cause issues for both this
 exercise and the next one (since make front and pop atomic anyways), but it
 still seems fitting to pass this string by value here just to be sure.
+
+Addendum: We are adding this class's interface and popfront member since they
+are needed (and newly amended/added) for 55!

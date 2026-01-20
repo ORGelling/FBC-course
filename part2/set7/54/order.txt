@@ -3,14 +3,15 @@ ex54info.txt
 -data.txt
 
 storage/storage.h
-storage/storage.ih
-storage/storage1.cc
-storage/push.cc
-storage/front.cc
-storage/pop.cc
-storage/empty.cc
-storage/setfinished.cc
-storage/done.cc
+-storage/storage.ih
+-storage/storage1.cc
+-storage/push.cc
+-storage/front.cc
+-storage/pop.cc
+storage/popfront.cc
+-storage/empty.cc
+-storage/setfinished.cc
+-storage/done.cc
 
-main.ih
-main.cc
+-main.ih
+-main.cc
