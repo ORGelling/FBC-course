@@ -5,22 +5,20 @@
 #include "../compilequeue/compilequeue.h"
 #include "../resultsqueue/resultsqueue.h"
 #include <vector>
+#include <thread>
 #include <atomic>
 
 class MultiCompile
 {
-    Options d_options;
-    
-    size_t d_nWorkers;
     std::atomic<bool> d_done;
     
-    std::vector<thread> v_threads;
+    std::vector<std::thread> v_threads;
     
     CompileQueue q_tasks;
     ResultsQueue q_results;
     
     Semaphore s_workers;
-    Semaphore s_dispatcher:
+    Semaphore s_dispatcher;
     
     public:
         MultiCompile();
@@ -34,7 +32,7 @@ class MultiCompile
         void results();
     
     // the helpers
-        Result compile(string const &line);
+        Result compile(std::string const &line);
         void newTask(std::string const &line);
         Result newResult();                     // checks empty + popfront
         void pushResult(std::shared_future<Result> const &sharedResult);

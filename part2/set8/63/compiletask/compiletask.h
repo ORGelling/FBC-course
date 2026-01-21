@@ -3,12 +3,11 @@
 #include "../result/result.h"
 #include <future>
 
-using PackagedTask = std::packaged_task<
-            Result (std::string const &fname, std::string const &tmpdir)>;
+using PackagedTask = std::packaged_task<Result (std::string const &cmnds)>;
 
 struct CompileTask              // keeping it simple, we don't need perfect 
 {                               // encapsulation for this I think
-    std::string d_command;
+    std::string d_commands;
     PackagedTask d_task;
     
     CompileTask(std::string const &cmnds, PackagedTask &&tmp);
@@ -20,7 +19,7 @@ struct CompileTask              // keeping it simple, we don't need perfect
 
 inline void CompileTask::operator()()
 {
-    d_task(d_command);
+    d_task(d_commands);
 }
         
 inline std::shared_future<Result> CompileTask::result()

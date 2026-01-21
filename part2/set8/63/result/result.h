@@ -5,8 +5,8 @@
 struct Result
 {
     bool success;
-    string sourceFile;
-    string errFile;
+    std::string sourceFile;
+    std::string errFile;
 };
         
 #endif

@@ -8,7 +8,7 @@
 class ResultsQueue
 {
     std::queue<Result> d_queue;
-    mutabl std::mutex  d_mutex;
+    mutable std::mutex  d_mutex;
     
     public:
         void push(Result result);       // passing by value and moving 
