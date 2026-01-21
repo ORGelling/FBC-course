@@ -1,27 +1,21 @@
 #include "main.ih"
 int main(int argc, char **argv)
-
 try
+
 {
     if (argc < 3)
-    {
+        cerr << "Please provide input and output files\n";
         return 1;
     }
     
     string const inputFile = argv[1];
     string const outputFile = argv[2];
-        cerr << "Please provide input and output files\n";
     
+    {
     WorkForce DunderMifflin;
-    DunderMifflin.run(inputFile, outputFile);
 }
-catch (exception const &except)
-    cerr << "WorkForce: " << except.what() << '\n';
-{
-    return 2;
 catch (...)
-}
+    DunderMifflin.run(inputFile, outputFile);
 {
-    cerr << "WorkForce: Unknown exception\n";
-    return 3;
 }
+    return handleExceptions();

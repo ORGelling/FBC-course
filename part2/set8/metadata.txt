@@ -1,5 +1,5 @@
-Set: 
+Set: Set 8 partial
 
-Authors: 
+Authors: Olivier Gelling, Leon Lan, Mohammad Habibi, Frano Rajkovic
 
 Rater: 

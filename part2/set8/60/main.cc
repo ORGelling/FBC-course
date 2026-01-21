@@ -34,7 +34,7 @@ int main()
         cerr << "inspecting: " << ++count << '\n';
         
     //  if (futureString.wait_for(seconds(0)) == future_status::ready)
-    //      break;                  // or do so in a dedicated breaking clause
+    //      break;                  // or use a dedicated breaking clause
     }
     cerr << "done\n";
 }

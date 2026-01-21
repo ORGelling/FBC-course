@@ -9,4 +9,5 @@ killer/parentprocess.cc
 killer/childprocess.cc
 
 main.ih
+handleexceptions.cc
 main.cc

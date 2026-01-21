@@ -4,18 +4,19 @@
 
 bool Semaphore::wait_for(size_t duration)
 {
-    unique_lock<mutex> lk(d_mutex);     // acquire lock
+    unique_lock<mutex> lk(d_mutex);
     
     time_point<steady_clock> const deadline = 
                                     steady_clock::now() + seconds(duration);
                                             // this deadline and wait_until 
                                             // should keep spurious wakeups 
-                                            // from resetting the timer
+                                            // from resetting the timer, but
+                                            // it might be a bit TC
     while (d_nAvailable == 0)
     {
         if (d_condition.wait_until(lk, deadline) == cv_status::timeout)
             return false;               // false when timeout before done
     }
     --d_nAvailable;
-    return true;                        // true if timeout interrupted
+    return true;                        // true if done before timeout
 }

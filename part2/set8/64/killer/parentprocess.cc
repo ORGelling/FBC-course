@@ -4,11 +4,11 @@
 
 void Killer::parentProcess()
 {
-    jthread sentry{
+    jthread sentry{                     // we run a watcher thread that
         [this]()
         {
             waitForChild();
-            d_semaphore.notify();       // its count starts at 0
+            d_semaphore.notify();       // notifies end of child process
         }
     };
     
@@ -17,11 +17,11 @@ void Killer::parentProcess()
         if (not d_semaphore.wait_for(d_duration))
         {
             kill(pid(), SIGKILL);
-            waitForChild();     // can probably remove
+            waitForChild();                         // can possibly remove
             cout << "Program ended at timeout\n";
             return;
-        }
-    }
+        }                               // could refactor? But seems ok
+    }                                   
     else
         d_semaphore.wait();
     

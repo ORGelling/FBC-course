@@ -17,7 +17,7 @@ We note that calling
 caused us a lot of issues, as the compiler could not properly deduce the
 signature of our qsort function, and it seemed to still be shadowed by
 something included from another library. After much ado, and finding multiple
-different solutions, we decided to simply rename our qsort to myqsort, solving
+different solutions, we decided to simply rename our qsort to mtqsort, solving
 the issue. 
 
 The other solutions were using:

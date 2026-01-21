@@ -4,3 +4,4 @@
 #include <stdexcept>
 
 using namespace std;
+int handleExceptions();

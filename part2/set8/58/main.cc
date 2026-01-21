@@ -6,8 +6,9 @@ namespace {
     double innerProduct(double const *lhs, double const *rhs, size_t size)
     {
         return inner_product(lhs, lhs + size, rhs, 0.0);
-    }                           // wrapper since inner_product is a template
-                                // so the arguments are unspecified
+    }                                       // wrapper since inner_product 
+                                            // is a template so the arguments 
+                                            // are unspecified
     
     void showMatrix(double const (*matrix)[6], size_t const lhSize, 
                                                         size_t const rhSize)
@@ -17,7 +18,7 @@ namespace {
             for (size_t idxJ = 0; idxJ != rhSize; ++idxJ)
                 cout << matrix[idxI][idxJ] << ' ';
             cout << '\n';           
-        }                                   // simple output refactor
+        }                                       // simple output refactor
     }
     
     
@@ -26,9 +27,9 @@ namespace {
         double const (*rhs)[5],             // don't need to scale this
         future<double> fut[][6]
     )
-    {
-        for (size_t idxI = 0; idxI != 4; ++idxI)
-        {
+    {                                               // double for seems clear
+        for (size_t idxI = 0; idxI != 4; ++idxI)    // and fitting for 2x2
+        {                                           // matrix multiplications
             for (size_t idxJ = 0; idxJ != 6; ++idxJ)
             {
                 Task task{ innerProduct };      // prep packaged task with

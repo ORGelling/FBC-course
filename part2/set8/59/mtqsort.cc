@@ -1,10 +1,10 @@
 #include "main.ih"
 
-void mtqsort(int *beg, int *end)
-{
-    if (end - beg <= 1)
-        return;
-
+void mtqsort(int *beg, int *end)            // we used a different name since
+{                                           // since "qsort" caused issues  
+    if (end - beg <= 1)                     // with template arguments and 
+        return;                             // return values for async
+                                            // see info file for more
     int lhs = *beg;
     int *mid = partition(beg + 1, end, 
         [&](int arg)

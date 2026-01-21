@@ -11,10 +11,5 @@ try
 }
 catch (string const &errStr)                
 {                                           
-    cerr << "Killer: " << errStr << '\n';   
-}                                           
-catch (...)                                 
-{                                           // shouuuuld refactor this into
-    cerr << "Caught unknown exception\n";   // a handleexceptions() but 
-    throw;                                  // honestly I am tired and this
-}                                           // set is a lot of work already
+    return handleExceptions();
+}

@@ -15,13 +15,7 @@ try
     WorkForce DunderMifflin;
     DunderMifflin.run(inputFile, outputFile);
 }
-catch (exception const &except)
-{
-    cerr << "WorkForce: " << except.what() << '\n';
-    return 2;
-}
 catch (...)
 {
-    cerr << "WorkForce: Unknown exception\n";
-    return 3;
+    return handleExceptions();
 }
