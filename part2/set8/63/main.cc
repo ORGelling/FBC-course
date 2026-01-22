@@ -5,6 +5,9 @@ try
 {
     Options::initialise(argc, argv);
     MultiCompile mc;
+    
+    cout << Options::instance().mode() << " \"" 
+        << Options::instance().source() << "\"\n";
     //mc.run();
 }
 catch (...)

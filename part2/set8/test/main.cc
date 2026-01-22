@@ -2,23 +2,26 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <filesystem>
 
 using namespace std;
 using namespace chrono;
+namespace fs = filesystem;
 
 int main(int argc, char **argv)
 try
 {
-    if (argc == 1)
-        throw 1;
-
-    for (size_t count = 0, end = stoul(argv[1]); count != end; )
+    for (auto entry : fs::directory_iterator("."))
     {
-        cout << "line " << ++count << " from " << argv[0] << endl;
-        this_thread::sleep_for(seconds(2));
+        if (entry.is_regular_file())
+        {
+            auto ext = entry.path().extension();
+            if (ext == ".cpp" or ext == ".cc" or ext == ".cxx")
+                cout << entry << '\n';
+        }
     }
 }
 catch (...)
 {
-    cout << argv[0] << " needs a non-negative integral first argument\n";
+    //cout << argv[0] << " needs a non-negative integral first argument\n";
 }
