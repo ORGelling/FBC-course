@@ -4,6 +4,7 @@
 
 enum SourceMode
 {
+    CIN,
     ARGS,
     SOURCEFILE,
     DIRECTORY,
@@ -32,11 +33,12 @@ class Options
         
         SourceMode mode() const;
         std::string const &source() const;
+        std::string const &output() const;
         std::string const &tmp() const;
         size_t nThreads() const;
         
         size_t nArgs() const;
-        char const *arg(size_t idx) const;
+        char const *operstor()(size_t idx) const;
         
     private:
         Options(int argc, char **argv);         // private ctor
@@ -57,9 +59,19 @@ inline std::string const &Options::source() const
     return d_source;
 }
 
+inline std::string const &Options::output() const
+{
+    return d_output;
+}
+
 inline std::string const &Options::tmp() const
 {
     return d_tmp;
+}
+
+inline std::string const &Options::cflags() const
+{
+    return d_cflags;
 }
 
 inline size_t Options::nThreads() const
@@ -72,7 +84,7 @@ inline size_t Options::nArgs() const
     return d_arg.nArgs();
 }
 
-inline char const *Options::arg(size_t idx) const
+inline char const *Options::operator()(size_t idx) const
 {
     return d_arg.arg(idx);              // no idx op since from part 1
 }                                       // will add another time!

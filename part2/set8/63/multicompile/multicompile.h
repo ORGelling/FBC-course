@@ -4,6 +4,7 @@
 #include "../../57/semaphore/semaphore.h"
 #include "../compilequeue/compilequeue.h"
 #include "../resultsqueue/resultsqueue.h"
+#include "../fileparser/fileparser.h"
 #include <vector>
 #include <thread>
 #include <atomic>
@@ -17,8 +18,10 @@ class MultiCompile
     CompileQueue q_tasks;
     ResultsQueue q_results;
     
-    Semaphore s_workers;
+    Semaphore s_workToDo;
     Semaphore s_dispatcher;
+    
+    bool d_madeTmp;
     
     public:
         MultiCompile();
@@ -27,6 +30,7 @@ class MultiCompile
         
     private:
     // main processes
+        void prep();
         void workforce();
         void jobs();
         void results();

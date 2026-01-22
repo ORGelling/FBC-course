@@ -1,6 +1,6 @@
-#include "multicompile.h"
-#include "../options/options.h"
+#include "fileparser.h"
 #include <filesystem>
+//#include <iostream>
 
 using namespace std;
 namespace fs = filesystem;

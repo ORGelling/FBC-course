@@ -25,9 +25,10 @@ namespace {
 Options::Options(int argc, char **argv)
 :
     d_arg(Arg::initialise(optString, longOptions, longEnd, argc, argv)),
-    d_mode(SourceMode::ARGS),
+    d_mode(SourceMode::CIN),
     d_source("."),
     d_tmp("tmp/"),
+    d_cflags("-std=c++26"),
     d_nThreads(1)
 {
     setOptions();

@@ -27,5 +27,12 @@ void Options::setSource()
         d_mode = SourceMode::DIRECTORYR;
         d_source = ".";
     }
-    // else cl args as file names, to be parsed in jobs().
-}
+    else
+        d_mode = SourceMode::ARGS;      // If no source flag present we 
+}                                       // read from cin, if none present 
+                                        
+                                // can make -d's argument optional and set
+                                // it to "." if none provided? Optional args 
+                                // don't parse tht well though, as their arg 
+                                // only gets noticed if it is directly 
+                                // attached to the flag like -d[dirname]

@@ -5,8 +5,8 @@
 
 using PackagedTask = std::packaged_task<Result (std::string const &cmnds)>;
 
-struct CompileTask              // keeping it simple, we don't need perfect 
-{                               // encapsulation for this I think
+class CompileTask               
+{                               
     std::string d_commands;
     PackagedTask d_task;
     
