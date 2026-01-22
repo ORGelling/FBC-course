@@ -11,7 +11,7 @@ namespace fs = filesystem;
 int main(int argc, char **argv)
 try
 {
-    for (auto entry : fs::directory_iterator("."))
+    for (auto entry : fs::recursive_directory_iterator("."))
     {
         if (entry.is_regular_file())
         {
