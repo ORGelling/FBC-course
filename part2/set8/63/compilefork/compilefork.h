@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-class CompileFork: public Fork
+class CompileFork: public Fork      // inheriting Fork from p2s4e31
 {
     std::string d_command;
     std::string d_errFile;

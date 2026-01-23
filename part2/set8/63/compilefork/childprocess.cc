@@ -14,6 +14,13 @@ namespace {
         close(fd);
     }
     
+    void createArgv(vector<string> &argsVec, vector<char *> &argvVec)
+    {
+        for (string &str : argsVec)
+            argvVec.push_back(const_cast<char *>(str.c_str()));
+        argvVec.push_back(0);
+    }
+    
 }
 
 void CompileFork::childProcess()
@@ -21,9 +28,7 @@ void CompileFork::childProcess()
     vector<string> args = split();              // not very pretty, but we
     vector<char *> argv;                        // try to avoid leaks while 
                                                 // creating a char * array
-    for (string &str : args)
-        argv.push_back(const_cast<char *>(str.c_str()));
-    argv.push_back(0);
+    createArgv(args, argv);
     
     redirect(d_errFile);                    // pipe error message to tmp file
     
