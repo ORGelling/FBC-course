@@ -11,7 +11,7 @@ class Semaphore
     std::condition_variable d_condition;
     
     public:
-        Semaphore(size_t nAvailable);
+        Semaphore(size_t nAvailable = 0);       // default at 0
         
         void notify();
         void notify_all();

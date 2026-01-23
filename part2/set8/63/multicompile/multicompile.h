@@ -4,7 +4,6 @@
 #include "../../57/semaphore/semaphore.h"
 #include "../compilequeue/compilequeue.h"
 #include "../resultsqueue/resultsqueue.h"
-#include "../fileparser/fileparser.h"
 #include <vector>
 #include <thread>
 #include <atomic>
@@ -33,15 +32,15 @@ class MultiCompile
         void prep();
         void workforce();
         void jobs();
-        void results();
+        void results();                                 // !!!
+        void cleanup() const;
     
     // the helpers
-        Result compile(std::string const &line);
-        void newTask(std::string const &line);
-        Result newResult();                     // checks empty + popfront
-        void pushResult(std::shared_future<Result> const &sharedResult);
+        Result compile(std::string const &line);        // !!!
+        void newTask(std::string const &line);          // !!!
+        Result newResult();                   // !!! checks empty + popfront
+        void pushResult(std::shared_future<Result> const &sharedResult); // !
         void worker();
-        std::string nextCommand();
 };
         
 #endif

@@ -2,6 +2,7 @@
 
     // by 
 
-void FileParser::()
+void FileParser::cin()
 {
+    cin(std::cin);
 }

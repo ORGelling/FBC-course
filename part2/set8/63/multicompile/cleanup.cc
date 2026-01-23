@@ -2,12 +2,13 @@
 
     // by 
 
-void MultiCompile::cleanup()
+void MultiCompile::cleanup() const
 {
     // remove errors.log
     string tmpDir = Options::instance().tmp();
     fs::path errorFile = fs::path(tmpDir) / "errors.log";
-    
+                                                    // THIS IS NOT CORRECT.
+                                                    // Should put it in dtor
     error_code ec;
     fs::remove(errorFile, ec);
     

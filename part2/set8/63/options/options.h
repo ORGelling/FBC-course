@@ -19,7 +19,7 @@ class Options
     std::string d_source;
     std::string d_output;
     std::string d_tmp;
-    std::string d_cflags;
+    //std::string d_cflags;
     size_t d_nThreads;
     
     static Options *s_instance;
@@ -35,10 +35,11 @@ class Options
         std::string const &source() const;
         std::string const &output() const;
         std::string const &tmp() const;
+        //std::string const &cflags() const;
         size_t nThreads() const;
         
         size_t nArgs() const;
-        char const *operstor()(size_t idx) const;
+        char const *operator()(size_t idx) const;
         
     private:
         Options(int argc, char **argv);         // private ctor
@@ -69,10 +70,10 @@ inline std::string const &Options::tmp() const
     return d_tmp;
 }
 
-inline std::string const &Options::cflags() const
-{
-    return d_cflags;
-}
+//inline std::string const &Options::cflags() const
+//{
+//    return d_cflags;
+//}
 
 inline size_t Options::nThreads() const
 {

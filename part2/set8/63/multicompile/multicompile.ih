@@ -1,6 +1,9 @@
 #include "multicompile.h"
 #include "../options/options.h"
+#include "../fileparser/fileparser.h"
+#include "../compilefork/compilefork.h"
 #include <filesystem>
+#include <sstream>
 
 using namespace std;
 namespace fs = filesystem;

@@ -2,7 +2,7 @@
 
     // by 
 
-void MultiCompile::()
+void MultiCompile::worker()
 {
     CompileTask task;
     // notify awake?
@@ -13,7 +13,7 @@ void MultiCompile::()
         if (q_tasks.empty())
              break;
         
-        task = q_tasks.popFront();
+        task = q_tasks.popFront().value();
         s_dispatcher.notify_all();                  // tells dispatch that
                                                     // work can be pushed
         task();

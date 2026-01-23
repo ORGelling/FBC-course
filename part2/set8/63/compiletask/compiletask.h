@@ -10,11 +10,13 @@ class CompileTask
     std::string d_commands;
     PackagedTask d_task;
     
-    CompileTask(std::string const &cmnds, PackagedTask &&tmp);
+    public:
+        CompileTask() = default;
+        CompileTask(std::string const &cmnds, PackagedTask &&tmp);
     
-    void operator()();
+        void operator()();
     
-    std::shared_future<Result> result();
+        std::shared_future<Result> result();
 };
 
 inline void CompileTask::operator()()

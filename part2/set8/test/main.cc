@@ -11,7 +11,7 @@ namespace fs = filesystem;
 int main(int argc, char **argv)
 try
 {
-    for (auto entry : fs::recursive_directory_iterator("."))
+    for (auto entry : fs::recursive_directory_iterator(argv[1]))
     {
         if (entry.is_regular_file())
         {
@@ -23,5 +23,5 @@ try
 }
 catch (...)
 {
-    //cout << argv[0] << " needs a non-negative integral first argument\n";
+    cout << "Don't fuck up the input args lmao\n";
 }

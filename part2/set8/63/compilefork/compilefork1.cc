@@ -2,7 +2,7 @@
 
     // by 
 
-CompileFork::CompileFork()
-//:
-{
-}
+CompileFork::CompileFork(string const &command)
+:
+    d_command(command)
+{}

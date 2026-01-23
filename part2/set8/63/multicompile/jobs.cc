@@ -4,10 +4,12 @@
 
 void MultiCompile::jobs()
 {
+    FileParser lines;
+    
     while (true)
     {
-        string line = nextCommand(Options::instance().mode());
-        if (line.empty())
+        string name;
+        if (not lines.nextFile(name))
         {
             d_done = true;
             break;
@@ -18,7 +20,9 @@ void MultiCompile::jobs()
         if (d_done.load())
             break;
         
-        newTask(line)
-    }
+        newTask(name);
         
+        s_workToDo.notify_all();
+    }
+    s_workToDo.notify_all();
 }

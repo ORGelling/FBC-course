@@ -1,5 +1,6 @@
 #include "options/options.h"
 #include "multicompile/multicompile.h"
+#include "fileparser/fileparser.h"
 #include <iostream>
 #include <fstream>
 #include <stdexcept>

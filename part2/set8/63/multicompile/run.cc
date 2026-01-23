@@ -14,7 +14,7 @@ void MultiCompile::run()
     jobs();
     
     for (thread &thr : v_threads)
-        thr.join;
+        thr.join();
     
     results();
     

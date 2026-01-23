@@ -1,7 +1,10 @@
 ../57/semaphore
+../../set4/31/fork
 options
 compiletask
 result
 compilequeue
 resultsqueue
+fileparser
+compilefork
 multicompile

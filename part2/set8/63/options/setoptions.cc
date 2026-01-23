@@ -12,5 +12,5 @@ void Options::setOptions()
     
     setOption(d_tmp, 't');
     
-    setOption(d_cflags, 'c');
+    //setOption(d_cflags, 'c');
 }

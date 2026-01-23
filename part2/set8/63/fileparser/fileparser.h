@@ -10,19 +10,20 @@ class FileParser
 {
     std::queue<std::string> d_files;
     
-    static void (FileParser::*s_parseFiles[])(std::string &str);
+    static void (FileParser::*s_parseFiles[])();
     
     public:
         FileParser();
-        bool nextCommand(std::string &str);
+        bool nextFile(std::string &str);
         
     private:
+        void cin();
         void cin(std::istream &in = std::cin);
         void args();
         void source();
         void directory();
         void directoryr();
-        bool isSource(std::filesystem::directory_entry const &entry);
+        bool isSource(std::filesystem::directory_entry const &entry) const;
 };
         
 #endif
