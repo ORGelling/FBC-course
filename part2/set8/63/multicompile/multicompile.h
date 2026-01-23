@@ -12,13 +12,13 @@ class MultiCompile
 {
     std::atomic<bool> d_done;
     
-    std::vector<std::thread> v_threads;
+    std::vector<std::thread> v_threads;     // v for vector
     
-    CompileQueue q_tasks;
+    CompileQueue q_tasks;                   // q for queue
     ResultsQueue q_results;
     
-    Semaphore s_workToDo;
-    Semaphore s_dispatcher;
+    Semaphore s_workToDo;                   // s for semaphore
+    Semaphore s_dispatcher;                 // helps me keep track a bit
     
     bool d_madeTmp;                         // keep track of whether tmp dir
                                             // to be removed at program end

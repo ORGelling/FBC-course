@@ -14,7 +14,6 @@ class CompileFork: public Fork      // inheriting Fork from p2s4e31
         CompileFork(std::string const &command, std::string const &errFile);
         
         int childExit() const;
-        std::string const &errorFile() const;
         
     private:
         void childProcess() override;
