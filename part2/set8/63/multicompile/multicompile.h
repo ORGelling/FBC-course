@@ -37,9 +37,9 @@ class MultiCompile
     
     // the helpers
         Result compile(std::string const &line);        // !!!
+        static std::string getCommands(std::string const &filename);
         void newTask(std::string const &line);          // !!!
-        Result newResult();                   // !!! checks empty + popfront
-        void pushResult(std::shared_future<Result> const &sharedResult); // !
+        bool newResult(Result &result);     // !!! checks empty + popfront
         void worker();
 };
         

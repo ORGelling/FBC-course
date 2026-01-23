@@ -7,7 +7,7 @@ try
 }
 catch (exception const &exc)
 {
-    cerr << "MultiCompile: " << exc.what();
+    cerr << "MultiCompile: " << exc.what() << '\n';
     return 1;
 }
 catch (...)

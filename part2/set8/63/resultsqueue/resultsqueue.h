@@ -3,17 +3,18 @@
 #include "../result/result.h"
 #include <queue>
 #include <mutex>
+#include <future>
 #include <optional>
 
 class ResultsQueue
 {
-    std::queue<Result> d_queue;
-    mutable std::mutex  d_mutex;
+    std::queue<std::shared_future<Result>> d_queue;
+    mutable std::mutex d_mutex;
     
     public:
-        void push(Result result);       // passing by value and moving 
+        void push(std::shared_future<Result> result);
         
-        std::optional<Result> popFront();
+        std::optional<std::shared_future<Result>> popFront();
         
         bool empty() const;
 };

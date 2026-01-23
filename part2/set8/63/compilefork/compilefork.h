@@ -7,10 +7,11 @@
 class CompileFork: public Fork
 {
     std::string d_command;
+    std::string d_errFile;
     int d_childExit = -1;
     
     public:
-        CompileFork(std::string const &command);
+        CompileFork(std::string const &command, std::string const &errFile);
         
         int childExit() const;
         std::string const &errorFile() const;

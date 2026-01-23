@@ -29,7 +29,7 @@ Options::Options(int argc, char **argv)
     d_source("."),
     d_tmp("tmp/"),
     //d_cflags("-Wall -Werror -std=c++26"),
-    d_nThreads(1)
+    d_nThreads(thread::hardware_concurrency())
 {
     setOptions();
 }

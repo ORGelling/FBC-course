@@ -2,8 +2,11 @@
 
     // by 
 
-Result MultiCompile::newResult()
+bool MultiCompile::newResult(Result &result)
 {
-    Result tmp;
-    return tmp;
+    if (q_results.empty())
+        return false;
+    
+    result = q_results.popFront().value().get();
+    return true;
 }

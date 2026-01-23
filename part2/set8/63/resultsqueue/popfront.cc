@@ -2,11 +2,11 @@
 
     // by 
 
-optional<Result> ResultsQueue::popFront()
+optional<shared_future<Result>> ResultsQueue::popFront()
 {
     lock_guard<mutex> _{ d_mutex };
     
-    optional<Result> opt;
+    optional<shared_future<Result>> opt;
     
     if (not d_queue.empty())
     {

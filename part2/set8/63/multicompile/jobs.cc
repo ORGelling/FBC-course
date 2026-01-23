@@ -5,7 +5,6 @@
 void MultiCompile::jobs()
 {
     FileParser lines;
-    
     while (true)
     {
         string name;

@@ -5,7 +5,6 @@
 void MultiCompile::worker()
 {
     CompileTask task;
-    // notify awake?
     while (true)
     {
         s_workToDo.wait();                          // wait for work
