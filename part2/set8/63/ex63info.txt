@@ -1,1 +1,6 @@
-Exercise 63: 
+Exercise 63: Implement the multithreaded compile program
+
+We do this, hopefully up to taste! It's a big exercise, and keeping track of
+all the includes is a hassle, so we may have left some extraneous includes in
+headers that should have been moved to internal headers. Let us know if that
+is an issue, but we hope that this exercise is close to being complete as is!
