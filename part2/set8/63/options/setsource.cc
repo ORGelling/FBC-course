@@ -9,7 +9,10 @@ void Options::setSource()
     bool recOpt = d_arg.option('r');
     
     if (fileOpt and (dirOpt or recOpt))
-        throw runtime_error{ "Conflicting source types specified\n" };
+    {
+        usage();
+        throw runtime_error{ "Conflicting source types specified" };
+    }
     
     string opt;
     if (fileOpt and d_arg.option(&opt, 'f'))
@@ -33,6 +36,6 @@ void Options::setSource()
                                         
                                 // can make -d's argument optional and set
                                 // it to "." if none provided? Optional args 
-                                // don't parse tht well though, as their arg 
+                                // don't parse that well though, as their arg 
                                 // only gets noticed if it is directly 
                                 // attached to the flag like -d[dirname]

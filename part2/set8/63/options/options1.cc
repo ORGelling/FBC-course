@@ -6,14 +6,14 @@ namespace {
     
     Arg::LongOption longOptions[] = 
     {
-        Arg::LongOption{"help", 'h'},
+        Arg::LongOption{"help", 'h'},           // still need to add this
+        Arg::LongOption{"output", 'o'},
         Arg::LongOption{"tmp", 't'},
         Arg::LongOption{"file", 'f'},
         Arg::LongOption{"directory", 'd'},
         Arg::LongOption{"recursive", 'r'},
         //Arg::LongOption{"cflags", 'c'},
         Arg::LongOption{"jobs", 'j'},
-        Arg::LongOption{"output", 'o'},
     };
     
     auto longEnd = longOptions + std::size(longOptions);

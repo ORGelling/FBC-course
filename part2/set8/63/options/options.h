@@ -48,6 +48,8 @@ class Options
         void setSource();
         void setThreads();
         void setOption(std::string &member, char const ch);
+        
+        static void usage();
 };
 
 inline SourceMode Options::mode() const

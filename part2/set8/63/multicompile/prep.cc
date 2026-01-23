@@ -4,7 +4,6 @@
 
 void MultiCompile::prep()
 {
-    // check sourcemode and create directories if needed
     string const tmpDir = Options::instance().tmp();
     string const outputDir = Options::instance().output();
     

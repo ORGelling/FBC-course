@@ -25,7 +25,7 @@ void CompileFork::childProcess()
         argv.push_back(const_cast<char *>(str.c_str()));
     argv.push_back(0);
     
-    redirect(d_errFile);
+    redirect(d_errFile);                    // pipe error message to tmp file
     
     execvp(argv[0], const_cast<char *const *>(argv.data()));
     

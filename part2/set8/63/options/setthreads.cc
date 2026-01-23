@@ -3,6 +3,7 @@
     // by 
 
 void Options::setThreads()
+try
 {
     string opt;
     size_t tempNr = 1;
@@ -12,3 +13,7 @@ void Options::setThreads()
         d_nThreads = tempNr ? tempNr : 1;
     }
 }
+catch (exception const &ext)
+{
+    throw runtime_error{ "Options: Error converting input with stoul" };
+}                                   // bit excessive maybe, but much clearer

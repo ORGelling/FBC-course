@@ -7,7 +7,7 @@
 void Options::initialise(int argc, char **argv)
 {
     if (s_instance)
-        throw runtime_error{ "Initialise called repeatedly\n" };
+        throw runtime_error{ "Initialise called repeatedly" };
     
     static Options instance(argc, argv);
     s_instance = &instance;
