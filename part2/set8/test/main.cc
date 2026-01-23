@@ -8,7 +8,7 @@ using namespace std;
 using namespace chrono;
 namespace fs = filesystem;
 
-int main(int argc, char **argv)
+nt main(int argc, char **argv)
 try
 {
     for (auto entry : fs::recursive_directory_iterator(argv[1]))
