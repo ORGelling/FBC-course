@@ -15,9 +15,9 @@ namespace {
             cout << error.rdbuf() << '\n';
     }
     
-    void showSuccess(Result &result)
+    void showSuccess(Result &result, bool foundError)
     {
-        if (result.success)
+        if (result.success and not foundError)
             cout << "Compiled " << result.sourceFile << '\n';
     }
     
@@ -38,7 +38,13 @@ void MultiCompile::results()
             showError(result);          // Chance is small, but if concurrent
         }                               // threads have an error compiling we
                                         // only want to show the first one
-        showSuccess(result);
+        
+        showSuccess(result, foundError);    // This might not be necessary
+                                            // but it isn't much of an issue
+                                            // and some feedback is useful.
+                                            // Can simply be removed to only
+                                            // show output of error if found
+        
                                             // easiest way to remove all the
         fs::remove(result.errFile, ec);     // temporary error files is here
     }                                       // but yes, MLR. Should be ok
