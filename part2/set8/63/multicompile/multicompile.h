@@ -24,6 +24,7 @@ class MultiCompile
                                             // to be removed at program end
     public:
         MultiCompile();
+        ~MultiCompile();
         
         void run();
         

@@ -36,8 +36,8 @@ void CompileFork::childProcess()
     
     execvp(argv[0], const_cast<char *const *>(argv.data()));    // run g++
     
-    throw runtime_error{ "CompileFork: execvp failed, errno= "s + 
-                                                        to_string(errno) };
+    perror("CompileFork: execvp failed");
+    exit(1);
 }                                   // Throwing here isn't pretty, will not
                                     // be caught by main's handleExceptions,
                                     // but we are sticking to the example

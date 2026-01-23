@@ -14,6 +14,4 @@ void MultiCompile::run()
         thr.join();
     
     results();                          // show results and removes errfiles
-    
-    cleanup();                          // removes tmpDir if needed
 }
