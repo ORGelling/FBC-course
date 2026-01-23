@@ -1,8 +1,8 @@
 #include "options.ih"
 
-    // by 
+    // by main.cc
 
-    // longOptions and optstring found in ctor
+    // longOptions array and optstring found in ctor
 
 void Options::initialise(int argc, char **argv)
 {

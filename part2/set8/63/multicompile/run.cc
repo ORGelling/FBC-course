@@ -4,20 +4,16 @@
 
 void MultiCompile::run()
 {
-    // create necessary directories etc
-    prep();
+    prep();                             // create necessary directories
     
-    // start workforce
     workforce();
     
-    // get jobs and add them to the CompileQueue
-    jobs();
+    jobs();                             // finds all the work to do
     
     for (thread &thr : v_threads)
         thr.join();
     
-    results();
+    results();                          // show results and removes errfiles
     
-    // cleanup (remove tmpdir)
-    cleanup();
+    cleanup();                          // removes tmpDir if needed
 }

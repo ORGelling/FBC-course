@@ -89,7 +89,7 @@ inline size_t Options::nArgs() const
 
 inline char const *Options::operator()(size_t idx) const
 {
-    return d_arg.arg(idx);              // no idx op since from part 1
-}                                       // will add another time!
+    return d_arg.arg(idx);
+}
         
 #endif

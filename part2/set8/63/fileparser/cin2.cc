@@ -2,9 +2,9 @@
 
     // by 
 
-void FileParser::cin(istream &in)
-{
-    string nextFile;
+void FileParser::cin(istream &in)           // This is used by the fn ptr
+{                                           // array *and* by file after 
+    string nextFile;                        // its stream has opened.
     while (getline(in, nextFile))
     {
         if (isSource(fs::directory_entry{ nextFile }))

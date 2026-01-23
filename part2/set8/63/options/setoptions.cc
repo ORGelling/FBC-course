@@ -4,12 +4,12 @@
 
 void Options::setOptions()
 {
-    if (d_arg.option('h'))
-    {
-        usage();                        // not sure what to do with usage
-        exit(0);                        // and exit/return value
-    }
-    
+    if (d_arg.option('h'))                  // not sure what to do with   
+    {                                       // usage and exit/return value,
+        usage();                            // Jurjen once recommended 
+        exit(0);                            // return usage(1) from main    
+    }                                       
+                                            
     setSource();    
     
     setThreads();

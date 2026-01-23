@@ -1,7 +1,7 @@
-#ifndef INCLUDED_COMPILEQUEUE_
-#define INCLUDED_COMPILEQUEUE_
-#include "../compiletask/compiletask.h"
-#include <queue>
+#ifndef INCLUDED_COMPILEQUEUE_              // queue wrapper to keep things
+#define INCLUDED_COMPILEQUEUE_              // things nice and encapsulated. 
+#include "../compiletask/compiletask.h"     // Offloads responsibility from
+#include <queue>                            // the MultiCompile itself
 #include <mutex>
 #include <optional>                     // this was ok'd by Jurjen for 
                                         // the Storage class of set 7!
@@ -10,9 +10,9 @@ class CompileQueue
     std::queue<CompileTask> d_queue;
     mutable std::mutex      d_mutex;
     
-    mutable bool            d_finished;
-    
-    public:
+    mutable bool            d_finished;     // This isn't used. Previous 
+                                            // queue wrapper we imitate did,
+    public:                                 // but can remove if needed.
         CompileQueue();
         
         void push(CompileTask task);    // passing by value and moving
@@ -25,4 +25,5 @@ class CompileQueue
         bool done() const;
 };
         
-#endif
+#endif                                  // This is basically a copy of the 
+                                        // previous queue wrapper we made 

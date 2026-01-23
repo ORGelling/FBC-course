@@ -20,8 +20,8 @@ class MultiCompile
     Semaphore s_workToDo;
     Semaphore s_dispatcher;
     
-    bool d_madeTmp;
-    
+    bool d_madeTmp;                         // keep track of whether tmp dir
+                                            // to be removed at program end
     public:
         MultiCompile();
         
@@ -32,14 +32,14 @@ class MultiCompile
         void prep();
         void workforce();
         void jobs();
-        void results();                                 // !!!
+        void results();
         void cleanup() const;
     
     // the helpers
-        Result compile(std::string const &line);        // !!!
-        void newTask(std::string const &line);          // !!!
-        bool newResult(Result &result);     // !!! checks empty + popfront
+        Result compile(std::string const &line);
+        void newTask(std::string const &line);
+        bool newResult(Result &result);
         void worker();
 };
-        
+
 #endif

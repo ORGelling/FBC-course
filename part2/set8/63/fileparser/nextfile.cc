@@ -10,4 +10,4 @@ bool FileParser::nextFile(string &line)
     line = d_files.front();
     d_files.pop();
     return true;
-}
+}                                       // This hands the file names to Jobs

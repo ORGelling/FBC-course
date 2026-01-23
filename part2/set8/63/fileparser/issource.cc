@@ -10,4 +10,4 @@ bool FileParser::isSource(fs::directory_entry const &entry) const
           (ext == ".cc" or 
            ext == ".cpp" or 
            ext == ".cxx");
-}
+}                               // refactored check to only add C++ sources

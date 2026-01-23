@@ -5,9 +5,10 @@
 namespace {
     
     string getCommands(string const &file)
-    {
+    {                                       // This is a bit more readable
         Options const &opt = Options::instance();
         
+                                            // keeping this compact
         fs::path object = fs::path(opt.output()) / fs::path(file).filename();
         object.replace_extension(".o");
         
@@ -32,12 +33,12 @@ Result MultiCompile::compile(string const &file)
     string commands = getCommands(file);
     string errFile = getErrFile(file);
     
-    CompileFork compiler(commands, errFile);
-    compiler.fork();
+    CompileFork compiler(commands, errFile);    // create compile object
+    compiler.fork();                            // and fork it to run g++ 
     
     Result ret{ compiler.childExit() == 0, file, errFile };
     
-    if (not ret.success)
+    if (not ret.success)                // check compilation result
         d_done = true;
     
     return ret;

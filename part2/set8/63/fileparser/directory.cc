@@ -11,4 +11,4 @@ void FileParser::directory()
         if (isSource(entry))            
             d_files.push(entry.path().string());        
     }
-}
+}                                           // Filesystem my beloved

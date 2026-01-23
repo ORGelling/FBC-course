@@ -8,8 +8,8 @@ try
     string opt;
     size_t tempNr = 1;
     if (d_arg.option(&opt, 'j'))
-    {
-        tempNr = stoul(opt);                    // can throw! We accept this 
+    {                                   // user is not allowed to set 0 cores
+        tempNr = stoul(opt);                    // that would be dumb
         d_nThreads = tempNr ? tempNr : 1;
     }
 }

@@ -2,14 +2,14 @@
 
     // by 
 
-void Options::setSource()
-{
-    bool fileOpt = d_arg.option('f');
-    bool dirOpt = d_arg.option('d');
-    bool recOpt = d_arg.option('r');
+void Options::setSource()                   // this is a bit lengthy but the 
+{                                           // flag combinations require a 
+    bool fileOpt = d_arg.option('f');       // decent bit of checking here.
+    bool dirOpt = d_arg.option('d');        // Hence, lengthy function, but 
+    bool recOpt = d_arg.option('r');        // I hope it warrants it
     
-    if (fileOpt and (dirOpt or recOpt))
-    {
+    if (fileOpt and (dirOpt or recOpt))     
+    {                                       // Oopsie, user needs the manual
         usage();
         throw runtime_error{ "Conflicting source types specified" };
     }
@@ -32,8 +32,9 @@ void Options::setSource()
     }
     else
         d_mode = SourceMode::ARGS;      // If no source flag present we 
-}                                       // read from cin, if none present 
-                                        
+}                                       // either expect a redirected file, 
+                                        // or look for cl argument names
+
                                 // can make -d's argument optional and set
                                 // it to "." if none provided? Optional args 
                                 // don't parse that well though, as their arg 

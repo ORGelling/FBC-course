@@ -14,6 +14,9 @@ optional<shared_future<Result>> ResultsQueue::popFront()
         d_queue.pop();
     }
     
-    return opt;                         // Doing this just like before, 
-}                                       // using optional rather than RBA 
-                                        // and returning a bool to confirm
+    return opt;                         // This function and this class as a
+}                                       // whole are a tad overdone, but wra-
+                                        // pping the Result queue in a small
+                                        // class does help nicely encapsulate
+                                        // further! Giving MultiCompile a
+                                        // mutex for this queue would be meh

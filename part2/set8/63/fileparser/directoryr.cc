@@ -11,5 +11,4 @@ void FileParser::directoryr()
         if (isSource(entry))            
             d_files.push(entry.path().string());        
     }
-
-}
+}                               // This ended up being easier than I expected

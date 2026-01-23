@@ -5,6 +5,8 @@ try
 {
     Options::initialise(argc, argv);
     
+    // can put h flag check here? Currently in setOptions.cc
+    
     MultiCompile mc;
     mc.run();
         
