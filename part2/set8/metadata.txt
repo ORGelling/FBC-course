@@ -1,4 +1,4 @@
-Set: Set 8 partial
+Set: Set 8 62 and 63
 
 Authors: Olivier Gelling, Leon Lan, Mohammad Habibi, Frano Rajkovic
 
