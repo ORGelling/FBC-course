@@ -4,9 +4,9 @@
 
 bool MultiCompile::newResult(Result &result)
 {
-    if (q_results.empty())
+    if (d_qResults.empty())
         return false;
     
-    result = q_results.popFront().value().get();
+    result = d_qResults.popFront().value().get();
     return true;
 }

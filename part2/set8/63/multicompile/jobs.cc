@@ -14,14 +14,14 @@ void MultiCompile::jobs()
             break;
         }
         
-        s_dispatcher.wait();
+        d_dispatcher.wait();
         
         if (d_done.load())                  // This together with d_done 
             break;                          // replace use and need of the
                                             // queue object's setFinished()
         newTask(name);
         
-        s_workToDo.notify_all();
+        d_workToDo.notify_all();
     }
-    s_workToDo.notify_all();                // notifies next worker on exit
+    d_workToDo.notify_all();                // notifies next worker on exit
 }                                           // so they can all break out

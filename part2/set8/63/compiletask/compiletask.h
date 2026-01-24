@@ -3,10 +3,12 @@
 #include "../result/result.h"
 #include <future>
 
-using PackagedTask = std::packaged_task<Result (std::string const &cmnds)>;
 
-class CompileTask               
-{                               
+struct CompileTask               
+{    
+    using PackagedTask = std::packaged_task<
+                                        Result (std::string const &cmnds)>;
+    private:
     std::string d_commands;
     PackagedTask d_task;
     

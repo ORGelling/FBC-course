@@ -6,7 +6,7 @@ void MultiCompile::newTask(string const &file)
 {
     CompileTask task{ 
         file, 
-        PackagedTask(
+        CompileTask::PackagedTask(
             [this](string const &line)          // This is the clearest way I 
             {                                   // could find to pass a non
                 return compile(line);           // static function to a p_t.
@@ -14,6 +14,6 @@ void MultiCompile::newTask(string const &file)
         )                                       // to d_done it can't be sttc
     };
     
-    q_results.push(task.result());
-    q_tasks.push(move(task));
+    d_qResults.push(task.result());
+    d_qTasks.push(move(task));
 }

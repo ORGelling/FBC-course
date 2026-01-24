@@ -7,15 +7,15 @@ void MultiCompile::worker()
     CompileTask task;
     while (true)
     {
-        s_workToDo.wait();                          // wait for work
+        d_workToDo.wait();                          // wait for work
         
-        if (q_tasks.empty())
+        if (d_qTasks.empty())
              break;
         
-        task = q_tasks.popFront().value();
-        s_dispatcher.notify_all();                  // tells dispatch that
+        task = d_qTasks.popFront().value();
+        d_dispatcher.notify_all();                  // tells dispatch that
                                                     // work can be pushed
         task();
     }
-    s_workToDo.notify_all();                        // notify other workers 
+    d_workToDo.notify_all();                        // notify other workers 
 }                                                   // that work is done
