@@ -1,0 +1,8 @@
+#include "killer.h"
+#include <signal.h>
+#include <thread>
+#include <iostream>
+
+
+using namespace std;
+

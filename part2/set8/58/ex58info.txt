@@ -1,0 +1,20 @@
+Exercise 58: Familiarise ourselves with packaged_task
+
+We make our inner product code and test it to see if it does our calculations
+correctly. We find that our result[0][0] should be:
+
+3.14 * 4.2 + 4.14 * 5.2 + 5.14 * 6.2 + 6.14 * 7.2 + 7.14 * 8.2 = 169.34
+
+And that is exactly what our code finds!
+
+We remember Jurjen mentioned during the lecture last week that one can do
+these calculations more optimally by finding the contribution from the initial
+matrices (lhs and rhs) to each spot in the resulting matrix concurrently,
+rather than going over all the rows (columns) of lhs and rhs one by one, but
+realise that that would probably not work with this exercise anyways.
+
+We make a small wrapper for inner_product to make the compiler stop
+complaining about its signature since it's a template and thus the parameter
+list and return values aren't set by itself, write a small function to output
+the results, and of course write the function that prepares all these little
+packaged tasks and sends them off to run.

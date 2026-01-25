@@ -1,0 +1,38 @@
+Exercise 59: Make a multithreaded version of qsort using async
+
+We choose to use async's own capabilities and refrain from making an entire
+scheduler-queue-worker system that keeps track fo everything for us using a
+semaphore, 2 queues, thread::hardware_concurrency() number of worker threads,
+and the whole shebang. We will save that for later on.
+
+We have each recursive iteration of it call a single async thread for the left
+side of the array, and then use the current thread to sort the other side of
+the array, as qsort is of course already running inside a thread. (The initial
+one will run inside main's thread for instance!)
+
+We note that calling
+
+    future<void> leftFuture = async(launch::async, qsort, beg, mid);
+
+caused us a lot of issues, as the compiler could not properly deduce the
+signature of our qsort function, and it seemed to still be shadowed by
+something included from another library. After much ado, and finding multiple
+different solutions, we decided to simply rename our qsort to mtqsort, solving
+the issue. 
+
+The other solutions were using:
+
+future<void> leftFuture = async(launch::async, 
+        static_cast<void (*)(int *, int *)>(myqsort), 
+        beg, mid);
+
+or
+
+future<void> leftFuture = async(launch::async, 
+        [=]()
+        {
+            qsort(beg, mid);
+        }
+    );
+
+or wrapping our qsort function inside its own namespace, likeMySort::qsort.

@@ -1,0 +1,10 @@
+#include <future>
+#include <utility>      // for swap
+#include <iostream>
+#include <algorithm>    // for generate
+#include <random>
+#include <iterator>
+
+using namespace std;
+
+void mtqsort(int *beg, int *end);

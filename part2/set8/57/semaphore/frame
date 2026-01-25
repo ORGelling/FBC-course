@@ -1,0 +1,7 @@
+#include "semaphore.ih"
+
+    // by 
+
+void Semaphore::()
+{
+}

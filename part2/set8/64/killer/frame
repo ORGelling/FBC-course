@@ -1,0 +1,7 @@
+#include "killer.ih"
+
+    // by 
+
+void Killer::()
+{
+}

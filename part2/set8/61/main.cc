@@ -1,0 +1,21 @@
+#include "main.ih"
+
+int main(int argc, char **argv)
+try
+{
+    if (argc < 3)
+    {
+        cerr << "Please provide input and output files\n";
+        return 1;
+    }
+    
+    string const inputFile = argv[1];
+    string const outputFile = argv[2];
+    
+    WorkForce DunderMifflin;
+    DunderMifflin.run(inputFile, outputFile);
+}
+catch (...)
+{
+    return handleExceptions();
+}

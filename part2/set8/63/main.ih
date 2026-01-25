@@ -1,0 +1,8 @@
+#include "options/options.h"
+#include "multicompile/multicompile.h"
+#include <iostream>     // for handleExceptions
+#include <stdexcept>
+
+using namespace std;
+
+int handleExceptions();

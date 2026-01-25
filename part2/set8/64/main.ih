@@ -1,0 +1,7 @@
+#include "killer/killer.h"
+#include <iostream>
+#include <string>
+#include <stdexcept>
+
+using namespace std;
+int handleExceptions();
