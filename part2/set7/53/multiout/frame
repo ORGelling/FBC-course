@@ -1,0 +1,7 @@
+#include "multiout.ih"
+
+    // by 
+
+void MultiOut::()
+{
+}

@@ -1,0 +1,9 @@
+#include "task.h"
+#include <string>
+#include <cstring>      // for strchr
+//#include <fstream>      // in .h
+#include <iterator>
+#include <algorithm>
+
+using namespace std;
+

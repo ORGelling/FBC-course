@@ -33,7 +33,7 @@
 // =========================================================
 //#define ADD_LIBRARIES       ""
 //#define ADD_LIBRARY_PATHS   "/usr/local/lib"
-
+#define ADD_LIBRARY_PATHS   "/usr/local/lib/gcc/x86_64-pc-linux-gnu/15.2.0"
 
 ////////////////////////////////////////////////////////////////////////
 

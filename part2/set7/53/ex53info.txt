@@ -1,0 +1,91 @@
+Exercise 53: Use mutexes to guard output mangling
+
+First form, without locks or mutexes wasn't even very mangled. Running it 4
+times we get 2 instances of perfectly ordered data, and two of mangled ones,
+the worst of which is the following:
+
+$ tmp/bin/binary 
+Line Line 00 from thread 0 from thread 2
+Line 1 from thread 0
+Line 2 from thread 0
+Line 
+Line 1 from thread 2
+Line 2 from thread 2
+0 from thread 1
+Line 1 from thread 1
+Line 2 from thread 1
+
+Now, instead of adding a mutex, we re-read the annotations chapter 20.15 and
+realise there is a perfect option right here for us already: syncstream! We
+declare an osyncstream inside the act function that will be written to, which
+regulates the output for us.
+
+Keeping the mangled part of the direct cout like the exercise shows, and
+writing the "Line X ..." to the syncstream we get:
+
+$ tmp/bin/binary 
+thread 1thread 
+thread 1
+thread thread 1
+thread 1
+thread Line 0 from thread 1
+Line 1 from thread 1
+Line 2 from thread 1
+Line 3 from thread 1
+2
+thread 4
+thread 4
+thread 34
+thread 4
+
+Line 0 from thread 4
+Line 1 from thread 4
+Line 2 from thread 4
+Line 3 from thread 4
+thread 2
+thread 2
+thread 2
+0Line 0 from thread 2
+Line 1 from thread 2
+Line 2 from thread 2
+Line 3 from thread 2
+
+thread 3
+thread 3
+thread 3
+Line 0 from thread 3
+Line 1 from thread 3
+Line 2 from thread 3
+Line 3 from thread 3
+thread 0
+thread 0
+thread 0
+Line 0 from thread 0
+Line 1 from thread 0
+Line 2 from thread 0
+Line 3 from thread 0
+
+Which, if we remove the direct cout line from the program will give us (from
+a different run):
+
+$ tmp/bin/binary 
+Line 0 from thread 3
+Line 1 from thread 3
+Line 2 from thread 3
+Line 3 from thread 3
+Line 0 from thread 2
+Line 1 from thread 2
+Line 2 from thread 2
+Line 3 from thread 2
+Line 0 from thread 1
+Line 1 from thread 1
+Line 2 from thread 1
+Line 3 from thread 1
+Line 0 from thread 0
+Line 1 from thread 0
+Line 2 from thread 0
+Line 3 from thread 0
+Line 0 from thread 4
+Line 1 from thread 4
+Line 2 from thread 4
+Line 3 from thread 4

@@ -1,0 +1,50 @@
+Exercise 53: Use mutexes to guard output mangling
+
+First form, without locks or mutexes wasn't even very mangled. Running it 4
+times we get 2 instances of perfectly ordered data, and two of mangled ones,
+the worst of which is the following:
+
+$ tmp/bin/binary 
+Line Line 00 from thread 0 from thread 2
+Line 1 from thread 0
+Line 2 from thread 0
+Line 
+Line 1 from thread 2
+Line 2 from thread 2
+0 from thread 1
+Line 1 from thread 1
+Line 2 from thread 1
+
+We then add a mutex data member d_oMutex (for ostream-mutex), that allows our
+threads to see when another is using cout, and get neatly unmangled output
+like so:
+//JB: Works, but TC. Maybe see cppreference for nicer facilities.
+
+$ tmp/bin/binary 
+thread 2
+Line 0 from thread 2
+Line 1 from thread 2
+Line 2 from thread 2
+Line 3 from thread 2
+thread 4
+Line 0 from thread 4
+Line 1 from thread 4
+Line 2 from thread 4
+Line 3 from thread 4
+thread 0
+Line 0 from thread 0
+Line 1 from thread 0
+Line 2 from thread 0
+Line 3 from thread 0
+thread 1
+Line 0 from thread 1
+Line 1 from thread 1
+Line 2 from thread 1
+Line 3 from thread 1
+thread 3
+Line 0 from thread 3
+Line 1 from thread 3
+Line 2 from thread 3
+Line 3 from thread 3
+
+Where we shake things up a tad by using 5 threads rather than 1.
