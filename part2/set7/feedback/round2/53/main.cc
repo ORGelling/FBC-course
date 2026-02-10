@@ -1,0 +1,9 @@
+//JB: 1
+#include "multiout/multiout.h"
+
+int main(int argc, char **argv)
+{
+    MultiOut multi{ "5" };  // fixed for the exercise, use, e.g., argv[1]
+                            // to specify the #threads as program argument
+    multi.run();
+}

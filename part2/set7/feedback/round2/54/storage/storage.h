@@ -1,0 +1,36 @@
+//JB: 1
+#ifndef INCLUDED_STORAGE_
+#define INCLUDED_STORAGE_
+
+#include <queue>
+#include <mutex>
+#include <string>
+#include <optional>
+
+class Storage
+{
+    std::queue<std::string> d_queue;
+    mutable std::mutex      d_qMutex;
+    
+    mutable bool            d_finished;     // Probably doesn't need mutable
+                                            // but can't hurt I think
+    //JB: I think it can hurt: it means the 'const' keyword doesn't protect
+    //JB: d_finished anymore.
+    
+    public:
+        Storage();
+        
+        void push(std::string line);        // passing by value and moving
+        std::string front() const;          // pass by value lest refs dangle
+        void pop();
+
+        //JB: Yes.
+        std::optional<std::string> popFront();  
+                                            // for 55: atomic empty+pop+front
+        bool empty() const;
+        
+        void setFinished();                 // done parsing lines
+        bool done() const;                  // done parsing and queue empty
+};
+
+#endif
