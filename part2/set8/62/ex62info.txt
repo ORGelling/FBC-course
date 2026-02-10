@@ -1,0 +1,126 @@
+Exercise 62: Design a multithreaded compile program
+
+We worked on understnding the overall layout of this program, and then got to
+work implementing its most clearly necessary parts, piecing together how those
+connect and what is required further to bring the program to fruition. 
+
+When we show the class hierarchy we will refrain from considering fundamental
+classes like string, future, queue, vector, fstream, iostream, etc. Those are
+also included as needed, but we focus on the classes we have implemented and 
+inherited from.
+
+The basic layout we started with had an overarching class to hold all the
+components, which would either find the jobs internally, or use a nested class
+to do so. There was a Task object type, one queue wrapper, regulating the
+queue of task objects, a pool of worker threads, and the Options class to 
+make available the needed information, process the input arguments, and 
+change whatever default values needed amending. 
+
+This expanded once the project took further form. It became clear that 
+component that prepares the jobs could use its own class and could function 
+as a standalone object, with its own internal queue to easily store and
+retrieve all the file names found through the different methods the program is
+able to use, which gets, like the other components that need it, relevant 
+execution information (source mode) from the Options::instance() singleton.
+
+The program's flow is as follows:
+
+When the program is started, the Options singleton is created by calling its
+initialise function. This internally creates and uses an Arg object that
+parses all the command line arguments, which Options then uses to create the
+execution profile of this run. It sets either the default values needed, or
+parses the given flags, checks them for validity (no erroneous combinations
+etc), and then replaces whatever defaults should be replaced. Then options is
+done and can be called anywhere necessary using Options::instance(). The 
+main function then constructs a MultiCompile object, which uses the Options
+object and relevant defaults. Then we call this objects' run() function, which
+in turn:
+  - prepares the necessary folders for temporary and object files, depending 
+    on set flags
+  - starts up the workforce of threads, number specified by options
+  - starts finding the compilation tasks that the worker threads will execute
+      + this creates and uses a FileParser object, which finds the relevant 
+        source mode from the options object, and stores all the file names it
+        can find inside a queue data member
+      + this queue is then used inside jobs to pop the next source file that
+        needs to be compiled and hand it to the function that loads up the
+        actual compilation jobs inside the CompileQueue object, and the
+        shared futures of the compile processes into the ResultsQueue object
+        
+          o concurrently, the worker threads are now running. They pop tasks
+            off the CompileQueue, run them using the CompileFork class, which
+            forks itself such that we have a new process image which can
+            execute the compilation command, and the original worker thread's
+            image that can keep track of it and return the relevant
+            information, like its exit code. This result is then available in
+            the shared_future object stored inside the ResultsQueue.
+        
+  - once all the jobs have been parsed and loaded onto the CompileQueue the
+    jobs function waits for the worker threads to be done, and joins them all
+  - results are then shown by a function that pops all the results objects off
+    of the ResultsQueue one by one, checks if they encountered errors,
+    displays the first one to do so, and then removes the error file to which
+    g++'s error output was piped by the forked compile process. Error files
+    are created for each object, so these are removed regardless of if an
+    error was encountered.
+
+At program end the destructor of MultiCompile is called, which goes through
+what was potentially left of the ResultsQueue (in case of a thrown exception)
+and removes any remaining error files, and then calls cleanup, which removes
+the temporary directory in which the error files were stored, if a new one 
+was created and it is not empty.
+
+The data structures are:
+
+- MultiCompile holds a CompileQueue and a ResultsQueue, a vector of threads,
+  two semaphores for the workers and results function to interact with their
+  respective queues properly, and an atomic boolean to note whether the
+  program should stop processing more files, or is done with all the tasks.
+- ResultsQueue is a wrapper around a queue that holds Results objects.
+- CompileQueue is a wrapper around a queue that holds CompileTask objects.
+- FileParser holds a queue of strings in which the upcoming filenames are
+  stored
+- Options contains the core execution profile variables, like the name of the
+  source if one is needed, the enum that signifies which type of input we use,
+  the amount of threads, and names of directories in which to store object or
+  temporary files
+- There are some local bits of data, like the CompileFork childProcess's
+  vector of strings to be able to make a char * array (that doesn't leak) to
+  hand to g++. These are not shared so do not factor in to the larger picture.
+  
+Synchronisation is done as follows:
+
+- MultiCompile uses a semaphore to ensure the worker threads know when work is
+  ready, and another one to signal to the jobs function that another task can
+  be pushed to the queues.
+- The queue classes each have a mutex to ensure atomic access to their 
+  contents, they offer push and popFront members to this end.
+- Error messages are stored in temporary files, the names of which can be
+  found in the Result object, this helps the results function and destructor
+  find and remove them.
+- If a compilation finds an error the d_done flag is set to true to prevent
+  extra threads from starting up. The results are then displayed and all
+  resources that need cleaning are cleaned.
+- At program end the MultiCompile object's destructor is called, which makes
+  sure the error files are all gone.
+
+The final layout should, if we did our bookkeeping correctly, be:
+
+                   Result                                                  
+                     |                                                    
+                     +---------+       Fork                          
+     Arg             |         |         |                        
+      |              |    CompileTask    |                       
+   Options           |         |         |                      
+      |         ResultsQueue   |    CompileFork                 
++-----+------+       |         |         |                  
+|     |      |       |   CompileQueue    |      Semaphore     
+|     |  FileParser  |         |         |          |        
+|     |      |       |         |         |          |   
+|     +------+-------+---------+---------+----------+  
+|                    |                                               
+|               MultiCompile                                          
+|                    |                                                
++--------------------+                                                
+                     |                                                
+                    Main                                               

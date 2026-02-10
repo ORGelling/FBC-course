@@ -1,0 +1,50 @@
+Exercise 61: Implement a program using semaphores
+
+We stick to the example from the lecture slides quite closely, and thus use 4
+semaphores and 2 mutici. We note that we could leave out at least one
+semaphore to uncap the workToDo amout, but this seems like a nice way to
+practice using these tools!
+
+We note that if we run this program on a file twice, we get the original file,
+but with some of the lines a bit jumbled. For example we can see after
+running:
+
+$ tmp/bin/binary main.cc output.txt
+$ tmp/bin/binary output.txt reverse.txt
+
+That our reverse.txt looks like:
+
+#include "main.ih"
+
+{
+try
+int main(int argc, char **argv)
+    if (argc < 3)
+    {
+        return 1;
+    }
+    
+    string const inputFile = argv[1];
+    string const outputFile = argv[2];
+    
+    WorkForce DunderMifflin;
+    DunderMifflin.run(inputFile, outputFile);
+}
+catch (exception const &except)             // prettier to refactor 
+{
+    cerr << "WorkForce: " << except.what() << '\n';
+    return 2;
+}
+catch (...)
+{
+    cerr << "WorkForce: Unknown exception\n";
+    return 3;
+}
+        cerr << "Please provide input and output files\n";
+        
+This is *almost* the same, but some lines are out of place! This seems to be
+fine though, as there is no mention of the threads having to finish their
+tasks in order, which would also nullify the purpose of threads somewhat.
+
+We do note that for the most part the order is pretty much the same! It's
+strange that this last cerr line ended up all the way at the bottom though!

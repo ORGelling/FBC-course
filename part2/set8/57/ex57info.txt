@@ -1,0 +1,6 @@
+Exercise 57: Design and implement a Semaphore class
+
+We can basically just follow what the annotations show in chapter 20.4, and do
+exactly that. We are instructed to make sure the size() member does *not* lock
+the mutex, so instead we have chosen to make the d_size datamember atomic to
+prevent data races and issues that can follow.

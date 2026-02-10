@@ -1,0 +1,23 @@
+Exercise 63: Implement the multithreaded compile program
+
+We do this, hopefully up to taste! It's a big exercise, and keeping track of
+all the includes is a hassle, so we may have left some extraneous includes in
+headers that should have been moved to internal headers. Let us know if that
+is an issue, but we hope that this exercise is close to being complete as is!
+
+
+Ideas to add:
+
+Store files that have to be removed in a queue such that conflicting file
+names (compiling multiple instances of main) don't have their error file
+deleted early? Or create directory structure inside tmp for the error files? 
+
+That, or make sure the error filename of files with repeated names is appended
+with a number. Last one is probably clearest and most functional, but requires
+keeping a set of encountered names for the jobs function to keep track of?
+
+This issue is moot though, as the program shoukd not be used to compile files
+with the same name, even if they are in different directories. The C++ course
+mail handler likely runs an instance of this program in each exercise
+directory, using the local order files for input. Running it over an entire
+set is simply bad practice in this regard I expect?
