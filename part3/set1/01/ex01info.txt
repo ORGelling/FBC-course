@@ -1,0 +1,3 @@
+Exercise 1: Show that templates do not result in "code bloat"
+
+
