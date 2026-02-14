@@ -1,3 +1,11 @@
 Exercise 1: Show that templates do not result in "code bloat"
 
+We use our internal header to declare the template and the two functions that
+use it. These two use a reinterpret cast to insert the address of the called
+function into cout. The output of main, which calls both, is as follows:
 
+$ tmp/bin/binary 
+Address of function 1's constructed template: 0x561afa06f200
+Address of function 2's constructed template: 0x561afa06f200
+
+The address is the same!

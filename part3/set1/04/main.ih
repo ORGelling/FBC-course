@@ -1,0 +1,21 @@
+#include "demo/demo.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <functional>
+
+using namespace std;
+
+
+template <typename Function, typename ...Params>
+void forwarder(Function &&func, Params &&...params)
+{
+    func( std::forward<Params>(params)... );
+}
+
+
+void fun(int first, int second);
+void fun(Demo &&dem1, Demo &&dem2);
+void funTwo(Demo &&dem1, Demo &&dem2);
+                                        // increments each argument:
+void incrementer(int &one, int &two, int &three);

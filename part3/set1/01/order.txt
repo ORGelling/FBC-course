@@ -1,1 +1,6 @@
 ex1info.txt
+
+main.ih
+function1.cc
+function2.cc
+main.cc
