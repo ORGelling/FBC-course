@@ -1,1 +1,5 @@
-Exercise 8: 
+Exercise 8: Design a class with context dependent insertion behaviour
+
+We keep the class interface mostly the same, and define the template just
+beneath it. We keep setVerbose and verbose inside the same file as shown in
+the exercise, knowing that they benefit from having access to the same ANS.

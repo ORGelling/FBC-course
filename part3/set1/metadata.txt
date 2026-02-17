@@ -1,5 +1,5 @@
-Set: 
+Set: Set 1
 
-Authors: 
+Authors: Olivier Gelling, Jakub, Karelina, Max
 
 Rater: 

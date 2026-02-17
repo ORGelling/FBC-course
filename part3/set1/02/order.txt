@@ -1,4 +1,4 @@
-ex2info.txt
+ex02info.txt
 
 main.ih
 main.cc

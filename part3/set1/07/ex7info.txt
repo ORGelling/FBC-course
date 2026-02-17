@@ -1,1 +1,15 @@
-Exercise 7: 
+Exercise 7: Write a function template that can be applied recursively
+
+Q - Give two reasons why we should not use a double ampersand for the second
+    parameter.
+A1- We do not need perfect forwarding for this template. Adding this feature
+    will cause ambiguity between this template and the already existing 
+    overloaded insertion operators for the base types at the most nested 
+    level, since the insertion opertator template will now match all types,
+    and not just sets of types. This could even lead to issues of inifinite
+    recursion, but mainly just causes compilation errors due to ambiguity.
+A2- Using set<Tp> && would amount to only accepting rvalue references in this
+    template, as the template type parameter is already deduced from the set
+    context, and the && will specify this template to only accept rvalue
+    references, and will thus not be picked up as an instance of perfect
+    forwarding.

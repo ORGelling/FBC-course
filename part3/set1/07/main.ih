@@ -1,0 +1,3 @@
+#include "opinsert.h"
+
+using namespace std;

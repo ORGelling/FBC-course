@@ -1,4 +1,4 @@
-ex1info.txt
+ex01info.txt
 
 main.ih
 function1.cc

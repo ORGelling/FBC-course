@@ -1,1 +1,6 @@
 ex7info.txt
+
+opinsert.h
+
+main.ih
+main.cc

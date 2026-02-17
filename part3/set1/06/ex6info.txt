@@ -1,1 +1,7 @@
-Exercise 6: 
+Exercise 6: Design and use a function template
+
+We keep our insertion operator as a free function by declaring it a friend
+inside the interface. This allows it access to the class's private section. It
+would be prettier to add a private backdoor this way, as friends shouldn't
+directly interact with private data, but we hope this still serves to
+demonstrate the exercise's target topics.

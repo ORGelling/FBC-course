@@ -1,1 +1,8 @@
 ex5info.txt
+
+storage/storage.h
+storage/storage.ih
+storage/storage1.cc
+
+main.ih
+main.cc
