@@ -26,14 +26,19 @@ namespace {
 }   // namespace
 */
 
+static string stiller = "Maybe this one?\n";
+
 int main(int argc, char **argv)
 try
 {
     Options::initialise(argc, argv);
     
+    throw 1;
+/*  Options::initialise(argc, argv);
+    
     cout << Options::instance().source() << '\n';
     
-/*  Arg &arg = Arg::initialise(optString, longOptions, longEnd, argc, argv);
+    Arg &arg = Arg::initialise(optString, longOptions, longEnd, argc, argv);
     
     string hold;
     cout << arg.option(&hold, 'm') << ' ' 
@@ -41,5 +46,6 @@ try
 }
 catch (...)
 {
-    cout << "Don't fuck up the input args lmao\n";
+    cout << "Testing Options: " << Options::instance().nThreads() << '\n';
+    //cout << "Don't fuck up the input args lmao\n";
 }
