@@ -11,7 +11,12 @@ int main()
     forwarder(static_cast<void (*)(Demo &&, Demo &&)>(fun), Demo{}, Demo{});
                                     // We might also bind fun to an explicit 
                                     // function pointer and pass that
-                                
+                                    
+                                    // Another way to find the correct
+                                    // function, without casting:
+    forwarder<void (*)(int, int)>(fun, 1, 3);
+    forwarder<void (*)(Demo &&, Demo &&)>(fun, Demo{}, Demo{});
+                                    // Probably the best one too
                                 
                                     // fun2 expects two rvalue references 
     forwarder(funTwo, Demo{}, Demo{});
