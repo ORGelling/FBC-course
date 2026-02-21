@@ -6,17 +6,17 @@
 template <typename Tp>
 std::ostream &operator<<(std::ostream &out, std::set<Tp> const &insert)
 {
-    if (insert.empty())
+    if (insert.empty())                 // return directly if empty
         return out;
     
-    auto it = insert.begin();
+    auto it = insert.begin();           // get iterator 
+                                        // auto: std::set<Tp>::const_iterator
+    out << '{' << *it++;                // show first
     
-    out << '{' << *it++;
-    
-    for (; it != insert.end(); ++it)
+    for (; it != insert.end(); ++it)    // show rest
         out << ", " << *it;
     
-    return out << '}';
+    return out << '}';                  // close and return
 }
 
 #endif
