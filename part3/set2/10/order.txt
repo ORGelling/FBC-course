@@ -1,1 +1,15 @@
 ex10info.txt
+
+unique/unique.h
+unique/uniquedc.i
+unique/uniquevc.i
+unique/uniquepc.i
+unique/uniquecc.i
+unique/uniquemc.i
+unique/destructor.i
+unique/count.i
+unique/actual.i
+unique/unique.ih
+
+-main.ih
+-main.cc
