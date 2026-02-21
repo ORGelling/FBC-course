@@ -1,1 +1,13 @@
 ex9info.txt
+
+unique/unique.h
+unique/uniquevc.i
+unique/uniquepc.i
+unique/uniquecc.i
+unique/opassigncopy.i
+unique/get.i
+unique/getconst.i
+unique/unique.ih
+
+-main.ih
+-main.cc

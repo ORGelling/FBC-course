@@ -1,1 +1,4 @@
-Exercise 9: 
+Exercise 9: Design a basic class template
+
+We have used built in pointer swap mechanics, but could, if needed, implement
+our very own swap function
