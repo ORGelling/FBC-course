@@ -6,19 +6,11 @@
 template <typename Tp>
 std::ostream &operator<<(std::ostream &out, std::set<Tp> const &insert)
 {
-    bool first = true;
+    if (insert.begin() != insert.end())
+        out << '{' << *insert.begin();
     
-    out << '{';
-    
-    for (auto const &value : insert)
-    {
-        if (first)
-            first = false;
-        else
-            out << ", ";
-        
-        out << value;
-    }
+    for (auto it = ++insert.begin(); it != insert.end(); ++it)
+        out << ", " << *it;
     
     return out << '}';
 }

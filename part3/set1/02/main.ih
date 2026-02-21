@@ -1,9 +1,5 @@
+#include "template.h"
 #include <iostream>
 
 using namespace std;
 
-template <typename To, typename From>
-To as(From from)
-{
-    return static_cast<To>(from);
-}

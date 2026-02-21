@@ -1,10 +1,7 @@
+#include "template.h"
 #include <iostream>
 
 using namespace std;
-
-template <typename Tp>
-void address(Tp param)
-{}
 
 void function1();
 void function2();

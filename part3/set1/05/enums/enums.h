@@ -1,3 +1,6 @@
+#ifndef INCLUDED_ENUMS_
+#define INCLUDED_ENUMS_
+
 enum class TcpUdp
 {
     SECONDS = 1,
@@ -29,3 +32,5 @@ enum class Icmp
     RECVDBYTES,
     nFields,
 };
+
+#endif

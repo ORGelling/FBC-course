@@ -1,4 +1,6 @@
 ex02info.txt
 
+template.h
+
 main.ih
 main.cc

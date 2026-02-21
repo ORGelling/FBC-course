@@ -18,13 +18,6 @@ class Exception: public std::exception
         friend Exception &&operator<<(Exception &&in, Tp const &value);
 };
 
-template <typename Tp>
-inline Exception &&operator<<(Exception &&in, Tp const &value)
-{
-    std::ostringstream oss{};
-    oss << value;
-    in.d_what += oss.str();
-    return std::move(in);
-}
-        
+#include "template.i"
+
 #endif

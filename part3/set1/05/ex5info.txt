@@ -1,1 +1,1 @@
-Exercise 5: 
+Exercise 5: Construct a generic index operator

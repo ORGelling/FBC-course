@@ -1,4 +1,6 @@
 ex3info.txt
 
+template.h
+
 main.ih
 main.cc

@@ -5,6 +5,8 @@ demo/demo.ih
 demo/demo1.cc
 demo/demo2.cc
 
+template.h
+
 main.ih
 fun.cc
 fun2.cc

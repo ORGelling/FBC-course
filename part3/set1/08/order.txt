@@ -1,6 +1,7 @@
 ex8info.txt
 
 optinsert/optinsert.h
+optinsert/template.i
 optinsert/optinsert.ih
 optinsert/optinsert1.cc
 optinsert/rdbuf.cc

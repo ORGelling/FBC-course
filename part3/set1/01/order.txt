@@ -1,5 +1,7 @@
 ex01info.txt
 
+template.h
+
 main.ih
 function1.cc
 function2.cc

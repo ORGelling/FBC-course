@@ -1,6 +1,6 @@
 //#define CLS
-//#define LIBRARY             "modules"
-#define MAIN                "main.cc"
+#define LIBRARY             "arg"
+//#define MAIN                "main.cc"
 #define BINARY              "main"
 #define SOURCES             "*.cc"
 #define OBJ_EXT             ".o"
@@ -12,8 +12,8 @@
 //#define USE_ECHO            ON
 //#define USE_VERSION
 
-#define DEFCOM "program"
-//#define DEFCOM "library"
+//#define DEFCOM "program"
+#define DEFCOM "library"
 
 // COMPILATION AND LINKING RELATED DEFINES
 // =======================================

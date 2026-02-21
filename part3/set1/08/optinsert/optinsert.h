@@ -20,15 +20,9 @@ class OptInsert
         void rdbuf(std::streambuf *buffer);
 };
 
-template <typename Tp>
-OptInsert &operator<<(OptInsert &out, Tp const &arg)
-{
-    if (out.d_insert)
-        out.d_out << arg;
-    return out;
-}
-
 void setVerbose(std::ostream &out);
 OptInsert &verbose();
+
+#include "template.i"
 
 #endif
