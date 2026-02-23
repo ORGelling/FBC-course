@@ -4,7 +4,6 @@
 #include <vector>
 #include <memory>       // shared_ptr
 #include <string>
-#include <iterator>
 
 class Data
 {
