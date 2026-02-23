@@ -3,10 +3,13 @@ Exercise 15: Use static polymorphism to generalize handling const members in
 
 We make base class Base, which has a single template which takes a const 
 function and whatever arguments it has, wraps them in a non-const function. 
-Which, by wrapping said const function, allows it to be placed inside an
-array of non-const function addresses. Inside the template a cast is used to
-address the function like a Derived (in our case CPU) type, which constitutes
-the polymorphism.
+This, by wrapping said const function, allows it to be placed inside an array
+of non-const function addresses. 
+
+Inside the template a cast is used to address the function as if it were a
+Derived (in our case CPU) type, which constitutes the polymorphic nature of
+this method. decltype(auto) is used to find and preserve the wrapped
+function's return type.
 
 We demonstrate this with the same CPU s_opcode array shown in the exercise,
 where each function simply prints "Called [function name]".
