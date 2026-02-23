@@ -23,36 +23,43 @@ class Storage<Data>::iterator
         using pointer           = value_type *;
         using reference         = value_type &;
         
-        iterator(iterator const &other);
+        //iterator(iterator const &other);              // provided by cmplr
+        //iterator &operator=(iterator const &other);
         
-        iterator &operator=(iterator const &other);
+        Data &operator*();
+        Data const &operator*() const;
         
-        Data &operator*() const;
-        //Data const &operator*() const;
-        
-        Data *operator->() const;
-        //Data const *operator->() const;
+        Data *operator->();
+        Data const *operator->() const;
         
         Data &operator[](size_t idx);
+        Data const &operator[](size_t idx) const;
         
         iterator &operator++();
-        iterator &operator--();     // we are skipping postfix in/decrement!
+        iterator operator++(int);
+        iterator &operator--();
+        iterator operator--(int);
         
         bool operator==(iterator const &rhv) const;
-        std::strong_ordering operator<=>(iterator const rhv) const;
-        int operator-(iterator const &rhv) const;
+        std::strong_ordering operator<=>(iterator const &rhs) const;
+        
+        int operator-(iterator const &rhs) const;
         iterator operator+(int step) const;
         iterator operator-(int step) const;
 };
 
 #include "iterator1.i"
-#include "iteratorcc.i"
-#include "opass.i"
+
 #include "opderef.i"
-#include "oparrow.i"
+#include "opcderef.i"
+#include "opptr.i"
+#include "opcptr.i"
 #include "opidx.i"
+#include "opcidx.i"
 #include "opincr.i"
+#include "oppostincr.i"
 #include "opdecr.i"
+#include "oppostdecr.i"
 #include "opequals.i"
 #include "opcompare.i"
 #include "opptrsubtr.i"

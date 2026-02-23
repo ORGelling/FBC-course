@@ -19,7 +19,7 @@ namespace {
         
         if (not tmpIn.is_open())
             throw runtime_error{ "Could not open stream" };
-                                            
+    
         return tmpIn;                       // calling move() here prevents
     }                                       // elision. Compiler elides/moves 
                                             // the stream as needed
@@ -49,11 +49,9 @@ int main(int argc, char **argv)
     
     sort(store.begin(), store.end());
     
-    cout << "=================================================\n";
     show(store);
     
     sort(store.rbegin(), store.rend());
     
-    cout << "=================================================\n";
     show(store);
 }
