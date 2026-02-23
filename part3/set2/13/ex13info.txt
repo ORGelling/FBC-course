@@ -1,1 +1,13 @@
-Exercise 13: 
+Exercise 13: Learn to use back_inserter with a home-made class
+
+We keep things simple and avoid defining even iterators for our class, as,
+even though that could be useful here especially when also using the copy
+algorithm to output our class's contents, we strictly need to use
+std::back_inserter to *fill* it only.
+
+As such we can get away with defining the needed valut_type for the copy
+algorithm, and writing out push_back that will be used by back_inserter.
+
+In order to properly read lines from a stream in full, rather than by
+whitespace, we make a small class that inherits publicly from string, and give
+it its own extraction operator, which uses getline to read lines in full.
