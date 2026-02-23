@@ -1,1 +1,1 @@
-Exercise 10: Generalize facilities of class templates
+Exercise 10: Use class templates having static data

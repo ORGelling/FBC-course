@@ -1,1 +1,16 @@
 ex11info.txt
+
+counter/counter.h
+counter/counter.ih
+counter/data.cc
+counter/count.cc
+counter/actual.cc
+
+unique/unique.h
+unique/uniquedc.i
+unique/uniquevc.i
+unique/uniquepc.i
+unique/uniquecc.i
+unique/uniquemc.i
+unique/destructor.i
+unique/unique.ih
