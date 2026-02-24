@@ -1,5 +1,6 @@
 #ifndef INCLUDED_OPINSERT_
 #define INCLUDED_OPINSERT_
+
 #include <iostream>
 #include <set>
 
@@ -8,9 +9,9 @@ std::ostream &operator<<(std::ostream &out, std::set<Tp> const &insert)
 {
     if (insert.empty())                 // return directly if empty
         return out;
-    
-    auto it = insert.begin();           // get iterator 
-                                        // auto: std::set<Tp>::const_iterator
+                                        // get iterator, auto sets:
+    auto it = insert.begin();           // std::set<Tp>::const_iterator
+                                        
     out << '{' << *it++;                // show first
     
     for (; it != insert.end(); ++it)    // show rest

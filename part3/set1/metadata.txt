@@ -1,5 +1,5 @@
-Set: Set 1
+Set: Set 1 Resubmission
 
-Authors: Olivier Gelling, Jakub Janicek, Karelina Kozikowska, Max Lindenburger
+Authors: Olivier Gelling, Jakub Janicek, Karolina Kozikowska, Max Lindenburger
 
-Rater: 
+Rater:
