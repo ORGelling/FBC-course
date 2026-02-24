@@ -13,4 +13,6 @@ unique/uniquepc.i
 unique/uniquecc.i
 unique/uniquemc.i
 unique/destructor.i
-unique/unique.ih
+
+-main.ih
+-main.cc

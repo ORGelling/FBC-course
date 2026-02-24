@@ -7,7 +7,6 @@ unique/uniquecc.i
 unique/opassigncopy.i
 unique/get.i
 unique/getconst.i
-unique/unique.ih
 
 -main.ih
 -main.cc

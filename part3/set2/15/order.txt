@@ -2,7 +2,6 @@ ex15info.txt
 
 base/base.h
 base/nc.i
-base/base.ih
 
 cpu/cpu.h
 cpu/cpu.ih

@@ -9,7 +9,6 @@ unique/uniquemc.i
 unique/destructor.i
 unique/count.i
 unique/actual.i
-unique/unique.ih
 
 -main.ih
 -main.cc

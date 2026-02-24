@@ -9,7 +9,6 @@ storage/rbegin.i
 storage/end.i
 storage/rend.i
 storage/data.i
-storage/storage.ih
 
 iterator/iterator.h
 iterator/iterator1.i
@@ -28,7 +27,6 @@ iterator/opcompare.i
 iterator/opptrsubtr.i
 iterator/opadd.i
 iterator/opsub.i
-iterator/iterator.ih
 
 main.ih
 main.cc

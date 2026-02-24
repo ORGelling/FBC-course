@@ -5,7 +5,6 @@ unorderedsort/unorderedsort1.i
 unorderedsort/map.i
 unorderedsort/sort.i
 unorderedsort/sort2.i
-unorderedsort/unorderedsort.ih
 
 main.ih
 main.cc

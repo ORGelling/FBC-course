@@ -1,5 +1,3 @@
-#include "simplespec.ih"
-
     // by 
 
 template <typename Type>
