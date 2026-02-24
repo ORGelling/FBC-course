@@ -1,1 +1,14 @@
-Exercise 16: 
+Exercise 16: design a class allowing you to access unorsorted elements in a 
+             sorted way.
+
+We implement this class using a vector of unordered_map iterators to store and
+return the sorted order. 
+
+Q - How would/could you handle the situation where the unordered_map may be 
+    altered during the lifetime of your class's object?
+A - One solution would be always compose this vector from scratch when
+    retrieving the sorted order. This is inefficient both with computation and
+    memory since it does not store this vector locally. Another option might
+    be to wrap the unordered map inside another class that de facto keeps
+    track of whatever changes are made to it and updates the sorted iterator
+    vector in real time.
