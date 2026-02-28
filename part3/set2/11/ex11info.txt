@@ -1,1 +1,6 @@
-Exercise 11: 
+Exercise 11: Generalise facilities of class templates
+
+To do this we inherit a base class that has the static s_count and s_actual
+members in a protected section, and manipulate its components inside the con-
+and destructors. We can keep the rest of the class almost exactly the same now
+too!

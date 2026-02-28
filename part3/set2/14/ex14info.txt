@@ -1,1 +1,5 @@
-Exercise 14: 
+Exercise 14: Add iterators to a class
+
+We use the functionality of the embedded vector inside Storage to wrap much of
+our iterator implementation. We have added the full implementation of the
+random access iterator, other than op-+ and op+=. 

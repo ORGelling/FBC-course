@@ -1,1 +1,14 @@
 ex12info.txt
+
+simple/simple.h
+simple/simple1.i
+simple/get.i
+
+simplespec/simplespec.h
+simplespec/simplespec1.i
+simplespec/simplespec2.i
+simplespec/specdtor.i
+simplespec/specget.i
+
+main.ih
+main.cc

@@ -1,0 +1,7 @@
+#include "simplespec.ih"
+
+    // by 
+
+void SimpleSpec::()
+{
+}

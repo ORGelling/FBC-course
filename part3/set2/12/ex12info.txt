@@ -1,1 +1,20 @@
-Exercise 12: 
+Exercise 12: Tailor a class to different types using specialisation
+
+We do as the exercise asks, and also add a call to the fun template inside
+main, such that we properly test the specialisation in full. In order to avoid
+issues with memory de-allocation in the dtor when handing a pointer to a 
+stack-allocated value to the constructor of our specialised Simple object we
+always allocate memory and copy the pointed-at value into it. This might be a
+bit overzealous, but hopefully does not distract from the purpose of the
+exercise.
+
+The template of fun has been placed inside main.ih, as that seems an ok place
+to store it. Initially it was placed inside an ANS in main.cc, but it likely
+deserves its own little header.
+
+Q - What can the author of Simple do to acoid having to provide this
+    specialisation?
+A - One could store the value using a (unique) pointer by default, and add a
+    constructor that accepts a pointer to Type. This avoids issues with
+    pointers and references. get() would have to be updated to dereference the
+    pointer but other than that the change is small but effective.

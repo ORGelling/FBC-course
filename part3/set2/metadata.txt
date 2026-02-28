@@ -1,5 +1,5 @@
-Set: 
+Set: Set 2
 
-Authors: 
+Authors: Jakub Janicek, Olivier Gelling, Max Lindeburger, Karolina Kozikowska
 
 Rater: 
