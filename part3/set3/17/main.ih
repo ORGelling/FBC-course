@@ -1,0 +1,5 @@
+#include "nrtrait/nrtrait.h"
+
+#include <iostream>
+
+using namespace std;

@@ -1,0 +1,7 @@
+#include "nrtrait.ih"
+
+    // by 
+
+void NrTrait::()
+{
+}
