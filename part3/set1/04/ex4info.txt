@@ -1,0 +1,15 @@
+Exercise 4: Design a generic function template
+
+We use perfect forwarding to hand the parameters on to the function without
+needing to worry about their amount or their type of reference.
+
+To make sure the forwarder template can select the right overloaded function
+we use a static_cast to specify this inside the template call in main. We can
+also declare a function pointer and assign it the specific overloaded function
+we need, like so:
+
+void (*func1Ptr)(int, int) = fun;
+void (*func2Ptr)(Demo &&, Demo &&) = fun;
+
+forwarder(func1Ptr, 1, 3);
+forwarder(func2Ptr, Demo{}, Demo{});

@@ -1,0 +1,14 @@
+#include "demo/demo.h"
+#include "template.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <functional>
+
+using namespace std;
+
+void fun(int first, int second);
+void fun(Demo &&dem1, Demo &&dem2);
+void funTwo(Demo &&dem1, Demo &&dem2);
+                                        // increments each argument:
+void incrementer(int &one, int &two, int &three);

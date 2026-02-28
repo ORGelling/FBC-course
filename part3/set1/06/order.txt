@@ -1,0 +1,9 @@
+ex6info.txt
+
+exception/exception.h
+exception/template.i
+exception/exception.ih
+exception/what.cc
+
+main.ih
+main.cc
