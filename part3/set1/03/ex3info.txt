@@ -1,0 +1,5 @@
+Exercise 3: Learn to use templates to simplify the use of functions/opreators
+            that return void *
+
+We do exactly this, using operator new and then testing this with placement
+new and printing the values.
