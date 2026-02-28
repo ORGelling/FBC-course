@@ -1,1 +1,4 @@
-Exercise 18: 
+Exercise 18: Design a small template meta program
+
+We follow suit from the example from the lecture slides, again making a
+specialisation for the template recursion to have a break-out clause.
