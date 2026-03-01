@@ -1,1 +1,6 @@
-Exercise 20: 
+Exercise 20: Combine variadic template arguments
+
+We define an empty struct to hold the OneChar character in its type, and use
+parameter packs to pass around all of the characters exclusively inside the
+type info too. The previous exercise's Chars class takes care of the insertion
+as it is being used in the "using CP =" type definition.
