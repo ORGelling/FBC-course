@@ -4,15 +4,11 @@ We use recursion to bite off one one parameter from haystack using specialised
 templates, ending either in a found (with a param pack that can either hold
 spare untested args or just be empty) or a not found (at all) case.
 
-We have used a class rather than a struct this time purely for aesthetic
-reasons to avoid having to set extra private and public sections, as we use a
-private enum (next) to check the n ext entry, and then keep track of the final
-result using locate. Not keeping these two separate led to issues with
-returning positive values after multiple cycles, even if no matching type was
-eventually found. We could have done this inside locate and used:
-
-    located = Type<Needle, Haystack...>::located == 0 ? 0 : 
-                                    1 + Type<Needle, Haystack...>::located
-
-Which is nice and compact, but harder to read, so we (for now) stick with the
-extra enum and extra clarity!
+We note that using the TypeIdx class here seems entirely superfluous. One can
+compute the index without even needing to hand an index inbetween the
+recursive calls. The exact same structure can be used as done here, but all
+within Type itself. The amount of recursion iterations count the index
+already, without ever having to hand a "value"down. This was my first solution
+but I had to amend it to add a TypeIdx class (struct) and separate this
+functionality out. The idx non type is here only because the exercise asks it
+of us. Compact solution is added as Type2.
