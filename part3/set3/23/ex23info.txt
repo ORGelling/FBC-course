@@ -1,1 +1,18 @@
-Exercise 23: 
+Exercise 23: Compare types of template parameters (part II)
+
+The second hint of this exercise says:
+
+    the interface of the class Type may only contain the declaration of the 
+    support class TypeIdx.
+
+We can read this either as: 
+    The interface of this Type class may contain nothing other than the 
+    declaration of the TypeIdx support class
+or
+    The support class TypeIdx may only be declared in the Type interface, but
+    may not be defined there.
+
+Looking into the options here, it seems a hard ask (even beyond an Advanced
+Exercise) to use the same main function without having the located enum
+declared inside Type, therefore we will work this exercise out assuming the
+hint implies the latter meaning.

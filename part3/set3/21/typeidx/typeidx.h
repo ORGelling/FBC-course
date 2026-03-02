@@ -17,7 +17,7 @@ struct TypeIdx<Needle, idx, Needle, Haystack...>
 {
     enum
     {
-        index = 1
+        index = 1 + idx
     };                                  // Found! This 1 propagates
 };                                      // up the recursion chain 
 
@@ -26,9 +26,8 @@ struct TypeIdx<Needle, idx, Hay, Haystack...>
 {
     enum
     {
-        index = TypeIdx<Needle, idx + 1, Haystack...>::index == 0 ? 0 : 
-                            1 + TypeIdx<Needle, idx + 1, Haystack...>::index
-    };                                  // keep 0 if not found at all
+        index = TypeIdx<Needle, idx + 1, Haystack...>::index
+    };
 };                                      // propagate and increment if found
 
 #endif
