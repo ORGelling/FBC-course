@@ -1,1 +1,41 @@
-Exercise 24: 
+Exercise 24: Generalize conversions of nrs. to text
+
+We use recursive inheritance to bite digits off our number one by one, storing
+them in a char parameter pack, and prepending the rightmost digit to it at
+each step.
+
+    I2C<12345>::s_ntbs calls: Build<12345>::s_ntbs, which:
+
+    instantiates Build<12345>, 
+        with <size_t Remaining = 12345, char ...Chars = [empty]>
+    
+    inherits Build<1234, '5'>
+        with <size_t Remaining = 1234, char ...Chars = '5'>
+        
+        by converting the rightmost digit (taken using modulo 10) to a char
+        and divides 12345 by 10 to get 1234 (size_t division takes floor)
+    
+    inherits Build<123, '4', '5'>
+        with <size_t Remaining = 123, char ...Chars = '4', '5'>
+        
+    inherits Build<12, '3', '4', '5'>
+        with <size_t Remaining = 12, char ...Chars = '3', '4', '5'>
+        
+    inherits Build<1, '2', '3', '4', '5'>
+        with <size_t Remaining = 1, char ...Chars = '2', '3', '4', '5'>
+        
+    inherits Build<0, '1', '2', '3', '4', '5'>
+        with <size_t Remaining = 0, char ...Chars = '1', '2', '3', '4', '5'>
+    
+    which then inherits Digits, which converts all the chars from the
+    parameter pack into an ntbs using:
+        
+        s_ntbs[] = { Chars..., 0 };
+    
+    which in our case gives:
+    
+        s_ntbs[] = { '1', '2', '3', '4', '5', 0 };
+    
+    *This* is also the ::s_ntbs that is called from the initial call to:
+        
+        Build<12345>::s_ntbs
