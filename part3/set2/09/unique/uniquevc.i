@@ -1,7 +1,7 @@
     // by 
     
 template <typename Type>
-Unique<Type>::Unique(Type const &value)
+Unique<Type>::Unique(Type &&value)
 :
-    d_data(std::make_unique<Type>(value))
+    d_data(std::make_unique<Type>(std::move(value)))
 {}

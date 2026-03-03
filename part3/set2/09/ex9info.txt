@@ -1,4 +1,5 @@
 Exercise 9: Design a basic class template
 
 We have used built in pointer swap mechanics, but could, if needed, implement
-our very own swap function
+our very own swap function. The value constructor now moves the recieved
+(r)value rather than copies.

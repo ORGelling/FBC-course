@@ -5,13 +5,16 @@
 
 class Counter
 {
+    static size_t s_global_count;
+    static size_t s_global_actual;
+    
     protected:
-        static size_t s_count;
-        static size_t s_actual;
-
+        Counter();
+        ~Counter();
+        
     public:
-        static size_t count();
-        static size_t actual();
+        static size_t global_count();
+        static size_t global_actual();
 };
         
 #endif
