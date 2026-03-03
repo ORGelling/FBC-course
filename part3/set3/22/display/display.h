@@ -6,7 +6,7 @@
 
 template <size_t Value, size_t Radix, bool Displayed = false>
 struct Display
-{
+{                                           // put in global ANS!!!!!!!!!!!!
     static constexpr const char DIGITS[] = 
                                     "0123456789abcdefghijklmnopqrstuvwxyz";
     
