@@ -4,12 +4,14 @@
 #include "../../20/merge/merge.h"
 #include <cstddef>
 
+namespace {
+    
+    constexpr const char DIGITS[] = "0123456789abcdefghijklmnopqrstuvwxyz";
+}
+
 template <size_t Value, size_t Radix, bool Displayed = false>
 struct Display
-{                                           // put in global ANS!!!!!!!!!!!!
-    static constexpr const char DIGITS[] = 
-                                    "0123456789abcdefghijklmnopqrstuvwxyz";
-    
+{
     using CP =  Merge<
                     typename Display<Value / Radix, Radix, true>::CP,
                     OneChar<DIGITS[Value % Radix]>
