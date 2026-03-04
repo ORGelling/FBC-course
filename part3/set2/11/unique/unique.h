@@ -15,7 +15,7 @@ class Unique: public Counter
         Unique(Type *ptr);
         
         Unique(Unique const &other);        // needs manual check
-        Unique(Unique &&);                  // 
+        Unique(Unique &&other);             // 
 };
 
 //:
