@@ -1,4 +1,4 @@
 Exercise 26: implement a policy class
 
-We implement the class from the previous exercise in full, ignoring the using
-declaration such that we actually practice with the materials
+We implement the class from the previous exercise in full, implementing most
+of the ctors ourselves such that we actually practice with the materials.

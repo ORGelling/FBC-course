@@ -7,8 +7,8 @@
 template <template <typename> class Container, typename Type>
 struct Insertable: public Container<Type>
 {
-    using Container<Type>::Container;
-    
+    using Container<Type>::Container;       // This seems to already account
+                                            // for these default ctor decls?
     Insertable() = default;
     Insertable(Insertable const &other) = default;
     Insertable(Insertable &&other) = default;
