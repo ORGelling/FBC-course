@@ -1,0 +1,9 @@
+ex21info.txt
+
+type/type.h
+typeidx/typeidx.h
+
+type2/type2.h
+
+main.ih
+main.cc

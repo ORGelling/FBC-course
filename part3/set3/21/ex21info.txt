@@ -1,0 +1,13 @@
+Exercise 21: Compare types of template parameters
+
+We use recursion to bite off one one parameter from haystack using specialised
+templates, ending either in a found (with a param pack that can either hold
+spare untested args or just be empty) or a not found (at all) case.
+
+We note that using the TypeIdx class here seems somewhat superfluous. One can
+compute the index without even needing to hand an idx value between the
+recursive calls. The exact same structure can be used as done here, but all
+within Type itself. The amount of recursion iterations themselves can count 
+the index directly. This was my first solution but I had to amend it to add a
+TypeIdx class (struct) as per the hint, which separates this functionality 
+out. This other solution is added as Type2.

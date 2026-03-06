@@ -1,0 +1,6 @@
+ex18info.txt
+
+bin/bin.h
+
+-main.ih
+-main.cc

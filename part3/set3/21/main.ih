@@ -1,0 +1,6 @@
+#include "type/type.h"
+#include "type2/type2.h"
+
+#include <iostream>
+
+using namespace std;

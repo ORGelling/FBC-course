@@ -1,0 +1,17 @@
+Exercise 19: insert the info in a variadic non-type template into a stream
+
+Once it became clear that the Chars<...>() calls weren't meant to signify the
+function-call operator being called on these objects, and instead was simply
+initialising them to objects (like {} would have done) we realised
+implementing this would require little more than an insertion operator. As
+such we define an empty struct that has variadic parameters, and let the
+insertion operator unpack those parameters from the struct type into the
+ostream. We follow the example from annotations Ch 22.5.5 to use the comma
+operator for a nice and compact function.
+
+We note that it is also possible to simply write:
+
+    return ((out << CharList), ...), out;
+
+Yet nesting multiple comma operators like this makes the statement a bit too
+dense for our liking.

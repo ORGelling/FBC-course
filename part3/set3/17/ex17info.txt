@@ -1,0 +1,5 @@
+Exercise 17: design a simple trait class
+
+We write a simple struct containing an enum with all the traits, and use a
+recursive pattern for the sum of the digits, providing a case where the int
+is 0 to exit the recursive pattern once all digits have been summed.

@@ -1,0 +1,6 @@
+Exercise 22: Use nested class templates using meta programming
+
+We once again use recursion to find the rightmost digit of the re-based
+(modulo radix) number while handing the rest of our value to the next 
+recursive iteration, which then plucks the rightmost number off and repeats 
+until nothing is left.
