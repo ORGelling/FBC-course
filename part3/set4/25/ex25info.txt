@@ -1,1 +1,4 @@
-Exercise 25: 
+Exercise 25: design a simple class using policies
+
+We hold back on implementing anything, but do show the program's own internal
+header, to demonstrate how the using directive would work.
