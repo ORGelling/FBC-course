@@ -9,11 +9,11 @@ class Unique
     
     public:
         Unique() = default; 
-        Unique(Type const &value);
+        Unique(Type &&value);               // moves rvalue
         Unique(Type *ptr);
         
         Unique(Unique const &other);        // needs manual check
-        Unique(Unique &&) = default;        // Default safely swaps ptr
+        Unique(Unique &&other) = default;   // Default safely swaps ptr
         
         Unique &operator=(Unique const &other);
         Unique &operator=(Unique &&other) = default;

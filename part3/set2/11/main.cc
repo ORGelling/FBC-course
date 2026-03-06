@@ -19,7 +19,10 @@ int main()
     Unique<size_t>{};
     Unique<size_t> nontmp;
     
-    cout << Unique<string>::count() << ' ' << Unique<string>::actual() << '\n'
-         << Unique<int>::count() << ' ' << Unique<int>::actual() << '\n'
-         << Unique<char>::count() << ' ' << Unique<char>::actual() << '\n';
+    cout << Unique<string>::global_count() << ' ' 
+             << Unique<string>::global_actual() << '\n'
+         << Unique<int>::global_count() << ' ' 
+            << Unique<int>::global_actual() << '\n'
+         << Unique<char>::global_count() << ' ' 
+            << Unique<char>::global_actual() << '\n';
 }

@@ -12,7 +12,7 @@ class Unique
     
     public:
         Unique(); 
-        Unique(Type const &value);
+        Unique(Type &&value);
         Unique(Type *ptr);
         
         Unique(Unique const &other);        // needs manual check

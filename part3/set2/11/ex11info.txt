@@ -2,5 +2,14 @@ Exercise 11: Generalise facilities of class templates
 
 To do this we inherit a base class that has the static s_count and s_actual
 members in a protected section, and manipulate its components inside the con-
-and destructors. We can keep the rest of the class almost exactly the same now
-too!
+and destructors. The Unique class can be simplified now, as the functionality
+of the Counter base is entirely relegated to its constructor and destructor. 
+
+We have left both a total and actual count in this global counter, as the
+exercise does imply that we should keep track of both of these, even for the
+global counting mechanics. We have, however, moved the data members to the
+private section, as the manipulation thereof happens by calling the con- and
+de-structors. This encapsulates the functionality of this Counter class
+exactly as it should. We place the c- and dtor in the protected section
+instead, to make sure they can only be called as a sub-object of derived 
+classes.

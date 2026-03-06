@@ -10,24 +10,19 @@ class Unique: public Counter
     std::unique_ptr<Type> d_data;
     
     public:
-        Unique(); 
-        Unique(Type const &value);
+        Unique() = default; 
+        Unique(Type &&value);               // fixed inefficient copy
         Unique(Type *ptr);
         
         Unique(Unique const &other);        // needs manual check
-        Unique(Unique &&);                  // 
-        
-        ~Unique();                          // decrements s_actual
+        Unique(Unique &&other);             // 
 };
 
 //:
 
-#include "uniquedc.i"
 #include "uniquevc.i"
 #include "uniquepc.i"
 #include "uniquecc.i"
 #include "uniquemc.i"
-
-#include "destructor.i"
 
 #endif
