@@ -3,10 +3,10 @@
 
 #include "../display/display.h"
 
-template <size_t Value, size_t Radix>
+template <size_t value, size_t radix>
 struct Convert
 {
-    using CP = Display<Value, Radix>::CP;
+    using CP = Display<value, radix>::CP;
 };
         
 #endif

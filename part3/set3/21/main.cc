@@ -12,7 +12,7 @@ int main()
         Type<int, double, double, char, long, double>::located <<  ' ' <<
         Type<int, double, long, char, double, int>::located <<
         '\n';
-        
+
     cout <<
         Type2<int>::located << ' ' << 
         Type2<int, double>::located << ' ' << 

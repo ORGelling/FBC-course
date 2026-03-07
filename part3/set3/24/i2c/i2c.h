@@ -18,7 +18,7 @@ struct Digits
 template <size_t Integer, char ...chars>
 struct I2C : I2C<Integer / 10, '0' + (Integer % 10), chars...>
 {};                         //    1:    // Inheriting recursively to pass a
-                                        // digit to the param pack each turn
+                                        // digit to the param pack each iter
 
 template <char ...chars>
 struct I2C<0, chars...> : Digits<chars...>
