@@ -7,22 +7,18 @@
 template <template <typename> class Container, typename Type>
 struct Insertable: public Container<Type>
 {
+    using Container<Type>::Container;           // this covers for a lot of 
+                                                // other functions. Can leave
+                                                // a few of the following 
+                                                // ctors out technically
     Insertable() = default;
     Insertable(Insertable const &other) = default;
     Insertable(Insertable &&other) = default;
     
     Insertable(Container<Type> const &value);
     Insertable(Container<Type> &&value);
-    Insertable(Type const &Value);
-    Insertable(Type &&vallue);
-    
-                                                // Instead of all of this we 
-                                                // can leave the interface 
-                                                // empty except for:
-    using Container<Type>::Container;
-                                                // which covers almost all
-                                                // of the needed cases. Fails
-                                                // for IVector iv3(4) though
+    Insertable(Type const &element);
+    Insertable(Type &&element);
 };
 
 template<template <typename> class Container, typename Type>
