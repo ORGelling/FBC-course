@@ -4,12 +4,12 @@
 #include <cstddef>
 
 
-template <char ...Chars>    //    3:    // at the end of the recursion we
-struct Digits                           // inherit this to turn our char 
-{                                       // parameter pack into an ntbs
+template <char ...chars>    //    3:    // Unpack the param pack into an ntbs
+struct Digits
+{
     static constexpr char const s_ntbs[] = 
     {
-        Chars...,
+        chars...,
         0
     };
 };
