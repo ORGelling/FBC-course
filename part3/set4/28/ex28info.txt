@@ -1,1 +1,7 @@
-Exercise 28: 
+Exercise 28: design a trait class
+
+We specialise a struct to hold type info in its value member. We have added
+one option (int *&) to allow for our int const * function to be written
+without needing specialisations. Instead it uses perfect forwarding and
+internally uses our defined Traits template to discern between pointers and
+non-pointers.
