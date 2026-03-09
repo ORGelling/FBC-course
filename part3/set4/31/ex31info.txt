@@ -1,1 +1,43 @@
-Exercise 31: 
+Exercise 31: improve your understanding of expression tempates.
+
+ Consider this class: class VI: public std::vector<int>.
+
+First assume that VI uses standard definition for operator+= and operator+. 
+When v1, v2, v3 and v4 are VI objects, each having N elelement, then the 
+result of the expression
+
+
+    v1 + v2 + v3 + v4;
+        
+
+is a temporary object whose elements are the sums of the elements of the four
+VI objects.
+
+Now assume that instead of the standard operator+= and operator+ an 
+expression template has been defined to add VI objects. In that case,
+
+ Q  What's the result of the above expression?
+    
+ A  If the structure of the lecture slides is implemented with this
+    Expression template, this expression will return a temporary object that 
+    contains all the VI objects nested together one layer by another, inside
+    something like the "Add2" struct from the slides, like so:
+        
+        Add2{ Add2{ Add2{ v1, v2 }, v3 }, v4 }
+    
+    Where the actual computation is done all the way at the end, once the VI
+    objects have all been gathered into nested Add2 objects, and the result is
+    evaluated. Every relevant index will, in one fell swoop, be dereferenced
+    and computed to reduce the amount of index computations that are needed
+    drastically.
+    
+ Q  How many index computations will be performed?
+    
+ A  N * (4 + 1), with N being the amount of elements per VI object. The target
+    object has an index that will be computed, and each element of the summed
+    objects is computed just once. However it is pertinent to state that just
+    writing v1 + v2 + v3 + v4 does not dereference anything unless this
+    expression is evaluated and assigned to another VI object. 
+    
+    If this expression is assigned to another VI object (VI v0 = ...) this 
+    will indeed be evaluated and stored.
