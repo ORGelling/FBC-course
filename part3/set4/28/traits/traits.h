@@ -5,7 +5,7 @@
 
 template <typename Type>
 struct Traits
-{
+{                                               // use enums instead?
     static constexpr int value = 1;
 };
 
@@ -44,5 +44,24 @@ int const *func(Type &&value)
     else
         return &value;
 }
+
+//  This solution is somewhat gimmicky, especially since it requires the
+//  addition of an extra Trait, i.e. that for Type *&. Another solution is to
+//  not use these Traits at all and simply have a function with overloads:
+
+template <typename Type>
+int const *make_const_ptr(Type &value)
+{
+    return &value;
+}
+
+template <typename Type>
+int const *make_const_ptr(Type *value)
+{
+    return value;
+}
+
+// There is probably also a way to still use traits but not have to define an
+// extra Type *& Trait. Feedback is welcome once again!
 
 #endif

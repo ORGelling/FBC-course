@@ -3,7 +3,7 @@
 
 #include <iterator>
 #include <compare>
-
+                                            // Macro for simplification
 #define ItType Iterator<IData, Container>
 
 
@@ -17,30 +17,32 @@ template <typename IData, template<typename> class Container>
 std::strong_ordering operator<=>(ItType const &lhs, ItType const &rhs);
 
 template <typename IData, template<typename> class Container>
-std::ptrdiff_t operator-(ItType const &lhs, ItType const &rhs);
+typename Container<IData *>::difference_type operator-(ItType const &lhs, 
+                                                        ItType const &rhs);
 
 
 template <typename IData, template <typename> class Container>
 class Iterator
-{
-    using iter = typename Container<IData *>::iterator;
-    
-    friend bool operator==<>(Iterator const &lhs, Iterator const &rhs);
-    friend std::strong_ordering operator<=><>(Iterator const &lhs, 
-                                                        Iterator const &rhs);
-    friend std::ptrdiff_t operator-<>(Iterator const &lhs, 
-                                                        Iterator const &rhs);
-    
-    iter d_current;                 // the data member
-    
-    public:
+{                                       // initial section for further use
+    public:                             // by private mems & friend decls
         using iterator_category = std::random_access_iterator_tag;
-        using difference_type   = std::ptrdiff_t;
+        using difference_type = typename Container<IData *>::difference_type;
         using value_type        = IData;
         using pointer           = value_type *;
         using reference         = value_type &;
-        
-        Iterator(iter const &current);
+                                        
+                                        // Can just place these here
+        friend bool operator==<>(Iterator const &lhs, Iterator const &rhs);
+        friend std::strong_ordering operator<=><>(
+                                Iterator const &lhs, Iterator const &rhs);
+        friend difference_type operator-<>(
+                                Iterator const &lhs, Iterator const &rhs);
+
+    private:
+        typename Container<IData *>::iterator d_current;  // the data member
+    
+    public:
+        Iterator(typename Container<IData *>::iterator const &current);
         
         Iterator &operator++();
         Iterator operator++(int);

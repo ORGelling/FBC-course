@@ -78,10 +78,10 @@ struct Convert<Type, IntegerTag>
     static Type convert(std::string const &text)
     {
         try
-        {
-            return static_cast<Type>(std::stoll(text));
-        }
-        catch (...)
+        {                           
+            return static_cast<Type>(std::stoll(text)); // might cause errors
+        }                                               // at signed/unsigned
+        catch (...)                                     // boundary
         {
             return Type{};
         }
