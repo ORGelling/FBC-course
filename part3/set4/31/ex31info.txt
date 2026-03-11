@@ -25,19 +25,14 @@ expression template has been defined to add VI objects. In that case,
         
         Add2{ Add2{ Add2{ v1, v2 }, v3 }, v4 }
     
-    Where the actual computation is done all the way at the end, once the VI
-    objects have all been gathered into nested Add2 objects, and the result is
-    evaluated. Every relevant index will, in one fell swoop, be dereferenced
-    and computed to reduce the amount of index computations that are needed
-    drastically.
+    No computations are done yet, as this just creates a temporary nested 
+    object.
     
  Q  How many index computations will be performed?
     
- A  N * (4 + 1), with N being the amount of elements per VI object. The target
-    object has an index that will be computed, and each element of the summed
-    objects is computed just once. However it is pertinent to state that just
-    writing v1 + v2 + v3 + v4 does not dereference anything unless this
-    expression is evaluated and assigned to another VI object. 
+ A  0. No index computations are done as no evaluation is performed. The
+    temporary object is not evaluated so the calculations of all the rows is
+    never done.
     
     If this expression is assigned to another VI object (VI v0 = ...) this 
-    will indeed be evaluated and stored.
+    will indeed be evaluated and stored, with (4 + 1) * N index computations.
