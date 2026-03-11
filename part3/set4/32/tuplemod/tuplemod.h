@@ -31,6 +31,6 @@ auto operator+(std::tuple<Lhs ...> const &lhs,
 #include "tuplemod1.i"
 #include "add.i"
 
-#include "opadd1.i"
+#include "opadd.i"
 
 #endif
