@@ -1,4 +1,6 @@
 ex33info.txt
 
-basicmath.h
+math/math.h
+math/basicmath.i
+
 main.cc

@@ -13,9 +13,3 @@ concept BasicMath =
         - lhs;
         - rhs;
     };
-
-template <typename LHS, typename RHS> requires BasicMath<LHS, RHS>
-auto math(LHS lhs, RHS rhs)
-{
-    return lhs + rhs;
-}

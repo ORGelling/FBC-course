@@ -1,1 +1,6 @@
 ex34info.txt
+
+testfunc/testfunc.h
+testfunc/checkopidx.i
+
+main.cc
