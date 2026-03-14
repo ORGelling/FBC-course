@@ -1,1 +1,6 @@
 ex36info.txt
+
+compare/compare.h
+compare/canorder.i
+
+main.cc

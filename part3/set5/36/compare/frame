@@ -1,0 +1,7 @@
+#include "compare.ih"
+
+    // by 
+
+void Compare::()
+{
+}
