@@ -3,14 +3,15 @@
 
 #include <ostream>
 
-template <char ...CharList>
+template <char ...charlist>
 struct Chars
 {};
 
-template <char ...CharList>
-std::ostream &operator<<(std::ostream &out, Chars<CharList...>)
+template <char ...charlist>
+std::ostream &operator<<(std::ostream &out, Chars<charlist...>)
 {
-    (..., (out << CharList));
+    //((out << charlist), ...);
+    (..., (out << charlist));
     return out;
 }
 

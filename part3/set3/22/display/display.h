@@ -4,28 +4,26 @@
 #include "../../20/merge/merge.h"
 #include <cstddef>
 
-namespace {
-    
-    constexpr const char DIGITS[] = "0123456789abcdefghijklmnopqrstuvwxyz";
-}
-
-template <size_t Value, size_t Radix, bool Displayed = false>
+template <size_t value, size_t radix, bool displayed = false>
 struct Display
 {
     using CP =  Merge<
-                    typename Display<Value / Radix, Radix, true>::CP,
-                    OneChar<DIGITS[Value % Radix]>
+                    typename Display<value / radix, radix, true>::CP,
+                    OneChar< (value % radix < 10
+                        ? '0' + value % radix
+                        : 'a' + value % radix - 10)
+                    >
                 >::CP;
 };
 
-template <size_t Radix>
-struct Display<0, Radix, true>
+template <size_t radix>
+struct Display<0, radix, true>
 {
     using CP = Chars<>;
 };
 
-template <size_t Radix>
-struct Display<0, Radix, false>
+template <size_t radix>
+struct Display<0, radix, false>
 {
     using CP = Chars<'0'>;
 };

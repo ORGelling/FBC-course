@@ -12,7 +12,7 @@ class Type
     public:
         enum
         {
-            located = TypeIdx<0, Haystack...>::index
+            located = TypeIdx<1, Haystack...>::index
         };
 };
 
@@ -32,7 +32,7 @@ struct Type<Needle, Haystack...>::TypeIdx<idx, Needle, Stack...>
 {
     enum
     {
-        index = 1 + idx
+        index = idx
     };
 };
 

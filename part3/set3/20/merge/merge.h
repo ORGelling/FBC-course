@@ -10,18 +10,13 @@ struct OneChar                          // doesn't need contents
 
 
 template <typename Lhs, typename Rhs>
-struct Merge
-{
-    using CP = Chars<>;
-};
-
+struct Merge;
 
 template <char ...Lhs, char ...Rhs>
 struct Merge<Chars<Lhs...>, Chars<Rhs...>>
 {
     using CP = Chars<Lhs..., Rhs...>;
 };
-
 
 template <char ...Lhs, char Rhs>
 struct Merge<Chars<Lhs...>, OneChar<Rhs>>

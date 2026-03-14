@@ -8,7 +8,7 @@ struct Bin
 {
     enum                        // we recursively call ::value
     {
-        value = (number & 1) + 10 * Bin<(number >> 1)>::value
+        value = 10 * Bin<(number >> 1)>::value + (number & 1)
     };
 };
 

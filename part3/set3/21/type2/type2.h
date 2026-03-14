@@ -11,8 +11,8 @@ struct Type2<Needle, Hay, Haystack...>
 {
     enum                                            // finds next count
     {                                   // propagates value up if found
-        located = Type<Needle, Haystack...>::located == 0 ? 0 : 
-                                    1 + Type<Needle, Haystack...>::located
+        located = Type2<Needle, Haystack...>::located == 0 ? 0 : 
+                                    1 + Type2<Needle, Haystack...>::located
     };                                  // keeps 0 if not found at all
 };
 

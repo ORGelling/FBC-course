@@ -8,7 +8,7 @@ struct Type
 {
     enum
     {
-        located = TypeIdx<Needle, 0, Haystack...>::index
+        located = TypeIdx<Needle, 1, Haystack...>::index
     };
 };
 
