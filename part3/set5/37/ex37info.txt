@@ -1,1 +1,11 @@
-Exercise 37: 
+Exercise 37: nest concept requirements
+
+We make an Add and a Mul concept, and then nest those in an AddMul and an
+AddOrMul concept, using combinatory logic to make sure or and xor are properly
+implemented.
+
+In order to test the function that uses the AddOrMul constraint we could
+define a small class/struct with either operator+ and operator- implemented,
+*or* operator* and operator/ implemented. But commenting out the - tests in
+Add does allow us to test the overall structure of this concept using 
+std::strings.
