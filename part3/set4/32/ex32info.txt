@@ -2,9 +2,7 @@ Exercise 32: modify tuples
 
 We implement a manual version of modifying tuples in a similar pattern to the
 sildes from Advanced Templates 1, but also note that <tuple> comes with a
-std::tuple_cat function that has all this capability already implemented. We
-add both the verbose manual solution, and the simple one that delegates to
-existing facilities.
+std::tuple_cat function that has all this capability already implemented. 
 
  Q  Show what you have to change to use a tuple that has a third field of 
     type std::string (and show the program's output after having changed it).
