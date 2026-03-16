@@ -1,1 +1,7 @@
-Exercise 39: 
+Exercise 39: design templates that combine existing concepts.
+
+We use the existing and very functional std::totally_ordered to fulfill what
+the slides to with the Compare concept, and then build the different types of
+iterators incrementally, adding to their functionality, going from an input 
+iterator to an output iterator, to a forward iterator, a bidirectional one,
+and then finally the random access iterator.
