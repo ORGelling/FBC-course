@@ -1,1 +1,4 @@
 ex38info.txt
+
+math.h
+main.cc
