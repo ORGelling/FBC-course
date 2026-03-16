@@ -76,15 +76,13 @@ template <typename Type>
 struct Convert<Type, IntegerTag>
 {
     static Type convert(std::string const &text)
+    try
+    {                           
+        return static_cast<Type>(std::stoll(text)); // might cause errors
+    }                                               // at signed/unsigned
+    catch (...)                                     // boundary
     {
-        try
-        {                           
-            return static_cast<Type>(std::stoll(text)); // might cause errors
-        }                                               // at signed/unsigned
-        catch (...)                                     // boundary
-        {
-            return Type{};
-        }
+        return Type{};
     }
 };
 
@@ -92,15 +90,13 @@ template <typename Type>
 struct Convert<Type, DecimalTag>
 {
     static Type convert(std::string const &text)
+    try
     {
-        try
-        {
-            return static_cast<Type>(std::stold(text));
-        }
-        catch (...)
-        {
-            return Type{};
-        }
+        return static_cast<Type>(std::stold(text));
+    }
+    catch (...)
+    {
+        return Type{};
     }
 };
 

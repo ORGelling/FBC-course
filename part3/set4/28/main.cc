@@ -11,27 +11,26 @@ int main()
     cout << Traits<decltype(plain)>::value << '\n'
          << Traits<decltype(ptr)>::value << '\n'
          << Traits<decltype(ref)>::value << '\n'
-         << Traits<decltype(rref)>::value << '\n';
+         << Traits<decltype(rref)>::value << "\n\n";
     
-    auto const_ptr = func(rref);
-    cout << *const_ptr << '\n';
-    const_ptr = &plain;
-    cout << *const_ptr << '\n';
     
-    auto const_ptr2 = func(ptr);
-    cout << *const_ptr2 << '\n';
-    const_ptr2 = &plain2;
-    cout << *const_ptr2 << '\n';
+    auto cptr1 = make_const_ptr(plain);
+    auto cptr2 = make_const_ptr(ptr);
+    auto cptr3 = make_const_ptr(ref);
+    auto cptr4 = make_const_ptr(std::move(rref));
     
-    //
+    cptr1 = &plain2;
+    cptr2 = &plain2;
+    cptr3 = &plain2;
+    cptr4 = &plain2;
     
-    auto const_ptr3 = make_const_ptr(plain);
-    cout << *const_ptr3 << '\n';
-    const_ptr3 = &plain2;
-    cout << *const_ptr3 << '\n';
-
-    auto const_ptr4 = make_const_ptr(ptr);
-    cout << *const_ptr4 << '\n';
-    const_ptr4 = &plain2;
-    cout << *const_ptr4 << '\n';
+    cout << *cptr1 << '\n'
+         << *cptr2 << '\n'
+         << *cptr3 << '\n'
+         << *cptr4 << "\n\n";
+         
+    cout << Traits<decltype(cptr1)>::value << '\n'
+         << Traits<decltype(cptr2)>::value << '\n'
+         << Traits<decltype(cptr3)>::value << '\n'
+         << Traits<decltype(cptr4)>::value << '\n';
 }

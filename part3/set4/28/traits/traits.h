@@ -1,67 +1,77 @@
 #ifndef INCLUDED_TRAITS_
 #define INCLUDED_TRAITS_
 
-#include <utility>                              // for std::forward
 
 template <typename Type>
-struct Traits
-{                                               // use enums instead?
-    static constexpr int value = 1;
-};
-
-template <typename Type>
-struct Traits<Type *>
+struct TypeTraits
 {
-    static constexpr int value = 2;
-};
-
-template <typename Type>                        // this is needed to use  
-struct Traits<Type *&>                          // perfect forwarding in the 
-{                                               // const pointer function
-    static constexpr int value = 2;
-};
-
-template <typename Type>
-struct Traits<Type &>
-{
-    static constexpr int value = 3;
+    using full_type = Type;                 // probably not needed but eh
+    using base_type = Type;
+    enum
+    {
+        typeCode = 1,
+        isPointer = false
+    };
 };
 
 template <typename Type>
-struct Traits<Type &&>
+struct TypeTraits<Type *>
 {
-    static constexpr int value = 4;
+    using full_type = Type *;
+    using base_type = Type;
+    enum
+    {
+        typeCode = 2,
+        isPointer = true
+    };
+};
+
+template <typename Type>
+struct TypeTraits<Type &>
+{
+    using full_type = Type &;
+    using base_type = Type;
+    enum
+    {
+        typeCode = 3,
+        isPointer = false
+    };
+};
+
+template <typename Type>
+struct TypeTraits<Type &&>
+{
+    using full_type = Type &&;
+    using base_type = Type;
+    enum
+    {
+        typeCode = 4,
+        isPointer = false
+    };
+};
+
+template <typename Type>
+class Traits
+{
+    public:
+        using PlainType = TypeTraits<Type>::base_type;
+        using PtrType = PlainType *;
+        using ConstPtrType = PlainType const *;
+        
+        enum
+        {
+            value = TypeTraits<Type>::typeCode,
+            isPtr = TypeTraits<Type>::isPointer
+        };
 };
 
 //:
 
 template <typename Type>
-int const *func(Type &&value)
+typename Traits<Type>::ConstPtrType make_const_ptr(Type value)
 {
-    if constexpr (Traits<Type>::value == 2)
-        return value;
-        //return std::forward<Type>(value);     // not necessary for int *
-    else
-        return &value;
+    return 0;
 }
 
-//  This solution is somewhat gimmicky, especially since it requires the
-//  addition of an extra Trait, i.e. that for Type *&. Another solution is to
-//  not use these Traits at all and simply have a function with overloads:
-
-template <typename Type>
-int const *make_const_ptr(Type &value)
-{
-    return &value;
-}
-
-template <typename Type>
-int const *make_const_ptr(Type *value)
-{
-    return value;
-}
-
-// There is probably also a way to still use traits but not have to define an
-// extra Type *& Trait. Feedback is welcome once again!
 
 #endif

@@ -1,5 +1,4 @@
 Exercise 29: design our own template template type
 
 We design a functor template that will add two values of undefined types and
-test it by seeing if the program compiles. Actually testing it directly proves
-somewhat hard since it shadows the actual + operator.
+test it by seeing if the program compiles.
