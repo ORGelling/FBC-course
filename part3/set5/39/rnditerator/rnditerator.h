@@ -46,7 +46,7 @@ concept Dereferencable =
     requires(Type tp)
     {
         { *tp } -> std::same_as<typename Type::value_type &>;
-    };
+    };                              // might need convertible_to instead?
 
                                             // const dereferencable
 template <typename Type>
