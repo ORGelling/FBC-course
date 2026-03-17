@@ -26,14 +26,7 @@ struct I2C<0, chars...> : Digits<chars...>
                                         // conversion struct and get our ntbs
 
 template <>
-struct I2C<0>                    // Overload for 0-case, which fails otherwise
-{
-    public:
-        static constexpr char s_ntbs[] = 
-        {
-            '0',
-            0
-        };
-};
+struct I2C<0> : Digits<'0'>             // Overload for 0-case
+{};
         
 #endif
