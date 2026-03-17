@@ -1,0 +1,4 @@
+template <typename Data>
+void Storage<Data>::iterator::operator()
+{
+}
