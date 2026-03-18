@@ -10,7 +10,7 @@ struct TypeTraits
     enum
     {
         typeCode = 1,
-        isPointer = false
+        isPointer = false                   // this is not actually used
     };
 };
 
@@ -57,11 +57,13 @@ class Traits
         using PlainType = TypeTraits<Type>::base_type;
         using PtrType = PlainType *;
         using ConstPtrType = PlainType const *;
+        using RefType = PlainType &;
+        using RRefType = PlainType &&;
         
         enum
         {
             value = TypeTraits<Type>::typeCode,
-            isPtr = TypeTraits<Type>::isPointer
+            isPtr = TypeTraits<Type>::isPointer    // not used but will leave
         };
 };
 
