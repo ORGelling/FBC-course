@@ -17,7 +17,7 @@ storage/opdecr.i
 storage/oppostdecr.i
 storage/opaddis.i
 storage/opsubis.i
-storage/destuctor.i
+storage/destructor.i
 -storage/push_back.i
 -storage/begin.i
 -storage/end.i
