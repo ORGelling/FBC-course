@@ -1,0 +1,16 @@
+%class-name Scanner
+
+ws       [ \t\n]+
+nr       [0-9]+
+word     [a-zA-Z]+
+dummy    [^A-Za-z]+
+
+%%
+
+{ws}
+{nr}
+
+{word}  return WORD;
+{dummy} return DUMMY;
+
+%%
