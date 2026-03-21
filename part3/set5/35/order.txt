@@ -1,6 +1,6 @@
 ex35info.txt
 
 testfunc/testfunc.h
-testfunc.hasopderef.i
+testfunc/hasopderef.i
 
 main.cc
