@@ -1,0 +1,8 @@
+Exercise 36: design templates that allow variable/objects of its types to be
+             ordered
+
+We make use of <compare>'s spaceship operator for the constraint's comparison
+logic check, which should work for built in types, pointers, standers types
+like string, and plenty more. This *can* of course be replaced by manual
+checks of <, >, <=, >=, ==, !=, using both passed parameters on each side of
+the comparisons.

@@ -1,0 +1,10 @@
+Exercise 35: design templates that use several ways to specify concept
+             requirements
+
+We use the two straightforward ways to apply the concept's constraints to our
+(two) template functions and (two) template classes. We note that it is also
+possible to use the modern abbreviated function template form:
+
+void useDeref3(HasOpDeref auto const &ptr)
+
+can also be used. This is in itself already a template declaration!

@@ -1,0 +1,13 @@
+Exercise 38: design a variadic template whose types must satisfy certain
+             requirements. 
+
+We do this as the exercise requires, making good use of the unfolding of
+parameter pack contents to test the arg1 value against all of the values
+stored in the parameter pack using the BasicMath concept we built in exercise
+33. 
+
+We are not fully forwarding the parameters, instead using references as that 
+should suit the purpose of the exercise and program just fine, as no lasting
+use is made of the values passed, their operated outcomes are simply shown 
+with cout before they go out of scope. If this program were extended to
+facilitate more complex procedures this might be worth looking into.

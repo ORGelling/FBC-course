@@ -1,0 +1,7 @@
+Exercise 34: define a concept to verify that certain operations return a type
+             defined by the type that is used as template argument
+
+We use template template param structure to allow the compiler to correctly
+find the Data return type, there are simpler, less verbose options though,
+like using the container's built in ::value_type trait. This, verbose
+version, however, seemed particularly clear and parsable to us.

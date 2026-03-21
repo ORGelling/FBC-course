@@ -1,0 +1,10 @@
+#include "rnditerator/rnditerator.h"
+
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <list>
+
+#include "template.i"
+
+using namespace std;
