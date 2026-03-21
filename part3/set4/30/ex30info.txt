@@ -1,0 +1,14 @@
+Exercise 30: define a more generic iterator template
+
+We implement the Iterator class with the defined specifications, running the
+program gives us:
+
+
+[09/03 21:49] (p3s4) 30 $ tmp/bin/binary january february march april may june
+
+14 tmp/bin/binary
+april february january june march may tmp/bin/binary 
+======
+tmp/bin/binary may march june january february april 
+
+This is exactly as it should be.

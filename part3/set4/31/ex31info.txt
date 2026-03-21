@@ -1,0 +1,44 @@
+Exercise 31: improve your understanding of expression tempates.
+
+ Consider this class: class VI: public std::vector<int>.
+
+First assume that VI uses standard definition for operator+= and operator+. 
+When v1, v2, v3 and v4 are VI objects, each having N elelement, then the 
+result of the expression
+
+
+    v1 + v2 + v3 + v4;
+        
+
+is a temporary object whose elements are the sums of the elements of the four
+VI objects.
+
+Now assume that instead of the standard operator+= and operator+ an 
+expression template has been defined to add VI objects. In that case,
+
+ Q  What's the result of the above expression?
+    
+ A  The compiler will not do much with a simple addition statement like this
+    if it is not also stored in some value like a VI v0. Instead it will
+    likely just optimise this line away, seeing that nothing is done with it. 
+    
+    If, however, this line itself were to be run, this expression will return
+    a temporary object that contains all the VI objects nested together one 
+    layer by another, inside something like the "Add2" struct from the
+    slides, like so:
+        
+        Add2{ Add2{ Add2{ v1, v2 }, v3 }, v4 }
+    
+    No computations are done yet, as this just creates a temporary nested 
+    object.
+    
+ Q  How many index computations will be performed?
+    
+ A  0. No index computations are done as no evaluation is performed. The whole
+    expression will be optimised away, but even if it's not, without an
+    assignment, and thus without a call to the conversion operator (or fn call
+    op) the temporary object is not evaluated so the calculations of all the
+    rows are never done.
+    
+    If this expression is assigned to another VI object (VI v0 = ...) this 
+    will indeed be evaluated and stored, with (4 + 1) * N index computations.

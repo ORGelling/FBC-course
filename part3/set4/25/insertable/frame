@@ -1,0 +1,7 @@
+#include "insertable.ih"
+
+    // by 
+
+void Insertable::()
+{
+}

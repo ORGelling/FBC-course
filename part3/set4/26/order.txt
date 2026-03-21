@@ -1,0 +1,11 @@
+ex26info.txt
+
+insertable/insertable.h
+insertable/insertablevc1.i
+insertable/insertablevc2.i
+insertable/insertablevc3.i
+insertable/insertablevc4.i
+insertable/opinsert.i
+
+-main.ih
+-main.cc

@@ -1,0 +1,11 @@
+ex27info.txt
+
+datatraits/datatraits.h
+
+data/data.h
+data/data.ih
+data/get.i
+data/data1.cc
+
+main.ih
+main.cc

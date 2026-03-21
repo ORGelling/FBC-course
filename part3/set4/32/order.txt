@@ -1,0 +1,9 @@
+ex32info.txt
+
+tuplemod/tuplemod.h
+tuplemod/tuplemod1.i
+tuplemod/add.i
+tuplemod/opadd.i
+
+main.ih
+main.cc

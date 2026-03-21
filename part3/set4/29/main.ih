@@ -1,0 +1,6 @@
+#include "plus.i"
+#include "opadd.i"
+
+#include <iostream>
+
+using namespace std;

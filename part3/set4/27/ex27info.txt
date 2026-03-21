@@ -1,0 +1,9 @@
+Exercise 27: design a realistic member template
+
+We define structs to hold the three distinct options in their type info, use
+macros to write all the cases of the built in types and separate them into the
+three categories, and define a struct that will convert the values
+accordingly.
+
+We note that our solution does not stick closely to the form that the
+annotations generally use. Feedback is welcome.

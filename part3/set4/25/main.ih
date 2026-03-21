@@ -1,0 +1,7 @@
+#include "insertable/insertable.h"
+
+#include <vector>
+#include <iostream>
+
+using namespace std;
+using InsertableVector = Insertable<vector, int>;

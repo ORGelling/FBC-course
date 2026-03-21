@@ -1,0 +1,6 @@
+#include "tuplemod/tuplemod.h"
+
+#include <iostream>
+#include <string>
+
+using namespace std;
