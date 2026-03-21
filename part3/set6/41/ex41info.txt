@@ -1,1 +1,1 @@
-Exercise 41: 
+Exercise 41: Set up and use a basic lexical scanner with flexc++

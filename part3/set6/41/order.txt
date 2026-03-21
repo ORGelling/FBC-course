@@ -1,1 +1,11 @@
 ex41info.txt
+
+lexer.txt
+
+-lex.cc
+-Scanner.h
+-Scanner.ih
+-Scannerbase.h
+
+main.ih
+main.cc
