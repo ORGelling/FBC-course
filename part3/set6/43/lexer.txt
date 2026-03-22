@@ -1,0 +1,12 @@
+%class-name scanner
+
+
+
+%%
+
+
+
+%%
+
+// we want to find strings ("...") and rsl's 
+// (R"foo(...)foo")? Just R"(...)"?
