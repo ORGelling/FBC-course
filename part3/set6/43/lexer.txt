@@ -1,6 +1,10 @@
 %class-name scanner
 
-
+%x COMMENT
+%x STRING
+%x STRING_GAP
+%x STRING_LIT
+%x STRING_LIT_DELIM
 
 %%
 
