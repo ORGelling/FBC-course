@@ -1,1 +1,8 @@
 ex43info.txt
+
+lexer.txt
+
+-scannerbase.h
+scanner.h
+-scanner.ih
+-lex.cc

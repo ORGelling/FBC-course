@@ -1,16 +1,106 @@
-%class-name scanner
+%class-name Scanner
+%filenames scanner
 
-%x COMMENT
-%x STRING
-%x STRING_GAP
-%x STRING_LIT
-%x STRING_LIT_DELIM
+%x comment
+%x string
+%x string_gap
+%x string_lit
+%x string_lit_delim
+
+eolComment   "//".*
+ws      [ \t\n]+
+id      [a-zA-Z_][a-zA-Z_0-9]*
+int      -?[0-9]+
+double  -?[0-9]+\.[0-9]+
+oper    "++"|"--"|"->*"|"->"|"<<="|">>="|"+="|"-="|"*="|"/="|"%="|"&="|"|="|"^="|"<<"|">>"|"<="|">="|"=="|"!="|"&&"|"||"|"<=>"|"="|"+"|"-"|"*"|"/"|"%"|"&"|"|"|"^"|"~"|"!"|"<"|">"|"["|"]"|"("|")"|","
+string  \"([^\"\\\n]|\\.)*\"
 
 %%
 
+{eolComment}            // ignore
+
+
+<INITIAL>"/*"           begin(StartCondition_::comment);
+
+<comment>.|\n           // ignore
+<comment>{
+    "*/"        {
+                        d_text.clear();
+                        begin(StartCondition_::INITIAL);
+                }
+}
+
+<INITIAL>\"     {
+                        d_text.clear();
+                        begin(StartCondition_::string);
+                }
+
+<string>{
+    \\.                 d_text += matched();
+    [^\\\"\n]+          d_text += matched();
+    \n          {
+                        begin(StartCondition_::INITIAL);
+                        return DUMMY;
+                }
+    \"                  begin(StartCondition_::string_gap);
+}
+
+<string_gap>[ \t\n]+    // ignore
+<string_gap>{
+    \"                  begin(StartCondition_::string);
+    .           {
+                        push(matched());
+                        begin(StartCondition_::INITIAL);
+                        setMatched(d_text);
+                        return STRING;
+                }
+    R\"         {
+                        d_delim.clear();
+                        begin(StartCondition_::string_lit_delim);
+                }
+}
+
+<INITIAL>R\"    {
+                        d_delim.clear();
+                        d_text.clear();
+                        begin(StartCondition_::string_lit_delim);
+                }
+
+<string_gap>R\" {
+                        d_delim.clear();
+                        begin(StartCondition_::string_lit_delim);
+                }
+
+
+<string_lit_delim>{
+    [^\n(]*\(   {
+                        d_delim = matched().substr(0, matched().size() - 1);
+                        begin(StartCondition_::string_lit);
+                }
+}
+
+<string_lit>.|\n {
+    d_text += matched();
+
+    std::string end = ")" + d_delim + "\"";
+
+    if (d_text.length() >= end.length() &&
+        d_text.substr(d_text.length() - end.length(), end.length()) == end)
+    {
+        d_text = d_text.substr(0, d_text.length() - end.length());
+        begin(StartCondition_::string_gap);
+    }
+}
+
+<INITIAL>'([^\\'\n]|\\.)*'  return CHAR;
+
+{ws}        return DUMMY;
+
+{id}        return IDENT;
+{int}       return INTEGRAL;
+{double}    return REAL;
+{oper}      return OPERATOR;
+.           return CHAR;
 
 
 %%
-
-// we want to find strings ("...") and rsl's 
-// (R"foo(...)foo")? Just R"(...)"?

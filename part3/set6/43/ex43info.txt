@@ -1,1 +1,1 @@
-Exercise 43: 
+Exercise 43: design a scanner scanning a piece of text
