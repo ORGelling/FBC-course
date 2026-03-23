@@ -1,1 +1,8 @@
-Exercise 44: 
+Exercise 44: define a scanner that may change its line number count
+
+We add a lineNr() member to the scanner, and proceed as before. Our main
+function makes as much use of the scanner's own functionality as possible,
+storing the scanned contents in a string and outputting them when a full line
+has been found. We note that at this point the scanner's d_line data member is
+already acting in the next line's line number, so we have to decrement it in
+the cout statement

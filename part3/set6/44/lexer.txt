@@ -1,7 +1,7 @@
 %class-name Scanner
 %filenames scanner
 
-linenr      "#>"[0-9]+
+linenr      "#>"[0-9]+\n
 ws          [ \t]+
 id          [a-zA-Z_][a-zA-Z_0-9]*
 int         -?[0-9]+

@@ -3,7 +3,7 @@
 
 namespace
 {
-    struct Counter
+    struct Counter                              // count and show types
     {
         size_t idents = 0;
         size_t ints = 0;
@@ -12,7 +12,7 @@ namespace
     
         void show() const
         {
-            cout << "Idents : " << idents << '\n'
+            cout << "\nIdents : " << idents << '\n'
                  << "Ints   : " << ints << '\n'
                  << "Doubles: " << doubles << '\n'
                  << "Chars  : " << chars << '\n';
@@ -23,13 +23,10 @@ namespace
 
 int main()
 {
-    // read from cin
-    Scanner scanner;
+    Scanner scanner;                // read from cin
+                
+    string line;                    // store output lines with nr prepended:
     
-    // store output lines with nr prepended:
-    string line;
-    
-    // count idents, ints, doubles, chars
     Counter count;
     
     while (true)
@@ -39,10 +36,10 @@ int main()
             case 0:
                 count.show();
                 return 0;
-            case NEWLINE:
-                cout << scanner.lineNr() << ": " << line << '\n';
-                line.clear();
-            break;
+            case NEWLINE:       
+                cout << scanner.lineNr() - 1 << ": " << line << '\n';
+                line.clear();         // ^^^ - 1 since at this point the 
+            break;                    // scanner has already incrmntd d_line
             case WS:
                 line.append(scanner.matched());
             break;

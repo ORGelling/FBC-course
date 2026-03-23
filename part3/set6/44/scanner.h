@@ -21,7 +21,7 @@ enum Tokens
 // $insert classHead
 class Scanner: public ScannerBase
 {
-    size_t d_line = 0;
+    size_t d_line = 1;
     
     public:
         explicit Scanner(std::istream &in = std::cin, 

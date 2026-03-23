@@ -1,1 +1,14 @@
 ex44info.txt
+
+test.txt
+output.txt
+
+lexer.txt
+
+-scannerbase.h
+scanner.h
+-scanner.ih
+-lex.cc
+
+main.ih
+main.cc

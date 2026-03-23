@@ -1,0 +1,13 @@
+1: int first;
+2: value = 12;
+3: ratio = 3.5;
+4: +
+20: second_line = 99;
+21: mix = id_2 + 4.25;
+22: @
+100: z = 0;
+
+Idents : 8
+Ints   : 3
+Doubles: 2
+Chars  : 14
