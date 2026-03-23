@@ -41,11 +41,11 @@ int main()
                 line.clear();         // ^^^ - 1 since at this point the 
             break;                    // scanner has already incrmntd d_line
             case WS:
-                line.append(scanner.matched());
-            break;
-            case IDENT:
-                ++count.idents;
-                line.append(scanner.matched());
+                line.append(scanner.matched());     // can refactor these
+            break;                                  // but a switch inside
+            case IDENT:                             // a switch is a bit
+                ++count.idents;                     // overdone. This is
+                line.append(scanner.matched());     // clear and concise
             break;
             case INT:
                 ++count.ints;
