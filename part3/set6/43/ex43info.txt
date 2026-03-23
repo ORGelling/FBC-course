@@ -1,1 +1,10 @@
 Exercise 43: design a scanner scanning a piece of text
+
+We note that the exercise asks us to hand in our lexer(.txt) and our scanner.h
+file. It also goes into depth aobut how to properly amend a file while reading
+it (using a temporary file and making sure its .tmp extended name does not
+conflict with others), but that seems, not just, as the exercise mentions,
+outside the scope of the purpose of the exercise, but also outside the scope
+of the two files we are asked to hand in. The class that manages the file
+stream would more likely be part of the program that *uses* the scanner, and
+should not be part of the scanner itself.
