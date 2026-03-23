@@ -5,4 +5,9 @@ function makes as much use of the scanner's own functionality as possible,
 storing the scanned contents in a string and outputting them when a full line
 has been found. We note that at this point the scanner's d_line data member is
 already acting in the next line's line number, so we have to decrement it in
-the cout statement
+the cout statement.
+
+We make use of the regular expression matching to swallow the \n after any new
+line number indicator, such that we do not have to use more complicated logic
+to keep track of the correct structure of the lines and their numbered update
+commands.
