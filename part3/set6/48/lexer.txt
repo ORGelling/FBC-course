@@ -1,0 +1,26 @@
+%class-name Scanner
+%filenames scanner
+
+%x include
+
+
+%%
+
+<INITIAL>"#include \""  {
+                            d_filename.clear();
+                            begin(StartCondition_::include);
+                        }
+
+<include>[^\"]+         d_filename += matched();
+
+<include>\"             {
+                            include();
+                            begin(StartCondition_::INITIAL);
+                            return INCLUDE;
+                        }
+
+\n                      return DUMMY;
+
+.                       return CHAR;
+
+%%
