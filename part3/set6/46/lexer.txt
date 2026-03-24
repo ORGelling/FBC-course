@@ -1,0 +1,23 @@
+%class-name Scanner
+%filenames scanner
+
+
+
+%%
+
+house(boat|hold)    {
+                        redo(4);        // puts last 4 characters back
+                        std::cout << matched() << '\n';     // for output
+                        return HOUSE;
+                    }
+
+[a-zA-Z_]+          {
+                        std::cout << matched() << '\n';
+                        return WORD;
+                    }
+
+[ \n\t]+            return DUMMY;
+
+.                   return CHAR;
+
+%%

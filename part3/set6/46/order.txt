@@ -1,1 +1,14 @@
 ex46info.txt
+
+lexer.txt
+
+test.txt
+output.txt
+
+scanner.h
+-scanner.ih
+-scannerbase.h
+-lex.cc
+
+-main.ih
+-main.cc

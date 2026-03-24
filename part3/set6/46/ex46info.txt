@@ -1,1 +1,12 @@
-Exercise 46: 
+Exercise 46: perform a non-greedy match
+
+Flex* generated scanners perform greedy matches. Programs like Perl also offer
+facilities to perform minimal matches. 
+
+Q - Why is a minimal match feature not required for (flex*) scanner 
+    generators?
+A - The largest match can still be manipulated after it has been made, so a
+    greedy maximal matching pattern is not an issue.
+
+We include both our test file (test.txt) and the output the program gives us
+(output.txt)
