@@ -1,0 +1,7 @@
+Line 1 at offset 0x0 (0)
+Line 2 at offset 0x1 (1)
+Line 3 at offset 0x5 (5)
+Line 4 at offset 0x9 (9)
+Line 5 at offset 0xa (10)
+Line 6 at offset 0x10 (16)
+Line 7 at offset 0x11 (17)

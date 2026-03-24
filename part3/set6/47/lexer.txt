@@ -1,0 +1,14 @@
+%class-name Scanner
+%filenames scanner
+%input-interface = "input/input.h"
+%input-inline = "input/inline.i"
+%input-implementation = "input/implementation.i"
+%baseclass-preinclude = "input/input.ih"
+
+%%
+
+\n          return NEWLINE;
+            
+.           {}
+
+%%
