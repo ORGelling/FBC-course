@@ -61,9 +61,9 @@ F and H both are end points, as 7 is the ending condition
           d     +    Exp          S
     A ---->---- C ---->---- E ---->---- G
     |         / |           | \         |
-    |     d  /  |           |  \  d     |
+    |        /  |           |  \        |
   S V   -->--   V .     Exp ^   -->--   V d
-    |  /        |           |        \  |
+    |  /  d     |           |     d  \  |
     | /         |           |         \ |
     B           D ---->---- F*          H*
                       d     +           +
