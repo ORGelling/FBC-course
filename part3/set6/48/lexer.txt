@@ -3,8 +3,11 @@
 
 %x include
 
+eolcom "//".*
 
 %%
+
+{eolcom}                return COMMENT;
 
 <INITIAL>"#include \""  {
                             d_filename.clear();

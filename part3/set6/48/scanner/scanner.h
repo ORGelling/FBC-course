@@ -12,6 +12,7 @@
 enum Tokens
 {
     DUMMY = 256,
+    COMMENT,
     CHAR
 };
 
