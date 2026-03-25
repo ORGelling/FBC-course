@@ -1,0 +1,7 @@
+Lalala
+
+Hahaha
+
+#include "a.txt"    // chachacha
+
+Oo la la

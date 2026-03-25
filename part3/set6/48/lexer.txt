@@ -16,7 +16,6 @@
 <include>\"             {
                             include();
                             begin(StartCondition_::INITIAL);
-                            return INCLUDE;
                         }
 
 \n                      return DUMMY;

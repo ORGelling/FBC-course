@@ -9,6 +9,12 @@
 #include <string>
 #include <set>
 
+enum Tokens
+{
+    DUMMY = 256,
+    CHAR
+};
+
 // $insert classHead
 class Scanner: public ScannerBase
 {
@@ -25,6 +31,7 @@ class Scanner: public ScannerBase
         // $insert lexFunctionDecl
         int lex();
         void include();
+        bool popStream();
 
     private:
         int lex_();

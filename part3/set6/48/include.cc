@@ -3,7 +3,7 @@
 void Scanner::include()
 {
     if (d_includedFiles.count(d_filename))
-        throw runtime_error("Circular include detected: " + filename);
+        throw runtime_error("Circular include detected: " + d_filename);
     
     d_includedFiles.insert(d_filename);
     
@@ -15,6 +15,6 @@ void Scanner::include()
     {
         d_includedFiles.erase(d_filename);
         throw runtime_error("Cannot open include file: " 
-                                            + d_filename + "\n" + e.what());
+                                        + d_filename + "\n" + except.what());
     }
 }
