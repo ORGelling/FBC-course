@@ -11,11 +11,11 @@ ScannerBase::Input::Input(std::istream *in, size_t lineNr)
 : 
     d_in(in), 
     d_lineNr(lineNr), 
-    d_offsets{static_cast<size_t>(d_in->tellg())}
-{}
+    d_offsets{static_cast<size_t>(d_in->tellg())}       // might be bad if
+{}                                                      // tellg returns -1
 
-size_t ScannerBase::Input::get()
-{
+size_t ScannerBase::Input::get()        // basically same as standard version
+{                                       // but with offset storing
     switch(size_t ch = next())
     {
         case '\n':
@@ -35,7 +35,7 @@ void ScannerBase::Input::reRead(size_t ch)
         if (ch == '\n')
         {
             --d_lineNr;
-            d_offsets.pop_back();
+            d_offsets.pop_back();       // remove if we step back a line
         }
         d_deque.push_front(ch);
     }
