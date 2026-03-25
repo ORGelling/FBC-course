@@ -1,7 +1,9 @@
-Lalala
+this is input.txt
 
-Hahaha
+we are going to include some files:
 
-#include "a.txt"    // chachacha
+#include "a.txt"        // comment after include a.txt
 
-Oo la la
+this is input.txt again, after including a and b.txt
+
+this is the end of input.txt

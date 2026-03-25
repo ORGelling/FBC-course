@@ -1,15 +1,17 @@
-Lalala
+this is input.txt
 
-Hahaha
+we are going to include some files:
 
 This is a.txt
 
 This is b.txt
 
-and this is its last line
+and this is the end of b.txt
+        // comment after include b.txt
 
+This is the end of a.txt
+        // comment after include a.txt
 
-Whahaha
-    // chachacha
+this is input.txt again, after including a and b.txt
 
-Oo la la
+this is the end of input.txt

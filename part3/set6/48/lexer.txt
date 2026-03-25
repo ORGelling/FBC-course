@@ -18,8 +18,6 @@
                             begin(StartCondition_::INITIAL);
                         }
 
-\n                      return DUMMY;
-
 .                       return CHAR;
 
 %%
