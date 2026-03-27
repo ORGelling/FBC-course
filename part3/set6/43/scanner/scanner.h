@@ -43,6 +43,8 @@ class Scanner: public ScannerBase
         void clearText();
         void clearDelim();
         
+        void delim();
+        
         int lex_();
         int executeAction_(size_t ruleNr);
 

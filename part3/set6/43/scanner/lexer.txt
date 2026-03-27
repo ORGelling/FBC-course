@@ -8,7 +8,6 @@
 
 eolComment  "//".*
 ws          [ \t\n]+
-string      \".*\"
 
 %%
 
@@ -20,7 +19,7 @@ string      \".*\"
 <comment>.|\n           // ignore
 <comment>{
     "*/"        {
-                        clearText();
+                        // clearText();
                         begin(StartCondition_::INITIAL);
                 }
 }
@@ -32,46 +31,25 @@ string      \".*\"
 
 <string>{
     \\.|[^\\\"\n]+      addText();
-    \n          {
+    \"[ \t\n]*\"        ;               // concatenate
+    \"          {
                         begin(StartCondition_::INITIAL);
-                        return DUMMY;                   // erroneous \n
+                        return STRING;
                 }
-    \"[ \t\n]*\"        ; // concatenate
-    \"                  begin(StartCondition_::INITIAL);
 }
 
-R\"             {
-                        clearText();
-                        clearDelim();
-                        begin(StartCondition_::string_lit_delim);
-                }
+R\"                     delim();        // preps state to find delimiter
 
 <string_lit_delim>{
     [^\n(]*\(   {
-                        setDelim();
+                        setDelim();     // delim found and set
                         begin(StartCondition_::string_lit);
                 }
 }
 
-<string_lit>.|\n {
-    d_text += matched();
-
-    std::string end = ")" + d_delim + "\"";
-
-    if (d_text.length() >= end.length() &&
-        d_text.substr(d_text.length() - end.length(), end.length()) == end)
-    {
-        d_text = d_text.substr(0, d_text.length() - end.length());
-        begin(StartCondition_::string_gap);
-    }
-}
+<string_lit>.|\n        rsl();          // handles finding and returning RSL
 
 {ws}
-
-{id}
-{int}
-{double}
-{oper}
 .
 
 
