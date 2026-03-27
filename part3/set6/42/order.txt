@@ -1,11 +1,11 @@
 ex42info.txt
 
--Scannerbase.h
--Scanner.h
--Scanner.ih
--lex.cc
+scanner/lexer.txt
 
-lexer.txt
+-scanner/scannerbase.h
+scanner/scanner.h
+-scanner/scanner.ih
+-lex.cc
 
 main.ih
 main.cc

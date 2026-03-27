@@ -1,0 +1,27 @@
+%class-name Scanner
+%filenames scanner
+
+ws      [ \t]+
+id      [a-zA-Z_][a-zA-Z_0-9]*
+int      -?[0-9]+
+double  -?[0-9]+\.[0-9]+
+string  \".*\"
+op1     "+"|"-"|"*"|"/"|"%"|"&"|"|"|"^"|"~"|"!"|"["|"]"|"("|")"|","
+opeq    "="|"+="|"-="|"*="|"/="|"%="|"&="|"|="|"^="|"&&"|"||"
+opcomp  "<<"|">>"|"<="|">="|"=="|"!="|"<"|">"|"<=>"
+op3     "->*"|"<<="|">>="
+
+%%
+
+{ws}
+
+{id}                        return IDENT;
+{int}                       return INTEGRAL;
+{double}                    return REAL;
+{op1}|{opeq}|{opcomp}|{op3} return OPERATOR;
+{string}                    return STRING;
+^[ \t]*\n                   return BLANKLINE;
+\n                          return NEWLINE;
+.                           return CHAR;
+
+%%

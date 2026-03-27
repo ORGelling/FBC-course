@@ -3,31 +3,39 @@
 int main()
 {
     Scanner scanner;
+    int token = 0;
+    string match;
+    
     while (true)
     {
-        switch (scanner.lex())
+        token = scanner.lex();
+        match = scanner.matched();
+        
+        switch (token)
         {
             case 0:
-                return 0;
+            return 0;
             case IDENT:
-                cout << "Ident   : " << scanner.matched();
+                cout << "Ident   : " << match;
             break;
             case INTEGRAL:
-                cout << "Integer : " << scanner.matched();
+                cout << "Integer : " << match;
             break;
             case REAL:
-                cout << "Real    : " << scanner.matched();
+                cout << "Real    : " << match;
             break;
             case OPERATOR:
-                cout << "Operator: " << scanner.matched();
+                cout << "Operator: " << match;
             break;
             case STRING:
-                cout << "String  : " << scanner.matched();
+                cout << "String  : " << match;
             break;
             case CHAR:
-                cout << "Char    : '" << scanner.matched().front() 
-                            << "' ASCII: "
-                            << static_cast<int>(scanner.matched().front());
+                cout << "Char    : '" << match.front() 
+                     << "' ASCII: " << static_cast<int>(match.front());
+            break;
+            case BLANKLINE:
+                cout << "Blank Line\n";
             break;
         }
         cout << '\n';
