@@ -11,7 +11,7 @@ scanner/lexer.txt
 
 scanner/scanner.h
 scanner/scanner.ih
-scanner/lex.cc
+-scanner/lex.cc
 scanner/include.cc
 scanner/popstream.cc
 

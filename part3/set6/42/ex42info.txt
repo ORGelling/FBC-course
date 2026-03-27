@@ -1,1 +1,4 @@
 Exercise 42: design a small tokenizer
+
+// We have not yet implemented string concatenation for this one, but should
+// still add this. We have added this in the following exercise though.
