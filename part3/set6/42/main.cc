@@ -28,7 +28,7 @@ int main()
                 cout << "Operator: " << match;
             break;
             case STRING:
-                cout << "String  : " << match;
+                cout << "String  : " << scanner.string();
             break;
             case CHAR:
                 cout << "Char    : '" << match.front() 

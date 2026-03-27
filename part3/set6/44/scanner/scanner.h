@@ -21,7 +21,7 @@ enum Tokens
 // $insert classHead
 class Scanner: public ScannerBase
 {
-    size_t d_line = 1;
+    size_t d_shift;
     
     public:
         explicit Scanner(std::istream &in = std::cin, 
@@ -36,6 +36,8 @@ class Scanner: public ScannerBase
         size_t lineNr() const;      // custom accessor
 
     private:
+        void setShift(size_t);
+        
         int lex_();
         int executeAction_(size_t ruleNr);
 
@@ -62,10 +64,15 @@ inline Scanner::Scanner(std::string const &infile,
 
 inline size_t Scanner::lineNr() const           // accessor
 {
-    return d_line;
+    return ScannerBase::lineNr() + d_shift;
 }
 
 // $insert inlineLexFunction
+inline void Scanner::setShift(size_t shift)
+{
+    d_shift = shift - ScannerBase::Input::lineNr();
+}
+
 inline int Scanner::lex()
 {
     return lex_();

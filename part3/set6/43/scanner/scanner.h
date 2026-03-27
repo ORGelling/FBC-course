@@ -24,8 +24,8 @@ enum Tokens
 // $insert classHead
 class Scanner: public ScannerBase
 {
-    std::string d_text = "";
-    std::string d_delim = "";
+    std::string d_text;
+    std::string d_delim;
     
     public:
         explicit Scanner(std::istream &in = std::cin, 
@@ -38,6 +38,11 @@ class Scanner: public ScannerBase
         int lex();
 
     private:
+        void addToText();
+        void setDelim();
+        void clearText();
+        void clearDelim();
+        
         int lex_();
         int executeAction_(size_t ruleNr);
 
@@ -66,6 +71,26 @@ inline Scanner::Scanner(std::string const &infile,
 inline int Scanner::lex()
 {
     return lex_();
+}
+
+inline void Scanner::addToText()
+{
+    d_text += matched();
+}
+
+inline void Scanner::setDelim()
+{
+    d_delim = matched().substr(0, matched().size() - 1);
+}
+
+inline void Scanner::clearText()
+{
+    d_text.clear();
+}
+
+inline void Scanner::clearDelim()
+{
+    d_delim.clear();
 }
 
 inline void Scanner::preCode() 

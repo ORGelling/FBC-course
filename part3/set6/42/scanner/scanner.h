@@ -21,15 +21,23 @@ enum Tokens
 // $insert classHead
 class Scanner: public ScannerBase
 {
+    std::string d_string;
+    
     public:
-        explicit Scanner(std::istream &in = std::cin, std::ostream &out = std::cout, bool keepCwd = true);
+        explicit Scanner(std::istream &in = std::cin, 
+                        std::ostream &out = std::cout, bool keepCwd = true);
 
-        Scanner(std::string const &infile, std::string const &outfile, bool keepCwd = true);
+        Scanner(std::string const &infile, 
+                            std::string const &outfile, bool keepCwd = true);
         
         // $insert lexFunctionDecl
         int lex();
+        std::string const &string();
 
     private:
+        void addString();
+        void clearString();
+        
         int lex_();
         int executeAction_(size_t ruleNr);
 
@@ -48,10 +56,26 @@ inline Scanner::Scanner(std::istream &in, std::ostream &out, bool keepCwd)
     ScannerBase(in, out, keepCwd)
 {}
 
-inline Scanner::Scanner(std::string const &infile, std::string const &outfile, bool keepCwd)
+inline Scanner::Scanner(std::string const &infile, 
+                                    std::string const &outfile, bool keepCwd)
 :
     ScannerBase(infile, outfile, keepCwd)
 {}
+
+inline std::string const &Scanner::string()
+{
+    return d_string;
+}
+
+inline void Scanner::clearString()
+{
+    d_string.clear();
+}
+
+inline void Scanner::addString()
+{
+    d_string += matched();
+}
 
 // $insert inlineLexFunction
 inline int Scanner::lex()
