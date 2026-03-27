@@ -1,0 +1,12 @@
+%class-name Scanner
+%filenames scanner
+
+word        [a-zA-Z][a-zA-Z]+
+
+%%
+
+{word}      return WORD;
+
+.|\n|\t     // ignore
+
+%%

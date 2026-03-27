@@ -1,9 +1,15 @@
-#include "Scanner.h"
+#include "scanner/scanner.h"
 
 #include <iostream>
 #include <fstream>
 #include <set>
 #include <string>
 
-
 using namespace std;
+
+void process(Scanner &scan, set<string> &wordSet);              // 1.cc
+void process(set<string> &wordSet);                             // 2.cc
+void process(set<string> &wordSet, size_t argc, char **argv);   // 3.cc
+
+// We simply overload all of these to keep things nice and streamlined. 
+// Both 2 and 3 call 1 to do the actual work
