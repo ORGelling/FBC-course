@@ -3,17 +3,14 @@
 int main(int argc, char **argv)
 try
 {
-    if (argc == 1)
-        throw string{"Provide input file name as argv[1]"};
+    if (argc != 3)
+        throw string{"Provide input and output file names"};
     
-    string filename{ argv[1] };
-    
-    Scanner scanner{ filename, "out.txt" }; // Not properly using .tmp yet
-    
-    if (scanner.lex() == 0)
-        cout << "end\n";
-}                                           
-catch (string const &exc)                   
+    Scanner scanner{ string{ argv[1] }, string{ argv[2] } };
+                                    // we have not implemented the tmp file 
+    scanner.lex();                  // name class, as even this main function
+}                                   // is not required for the exercise. We 
+catch (string const &exc)           // use manual names here for testing.
 {                                           
     cout << exc << '\n';                    
 }

@@ -1,10 +1,16 @@
 Exercise 43: design a scanner scanning a piece of text
 
-We have made a small main function to test the functionality of our class, but
-it does not do exactly what the exercise asks. The goal was to hand in the
-lexer file and the scanner interface. We have added some of the required
-members, and with this we can already make the program as dpecified, in two
-different ways: Either we use main.cc itself to parse tokens and write to the
-temp file, or we can amed the Scanner class and have that write directly to
-the output file. The latter is more tidy and concise, so it would be fun to
-implement properly, but for now we hope this is an improvement already.
+We have implemented the scanner to read and write directly from and to files,
+using their names from the commandline. We do not have the setup ready to use
+a temporary name, remove the original, and the change the temp name to the
+original's. That is something that is likely best left to the main program,
+and we are asked here to hand in the scanner contents only. 
+
+Setting up this mechanism would mean, as the exercise implies, writing a small
+class that finds a fitting temporary file name, and then using that when
+calling the scanner, before running it and then removing the scanned file and
+changing the name of the temporary.
+
+We are happy with a scanner that can read from and write to files directly
+already, and does not need any further instructions or while-switches to
+process the contents of the files.
