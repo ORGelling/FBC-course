@@ -5,10 +5,10 @@ output.txt
 
 lexer.txt
 
--scannerbase.h
-scanner.h
--scanner.ih
--lex.cc
+-scanner/scannerbase.h
+scanner/scanner.h
+scanner/scanner.ih
+-scanner/lex.cc
 
 main.ih
 main.cc
