@@ -23,9 +23,9 @@ double      -?[0-9]+\.[0-9]+
                     append();
                     countDouble();
             }
-\n          {
+\n          {       
                     newline();
-                    return NEWLINE;
+                    //return NEWLINE;         // this is not entirely needed
             }
 .           {
                     append();

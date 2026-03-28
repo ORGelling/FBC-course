@@ -1,13 +1,13 @@
 Exercise 44: define a scanner that may change its line number count
 
-We add a lineNr() member to the scanner, and proceed as before. Our main
-function makes as much use of the scanner's own functionality as possible,
-storing the scanned contents in a string and outputting them when a full line
-has been found. We note that at this point the scanner's d_line data member is
-already acting in the next line's line number, so we have to decrement it in
-the cout statement.
+We have members needed for counting and processing, and have the program set
+up, currently, to not even need a switch and token parsing. It reads the
+file, counts the types, and shows the lines with their line numbers when 
+scanner.lex() is called, after which showCounts() holds all the information 
+needed in post. 
 
-We make use of the regular expression matching to swallow the \n after any new
-line number indicator, such that we do not have to use more complicated logic
-to keep track of the correct structure of the lines and their numbered update
-commands.
+We have left some vestigial members, like line(), and the (now not necessarily
+needed public) lineNr(). These could be useful for further processing of the
+file or lines, in which case the return NEWLINE statement can be commented out
+to parse the file line by line. We thing the program works decently fine as is
+though.

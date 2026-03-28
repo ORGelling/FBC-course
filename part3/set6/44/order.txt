@@ -3,12 +3,15 @@ ex44info.txt
 test.txt
 output.txt
 
-lexer.txt
+scanner/lexer.txt
 
 -scanner/scannerbase.h
 scanner/scanner.h
 scanner/scanner.ih
 -scanner/lex.cc
+scanner/showcounts.cc
+scanner/setshift.cc
+scanner/newline.cc
 
 main.ih
 main.cc

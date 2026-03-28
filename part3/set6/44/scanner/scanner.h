@@ -6,11 +6,6 @@
 // $insert baseclass_h
 #include "scannerbase.h"
 
-enum Tokens
-{
-    DUMMY = 256,
-    NEWLINE
-};    
 
 // $insert classHead
 class Scanner: public ScannerBase
@@ -25,6 +20,11 @@ class Scanner: public ScannerBase
     size_t d_chars = 0;
     
     public:
+        enum Tokens
+        {
+            NEWLINE = 265
+        };
+        
         explicit Scanner(std::istream &in = std::cin, 
                         std::ostream &out = std::cout, bool keepCwd = true);
 
