@@ -4,18 +4,17 @@ input.txt
 output1.txt
 output2.txt
 
-lexer.txt
+scanner/lexer.txt
 
 input/input.h
 input/input.ih
 input/inline.i
 input/implementation.i
 
-scanner.h
--scanner.ih
--lex.cc
-
--scannerbase.h
+scanner/scanner.h
+-scanner/scanner.ih
+-scanner/lex.cc
+-scanner/scannerbase.h
 
 -main.ih
 -main.cc

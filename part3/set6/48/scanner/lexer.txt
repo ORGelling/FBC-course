@@ -7,20 +7,21 @@ eolcom "//".*
 
 %%
 
-{eolcom}                return COMMENT;
+{eolcom}            return COMMENT;
 
-<INITIAL>"#include \""  {
+#include[ \t]+\"    {
                             d_filename.clear();
                             begin(StartCondition_::include);
-                        }
+                    }
 
-<include>[^\"]+         d_filename += matched();
-
-<include>\"             {
+<include>{
+    [^\"]+          d_filename += matched();    // member?
+    \"              {
                             include();
                             begin(StartCondition_::INITIAL);
-                        }
+                    }
+}
 
-.                       return CHAR;
+.                   return CHAR;
 
 %%

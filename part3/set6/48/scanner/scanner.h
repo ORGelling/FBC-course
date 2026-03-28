@@ -19,7 +19,7 @@ enum Tokens
 // $insert classHead
 class Scanner: public ScannerBase
 {
-    std::string           d_filename = "";
+    std::string           d_filename;
     std::set<std::string> d_includedFiles;
     
     public:
@@ -31,10 +31,11 @@ class Scanner: public ScannerBase
         
         // $insert lexFunctionDecl
         int lex();
-        void include();
-        bool popStream();
 
     private:
+        void include();
+        bool popStream();
+        
         int lex_();
         int executeAction_(size_t ruleNr);
 

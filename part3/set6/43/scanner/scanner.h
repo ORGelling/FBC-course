@@ -8,15 +8,6 @@
 
 #include <string>
 
-/*                          // the way this is set up we don't use tokens!
-enum Tokens
-{
-    DUMMY = 256,
-    CHAR,
-    STRING,
-    COMMENT
-};
-*/
 
 // $insert classHead
 class Scanner: public ScannerBase
