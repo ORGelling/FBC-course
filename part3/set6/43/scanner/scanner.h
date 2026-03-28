@@ -12,12 +12,9 @@
 enum Tokens
 {
     DUMMY = 256,
-    IDENT,
-    INTEGRAL,
-    REAL,
-    OPERATOR,
     CHAR,
-    STRING
+    STRING,
+    COMMENT
 };
 
 
@@ -26,6 +23,8 @@ class Scanner: public ScannerBase
 {
     std::string d_text;
     std::string d_delim;
+    
+    size_t d_stringCount = 0;
     
     public:
         explicit Scanner(std::istream &in = std::cin, 
@@ -36,14 +35,21 @@ class Scanner: public ScannerBase
         
         // $insert lexFunctionDecl
         int lex();
+        std::string const &text();
+        std::string stringAlt();
 
     private:
+        void count();
+        size_t stringNr();
+        
         void addToText();
         void setDelim();
         void clearText();
         void clearDelim();
         
+        void foundString();
         void delim();
+        void rsl();
         
         int lex_();
         int executeAction_(size_t ruleNr);
@@ -73,6 +79,21 @@ inline Scanner::Scanner(std::string const &infile,
 inline int Scanner::lex()
 {
     return lex_();
+}
+
+inline std::string const &Scanner::text()
+{
+    return d_text;
+}
+
+inline void Scanner::count()
+{
+    ++d_stringCount;
+}
+
+inline size_t Scanner::stringNr()
+{
+    return d_stringCount;
 }
 
 inline void Scanner::addToText()

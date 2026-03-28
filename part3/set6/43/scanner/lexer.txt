@@ -7,20 +7,19 @@
 %x string_lit_delim
 
 eolComment  "//".*
-ws          [ \t\n]+
 
 %%
 
-{eolComment}            // ignore
+{eolComment}            out() << matched();
 
 
 "/*"                    begin(StartCondition_::comment);
 
-<comment>.|\n           // ignore
 <comment>{
+    .|\n                // ignore
     "*/"        {
-                        // clearText();
                         begin(StartCondition_::INITIAL);
+                        out() << matched();
                 }
 }
 
@@ -30,15 +29,13 @@ ws          [ \t\n]+
                 }
 
 <string>{
-    \\.|[^\\\"\n]+      addText();
+    \\.|[^\\\"\n]+      addToText();
     \"[ \t\n]*\"        ;               // concatenate
-    \"          {
-                        begin(StartCondition_::INITIAL);
-                        return STRING;
-                }
+    \"                  foundString();
 }
 
 R\"                     delim();        // preps state to find delimiter
+                        
 
 <string_lit_delim>{
     [^\n(]*\(   {
@@ -49,8 +46,7 @@ R\"                     delim();        // preps state to find delimiter
 
 <string_lit>.|\n        rsl();          // handles finding and returning RSL
 
-{ws}
-.
+.|\n                    out() << matched();
 
 
 %%
