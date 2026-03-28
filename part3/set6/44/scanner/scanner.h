@@ -9,19 +9,20 @@
 enum Tokens
 {
     DUMMY = 256,
-    WS,
-    LINENR,
-    NEWLINE,
-    IDENT,
-    INT,
-    DOUBLE,
-    CHAR
+    NEWLINE
 };    
 
 // $insert classHead
 class Scanner: public ScannerBase
 {
-    size_t d_shift;
+    std::string d_line;
+    
+    size_t d_shift = 0;
+    
+    size_t d_idents = 0;
+    size_t d_ints = 0;
+    size_t d_doubles = 0;
+    size_t d_chars = 0;
     
     public:
         explicit Scanner(std::istream &in = std::cin, 
@@ -33,10 +34,23 @@ class Scanner: public ScannerBase
         // $insert lexFunctionDecl
         int lex();
         
+        std::string const &line() const;
+        
         size_t lineNr() const;      // custom accessor
+        void showCounts() const;
 
     private:
-        void setShift(size_t);
+        void append();
+        void clear();
+        
+        void countIdent();
+        void countInt();
+        void countDouble();
+        void countChar();
+        
+        void setShift();
+        
+        void newline();
         
         int lex_();
         int executeAction_(size_t ruleNr);
@@ -62,20 +76,50 @@ inline Scanner::Scanner(std::string const &infile,
     ScannerBase(infile, outfile, keepCwd)
 {}
 
+// $insert inlineLexFunction
+inline int Scanner::lex()
+{
+    return lex_();
+}
+
+inline std::string const &Scanner::line() const
+{
+    return d_line;
+}
+
 inline size_t Scanner::lineNr() const           // accessor
 {
     return ScannerBase::lineNr() + d_shift;
 }
 
-// $insert inlineLexFunction
-inline void Scanner::setShift(size_t shift)
+inline void Scanner::append()
 {
-    d_shift = shift - ScannerBase::Input::lineNr();
+    d_line += matched();
 }
 
-inline int Scanner::lex()
+inline void Scanner::clear()
 {
-    return lex_();
+    d_line.clear();
+}
+
+inline void Scanner::countIdent()
+{
+    ++d_idents;
+}
+
+inline void Scanner::countInt()
+{
+    ++d_ints;
+}
+
+inline void Scanner::countDouble()
+{
+    ++d_doubles;
+}
+
+inline void Scanner::countChar()
+{
+    ++d_chars;
 }
 
 inline void Scanner::preCode() 
