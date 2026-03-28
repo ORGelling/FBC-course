@@ -1,6 +1,8 @@
 house
 household
 houseboat
-hose
-inhouse
-housed
+brick-house
+houseboats
+housebreaking
+houses
+house's

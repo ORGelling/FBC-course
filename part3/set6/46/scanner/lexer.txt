@@ -1,0 +1,20 @@
+%class-name Scanner
+%filenames scanner
+
+ws          [ \n\t]+
+
+%%
+
+house/(boat|hold)   {
+                        show();
+                        return WORD;
+                    }
+
+[^ \n\t]+           {                           // any consecutive non blank
+                        show();
+                        return WORD;
+                    }
+
+{ws}                return DUMMY;
+
+%%

@@ -1,14 +1,14 @@
 ex46info.txt
 
-lexer.txt
-
 test.txt
 output.txt
 
-scanner.h
--scanner.ih
--scannerbase.h
--lex.cc
+scanner/lexer.txt
+
+scannerscanner.h
+-scanner/scanner.ih
+-scanner/scannerbase.h
+-scanner/lex.cc
 
 -main.ih
 -main.cc

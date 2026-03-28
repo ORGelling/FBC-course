@@ -6,28 +6,29 @@
 // $insert baseclass_h
 #include "scannerbase.h"
 
-enum Tokens
-{
-    DUMMY = 256,
-    HOUSE,
-    WORD,
-    CHAR
-};
 
 // $insert classHead
 class Scanner: public ScannerBase
 {
-    size_t d_line = 0;
-    
     public:
-        explicit Scanner(std::istream &in = std::cin, std::ostream &out = std::cout, bool keepCwd = true);
+        enum Tokens
+        {
+            DUMMY = 256,
+            WORD
+        };
+    
+        explicit Scanner(std::istream &in = std::cin, 
+                        std::ostream &out = std::cout, bool keepCwd = true);
 
-        Scanner(std::string const &infile, std::string const &outfile, bool keepCwd = true);
+        Scanner(std::string const &infile, 
+                            std::string const &outfile, bool keepCwd = true);
         
         // $insert lexFunctionDecl
         int lex();
 
     private:
+        void show() const;
+    
         int lex_();
         int executeAction_(size_t ruleNr);
 
@@ -46,7 +47,8 @@ inline Scanner::Scanner(std::istream &in, std::ostream &out, bool keepCwd)
     ScannerBase(in, out, keepCwd)
 {}
 
-inline Scanner::Scanner(std::string const &infile, std::string const &outfile, bool keepCwd)
+inline Scanner::Scanner(std::string const &infile, 
+                                    std::string const &outfile, bool keepCwd)
 :
     ScannerBase(infile, outfile, keepCwd)
 {}
@@ -55,6 +57,11 @@ inline Scanner::Scanner(std::string const &infile, std::string const &outfile, b
 inline int Scanner::lex()
 {
     return lex_();
+}
+
+inline void Scanner::show() const
+{
+    std::cout << matched() << '\n';
 }
 
 inline void Scanner::preCode() 
