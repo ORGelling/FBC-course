@@ -17,8 +17,8 @@ eolComment  "//".*
 <comment>{
     .|\n                // ignore
     "*/"        {
-                        begin(StartCondition_::INITIAL);
                         out() << matched();
+                        begin(StartCondition_::INITIAL);
                 }
 }
 

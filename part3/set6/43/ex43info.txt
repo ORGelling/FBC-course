@@ -14,3 +14,6 @@ changing the name of the temporary.
 We are happy with a scanner that can read from and write to files directly
 already, and does not need any further instructions or while-switches to
 process the contents of the files.
+
+Below here we have the test and output files, after which the lexer.txt file
+starts immediately.
