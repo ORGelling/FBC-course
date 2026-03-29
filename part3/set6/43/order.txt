@@ -1,9 +1,9 @@
 ex43info.txt
 
-scanner/lexer.txt
+test.txt
+out.txt
 
--test.txt
--out.txt
+scanner/lexer.txt
 
 -scanner/scannerbase.h
 scanner/scanner.h
