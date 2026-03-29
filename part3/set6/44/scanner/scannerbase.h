@@ -187,7 +187,8 @@ public:
 
 protected:
     ScannerBase(std::istream &in, std::ostream &out, bool keepCwd = true);
-    ScannerBase(std::string const &infilename, std::string const &outfilename, bool keepCwd = true);
+    ScannerBase(std::string const &infilename, 
+                        std::string const &outfilename, bool keepCwd = true);
     ~ScannerBase();
 
     bool            popStream();
@@ -347,7 +348,8 @@ inline void ScannerBase::push(std::string const &str)
 }
 
 
-inline std::vector<ScannerBase::StreamStruct> const &ScannerBase::streamStack() const
+inline std::vector<ScannerBase::StreamStruct> const 
+                                            &ScannerBase::streamStack() const
 {
     return d_streamStack;
 }
