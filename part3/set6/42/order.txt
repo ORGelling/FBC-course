@@ -5,7 +5,7 @@ scanner/lexer.txt
 -scanner/scannerbase.h
 scanner/scanner.h
 -scanner/scanner.ih
--lex.cc
+-scanner/lex.cc
 
 main.ih
 main.cc

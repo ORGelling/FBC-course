@@ -5,7 +5,7 @@ output.txt
 
 scanner/lexer.txt
 
-scannerscanner.h
+scanner/scanner.h
 -scanner/scanner.ih
 -scanner/scannerbase.h
 -scanner/lex.cc

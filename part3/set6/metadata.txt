@@ -1,4 +1,4 @@
-Set: Set 6
+Set: Set 6R1
 
 Authors: Jakub Janicek, Olivier Gelling
 

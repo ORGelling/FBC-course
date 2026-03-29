@@ -12,15 +12,15 @@ double      -?[0-9]+\.[0-9]+
 {ws}        append();
 ^{linenr}   setShift();
 {id}        {
-                    append();
-                    countIdent();
-            }
-{int}       {
-                    append();
-                    countInt();
-            }
+                    append();               // we have 2 functions per line
+                    countIdent();           // for most of these, we know
+            }                
+{int}       {                
+                    append();               // that making unique functions
+                    countInt();             // for each is probably a good
+            }                
 {double}    {
-                    append();
+                    append();               // choice, but hope this is ok
                     countDouble();
             }
 \n          {       
