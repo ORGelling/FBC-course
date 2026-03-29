@@ -9,12 +9,7 @@
 #include <string>
 #include <set>
 
-enum Tokens
-{
-    DUMMY = 256,
-    COMMENT,
-    CHAR
-};
+
 
 // $insert classHead
 class Scanner: public ScannerBase
@@ -23,6 +18,13 @@ class Scanner: public ScannerBase
     std::set<std::string> d_includedFiles;
     
     public:
+        enum Tokens
+        {
+            DUMMY = 256,
+            COMMENT,
+            CHAR
+        };
+        
         explicit Scanner(std::istream &in = std::cin, 
                         std::ostream &out = std::cout, bool keepCwd = true);
 
