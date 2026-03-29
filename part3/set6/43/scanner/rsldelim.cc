@@ -2,8 +2,8 @@
 
 void Scanner::delim()
 {
-    clearText();    // prep and then start reading
-    clearDelim();   // the RSL delimiter
+    clearText();    // clear d_text
+    clearDelim();   // clear RSL delimiter
     
-    begin(StartCondition_::string_lit_delim);
+    d_delim = ")" + matched().substr(2, matched().size() - 3) + "\"";
 }

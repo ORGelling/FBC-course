@@ -2,20 +2,25 @@
 
 void Scanner::rsl()
 {
-    addToText();
-
-    std::string end = ")" + d_delim + "\"";
-
-    if (d_text.length() >= end.length() &&
-        d_text.substr(d_text.length() - end.length(), end.length()) == end)
+    addToText();                        // add current match
+    
+    size_t dLen = d_delim.length();     // for ease of use
+                                        
+                                        // we check if the current tail
+    if                                  // of d_text matches d_delim
+    (
+        d_text.length() >= dLen && 
+        d_text.compare(d_text.length() - dLen , dLen, d_delim) == 0
+        //d_text.find(d_delim) != std::string::npos   // nice and simple
+    )                                                 // but inefficient
     {
-        d_text = d_text.substr(0, d_text.length() - end.length());
+        d_text.erase(d_text.length() - dLen, dLen);
+        count();
+        out() << stringAlt();
         begin(StartCondition_::INITIAL);
-    }                                   // we have chosen not to allow RSL
+    }
+}                                       // we have chosen not to allow RSL
                                         // concatenation. This would make the
-    count();                            // mechanics here significantly more
+                                        // mechanics here significantly more
                                         // complicated and might require the
                                         // string_gap mini scanner to work
-    out() << stringAlt();
-    //return STRING;
-}

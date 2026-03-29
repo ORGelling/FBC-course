@@ -7,3 +7,7 @@ cout << "This is a long text\n"
         "But stored in one (concatenated) string\n";
         
 "Another string\n";
+
+R"lala(
+rawstringgoeshererawstringgoeshererawstringgoeshererawstringgoeshere
+)lala"

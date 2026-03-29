@@ -4,13 +4,12 @@
 %x comment
 %x string
 %x string_lit
-%x string_lit_delim
 
 eolComment  "//".*
 
 %%
 
-{eolComment}            out() << matched();
+{eolComment}            out() << matched();     // write to output file
 
 
 "/*"                    begin(StartCondition_::comment);
@@ -31,18 +30,16 @@ eolComment  "//".*
 <string>{
     \\.|[^\\\"\n]+      addToText();
     \"[ \t\n]*\"        ;               // concatenate
-    \"                  foundString();
-}
-
-R\"                     delim();        // preps state to find delimiter
-                        
-
-<string_lit_delim>{
-    [^\n(]*\(   {
-                        setDelim();     // delim found and set
-                        begin(StartCondition_::string_lit);
+    \"          {        
+                        foundString();
+                        begin(StartCondition_::INITIAL);
                 }
 }
+
+R\"[^\n(]*\(    {       
+                        delim();        // finds delimiter
+                        begin(StartCondition_::string_lit);
+                }
 
 <string_lit>.|\n        rsl();          // handles finding and returning RSL
 
