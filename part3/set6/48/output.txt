@@ -1,0 +1,17 @@
+this is input.txt
+
+we are going to include some files:
+
+This is a.txt
+
+This is b.txt
+
+and this is the end of b.txt
+        // comment after include b.txt
+
+This is the end of a.txt
+        // comment after include a.txt
+
+this is input.txt again, after including a and b.txt
+
+this is the end of input.txt

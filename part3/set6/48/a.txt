@@ -1,0 +1,5 @@
+This is a.txt
+
+#include "b.txt"        // comment after #include "b.txt"
+
+This is the end of a.txt

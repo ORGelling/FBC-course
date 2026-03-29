@@ -1,0 +1,20 @@
+Exercise 47: provide the flexc++ scanner with your own input class
+
+We do exactly this, keeping the scannig logic simple, and returning tokens
+only at newline characters, and letting the internal operations (get() for
+instance) keep track of the offset and line numbers.
+
+The offsets are kept in a vector and returned with their current lineNr as 
+index. not exactly a queue or deque, but works just fine from what we can
+tell. Maybe a bit less optimised. We do not store a datamember d_offset,
+instead using the stream's tellg() position. 
+
+the way this program works is such that the ending newline character of a file
+still causes an extra line to be written, which is now shown in the exercise's
+example. However, especially seeing the binary complement, there should
+technically be a last newline character there, so our version printing a 7th
+line for the example input file seems to not be an error per se. This should
+not be all that hard to rework though.
+
+We include the output from the exercise's test file and that of the program
+reading our main.cc file.

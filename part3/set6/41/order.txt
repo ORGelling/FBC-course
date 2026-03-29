@@ -1,0 +1,14 @@
+ex41info.txt
+
+scanner/lexer.txt
+
+-scanner/lex.cc
+scanner/scanner.h
+-scanner/scanner.ih
+-scanner/scannerbase.h
+
+main.ih
+process1.cc
+process2.cc
+process3.cc
+main.cc

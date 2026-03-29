@@ -1,0 +1,21 @@
+Exercise 48: handle #include directives
+
+We use the built in and inherited functionality of ScannerBase, calling
+pushStream and overriding popStream to allow the logic of our include
+directives to be handled relatively easily by Scanner and ScannerBase
+themselves. 
+
+We show the three files that are linked internally beneath this info file, and
+then the output after. We note that all these files end with a newline
+character, so an empty line shows up after any included file is done writing.
+An extra newline after the #include "..." directive is then still printed too,
+which can lead to some unexpected formatting in the output. We do not think
+this is an issue exactly though, and the comments after the include directive
+are written simply on the next line until the newline at the end of that 
+comment is reached.
+
+We have added logic to not pick up on commented-out include directives, but
+have not implemented multi-line comment logic, as that seems a bit excessive,
+*and* multiline comments are c-style and therefore not actually all that
+relevant for this exercise. We could add it back in by copying the part from
+another lexer file earlier in this week's set where we had to implement it.

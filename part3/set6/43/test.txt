@@ -1,0 +1,13 @@
+// testing comment "howdy there"
+
+cout << "hello world";
+
+cout << "This is a long text\n"
+        "Displayed over multiple lines\n"
+        "But stored in one (concatenated) string\n";
+
+R"lala(
+rawstringgoeshererawstringgoeshererawstringgoeshererawstringgoeshere
+)lala";
+
+"Another string\n";

@@ -1,0 +1,78 @@
+Exercise 45: construct an NFA, then a DFA from a regex 
+
+The NFA, or at least the most compact and strictly correct one we could find
+looks like:
+
+      e       e               e
+    -->--   --<--           --<--
+   /     \ /     \    .    /     \                 e 
+  0 -->-- 1 -->-- 2 -->-- 3 -->-- 4 ------>-------+  
+      S       d    \          d   |               |  
+                    \             |               |  
+                     \            V E             V  
+                    E \           |               |  
+                       \          |   S       d   |  
+                        >-------- 5 -->-- 6 -->-- 7 END
+                                   \     / \     /   
+                                    -->--   --<--    
+                                      e       e      
+                                                     
+State transition table:
+
+0,S   1
+0,d   1,2
+1,d   1,2
+2,.   3
+2,E   5
+3,d   3,4,7
+4,E   5,6
+5,S   6
+5,d   6,7
+6,d   6,7
+
+
+Transition options (using Exp for the exponent):
+
+A: {0,1}        S -> {1}     = B
+                d -> {1,2}   = C
+
+B: {1}          d -> {1,2}   = C
+
+C: {1,2}        . -> {3}     = D
+              Exp -> {5,6}   = E
+                d -> {1,2}   = C
+                
+D: {3}          d -> {3,4,7} = F
+                
+E: {5,6}        S -> {6}     = G
+                d -> {6,7}   = H
+                
+F: {3,4,7}    Exp -> {5,6}   = E
+                d -> {3,4,7} = F
+                
+G: {6}          d -> {6,7}   = H
+
+H: {6,7}        d -> {6,7}   = H
+
+
+F and H both are end points, as 7 is the ending condition
+
+                d
+          d     +    Exp          S
+    A ---->---- C ---->---- E ---->---- G
+    |         / |           | \         |
+    |        /  |           |  \        |
+  S V   -->--   V .     Exp ^   -->--   V d
+    |  /  d     |           |     d  \  |
+    | /         |           |         \ |
+    B           D ---->---- F*          H*
+                      d     +           +
+                            d           d
+                            
+We find, logically, that we have three points where the digits can loop
+indefinitely: The first digits, the digits after the dot, and the digits in
+the exponent. We have end points F and H, for the final digit after the dot
+(no exponent) or for the final digit of the exponent. An exponent can be
+placed either after one or more digits, or after a decimal point has been
+used. Other than this the table and diagram show that, when we add separate 
+branches for the sign steps, we do indeed not need empty transitions anymore.

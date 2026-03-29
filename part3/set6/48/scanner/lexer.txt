@@ -1,0 +1,27 @@
+%class-name Scanner
+%filenames scanner
+
+%x include
+
+eolcom "//".*
+
+%%
+
+{eolcom}            return COMMENT;
+
+#include[ \t]+\"    {
+                            d_filename.clear();
+                            begin(StartCondition_::include);
+                    }
+
+<include>{
+    [^\"]+          d_filename += matched();    // member?
+    \"              {
+                            include();
+                            begin(StartCondition_::INITIAL);
+                    }
+}
+
+.                   return CHAR;
+
+%%

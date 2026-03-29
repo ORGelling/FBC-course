@@ -1,0 +1,19 @@
+Exercise 46: perform a non-greedy match
+
+Flex* generated scanners perform greedy matches. Programs like Perl also offer
+facilities to perform minimal matches. 
+
+Q - Why is a minimal match feature not required for (flex*) scanner 
+    generators?
+A - The largest match can still be manipulated after it has been made, so a
+    greedy maximal matching pattern is not an issue.
+
+We include both our test file (test.txt) and the output the program gives us
+(output.txt). We keep the lexer.txt file and Scanner class as simple as
+possible, adding a member show() and using the lookahead operator to find
+house only in houseboat or household. House is separated out as a word on its
+own, and the WORD token is used for both house (in household and houseboat)
+and any other word, which we make broad by using the definition given by the
+exercise: Any consecutive series of non-blank characters. Adding the HOUSE
+token back might be fitting but as far as we can see there is no explicit need
+for it.

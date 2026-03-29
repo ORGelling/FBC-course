@@ -1,0 +1,35 @@
+%class-name Scanner
+%filenames scanner
+
+linenr      "#>"[0-9]+\n
+ws          [ \t]+
+id          [a-zA-Z_][a-zA-Z_0-9]*
+int         -?[0-9]+
+double      -?[0-9]+\.[0-9]+
+
+%%
+
+{ws}        append();
+^{linenr}   setShift();
+{id}        {
+                    append();               // we have 2 functions per line
+                    countIdent();           // for most of these, we know
+            }                
+{int}       {                
+                    append();               // that making unique functions
+                    countInt();             // for each is probably a good
+            }                
+{double}    {
+                    append();               // choice, but hope this is ok
+                    countDouble();
+            }
+\n          {       
+                    newline();
+                    //return NEWLINE;         // this is not entirely needed
+            }
+.           {
+                    append();
+                    countChar();
+            }
+
+%%

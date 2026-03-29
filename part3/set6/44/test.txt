@@ -1,0 +1,10 @@
+int first;
+value = 12;
+ratio = 3.5;
++
+#>20
+second_line = 99;
+mix = id_2 + 4.25;
+@
+#>100
+z = 0;

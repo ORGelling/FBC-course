@@ -1,0 +1,49 @@
+%class-name Scanner
+%filenames scanner
+
+%x comment
+%x string
+%x string_lit
+
+eolComment  "//".*
+
+%%
+
+{eolComment}            out() << matched();     // write to output file
+
+
+"/*"                    begin(StartCondition_::comment);
+
+<comment>{
+    .|\n                // ignore
+    "*/"        {
+                        begin(StartCondition_::INITIAL);
+                        out() << matched();
+                }
+}
+
+\"              {
+                        clearText();
+                        begin(StartCondition_::string);
+                }
+
+<string>{
+    \\.|[^\\\"\n]+      addToText();
+    \"[ \t\n]*\"        ;               // concatenate
+    \"          {        
+                        foundString();
+                        begin(StartCondition_::INITIAL);
+                }
+}
+
+R\"[^\n(]*\(    {       
+                        delim();        // finds delimiter
+                        begin(StartCondition_::string_lit);
+                }
+
+<string_lit>.|\n        rsl();          // handles finding and returning RSL
+
+.|\n                    out() << matched();
+
+
+%%

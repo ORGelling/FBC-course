@@ -1,0 +1,9 @@
+this is input.txt
+
+we are going to include some files:
+
+#include "a.txt"        // comment after #include "a.txt"
+
+this is input.txt again, after including a and b.txt
+
+this is the end of input.txt

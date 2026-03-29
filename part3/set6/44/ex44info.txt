@@ -1,0 +1,13 @@
+Exercise 44: define a scanner that may change its line number count
+
+We have members needed for counting and processing, and have the program set
+up, currently, to not even need a switch and token parsing. It reads the
+file, counts the types, and shows the lines with their line numbers when 
+scanner.lex() is called, after which showCounts() holds all the information 
+needed in post. 
+
+We have left some vestigial members, like line(), and the (now not necessarily
+needed public) lineNr(). These could be useful for further processing of the
+file or lines, in which case the return NEWLINE statement can be commented out
+to parse the file line by line. We thing the program works decently fine as is
+though.
