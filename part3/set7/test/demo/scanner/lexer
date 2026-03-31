@@ -1,7 +1,0 @@
-%filenames scanner
-%token-path = "../tokens/tokens.h"
-
-%%
-
-[a-z]+                          return Tokens::NAME;
-.|\n                            // ignore
