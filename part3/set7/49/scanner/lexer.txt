@@ -1,0 +1,24 @@
+%class-name Scanner
+%filenames scanner
+
+%token-path = "../tokens/tokens.h"
+
+eolcom          "//".*
+ws              [ \t\n]+
+
+write           "write("
+ident           [[:alpha:]_][[:alnum:]_]*
+number          [[:digit:]]+
+
+%%
+
+{eolcom}
+{ws}
+
+{write}             return Tokens::WRITE;
+{ident}             return Tokens::IDENT;
+{number}            return Tokens::NUMBER;
+","                 return matched().front();
+")"                 return matched().front();
+
+.                   // ignore

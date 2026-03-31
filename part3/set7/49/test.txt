@@ -1,0 +1,3 @@
+write(val1, 7, val2);
+write(num);
+write();

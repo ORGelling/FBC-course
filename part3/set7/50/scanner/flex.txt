@@ -1,0 +1,20 @@
+%class-name Scanner
+%filenames scanner
+
+%token-path = "../tokens/tokens.h"
+
+ws              [ \t]+
+number          [[:digit:]]+
+operator        "("|")"|"+"|"-"|"*"|"/"|"^"|"$"
+
+%%
+
+{ws}            // ignore
+
+{number}        return Tokens::NUMBER;
+
+{operator}      return matched().front();
+
+\n              return '\n';
+
+.               // ignore all others too

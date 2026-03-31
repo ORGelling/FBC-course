@@ -1,1 +1,8 @@
-Exercise 49: 
+Exercise 49: specify a simple grammar
+
+We have specified a very simple grammar indeed, that can parse variable names
+and numerical values inside write() statements. The exercise mentions that
+Pascal's write() function will print the value that variables hold, our
+grammar does not. Keeping track of the mentioned variables and printing their
+value rather than variable name is a lot more complex, so for now we will keep
+it at this.
