@@ -1,1 +1,32 @@
-Exercise 51: 
+Exercise 51: solve conflicts occurring in a grammar
+
+When parsing this grammar bisonc++ tells us:
+
+[Warning] 4 Shift/Reduce conflict(s)
+   rule 3 (grammar.txt, line 9): shifts at '+', '-', 
+   rule 4 (grammar.txt, line 11): shifts at '+', '-', 
+[Warning] 1 Reduce/Reduce conflict(s)
+   keeping rule 1 (grammar.txt, line 5), dropping
+        rule 5 (grammar.txt, line 15)
+
+We note that the grammar as given has ambiguities and redundant paths. The
+number rule is simply NUMBER wrapped in a rule of its own. This means there
+are two options to reduce a NUMBER token that is recieved: Either directly
+using 
+
+    expr -> '+'/'-' -> NUMBER
+
+or using 
+    
+    expr -> '+'/'-' -> number -> NUMBER.
+
+This is the Reduce/Reduce conflict that the error mentions.
+
+Another conflict arises from the '+' and '-' operators. They do not have
+assigned precedence, so when the parser recieves a NUMBER token it can now
+either Reduce it (first option), or it can Shift to hope to consume a '+' or 
+'-'. Hence it gives us ther Shift/Reduce conflict error. The parser tends to
+shift if precedence has not been explicitly set, hence we get a warning here.
+
+Our grammar.txt file shows this grammar worked out without errors, removing
+the redundant line and setting precedence for the '+' and '-' signs.

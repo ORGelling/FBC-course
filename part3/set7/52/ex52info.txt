@@ -1,1 +1,10 @@
-Exercise 52: 
+Exercise 52: add a new priority level to a grammar 
+
+We add a NEQ token to the list with left associativity. The scanner, if
+implemented, would be set up to read "!=" and return this token. Actually
+turning this into a working program would of course also require a scanner to
+be declared, along with a directory for the tokens, and the actual
+computations that accompany the different expression options.
+
+We note that this grammar is set up to only ever parse a single line. This
+should be fine though, and will thus not be amended.
