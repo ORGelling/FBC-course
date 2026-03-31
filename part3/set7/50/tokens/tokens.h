@@ -7,7 +7,6 @@ struct Tokens
     enum Tokens_
     {
         NUMBER = 257,
-        NEG,
     };
 
 };
