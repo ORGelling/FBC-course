@@ -1,1 +1,17 @@
 Exercise 55: design an interactive program.
+
+Just like with exercise 50 we run into a strange issue again, where the
+parser's output lags behind by one line:
+
+$ tmp/bin/binary 
+? s 15
+m 12
+? 165 12
+? 187
+? 
+? 
+
+We are not sure what the reason for this is, it is likely to do with the way
+the grammar parses newlines, but fiddling with the grammar to either have it
+not care about these causes conflicts (for specifically the score/score nObs
+for instance), and the newlines seem to be a useful way to keep these apart.
