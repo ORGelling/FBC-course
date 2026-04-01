@@ -3,18 +3,14 @@
 
 %token-path = "../tokens/tokens.h"
 
-ws              [ \t]+
-number          [[:digit:]]+
-operator        "("|")"|"+"|"-"|"*"|"/"|"^"|"$"
+ws                  [ \t]+
+number              [+-]?[[:digit:]]+(\.[[:digit:]]*)?([Ee][+-]?[[:digit:]]+)?
+operator            "("|")"|"+"|"-"|"*"|"/"|"^"|"$"
 
 %%
 
-{ws}            // ignore
+{ws}                // ignore
 
-{number}        return Tokens::NUMBER;
+{number}            return Tokens::NUMBER;
 
-{operator}      return matched().front();
-
-\n              return '\n';
-
-.               // ignore all others too
+{operator}|.|\n     return matched().front();

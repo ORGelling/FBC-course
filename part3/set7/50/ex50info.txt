@@ -27,7 +27,17 @@ show up previous exercise. The output here shows like:
 
 This is likely due to the output only being generated once the expression is
 fully reduced, whereas in the previous exercise output is generated right as a
-NUMBER or IDENT token is parsed!
+NUMBER or IDENT token is parsed! We can see that this changes when we have the
+expression output be generated from something like
+
+    expr '='
+
+instead. Now it will return output directly after a line if we enter something
+like 
+    
+    3 + 5 * 12 =
 
 This is not an issue when redirecting a file like test.txt into the program.
-Doing so gives us output: output.txt
+Doing so gives us output: output.txt. We keep the program as is, without
+adding the equals requigement, as it is likely outside of the scope of this
+exercise.
