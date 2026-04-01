@@ -1,0 +1,103 @@
+[bison.txt (info)] Line 40: 
+Production Rules:
+   (precedences (shown between parentheses) were set by %prec;
+    are equal to the precedence of the rules' 1st terminal tokens;
+    or (if not shown) are equal to the default (max) precedence)
+1: input ->  <empty>
+2: input ->  input expr
+3: expr (WRITE) ->  WRITE '(' write_contents ')'
+4: write_contents ->  <empty>
+5: write_contents ->  write_element
+6: write_contents (',') ->  write_element ',' write_contents
+7: write_element (IDENT) ->  IDENT
+8: write_element (NUMBER) ->  NUMBER
+9: input_$ ->  input
+
+
+Symbolic Terminal tokens:
+       error
+       EOF
+   257: WRITE
+   258: IDENT
+   259: NUMBER
+    40: '('
+    41: ')'
+    44: ','
+
+
+Grammar States: 
+
+State 0:
+9: input_$ ->  . input 
+  0:   On input to state 1
+  Reduce by 1: input ->  . 
+
+
+State 1:
+9: input_$ -> input  . 
+2: input -> input  . expr 
+  0:   On expr to state 2
+  1:   On WRITE to state 3
+
+
+State 2:
+2: input -> input expr  . 
+  Reduce by 2: input -> input expr  . 
+
+
+State 3:
+3: expr -> WRITE  . '(' write_contents ')' 
+  0:   On '(' to state 4
+
+
+State 4:
+3: expr -> WRITE '('  . write_contents ')' 
+  0:   On write_contents to state 5
+  1:   On write_element to state 6
+  2:   On IDENT to state 7
+  3:   On NUMBER to state 8
+  Reduce by 4: write_contents ->  . 
+
+
+State 5:
+3: expr -> WRITE '(' write_contents  . ')' 
+  0:   On ')' to state 9
+
+
+State 6:
+5: write_contents -> write_element  . 
+6: write_contents -> write_element  . ',' write_contents 
+  0:   On ',' to state 10
+  Reduce by 5: write_contents -> write_element  . 
+
+
+State 7:
+7: write_element -> IDENT  . 
+  Reduce by 7: write_element -> IDENT  . 
+
+
+State 8:
+8: write_element -> NUMBER  . 
+  Reduce by 8: write_element -> NUMBER  . 
+
+
+State 9:
+3: expr -> WRITE '(' write_contents ')'  . 
+  Reduce by 3: expr -> WRITE '(' write_contents ')'  . 
+
+
+State 10:
+6: write_contents -> write_element ','  . write_contents 
+  0:   On write_contents to state 11
+  1:   On write_element to state 6
+  2:   On IDENT to state 7
+  3:   On NUMBER to state 8
+  Reduce by 4: write_contents ->  . 
+
+
+State 11:
+6: write_contents -> write_element ',' write_contents  . 
+  Reduce by 6: write_contents -> write_element ',' write_contents  . 
+
+
+

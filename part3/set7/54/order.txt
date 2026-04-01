@@ -5,6 +5,8 @@ test2.txt
 test3.txt
 
 parser/grammar.txt
+parser/grammar2.txt
+
 -parser/parserbase.h
 -parser/parser.h
 -parser/parser.ih

@@ -18,7 +18,5 @@ number          [[:digit:]]+
 {write}             return Tokens::WRITE;
 {ident}             return Tokens::IDENT;
 {number}            return Tokens::NUMBER;
-","                 return matched().front();
-")"                 return matched().front();
 
-.                   // ignore
+.|\n                return matched().front();
