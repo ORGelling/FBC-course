@@ -6,7 +6,7 @@
 eolcom          "//".*
 ws              [ \t\n]+
 
-write           "write("
+write           "write"
 ident           [[:alpha:]_][[:alnum:]_]*
 number          [[:digit:]]+
 

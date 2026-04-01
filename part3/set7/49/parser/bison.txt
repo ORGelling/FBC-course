@@ -15,7 +15,7 @@ input:
 ;
 
 expr:
-    WRITE '(' write_contents ')'
+    WRITE '(' write_contents ')' ';'
 ;
 
 write_contents:
