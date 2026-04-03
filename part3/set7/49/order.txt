@@ -3,13 +3,13 @@ ex49info.txt
 test.txt
 output.txt
 
--scanner/lexer.l
+-scanner/lexer
 -scanner/scanner.h
 -scanner/scanner.ih
 -scanner/scannerbase.h
 -scanner/lex.cc
 
-parser/grammar.p
++parser/grammar
 -parser/parserbase.h
 -parser/parser.h
 -parser/parser.ih
