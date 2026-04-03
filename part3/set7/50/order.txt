@@ -3,9 +3,9 @@ ex50info.txt
 test.txt
 output.txt
 
-scanner/flex.txt
+-scanner/lexer.l
 
-parser/bison.txt
+parser/grammar.p
 
 -scanner/scannerbase.h
 -scanner/scanner.h

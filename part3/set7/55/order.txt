@@ -3,9 +3,9 @@ ex55info.txt
 -test1.txt
 -test2.txt
 
-scanner/lexer.txt
+-scanner/lexer.l
 
-parser/grammar.txt
+parser/grammar.p
 
 -tokens/tokens.h
 
