@@ -3,9 +3,9 @@ ex50info.txt
 test.txt
 output.txt
 
--scanner/lexer.l
+-scanner/lexer
 
-parser/grammar.p
++parser/grammar
 
 -scanner/scannerbase.h
 -scanner/scanner.h
@@ -19,5 +19,5 @@ parser/grammar.p
 
 -tokens/tokens.h
 
-main.ih
-main.cc
+-main.ih
+-main.cc

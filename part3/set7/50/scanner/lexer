@@ -4,7 +4,7 @@
 %token-path = "../tokens/tokens.h"
 
 ws                  [ \t]+
-number              [+-]?[[:digit:]]+(\.[[:digit:]]*)?([Ee][+-]?[[:digit:]]+)?
+number              [[:digit:]]+(\.[[:digit:]]*)?
 operator            "("|")"|"+"|"-"|"*"|"/"|"^"|"$"
 
 %%

@@ -1,2 +1,2 @@
 ex51info.txt
-grammar.p
++grammar

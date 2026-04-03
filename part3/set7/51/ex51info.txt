@@ -28,5 +28,8 @@ either Reduce it (first option), or it can Shift to hope to consume a '+' or
 '-'. Hence it gives us ther Shift/Reduce conflict error. The parser tends to
 shift if precedence has not been explicitly set, hence we get a warning here.
 
-Our grammar.txt file shows this grammar worked out without errors, removing
-the redundant line and setting precedence for the '+' and '-' signs.
+We show in grammar1 how to recreate the logic in a conflict-free way similar
+to how the parser itself would solve the conflicts. It tends to shift rather
+than reduce, as such we have made a right-associative grammar that has no
+conflicts. This, regardless of which version we hand in, will require the
+removal of the "number" rule, as it is purely redundant.
