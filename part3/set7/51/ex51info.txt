@@ -27,7 +27,8 @@ assigned precedence, so when the parser recieves a NUMBER token it can now
 either Reduce it (first option), or it can Shift to hope to consume a '+' or 
 '-'. Hence it gives us the Shift/Reduce conflict error. The parser tends to
 shift if precedence has not been explicitly set, hence we get a warning here.
-The (mathematically) usual associativity for '+' and '-' is left.
+The (mathematically) usual associativity for '+' and '-' is left, but that is
+not how the parser would resolve this conflict on its own.
 
 We show in grammar1 how to recreate the logic in a conflict-free way similar
 to how the parser itself would solve the conflicts. It tends to shift rather

@@ -1,11 +1,13 @@
 %token NUMBER
 
+%right '+' '-'
+
 %%
 
 expr:
     NUMBER
 |
-    NUMBER '+' expr
+    expr '+' expr
 |
-    NUMBER '-' expr
+    expr '-' expr
 ;
