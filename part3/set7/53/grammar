@@ -2,6 +2,7 @@
 %token NR
 %left '+'
 %left '*'
+%nonassoc '[' ']'
 %right '-'
 
 %%
