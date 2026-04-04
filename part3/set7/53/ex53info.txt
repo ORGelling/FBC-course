@@ -1,9 +1,1 @@
 Exercise 53: provide a grammar with an index operator
-
-We are not entirely sure how to apply the index operation limitations. the
-exercise mentions repeatedly that the grammar is not responsible for enforcing
-rules against using, for instance, 3[a], but does specifically state that only
-a VAR can be followed by an index operation, which also makes perfect sense to
-be set up that way. We can now either proceed by using a somewhat restrictive,
-but clear and logical grammar, as is shown in grammar1.txt, or the much less
-restrictive, but also entirely chaotic grammar, that we show in grammar2.txt.

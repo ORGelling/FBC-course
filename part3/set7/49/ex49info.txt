@@ -7,6 +7,10 @@ grammar does not. Keeping track of the mentioned variables and printing their
 value rather than variable name is a lot more complex, so for now we will keep
 it at this.
 
+Our grammar should now be restrictive enough to now allow commas in the wrong
+place, having a (left) recursive pattern for write_elements_list that can be
+appended with ',' and another element indefinitely.
+
 We note that we also have our parser check for the ';' that ends the write()
 statement, even though that is not exactly necessary. If this is outside the
 scope of the parser then it would be fine to have the scanner ignore this
