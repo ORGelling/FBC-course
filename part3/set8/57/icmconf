@@ -1,11 +1,9 @@
 #define CLS
 
-#define NOCOLORS            "-fdiagnostics-color=never"
-
 #define LIBRARY           "modules"
 
 #define MULTICOMP           "jobs -q"
-#define SPCH                "-q -o " ${NOCOLORS}
+#define SPCH                "-q -o "
 
 #define MAIN                "main.cc"
 #define SOURCES             "*.cc"
@@ -19,7 +17,7 @@
 #define CXX                 "ccache g++" 
 // #define CXX                 "g++" 
 
-#define CXXFLAGS            "-Wall -Werror -O2 "  ${NOCOLORS}
+#define CXXFLAGS            "-Wall -Werror -O2 "
 
 #define REFRESH
 #define LDFLAGS             "-s"

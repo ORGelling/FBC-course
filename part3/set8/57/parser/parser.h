@@ -48,6 +48,20 @@ class Parser: public ParserBase
         void prompt();
         void showTable();
 
+        RuleValue &addis(RuleValue &lvalue, RuleValue &rvalue);
+        RuleValue &subis(RuleValue &lvalue, RuleValue &rvalue);
+        RuleValue &mulis(RuleValue &lvalue, RuleValue &rvalue);
+        RuleValue &divis(RuleValue &lvalue, RuleValue &rvalue);
+        
+        RuleValue mul(RuleValue &lvalue, RuleValue &rvalue) const;
+        RuleValue div(RuleValue &lvalue, RuleValue &rvalue) const;
+        
+        RuleValue shiftleft(RuleValue &lvalue, RuleValue &rvalue) const;
+        RuleValue shiftright(RuleValue &lvalue, RuleValue &rvalue) const;
+        
+        RuleValue bitAnd(RuleValue &lvalue, RuleValue &rvalue) const;
+        RuleValue bitOr(RuleValue &lvalue, RuleValue &rvalue) const;
+        
         RuleValue add(RuleValue &lvalue, RuleValue &rvalue) const;
         RuleValue &assign(RuleValue &lvalue, RuleValue &rvalue);
         RuleValue negate(RuleValue &expr) const;

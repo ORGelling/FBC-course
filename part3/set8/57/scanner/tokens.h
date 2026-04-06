@@ -10,6 +10,12 @@ struct Tokens
         IDENT,
         EXIT,
         LIST,
+        MULIS,
+        DIVIS,
+        ADDIS,
+        SUBIS,
+        SHIFTLEFT,
+        SHIFTRIGHT,
         uMinus,
     };
 
