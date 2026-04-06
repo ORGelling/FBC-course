@@ -17,6 +17,13 @@ exp         [eE][-+]?{digits}
 
 "list"                                  return Tokens::LIST;
 
+"<<"                                    return Tokens::SHIFTLEFT;
+">>"                                    return Tokens::SHIFTRIGHT;
+"+="                                    return Tokens::ADDIS;
+"-="                                    return Tokens::SUBIS;
+"*="                                    return Tokens::MULIS;
+"/="                                    return Tokens::DIVIS;
+
 [[:alpha:]_][[:alnum:]_]*               return Tokens::IDENT;
 
 \n|.                                    return matched().front();
