@@ -11,7 +11,6 @@ ex57info.txt
 -parser/display.cc
 -parser/done.cc
 -parser/error.cc
--parser/grammar
 -parser/negate.cc
 -parser/parse.cc
 -parser/parserbase.h
@@ -27,7 +26,6 @@ ex57info.txt
 -parser/variable.cc
 
 -scanner/lex.cc
--scanner/lexer
 -scanner/scannerbase.h
 -scanner/scanner.h
 -scanner/scanner.ih

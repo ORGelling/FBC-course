@@ -34,14 +34,13 @@ class Parser: public ParserBase
         void display(double &expr);
         void done();
         void prompt();
-        void showTable();
 
+        double add(double &lvalue, double &rvalue) const;
+        double sub(double &lvalue, double &rvalue) const;
         double mul(double &lvalue, double &rvalue) const;
         double div(double &lvalue, double &rvalue) const;
         
-        double add(double &lvalue, double &rvalue) const;
         double negate(double &expr) const;
-        double sub(double &lvalue, double &rvalue) const;
         double value();
         
     // support functions for parse():
