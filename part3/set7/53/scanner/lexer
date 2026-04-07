@@ -1,0 +1,14 @@
+%filenames scanner
+%interactive
+
+digits      [0-9]+
+
+%%
+
+[ \t]+
+
+{digits}                                return Tokens::NR;
+
+[[:alpha:]_][[:alnum:]_]*               return Tokens::VAR;
+
+\n|.                                    return matched().front();

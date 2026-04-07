@@ -1,8 +1,13 @@
+%class-name Parser
+%filenames parser
+%scanner ../scanner/scanner.h
+%token-path ../scanner/tokens.h
+
 %token VAR
 %token NR
 %left '+'
 %left '*'
-%nonassoc '[' ']'
+%left '[' ']'
 %right '-'
 
 %%

@@ -1,2 +1,5 @@
 ex53info.txt
-+grammar
+
++parser/grammar
+
+-scanner/lexer
