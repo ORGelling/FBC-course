@@ -1,11 +1,13 @@
 %filenames scanner
 %interactive
 
+%token-path = "tokens.h"
+
 digits      [0-9]+
 
 %%
 
-[ \t]+
+[ \t\n]+                                // ignore
 
 {digits}                                return Tokens::NR;
 

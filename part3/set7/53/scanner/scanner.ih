@@ -4,4 +4,4 @@
 #include "scanner.h"
 
 // $insert token-path
-// no token-path defined
+#include "tokens.h"
