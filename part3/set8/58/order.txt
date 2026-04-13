@@ -4,8 +4,10 @@ ex57info.txt
 +parser/grammar
 
 parser/parser.h
--parser/parser.ih
+parser/parser.ih
 -parser/parser.ih.gch
+parser/parser.cc
+parser/error.cc
 parser/display.cc
 parser/done.cc
 parser/prompt.cc
@@ -17,7 +19,6 @@ parser/negate.cc
 parser/value.cc
 -parser/parse.cc
 -parser/parserbase.h
--parser/parser.cc
 
 -scanner/lex.cc
 -scanner/scannerbase.h
