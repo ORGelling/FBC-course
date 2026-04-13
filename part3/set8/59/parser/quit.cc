@@ -2,5 +2,6 @@
 
 void Parser::quit() const
 {
+    cout << "Bye\n";
     ACCEPT();
 }
