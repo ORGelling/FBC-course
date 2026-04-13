@@ -1,1 +1,14 @@
-Exercise 60: 
+Exercise 60: Implement (standard) functions in a grammar 
+
+We use the demo parser provided at the start of the exercises page as a 
+foundation to build o top of, adding and implementing what is needed.
+
+The exercise says "implement" functions, but then asks us to specifically hand
+in the grammar and lexer files. We hand in everything that we added and
+changed.
+
+We avoid being able to reassign the value of named constants (e and pi)
+through variable assignment by using specific "factory"-esque function calls
+when their tokens are found. This ensures the values cannot be reassigned, and
+even causes the assignment function to warn us that it needs an lvalue to
+assign to.

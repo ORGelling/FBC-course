@@ -91,6 +91,31 @@ class Parser: public ParserBase
         double from_radians(double value) const;
 };
 
+inline RuleValue Parser::exp(RuleValue &expr) const
+{
+    return RuleValue{ std::exp(valueOf(expr)) };
+}
+
+inline RuleValue Parser::sin(RuleValue &expr) const
+{
+    return RuleValue{ std::sin(to_radians(valueOf(expr))) };
+}
+
+inline RuleValue Parser::cos(RuleValue &expr) const
+{    
+    return RuleValue{ std::cos(to_radians(valueOf(expr))) };
+}
+
+inline RuleValue Parser::tan(RuleValue &expr) const
+{    
+    return RuleValue{ std::tan(to_radians(valueOf(expr))) };
+}
+
+inline RuleValue Parser::abs(RuleValue &expr) const
+{
+    return RuleValue{ std::fabs(valueOf(expr)) };
+}
+
 inline RuleValue Parser::e_const() const
 {
     return RuleValue{2.71828};
@@ -99,6 +124,11 @@ inline RuleValue Parser::e_const() const
 inline RuleValue Parser::pi_const() const
 {
     return RuleValue{3.14159};
+}
+
+inline void Parser::set_angle_mode(AngleMode mode)
+{
+    d_angleMode = mode;
 }
 
 #endif
