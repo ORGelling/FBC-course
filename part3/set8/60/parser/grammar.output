@@ -1,0 +1,889 @@
+[grammar (info)] Line 183: 
+Production Rules:
+   (precedences (shown between parentheses) were set by %prec;
+    are equal to the precedence of the rules' 1st terminal tokens;
+    or (if not shown) are equal to the default (max) precedence)
+1: lines ->  lines line
+2: lines ->  line
+3: line ('\x0a') ->  expr '\x0a'
+4: line (errTok_) ->  errTok_ '\x0a'
+5: line ('\x0a') ->  '\x0a'
+6: expr (NUMBER) ->  NUMBER
+7: expr (IDENT) ->  IDENT
+8: expr (uMinus) ->  '-' expr
+9: expr ('+') ->  expr '+' expr
+10: expr ('-') ->  expr '-' expr
+11: expr ('(') ->  '(' expr ')'
+12: expr ('=') ->  expr '=' expr
+13: expr (EXP) ->  EXP '(' expr ')'
+14: expr (SQRT) ->  SQRT '(' expr ')'
+15: expr (LN) ->  LN '(' expr ')'
+16: expr (SIN) ->  SIN '(' expr ')'
+17: expr (ASIN) ->  ASIN '(' expr ')'
+18: expr (COS) ->  COS '(' expr ')'
+19: expr (ACOS) ->  ACOS '(' expr ')'
+20: expr (TAN) ->  TAN '(' expr ')'
+21: expr (ATAN) ->  ATAN '(' expr ')'
+22: expr ('|') ->  '|' expr '|'
+23: expr (ABS) ->  ABS '(' expr ')'
+24: expr (E_CONST) ->  E_CONST
+25: expr (PI_CONST) ->  PI_CONST
+26: expr (RAD) ->  RAD
+27: expr (DEG) ->  DEG
+28: expr (GRAD) ->  GRAD
+29: lines_$ ->  lines
+
+
+Symbolic Terminal tokens:
+       error
+       EOF
+   257: NUMBER
+   258: IDENT
+   259: EXP
+   260: SQRT
+   261: LN
+   262: ABS
+   263: SIN
+   264: ASIN
+   265: COS
+   266: ACOS
+   267: TAN
+   268: ATAN
+   269: RAD
+   270: DEG
+   271: GRAD
+   272: PI_CONST
+   273: E_CONST
+    61: '='
+    43: '+'
+    45: '-'
+   274: uMinus
+    10: '\x0a'
+    40: '('
+    41: ')'
+   124: '|'
+
+
+Grammar States: 
+
+State 0:
+29: lines_$ ->  . lines 
+  0:   On lines to state 1
+  1:   On line to state 2
+  2:   On expr to state 3
+  3:   On errTok_ to state 4
+  4:   On '\x0a' to state 5
+  5:   On NUMBER to state 6
+  6:   On IDENT to state 7
+  7:   On '-' to state 8
+  8:   On '(' to state 9
+  9:   On EXP to state 10
+  10:   On SQRT to state 11
+  11:   On LN to state 12
+  12:   On SIN to state 13
+  13:   On ASIN to state 14
+  14:   On COS to state 15
+  15:   On ACOS to state 16
+  16:   On TAN to state 17
+  17:   On ATAN to state 18
+  18:   On '|' to state 19
+  19:   On ABS to state 20
+  20:   On E_CONST to state 21
+  21:   On PI_CONST to state 22
+  22:   On RAD to state 23
+  23:   On DEG to state 24
+  24:   On GRAD to state 25
+
+
+State 1:
+29: lines_$ -> lines  . 
+1: lines -> lines  . line 
+  0:   On line to state 26
+  1:   On expr to state 3
+  2:   On errTok_ to state 4
+  3:   On '\x0a' to state 5
+  4:   On NUMBER to state 6
+  5:   On IDENT to state 7
+  6:   On '-' to state 8
+  7:   On '(' to state 9
+  8:   On EXP to state 10
+  9:   On SQRT to state 11
+  10:   On LN to state 12
+  11:   On SIN to state 13
+  12:   On ASIN to state 14
+  13:   On COS to state 15
+  14:   On ACOS to state 16
+  15:   On TAN to state 17
+  16:   On ATAN to state 18
+  17:   On '|' to state 19
+  18:   On ABS to state 20
+  19:   On E_CONST to state 21
+  20:   On PI_CONST to state 22
+  21:   On RAD to state 23
+  22:   On DEG to state 24
+  23:   On GRAD to state 25
+
+
+State 2:
+2: lines -> line  . 
+  Reduce by 2: lines -> line  . 
+
+
+State 3:
+3: line -> expr  . '\x0a' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On '\x0a' to state 27
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 4:
+4: line -> errTok_  . '\x0a' 
+  0:   On '\x0a' to state 31
+
+
+State 5:
+5: line -> '\x0a'  . 
+  Reduce by 5: line -> '\x0a'  . 
+
+
+State 6:
+6: expr -> NUMBER  . 
+  Reduce by 6: expr -> NUMBER  . 
+
+
+State 7:
+7: expr -> IDENT  . 
+  Reduce by 7: expr -> IDENT  . 
+
+
+State 8:
+8: expr -> '-'  . expr 
+  0:   On expr to state 32
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 9:
+11: expr -> '('  . expr ')' 
+  0:   On expr to state 33
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 10:
+13: expr -> EXP  . '(' expr ')' 
+  0:   On '(' to state 34
+
+
+State 11:
+14: expr -> SQRT  . '(' expr ')' 
+  0:   On '(' to state 35
+
+
+State 12:
+15: expr -> LN  . '(' expr ')' 
+  0:   On '(' to state 36
+
+
+State 13:
+16: expr -> SIN  . '(' expr ')' 
+  0:   On '(' to state 37
+
+
+State 14:
+17: expr -> ASIN  . '(' expr ')' 
+  0:   On '(' to state 38
+
+
+State 15:
+18: expr -> COS  . '(' expr ')' 
+  0:   On '(' to state 39
+
+
+State 16:
+19: expr -> ACOS  . '(' expr ')' 
+  0:   On '(' to state 40
+
+
+State 17:
+20: expr -> TAN  . '(' expr ')' 
+  0:   On '(' to state 41
+
+
+State 18:
+21: expr -> ATAN  . '(' expr ')' 
+  0:   On '(' to state 42
+
+
+State 19:
+22: expr -> '|'  . expr '|' 
+  0:   On expr to state 43
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 20:
+23: expr -> ABS  . '(' expr ')' 
+  0:   On '(' to state 44
+
+
+State 21:
+24: expr -> E_CONST  . 
+  Reduce by 24: expr -> E_CONST  . 
+
+
+State 22:
+25: expr -> PI_CONST  . 
+  Reduce by 25: expr -> PI_CONST  . 
+
+
+State 23:
+26: expr -> RAD  . 
+  Reduce by 26: expr -> RAD  . 
+
+
+State 24:
+27: expr -> DEG  . 
+  Reduce by 27: expr -> DEG  . 
+
+
+State 25:
+28: expr -> GRAD  . 
+  Reduce by 28: expr -> GRAD  . 
+
+
+State 26:
+1: lines -> lines line  . 
+  Reduce by 1: lines -> lines line  . 
+
+
+State 27:
+3: line -> expr '\x0a'  . 
+  Reduce by 3: line -> expr '\x0a'  . 
+
+
+State 28:
+9: expr -> expr '+'  . expr 
+  0:   On expr to state 45
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 29:
+10: expr -> expr '-'  . expr 
+  0:   On expr to state 46
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 30:
+12: expr -> expr '='  . expr 
+  0:   On expr to state 47
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 31:
+4: line -> errTok_ '\x0a'  . 
+  Reduce by 4: line -> errTok_ '\x0a'  . 
+
+
+State 32:
+8: expr -> '-' expr  . 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0 (removed by precedence):   On '+' to state 28
+  1 (removed by precedence):   On '-' to state 29
+  2 (removed by precedence):   On '=' to state 30
+  Reduce by 8: expr -> '-' expr  . 
+
+
+State 33:
+11: expr -> '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 48
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 34:
+13: expr -> EXP '('  . expr ')' 
+  0:   On expr to state 49
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 35:
+14: expr -> SQRT '('  . expr ')' 
+  0:   On expr to state 50
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 36:
+15: expr -> LN '('  . expr ')' 
+  0:   On expr to state 51
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 37:
+16: expr -> SIN '('  . expr ')' 
+  0:   On expr to state 52
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 38:
+17: expr -> ASIN '('  . expr ')' 
+  0:   On expr to state 53
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 39:
+18: expr -> COS '('  . expr ')' 
+  0:   On expr to state 54
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 40:
+19: expr -> ACOS '('  . expr ')' 
+  0:   On expr to state 55
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 41:
+20: expr -> TAN '('  . expr ')' 
+  0:   On expr to state 56
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 42:
+21: expr -> ATAN '('  . expr ')' 
+  0:   On expr to state 57
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 43:
+22: expr -> '|' expr  . '|' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On '|' to state 58
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 44:
+23: expr -> ABS '('  . expr ')' 
+  0:   On expr to state 59
+  1:   On NUMBER to state 6
+  2:   On IDENT to state 7
+  3:   On '-' to state 8
+  4:   On '(' to state 9
+  5:   On EXP to state 10
+  6:   On SQRT to state 11
+  7:   On LN to state 12
+  8:   On SIN to state 13
+  9:   On ASIN to state 14
+  10:   On COS to state 15
+  11:   On ACOS to state 16
+  12:   On TAN to state 17
+  13:   On ATAN to state 18
+  14:   On '|' to state 19
+  15:   On ABS to state 20
+  16:   On E_CONST to state 21
+  17:   On PI_CONST to state 22
+  18:   On RAD to state 23
+  19:   On DEG to state 24
+  20:   On GRAD to state 25
+
+
+State 45:
+9: expr -> expr '+' expr  . 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0 (removed by precedence):   On '+' to state 28
+  1 (removed by precedence):   On '-' to state 29
+  2 (removed by precedence):   On '=' to state 30
+  Reduce by 9: expr -> expr '+' expr  . 
+
+
+State 46:
+10: expr -> expr '-' expr  . 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0 (removed by precedence):   On '+' to state 28
+  1 (removed by precedence):   On '-' to state 29
+  2 (removed by precedence):   On '=' to state 30
+  Reduce by 10: expr -> expr '-' expr  . 
+
+
+State 47:
+12: expr -> expr '=' expr  . 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On '+' to state 28
+  1:   On '-' to state 29
+  2:   On '=' to state 30
+  Reduce by 12: expr -> expr '=' expr  . 
+
+
+State 48:
+11: expr -> '(' expr ')'  . 
+  Reduce by 11: expr -> '(' expr ')'  . 
+
+
+State 49:
+13: expr -> EXP '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 60
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 50:
+14: expr -> SQRT '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 61
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 51:
+15: expr -> LN '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 62
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 52:
+16: expr -> SIN '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 63
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 53:
+17: expr -> ASIN '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 64
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 54:
+18: expr -> COS '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 65
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 55:
+19: expr -> ACOS '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 66
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 56:
+20: expr -> TAN '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 67
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 57:
+21: expr -> ATAN '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 68
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 58:
+22: expr -> '|' expr '|'  . 
+  Reduce by 22: expr -> '|' expr '|'  . 
+
+
+State 59:
+23: expr -> ABS '(' expr  . ')' 
+9: expr -> expr  . '+' expr 
+10: expr -> expr  . '-' expr 
+12: expr -> expr  . '=' expr 
+  0:   On ')' to state 69
+  1:   On '+' to state 28
+  2:   On '-' to state 29
+  3:   On '=' to state 30
+
+
+State 60:
+13: expr -> EXP '(' expr ')'  . 
+  Reduce by 13: expr -> EXP '(' expr ')'  . 
+
+
+State 61:
+14: expr -> SQRT '(' expr ')'  . 
+  Reduce by 14: expr -> SQRT '(' expr ')'  . 
+
+
+State 62:
+15: expr -> LN '(' expr ')'  . 
+  Reduce by 15: expr -> LN '(' expr ')'  . 
+
+
+State 63:
+16: expr -> SIN '(' expr ')'  . 
+  Reduce by 16: expr -> SIN '(' expr ')'  . 
+
+
+State 64:
+17: expr -> ASIN '(' expr ')'  . 
+  Reduce by 17: expr -> ASIN '(' expr ')'  . 
+
+
+State 65:
+18: expr -> COS '(' expr ')'  . 
+  Reduce by 18: expr -> COS '(' expr ')'  . 
+
+
+State 66:
+19: expr -> ACOS '(' expr ')'  . 
+  Reduce by 19: expr -> ACOS '(' expr ')'  . 
+
+
+State 67:
+20: expr -> TAN '(' expr ')'  . 
+  Reduce by 20: expr -> TAN '(' expr ')'  . 
+
+
+State 68:
+21: expr -> ATAN '(' expr ')'  . 
+  Reduce by 21: expr -> ATAN '(' expr ')'  . 
+
+
+State 69:
+23: expr -> ABS '(' expr ')'  . 
+  Reduce by 23: expr -> ABS '(' expr ')'  . 
+
+
+

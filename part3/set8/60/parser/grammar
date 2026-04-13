@@ -1,0 +1,188 @@
+%class-name Parser
+
+%filenames parser
+%parsefun-source parse.cc
+
+%baseclass-preinclude rulevalue.h
+%stype RuleValue
+
+%scanner ../scanner/scanner.h
+%token-path ../scanner/tokens.h
+
+%token  NUMBER
+        IDENT
+        EXP
+        SQRT
+        LN
+        ABS
+        SIN
+        ASIN
+        COS
+        ACOS
+        TAN
+        ATAN
+        RAD
+        DEG
+        GRAD
+        PI_CONST
+        E_CONST
+        EXIT
+
+%right  '='
+%left   '+' '-'
+%right  uMinus
+
+// %debug
+
+%%
+
+lines:
+    lines line
+|
+    line
+;
+
+
+line:
+    expr '\n'
+    {
+        display($1);
+    }
+|
+    error '\n'    
+    {
+        prompt();
+    }
+|
+    EXIT
+    {
+        done();
+    }
+|
+    RAD '\n'
+    {
+        set_angle_mode(AngleMode::RAD);
+        prompt();
+    }
+|
+    DEG '\n'
+    {
+        set_angle_mode(AngleMode::DEG);
+        prompt();
+    }
+|
+    GRAD '\n'
+    {
+        set_angle_mode(AngleMode::GRAD);
+        prompt();
+    }
+|
+    '\n'
+    {
+        prompt();
+    }
+;
+
+
+expr:
+    NUMBER
+    {
+        $$ = value();
+    }
+|
+    IDENT
+    {
+        $$ = variable();
+    }
+|
+    '-' expr            %prec uMinus
+    {
+        $$ = negate($2);
+    }
+|
+    expr '+' expr
+    {
+        $$ = add($1, $3);
+    }    
+|
+    expr '-' expr
+    {
+        $$ = sub($1, $3);
+    }    
+|
+    '(' expr ')'
+    {
+        $$ = $2;
+    }
+|
+    expr '=' expr
+    {
+        $$ = assign($1, $3);
+    }
+|
+    EXP '(' expr ')'
+    {
+        $$ = exp($3);
+    }
+|
+    SQRT '(' expr ')'
+    {
+        $$ = sqrt($3);
+    }
+|
+    LN '(' expr ')'
+    {
+        $$ = ln($3);
+    }
+|
+    SIN '(' expr ')'
+    {
+        $$ = sin($3);
+    }
+|
+    ASIN '(' expr ')'
+    {
+        $$ = asin($3);
+    }
+|
+    COS '(' expr ')'
+    {
+        $$ = cos($3);
+    }
+|
+    ACOS '(' expr ')'
+    {
+        $$ = acos($3);
+    }
+|
+    TAN '(' expr ')'
+    {
+        $$ = tan($3);
+    }
+|
+    ATAN '(' expr ')'
+    {
+        $$ = atan($3);
+    }
+|
+    '|' expr '|'
+    {
+        $$ = abs($2);
+    }
+|
+    ABS '(' expr ')'
+    {
+        $$ = abs($3);
+    }
+
+|
+    E_CONST
+    {
+        $$ = e_const();
+    }
+|
+    PI_CONST
+    {
+        $$ = pi_const();
+    }
+;
