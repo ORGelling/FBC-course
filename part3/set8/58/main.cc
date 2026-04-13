@@ -3,10 +3,10 @@
 
 using namespace std;
 
-int main(int argc, char **argv)
+int main()
 try
 {
-    Parser parser(argc > 1);
+    Parser parser;
 
     return parser.parse();
 }

@@ -18,12 +18,12 @@ class Parser: public ParserBase
     bool d_display;
         
     public:
-        Parser(bool run);
+        Parser();
         int parse();
 
     private:
                                         // called on (syntax) errors
-        void error(char const *msg = "syntax error");    
+        void error();    
         int lex();                      // returns the next token from the
                                         // lexical scanner. 
         void print();                   // use, e.g., d_token, d_loc

@@ -1,6 +1,6 @@
 #include "parser.ih"
 
-void Parser::error(char const *msg)
+void Parser::error()
 {
     cout << "Syntax error\n";
     d_display = false;
