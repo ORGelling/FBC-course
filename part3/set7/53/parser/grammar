@@ -7,8 +7,8 @@
 %token NR
 %left '+'
 %left '*'
-%left '[' ']'
 %right '-'
+%left '['
 
 %%
 
