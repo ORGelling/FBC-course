@@ -2,6 +2,7 @@
 
 %scanner ../scanner/scanner.h
 %token-path ../scanner/tokens.h
+%baseclass-preinclude <string>
 
 %token INT STRING DOUBLE QUIT
 
@@ -18,17 +19,17 @@ lines:
 line:
     INT
     {
-        showInt($1);
+        showInt($1.get<Tag_::INT>());
     }
 |
     STRING
     {
-        showString($1);
+        showString($1.get<Tag_::STRING>());
     }
 |
     DOUBLE 
     {
-        showDouble($1);
+        showDouble($1.get<Tag_::DOUBLE>());
     }
 |
     QUIT

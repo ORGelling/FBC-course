@@ -11,12 +11,6 @@ inline void Parser::error()
     std::cerr << "Syntax error\n";
 }
 
-// $insert lex
-inline int Parser::lex()
-{
-    return d_scanner.lex();
-}
-
 inline void Parser::print()         
 {
 }
@@ -36,4 +30,4 @@ inline void Parser::exceptionHandler(std::exception const &exc)
     // int Parser's sources symbols from the namespace std without
     // specifying std::
 
-//using namespace std;
+using namespace std;

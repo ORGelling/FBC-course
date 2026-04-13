@@ -8,6 +8,7 @@
 // $insert scanner.h
 #include "../scanner/scanner.h"
 
+#include <string>
 
 
 class Parser: public ParserBase
@@ -25,6 +26,12 @@ class Parser: public ParserBase
                                         // lexical scanner. 
         void print();                   // use, e.g., d_token, d_loc
         void exceptionHandler(std::exception const &exc);
+        
+    // grammar decoration functions:
+        void showInt(int nr) const;
+        void showString(std::string const &str) const;
+        void showDouble(double nr) const;
+        void quit() const;
 
     // support functions for parse():
         void executeAction_(int ruleNr);

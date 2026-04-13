@@ -1,0 +1,80 @@
+[grammar (info)] Line 42: 
+Production Rules:
+   (precedences (shown between parentheses) were set by %prec;
+    are equal to the precedence of the rules' 1st terminal tokens;
+    or (if not shown) are equal to the default (max) precedence)
+1: lines ('\x0a') ->  lines '\x0a' line
+2: lines ->  <empty>
+3: line (INT) ->  INT
+4: line (STRING) ->  STRING
+5: line (DOUBLE) ->  DOUBLE
+6: line (QUIT) ->  QUIT
+7: line ('\x0a') ->  '\x0a'
+8: lines_$ ->  lines
+
+
+Symbolic Terminal tokens:
+       error
+       EOF
+   257: INT
+   258: STRING
+   259: DOUBLE
+   260: QUIT
+    10: '\x0a'
+
+
+Grammar States: 
+
+State 0:
+8: lines_$ ->  . lines 
+  0:   On lines to state 1
+  Reduce by 2: lines ->  . 
+
+
+State 1:
+8: lines_$ -> lines  . 
+1: lines -> lines  . '\x0a' line 
+  0:   On '\x0a' to state 2
+
+
+State 2:
+1: lines -> lines '\x0a'  . line 
+  0:   On line to state 3
+  1:   On INT to state 4
+  2:   On STRING to state 5
+  3:   On DOUBLE to state 6
+  4:   On QUIT to state 7
+  5:   On '\x0a' to state 8
+
+
+State 3:
+1: lines -> lines '\x0a' line  . 
+  Reduce by 1: lines -> lines '\x0a' line  . 
+
+
+State 4:
+3: line -> INT  . 
+  Reduce by 3: line -> INT  . 
+
+
+State 5:
+4: line -> STRING  . 
+  Reduce by 4: line -> STRING  . 
+
+
+State 6:
+5: line -> DOUBLE  . 
+  Reduce by 5: line -> DOUBLE  . 
+
+
+State 7:
+6: line -> QUIT  . 
+  Reduce by 6: line -> QUIT  . 
+
+
+State 8:
+7: line -> '\x0a'  . 
+  Reduce by 7: line -> '\x0a'  . 
+
+
+
