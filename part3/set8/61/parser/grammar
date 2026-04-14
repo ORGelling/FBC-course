@@ -1,0 +1,119 @@
+%class-name Parser
+
+%filenames parser
+%parsefun-source parse.cc
+
+%scanner ../scanner/scanner.h
+%token-path ../scanner/tokens.h
+
+%stype std::string
+
+%token  NUMBER
+        IDENT
+        VAR
+        FUN
+        FUNCNAME
+        EXPR
+
+%right  '=' ADDIS SUBIS MULIS DIVIS
+%left   '+' '-'
+%left   '*' '/' '%'
+%right  uMinus
+
+%%
+
+lines:
+    lines line
+|
+    line
+    {
+        showError();
+        d_validLine = true;
+    }
+;
+
+line:
+    VAR var '\n'
+|
+    FUN fun '\n'
+|
+    EXPR expr ';' '\n'
+|
+    error '\n'
+    {
+        d_validLine = false;
+    }
+|
+    '\n'
+;
+
+var:
+    ident '=' expr
+|
+    error
+    {
+        error("Error defining variable");
+    }
+;
+
+ident:
+    IDENT
+    {
+        storeVar();     // doing this here to keep variable @ matched()
+    }
+;
+
+fun:
+    FUNCNAME
+    {
+        storeFun();
+    }
+|
+    error
+    {
+        error("Error declaring function");
+    }
+;
+
+expr:
+    NUMBER
+|
+    IDENT
+    {
+        checkVar();
+    }
+|
+    FUNCNAME
+    {
+        checkFun();
+    }
+|
+    '-' expr %prec uMinus
+|
+    '+' expr %prec uMinus
+|
+    expr '+' expr
+|
+    expr '-' expr
+|
+    expr '*' expr
+|
+    expr '%' expr
+|
+    expr '/' expr
+|
+    '(' expr ')'
+|
+    expr ADDIS expr
+|
+    expr SUBIS expr
+|
+    expr MULIS expr
+|
+    expr DIVIS expr
+|
+    error
+    {
+        error("Error in expression");
+    }
+;

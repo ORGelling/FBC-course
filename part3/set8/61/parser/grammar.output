@@ -1,0 +1,697 @@
+[grammar (info)] Line 120: 
+Production Rules:
+   (precedences (shown between parentheses) were set by %prec;
+    are equal to the precedence of the rules' 1st terminal tokens;
+    or (if not shown) are equal to the default (max) precedence)
+1: lines ->  lines line
+2: lines ->  line
+3: line (VAR) ->  VAR var '\x0a'
+4: line (FUN) ->  FUN fun '\x0a'
+5: line (EXPR) ->  EXPR expr ';' '\x0a'
+6: line (errTok_) ->  errTok_ '\x0a'
+7: line ('\x0a') ->  '\x0a'
+8: var ('=') ->  ident '=' expr
+9: var (errTok_) ->  errTok_
+10: ident (IDENT) ->  IDENT
+11: fun (FUNCNAME) ->  FUNCNAME
+12: fun (errTok_) ->  errTok_
+13: expr (NUMBER) ->  NUMBER
+14: expr (IDENT) ->  IDENT
+15: expr (FUNCNAME) ->  FUNCNAME
+16: expr (uMinus) ->  '-' expr
+17: expr (uMinus) ->  '+' expr
+18: expr ('+') ->  expr '+' expr
+19: expr ('-') ->  expr '-' expr
+20: expr ('*') ->  expr '*' expr
+21: expr ('%') ->  expr '%' expr
+22: expr ('/') ->  expr '/' expr
+23: expr ('(') ->  '(' expr ')'
+24: expr (ADDIS) ->  expr ADDIS expr
+25: expr (SUBIS) ->  expr SUBIS expr
+26: expr (MULIS) ->  expr MULIS expr
+27: expr (DIVIS) ->  expr DIVIS expr
+28: expr (errTok_) ->  errTok_
+29: lines_$ ->  lines
+
+
+Symbolic Terminal tokens:
+       error
+       EOF
+   257: NUMBER
+   258: IDENT
+   259: VAR
+   260: FUN
+   261: FUNCNAME
+   262: EXPR
+    61: '='
+   263: ADDIS
+   264: SUBIS
+   265: MULIS
+   266: DIVIS
+    43: '+'
+    45: '-'
+    42: '*'
+    47: '/'
+    37: '%'
+   267: uMinus
+    10: '\x0a'
+    59: ';'
+    40: '('
+    41: ')'
+
+
+Grammar States: 
+
+State 0:
+29: lines_$ ->  . lines 
+  0:   On lines to state 1
+  1:   On line to state 2
+  2:   On VAR to state 3
+  3:   On FUN to state 4
+  4:   On EXPR to state 5
+  5:   On errTok_ to state 6
+  6:   On '\x0a' to state 7
+
+
+State 1:
+29: lines_$ -> lines  . 
+1: lines -> lines  . line 
+  0:   On line to state 8
+  1:   On VAR to state 3
+  2:   On FUN to state 4
+  3:   On EXPR to state 5
+  4:   On errTok_ to state 6
+  5:   On '\x0a' to state 7
+
+
+State 2:
+2: lines -> line  . 
+  Reduce by 2: lines -> line  . 
+
+
+State 3:
+3: line -> VAR  . var '\x0a' 
+  0:   On var to state 9
+  1:   On ident to state 10
+  2:   On errTok_ to state 11
+  3:   On IDENT to state 12
+
+
+State 4:
+4: line -> FUN  . fun '\x0a' 
+  0:   On fun to state 13
+  1:   On FUNCNAME to state 14
+  2:   On errTok_ to state 15
+
+
+State 5:
+5: line -> EXPR  . expr ';' '\x0a' 
+  0:   On expr to state 16
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 6:
+6: line -> errTok_  . '\x0a' 
+  0:   On '\x0a' to state 24
+
+
+State 7:
+7: line -> '\x0a'  . 
+  Reduce by 7: line -> '\x0a'  . 
+
+
+State 8:
+1: lines -> lines line  . 
+  Reduce by 1: lines -> lines line  . 
+
+
+State 9:
+3: line -> VAR var  . '\x0a' 
+  0:   On '\x0a' to state 25
+
+
+State 10:
+8: var -> ident  . '=' expr 
+  0:   On '=' to state 26
+
+
+State 11:
+9: var -> errTok_  . 
+  Reduce by 9: var -> errTok_  . 
+
+
+State 12:
+10: ident -> IDENT  . 
+  Reduce by 10: ident -> IDENT  . 
+
+
+State 13:
+4: line -> FUN fun  . '\x0a' 
+  0:   On '\x0a' to state 27
+
+
+State 14:
+11: fun -> FUNCNAME  . 
+  Reduce by 11: fun -> FUNCNAME  . 
+
+
+State 15:
+12: fun -> errTok_  . 
+  Reduce by 12: fun -> errTok_  . 
+
+
+State 16:
+5: line -> EXPR expr  . ';' '\x0a' 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0:   On ';' to state 28
+  1:   On '+' to state 29
+  2:   On '-' to state 30
+  3:   On '*' to state 31
+  4:   On '%' to state 32
+  5:   On '/' to state 33
+  6:   On ADDIS to state 34
+  7:   On SUBIS to state 35
+  8:   On MULIS to state 36
+  9:   On DIVIS to state 37
+
+
+State 17:
+13: expr -> NUMBER  . 
+  Reduce by 13: expr -> NUMBER  . 
+
+
+State 18:
+14: expr -> IDENT  . 
+  Reduce by 14: expr -> IDENT  . 
+
+
+State 19:
+15: expr -> FUNCNAME  . 
+  Reduce by 15: expr -> FUNCNAME  . 
+
+
+State 20:
+16: expr -> '-'  . expr 
+  0:   On expr to state 38
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 21:
+17: expr -> '+'  . expr 
+  0:   On expr to state 39
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 22:
+23: expr -> '('  . expr ')' 
+  0:   On expr to state 40
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 23:
+28: expr -> errTok_  . 
+  Reduce by 28: expr -> errTok_  . 
+
+
+State 24:
+6: line -> errTok_ '\x0a'  . 
+  Reduce by 6: line -> errTok_ '\x0a'  . 
+
+
+State 25:
+3: line -> VAR var '\x0a'  . 
+  Reduce by 3: line -> VAR var '\x0a'  . 
+
+
+State 26:
+8: var -> ident '='  . expr 
+  0:   On expr to state 41
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 27:
+4: line -> FUN fun '\x0a'  . 
+  Reduce by 4: line -> FUN fun '\x0a'  . 
+
+
+State 28:
+5: line -> EXPR expr ';'  . '\x0a' 
+  0:   On '\x0a' to state 42
+
+
+State 29:
+18: expr -> expr '+'  . expr 
+  0:   On expr to state 43
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 30:
+19: expr -> expr '-'  . expr 
+  0:   On expr to state 44
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 31:
+20: expr -> expr '*'  . expr 
+  0:   On expr to state 45
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 32:
+21: expr -> expr '%'  . expr 
+  0:   On expr to state 46
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 33:
+22: expr -> expr '/'  . expr 
+  0:   On expr to state 47
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 34:
+24: expr -> expr ADDIS  . expr 
+  0:   On expr to state 48
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 35:
+25: expr -> expr SUBIS  . expr 
+  0:   On expr to state 49
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 36:
+26: expr -> expr MULIS  . expr 
+  0:   On expr to state 50
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 37:
+27: expr -> expr DIVIS  . expr 
+  0:   On expr to state 51
+  1:   On NUMBER to state 17
+  2:   On IDENT to state 18
+  3:   On FUNCNAME to state 19
+  4:   On '-' to state 20
+  5:   On '+' to state 21
+  6:   On '(' to state 22
+  7:   On errTok_ to state 23
+
+
+State 38:
+16: expr -> '-' expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 29
+  1 (removed by precedence):   On '-' to state 30
+  2 (removed by precedence):   On '*' to state 31
+  3 (removed by precedence):   On '%' to state 32
+  4 (removed by precedence):   On '/' to state 33
+  5 (removed by precedence):   On ADDIS to state 34
+  6 (removed by precedence):   On SUBIS to state 35
+  7 (removed by precedence):   On MULIS to state 36
+  8 (removed by precedence):   On DIVIS to state 37
+  Reduce by 16: expr -> '-' expr  . 
+
+
+State 39:
+17: expr -> '+' expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 29
+  1 (removed by precedence):   On '-' to state 30
+  2 (removed by precedence):   On '*' to state 31
+  3 (removed by precedence):   On '%' to state 32
+  4 (removed by precedence):   On '/' to state 33
+  5 (removed by precedence):   On ADDIS to state 34
+  6 (removed by precedence):   On SUBIS to state 35
+  7 (removed by precedence):   On MULIS to state 36
+  8 (removed by precedence):   On DIVIS to state 37
+  Reduce by 17: expr -> '+' expr  . 
+
+
+State 40:
+23: expr -> '(' expr  . ')' 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0:   On ')' to state 52
+  1:   On '+' to state 29
+  2:   On '-' to state 30
+  3:   On '*' to state 31
+  4:   On '%' to state 32
+  5:   On '/' to state 33
+  6:   On ADDIS to state 34
+  7:   On SUBIS to state 35
+  8:   On MULIS to state 36
+  9:   On DIVIS to state 37
+
+
+State 41:
+8: var -> ident '=' expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 29
+  1:   On '-' to state 30
+  2:   On '*' to state 31
+  3:   On '%' to state 32
+  4:   On '/' to state 33
+  5:   On ADDIS to state 34
+  6:   On SUBIS to state 35
+  7:   On MULIS to state 36
+  8:   On DIVIS to state 37
+  Reduce by 8: var -> ident '=' expr  . 
+
+
+State 42:
+5: line -> EXPR expr ';' '\x0a'  . 
+  Reduce by 5: line -> EXPR expr ';' '\x0a'  . 
+
+
+State 43:
+18: expr -> expr '+' expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 29
+  1 (removed by precedence):   On '-' to state 30
+  2:   On '*' to state 31
+  3:   On '%' to state 32
+  4:   On '/' to state 33
+  5 (removed by precedence):   On ADDIS to state 34
+  6 (removed by precedence):   On SUBIS to state 35
+  7 (removed by precedence):   On MULIS to state 36
+  8 (removed by precedence):   On DIVIS to state 37
+  Reduce by 18: expr -> expr '+' expr  . 
+
+
+State 44:
+19: expr -> expr '-' expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 29
+  1 (removed by precedence):   On '-' to state 30
+  2:   On '*' to state 31
+  3:   On '%' to state 32
+  4:   On '/' to state 33
+  5 (removed by precedence):   On ADDIS to state 34
+  6 (removed by precedence):   On SUBIS to state 35
+  7 (removed by precedence):   On MULIS to state 36
+  8 (removed by precedence):   On DIVIS to state 37
+  Reduce by 19: expr -> expr '-' expr  . 
+
+
+State 45:
+20: expr -> expr '*' expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 29
+  1 (removed by precedence):   On '-' to state 30
+  2 (removed by precedence):   On '*' to state 31
+  3 (removed by precedence):   On '%' to state 32
+  4 (removed by precedence):   On '/' to state 33
+  5 (removed by precedence):   On ADDIS to state 34
+  6 (removed by precedence):   On SUBIS to state 35
+  7 (removed by precedence):   On MULIS to state 36
+  8 (removed by precedence):   On DIVIS to state 37
+  Reduce by 20: expr -> expr '*' expr  . 
+
+
+State 46:
+21: expr -> expr '%' expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 29
+  1 (removed by precedence):   On '-' to state 30
+  2 (removed by precedence):   On '*' to state 31
+  3 (removed by precedence):   On '%' to state 32
+  4 (removed by precedence):   On '/' to state 33
+  5 (removed by precedence):   On ADDIS to state 34
+  6 (removed by precedence):   On SUBIS to state 35
+  7 (removed by precedence):   On MULIS to state 36
+  8 (removed by precedence):   On DIVIS to state 37
+  Reduce by 21: expr -> expr '%' expr  . 
+
+
+State 47:
+22: expr -> expr '/' expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 29
+  1 (removed by precedence):   On '-' to state 30
+  2 (removed by precedence):   On '*' to state 31
+  3 (removed by precedence):   On '%' to state 32
+  4 (removed by precedence):   On '/' to state 33
+  5 (removed by precedence):   On ADDIS to state 34
+  6 (removed by precedence):   On SUBIS to state 35
+  7 (removed by precedence):   On MULIS to state 36
+  8 (removed by precedence):   On DIVIS to state 37
+  Reduce by 22: expr -> expr '/' expr  . 
+
+
+State 48:
+24: expr -> expr ADDIS expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 29
+  1:   On '-' to state 30
+  2:   On '*' to state 31
+  3:   On '%' to state 32
+  4:   On '/' to state 33
+  5:   On ADDIS to state 34
+  6:   On SUBIS to state 35
+  7:   On MULIS to state 36
+  8:   On DIVIS to state 37
+  Reduce by 24: expr -> expr ADDIS expr  . 
+
+
+State 49:
+25: expr -> expr SUBIS expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 29
+  1:   On '-' to state 30
+  2:   On '*' to state 31
+  3:   On '%' to state 32
+  4:   On '/' to state 33
+  5:   On ADDIS to state 34
+  6:   On SUBIS to state 35
+  7:   On MULIS to state 36
+  8:   On DIVIS to state 37
+  Reduce by 25: expr -> expr SUBIS expr  . 
+
+
+State 50:
+26: expr -> expr MULIS expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 29
+  1:   On '-' to state 30
+  2:   On '*' to state 31
+  3:   On '%' to state 32
+  4:   On '/' to state 33
+  5:   On ADDIS to state 34
+  6:   On SUBIS to state 35
+  7:   On MULIS to state 36
+  8:   On DIVIS to state 37
+  Reduce by 26: expr -> expr MULIS expr  . 
+
+
+State 51:
+27: expr -> expr DIVIS expr  . 
+18: expr -> expr  . '+' expr 
+19: expr -> expr  . '-' expr 
+20: expr -> expr  . '*' expr 
+21: expr -> expr  . '%' expr 
+22: expr -> expr  . '/' expr 
+24: expr -> expr  . ADDIS expr 
+25: expr -> expr  . SUBIS expr 
+26: expr -> expr  . MULIS expr 
+27: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 29
+  1:   On '-' to state 30
+  2:   On '*' to state 31
+  3:   On '%' to state 32
+  4:   On '/' to state 33
+  5:   On ADDIS to state 34
+  6:   On SUBIS to state 35
+  7:   On MULIS to state 36
+  8:   On DIVIS to state 37
+  Reduce by 27: expr -> expr DIVIS expr  . 
+
+
+State 52:
+23: expr -> '(' expr ')'  . 
+  Reduce by 23: expr -> '(' expr ')'  . 
+
+
+
