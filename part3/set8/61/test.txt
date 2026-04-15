@@ -11,4 +11,4 @@ fun: sumFun()
 expr: sum += sumFun() + 12;
 expr: some -= someFun() - 3;
 
-fun: some
+fun: 5

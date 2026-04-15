@@ -9,6 +9,7 @@
 #include "../scanner/scanner.h"
 
 #include <unordered_set>
+#include <vector>
 #include <string>
 
 class Parser: public ParserBase
@@ -17,9 +18,6 @@ class Parser: public ParserBase
     Scanner d_scanner;
 
     std::unordered_set<std::string> d_symtab;
-    
-    bool d_validLine = true;
-    std::string d_error;
     
     public:
         Parser(std::string const &fileName);
@@ -41,9 +39,7 @@ class Parser: public ParserBase
         void print_();
 
     // added functions for syntax checking:
-        void showError() const;
-        void storeFun();
-        void storeVar();
+        void store();
         void checkVar();
         void checkFun();
 };

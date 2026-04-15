@@ -26,10 +26,6 @@ lines:
     lines line
 |
     line
-    {
-        showError();
-        d_validLine = true;
-    }
 ;
 
 line:
@@ -39,39 +35,26 @@ line:
 |
     EXPR expr ';' '\n'
 |
-    error '\n'
-    {
-        d_validLine = false;
-    }
+    error
 |
     '\n'
 ;
 
 var:
     ident '=' expr
-|
-    error
-    {
-        error("Error defining variable");
-    }
 ;
 
 ident:
     IDENT
     {
-        storeVar();     // doing this here to keep variable @ matched()
+        store();        // doing this here to keep variable @ matched()
     }
 ;
 
 fun:
     FUNCNAME
     {
-        storeFun();
-    }
-|
-    error
-    {
-        error("Error declaring function");
+        store();
     }
 ;
 
@@ -111,9 +94,4 @@ expr:
     expr MULIS expr
 |
     expr DIVIS expr
-|
-    error
-    {
-        error("Error in expression");
-    }
 ;

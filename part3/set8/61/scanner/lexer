@@ -1,29 +1,49 @@
 %filenames scanner
 %token-path = "tokens.h"
 
+%x parse
+
 digits      [0-9]+
 optdigits   [0-9]*
 exp         [eE][-+]?{digits}
+ws          [ \t]+
 
 %%
 
-[ \t]+                                  // ignore
-^[ \t]*#[^\n]*                          // comment
+{ws}                                // ignore
+^{ws}*#[^\n]*                       // comment
 
-"var:"                                  return Tokens::VAR;
-"fun:"                                  return Tokens::FUN;
-"expr:"                                 return Tokens::EXPR;
+^{ws}*"var:"                        {
+                                        begin(StartCondition_::parse);
+                                        return Tokens::VAR;
+                                    }
+^{ws}*"fun:"                        {
+                                        begin(StartCondition_::parse);
+                                        return Tokens::FUN;
+                                    }
+^{ws}*"expr:"                       {
+                                        begin(StartCondition_::parse);
+                                        return Tokens::EXPR;
+                                    }
+<parse>{
+    "+="                            return Tokens::ADDIS;
+    "-="                            return Tokens::SUBIS;
+    "*="                            return Tokens::MULIS;
+    "/="                            return Tokens::DIVIS;
 
-"+="                                    return Tokens::ADDIS;
-"-="                                    return Tokens::SUBIS;
-"*="                                    return Tokens::MULIS;
-"/="                                    return Tokens::DIVIS;
+    {digits}                        |
+    {digits}"."{optdigits}{exp}?    |
+    {optdigits}"."{digits}{exp}?    return Tokens::NUMBER;
 
-{digits}                                |
-{digits}"."{optdigits}{exp}?            |
-{optdigits}"."{digits}{exp}?            return Tokens::NUMBER;
+    [[:alpha:]_][[:alnum:]_]*\(\)   return Tokens::FUNCNAME;
+    [[:alpha:]_][[:alnum:]_]*       return Tokens::IDENT;
 
-[[:alpha:]_][[:alnum:]_]*\(\)           return Tokens::FUNCNAME;
-[[:alpha:]_][[:alnum:]_]*               return Tokens::IDENT;
+    \n                              {
+                                        begin(StartCondition_::INITIAL);
+                                        return matched().front();
+                                    }
+    {ws}                            // ignore
+    .                               return matched().front();
+}
 
-\n|.                                    return matched().front();
+

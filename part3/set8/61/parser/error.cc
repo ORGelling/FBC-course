@@ -2,5 +2,5 @@
 
 void Parser::error(std::string const &msg)
 {
-    d_error = msg;
+    cout << "At line " << d_scanner.lineNr() << ": " << msg << '\n';
 }
