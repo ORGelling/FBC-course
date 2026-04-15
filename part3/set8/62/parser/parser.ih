@@ -7,12 +7,6 @@
 
 #include <iostream>
 
-// $insert lex
-inline int Parser::lex()
-{
-    return d_scanner.lex();
-}
-
 inline void Parser::print()         
 {
     print_();           // displays tokens if --print was specified

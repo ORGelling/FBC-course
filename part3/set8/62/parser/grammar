@@ -25,19 +25,24 @@ rules:
 rule:
     IDENT ':' alternatives ';'
     {
-        //storeRules($1, $3);
-        for (auto const &rhs: $3.alternatives)
-            d_rules.push_back(Rule{$1.text, rhs});
+        storeRules($1, $3);
     }
 ;
 
 alternatives:
-    alt
+    alternative
+    {
+        $$ = RuleValue(std::vector<std::vector<std::string>>{ $1.symbols });
+    }
 |
-    alternatives '|' alt
+    alternatives '|' alternative
+    {
+        $$ = $1;
+        $$.alternatives.push_back($3.symbols);
+    }
 ;
 
-alt:
+alternative:
     symbols prec
     {
         $$ = $1;
