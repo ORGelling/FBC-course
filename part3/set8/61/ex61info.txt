@@ -1,9 +1,10 @@
 Exercise 61: Use parsing in non-standard situations
 
-We use the scanner's mini-scanner functionality to hand back tokens only when
-we are reading a command line (var:, fun:, or expr:). We store functions and
-variables in an unordered set to make sure they have been declared/defined
-before use, and show error messages depending on what was wrong on the line.
-This does mean we sometimes show multiple error messages per line, if there
-were multiple errors, although this only happens if there was no syntax error,
-but an un-, or multiply, defined function/variable.
+We use the format of irrelevant lines, being a comand of some type + a path
+name, to allow the grammar to swallow these lines without doing anything. The
+relevant lines, starting with var:, fun:, or expr:, are given their own paths
+that actually check their syntax and make sure variables and functions are
+(not multiply) defined before use. We show error messages depending on what 
+was wrong on the line, this does mean we sometimes show multiple error 
+messages per line, if there were multiple errors. This only happens if there 
+was no syntax error, but an un-, or multiply, defined function/variable.

@@ -12,6 +12,7 @@ struct Tokens
         FUN,
         FUNCNAME,
         EXPR,
+        PATH,
         ADDIS,
         SUBIS,
         MULIS,

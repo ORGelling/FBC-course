@@ -14,6 +14,7 @@
         FUN
         FUNCNAME
         EXPR
+        PATH
 
 %right  '=' ADDIS SUBIS MULIS DIVIS
 %left   '+' '-'
@@ -34,6 +35,8 @@ line:
     FUN fun '\n'
 |
     EXPR expr ';' '\n'
+|
+    IDENT PATH '\n'
 |
     error
 |

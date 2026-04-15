@@ -13,37 +13,21 @@ ws          [ \t]+
 {ws}                                // ignore
 ^{ws}*#[^\n]*                       // comment
 
-^{ws}*"var:"                        {
-                                        begin(StartCondition_::parse);
-                                        return Tokens::VAR;
-                                    }
-^{ws}*"fun:"                        {
-                                        begin(StartCondition_::parse);
-                                        return Tokens::FUN;
-                                    }
-^{ws}*"expr:"                       {
-                                        begin(StartCondition_::parse);
-                                        return Tokens::EXPR;
-                                    }
-<parse>{
-    "+="                            return Tokens::ADDIS;
-    "-="                            return Tokens::SUBIS;
-    "*="                            return Tokens::MULIS;
-    "/="                            return Tokens::DIVIS;
+^{ws}*"var:"                        return Tokens::VAR;
+^{ws}*"fun:"                        return Tokens::FUN;
+^{ws}*"expr:"                       return Tokens::EXPR;
 
-    {digits}                        |
-    {digits}"."{optdigits}{exp}?    |
-    {optdigits}"."{digits}{exp}?    return Tokens::NUMBER;
+"+="                                return Tokens::ADDIS;
+"-="                                return Tokens::SUBIS;
+"*="                                return Tokens::MULIS;
+"/="                                return Tokens::DIVIS;
 
-    [[:alpha:]_][[:alnum:]_]*\(\)   return Tokens::FUNCNAME;
-    [[:alpha:]_][[:alnum:]_]*       return Tokens::IDENT;
+{digits}                            |
+{digits}"."{optdigits}{exp}?        |
+{optdigits}"."{digits}{exp}?        return Tokens::NUMBER;
 
-    \n                              {
-                                        begin(StartCondition_::INITIAL);
-                                        return matched().front();
-                                    }
-    {ws}                            // ignore
-    .                               return matched().front();
-}
+[[:alpha:]_][[:alnum:]_]*\(\)       return Tokens::FUNCNAME;
+[[:alpha:]_][[:alnum:]_]*           return Tokens::IDENT;
+[[:alpha:]._/~][[:alnum:]._/~]*     return Tokens::PATH;
 
-
+.|\n                                return matched().front();
