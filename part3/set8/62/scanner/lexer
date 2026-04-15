@@ -1,0 +1,18 @@
+%filenames scanner
+%x grammar
+
+%%
+
+"%%"                                begin(StartCondition_::grammar); 
+
+\n|.                                // ignore
+
+<grammar>[ \t\n]+                   // ignore ws and nls
+
+<grammar>"%prec"                    return Tokens::PREC;
+
+<grammar>'([^'\\\n]|\\.)'           return Tokens::CHAR;
+
+<grammar>[[:alpha:]_][[:alnum:]_]*  return Tokens::IDENT;
+
+<grammar>.                          return matched().front();

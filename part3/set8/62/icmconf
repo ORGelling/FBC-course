@@ -1,0 +1,41 @@
+#define CLS
+
+#define NOCOLORS            "-fdiagnostics-color=never"
+
+#define LIBRARY           "modules"
+
+#define MULTICOMP           "jobs -q"
+#define SPCH                "-q -o " ${NOCOLORS}
+
+#define MAIN                "main.cc"
+#define SOURCES             "*.cc"
+#define OBJ_EXT             ".o"
+#define TMP_DIR             "tmp"
+
+#define USE_ECHO              ON
+#define IH                  ".ih"
+
+// use the next one if you have ccache installed:
+#define CXX                 "ccache g++" 
+// #define CXX                 "g++" 
+
+#define CXXFLAGS            "-Wall -Werror -O2 "  ${NOCOLORS}
+
+#define REFRESH
+#define LDFLAGS             "-s"
+#define ADD_LIBRARIES       ""
+#define ADD_LIBRARY_PATHS   ""
+
+#define PARSER_DIR          "parser"
+#define PARSGEN             "bisonc++"
+#define PARSFLAGS           "-V"
+#define PARSSPEC            "grammar"
+#define PARSOUT             "parse.cc"
+
+#define SCANNER_DIR         "scanner"  
+#define SCANGEN             "flexc++"
+#define SCANFLAGS           ""
+#define SCANSPEC            "lexer"
+#define SCANOUT             "lex.cc"
+
+#define DEFCOM     "program"
