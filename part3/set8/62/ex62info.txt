@@ -1,0 +1,15 @@
+Exercise 62: Generate complex data structures while parsing. 
+
+We solve the exercise as requested, giving us a program that produces output
+from the example grammar from the exercise as follows after this short
+explanation
+
+A comment we would like to add is that we used the original form from the demo
+where rulevalue.h ans sstruct.cc are inside the parser directory, but due to
+mailhandler constraints handing that in while showing both those files is
+somewhat tricky, so we have duplicated them in their own little directory.
+These files, as shown in the pdf, are not properly pointed to inside the
+parser's internals, as they are just here for demonstration.
+
+Now follows the output that our program produces:
+

@@ -1,0 +1,777 @@
+[grammar (info)] Line 151: 
+Production Rules:
+   (precedences (shown between parentheses) were set by %prec;
+    are equal to the precedence of the rules' 1st terminal tokens;
+    or (if not shown) are equal to the default (max) precedence)
+1: lines ->  lines line
+2: lines ->  line
+3: line ('\x0a') ->  expr '\x0a'
+4: line (errTok_) ->  errTok_ '\x0a'
+5: line ('\x0a') ->  '\x0a'
+6: line (EXIT) ->  EXIT
+7: line (LIST) ->  LIST
+8: expr (NUMBER) ->  NUMBER
+9: expr (IDENT) ->  IDENT
+10: expr (uMinus) ->  '-' expr
+11: expr ('+') ->  expr '+' expr
+12: expr ('-') ->  expr '-' expr
+13: expr ('*') ->  expr '*' expr
+14: expr ('/') ->  expr '/' expr
+15: expr (SHIFTLEFT) ->  expr SHIFTLEFT expr
+16: expr (SHIFTRIGHT) ->  expr SHIFTRIGHT expr
+17: expr ('&') ->  expr '&' expr
+18: expr ('|') ->  expr '|' expr
+19: expr ('(') ->  '(' expr ')'
+20: expr ('=') ->  expr '=' expr
+21: expr (ADDIS) ->  expr ADDIS expr
+22: expr (SUBIS) ->  expr SUBIS expr
+23: expr (MULIS) ->  expr MULIS expr
+24: expr (DIVIS) ->  expr DIVIS expr
+25: lines_$ ->  lines
+
+
+Symbolic Terminal tokens:
+       error
+       EOF
+   257: NUMBER
+   258: IDENT
+   259: EXIT
+   260: LIST
+    61: '='
+   261: MULIS
+   262: DIVIS
+   263: ADDIS
+   264: SUBIS
+    38: '&'
+   124: '|'
+   265: SHIFTLEFT
+   266: SHIFTRIGHT
+    43: '+'
+    45: '-'
+    42: '*'
+    47: '/'
+   267: uMinus
+    10: '\x0a'
+    40: '('
+    41: ')'
+
+
+Grammar States: 
+
+State 0:
+25: lines_$ ->  . lines 
+  0:   On lines to state 1
+  1:   On line to state 2
+  2:   On expr to state 3
+  3:   On errTok_ to state 4
+  4:   On '\x0a' to state 5
+  5:   On EXIT to state 6
+  6:   On LIST to state 7
+  7:   On NUMBER to state 8
+  8:   On IDENT to state 9
+  9:   On '-' to state 10
+  10:   On '(' to state 11
+
+
+State 1:
+25: lines_$ -> lines  . 
+1: lines -> lines  . line 
+  0:   On line to state 12
+  1:   On expr to state 3
+  2:   On errTok_ to state 4
+  3:   On '\x0a' to state 5
+  4:   On EXIT to state 6
+  5:   On LIST to state 7
+  6:   On NUMBER to state 8
+  7:   On IDENT to state 9
+  8:   On '-' to state 10
+  9:   On '(' to state 11
+
+
+State 2:
+2: lines -> line  . 
+  Reduce by 2: lines -> line  . 
+
+
+State 3:
+3: line -> expr  . '\x0a' 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On '\x0a' to state 13
+  1:   On '+' to state 14
+  2:   On '-' to state 15
+  3:   On '*' to state 16
+  4:   On '/' to state 17
+  5:   On SHIFTLEFT to state 18
+  6:   On SHIFTRIGHT to state 19
+  7:   On '&' to state 20
+  8:   On '|' to state 21
+  9:   On '=' to state 22
+  10:   On ADDIS to state 23
+  11:   On SUBIS to state 24
+  12:   On MULIS to state 25
+  13:   On DIVIS to state 26
+
+
+State 4:
+4: line -> errTok_  . '\x0a' 
+  0:   On '\x0a' to state 27
+
+
+State 5:
+5: line -> '\x0a'  . 
+  Reduce by 5: line -> '\x0a'  . 
+
+
+State 6:
+6: line -> EXIT  . 
+  Reduce by 6: line -> EXIT  . 
+
+
+State 7:
+7: line -> LIST  . 
+  Reduce by 7: line -> LIST  . 
+
+
+State 8:
+8: expr -> NUMBER  . 
+  Reduce by 8: expr -> NUMBER  . 
+
+
+State 9:
+9: expr -> IDENT  . 
+  Reduce by 9: expr -> IDENT  . 
+
+
+State 10:
+10: expr -> '-'  . expr 
+  0:   On expr to state 28
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 11:
+19: expr -> '('  . expr ')' 
+  0:   On expr to state 29
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 12:
+1: lines -> lines line  . 
+  Reduce by 1: lines -> lines line  . 
+
+
+State 13:
+3: line -> expr '\x0a'  . 
+  Reduce by 3: line -> expr '\x0a'  . 
+
+
+State 14:
+11: expr -> expr '+'  . expr 
+  0:   On expr to state 30
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 15:
+12: expr -> expr '-'  . expr 
+  0:   On expr to state 31
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 16:
+13: expr -> expr '*'  . expr 
+  0:   On expr to state 32
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 17:
+14: expr -> expr '/'  . expr 
+  0:   On expr to state 33
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 18:
+15: expr -> expr SHIFTLEFT  . expr 
+  0:   On expr to state 34
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 19:
+16: expr -> expr SHIFTRIGHT  . expr 
+  0:   On expr to state 35
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 20:
+17: expr -> expr '&'  . expr 
+  0:   On expr to state 36
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 21:
+18: expr -> expr '|'  . expr 
+  0:   On expr to state 37
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 22:
+20: expr -> expr '='  . expr 
+  0:   On expr to state 38
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 23:
+21: expr -> expr ADDIS  . expr 
+  0:   On expr to state 39
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 24:
+22: expr -> expr SUBIS  . expr 
+  0:   On expr to state 40
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 25:
+23: expr -> expr MULIS  . expr 
+  0:   On expr to state 41
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 26:
+24: expr -> expr DIVIS  . expr 
+  0:   On expr to state 42
+  1:   On NUMBER to state 8
+  2:   On IDENT to state 9
+  3:   On '-' to state 10
+  4:   On '(' to state 11
+
+
+State 27:
+4: line -> errTok_ '\x0a'  . 
+  Reduce by 4: line -> errTok_ '\x0a'  . 
+
+
+State 28:
+10: expr -> '-' expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 14
+  1 (removed by precedence):   On '-' to state 15
+  2 (removed by precedence):   On '*' to state 16
+  3 (removed by precedence):   On '/' to state 17
+  4 (removed by precedence):   On SHIFTLEFT to state 18
+  5 (removed by precedence):   On SHIFTRIGHT to state 19
+  6 (removed by precedence):   On '&' to state 20
+  7 (removed by precedence):   On '|' to state 21
+  8 (removed by precedence):   On '=' to state 22
+  9 (removed by precedence):   On ADDIS to state 23
+  10 (removed by precedence):   On SUBIS to state 24
+  11 (removed by precedence):   On MULIS to state 25
+  12 (removed by precedence):   On DIVIS to state 26
+  Reduce by 10: expr -> '-' expr  . 
+
+
+State 29:
+19: expr -> '(' expr  . ')' 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On ')' to state 43
+  1:   On '+' to state 14
+  2:   On '-' to state 15
+  3:   On '*' to state 16
+  4:   On '/' to state 17
+  5:   On SHIFTLEFT to state 18
+  6:   On SHIFTRIGHT to state 19
+  7:   On '&' to state 20
+  8:   On '|' to state 21
+  9:   On '=' to state 22
+  10:   On ADDIS to state 23
+  11:   On SUBIS to state 24
+  12:   On MULIS to state 25
+  13:   On DIVIS to state 26
+
+
+State 30:
+11: expr -> expr '+' expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 14
+  1 (removed by precedence):   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4 (removed by precedence):   On SHIFTLEFT to state 18
+  5 (removed by precedence):   On SHIFTRIGHT to state 19
+  6 (removed by precedence):   On '&' to state 20
+  7 (removed by precedence):   On '|' to state 21
+  8 (removed by precedence):   On '=' to state 22
+  9 (removed by precedence):   On ADDIS to state 23
+  10 (removed by precedence):   On SUBIS to state 24
+  11 (removed by precedence):   On MULIS to state 25
+  12 (removed by precedence):   On DIVIS to state 26
+  Reduce by 11: expr -> expr '+' expr  . 
+
+
+State 31:
+12: expr -> expr '-' expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 14
+  1 (removed by precedence):   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4 (removed by precedence):   On SHIFTLEFT to state 18
+  5 (removed by precedence):   On SHIFTRIGHT to state 19
+  6 (removed by precedence):   On '&' to state 20
+  7 (removed by precedence):   On '|' to state 21
+  8 (removed by precedence):   On '=' to state 22
+  9 (removed by precedence):   On ADDIS to state 23
+  10 (removed by precedence):   On SUBIS to state 24
+  11 (removed by precedence):   On MULIS to state 25
+  12 (removed by precedence):   On DIVIS to state 26
+  Reduce by 12: expr -> expr '-' expr  . 
+
+
+State 32:
+13: expr -> expr '*' expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 14
+  1 (removed by precedence):   On '-' to state 15
+  2 (removed by precedence):   On '*' to state 16
+  3 (removed by precedence):   On '/' to state 17
+  4 (removed by precedence):   On SHIFTLEFT to state 18
+  5 (removed by precedence):   On SHIFTRIGHT to state 19
+  6 (removed by precedence):   On '&' to state 20
+  7 (removed by precedence):   On '|' to state 21
+  8 (removed by precedence):   On '=' to state 22
+  9 (removed by precedence):   On ADDIS to state 23
+  10 (removed by precedence):   On SUBIS to state 24
+  11 (removed by precedence):   On MULIS to state 25
+  12 (removed by precedence):   On DIVIS to state 26
+  Reduce by 13: expr -> expr '*' expr  . 
+
+
+State 33:
+14: expr -> expr '/' expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0 (removed by precedence):   On '+' to state 14
+  1 (removed by precedence):   On '-' to state 15
+  2 (removed by precedence):   On '*' to state 16
+  3 (removed by precedence):   On '/' to state 17
+  4 (removed by precedence):   On SHIFTLEFT to state 18
+  5 (removed by precedence):   On SHIFTRIGHT to state 19
+  6 (removed by precedence):   On '&' to state 20
+  7 (removed by precedence):   On '|' to state 21
+  8 (removed by precedence):   On '=' to state 22
+  9 (removed by precedence):   On ADDIS to state 23
+  10 (removed by precedence):   On SUBIS to state 24
+  11 (removed by precedence):   On MULIS to state 25
+  12 (removed by precedence):   On DIVIS to state 26
+  Reduce by 14: expr -> expr '/' expr  . 
+
+
+State 34:
+15: expr -> expr SHIFTLEFT expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 14
+  1:   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4 (removed by precedence):   On SHIFTLEFT to state 18
+  5 (removed by precedence):   On SHIFTRIGHT to state 19
+  6 (removed by precedence):   On '&' to state 20
+  7 (removed by precedence):   On '|' to state 21
+  8 (removed by precedence):   On '=' to state 22
+  9 (removed by precedence):   On ADDIS to state 23
+  10 (removed by precedence):   On SUBIS to state 24
+  11 (removed by precedence):   On MULIS to state 25
+  12 (removed by precedence):   On DIVIS to state 26
+  Reduce by 15: expr -> expr SHIFTLEFT expr  . 
+
+
+State 35:
+16: expr -> expr SHIFTRIGHT expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 14
+  1:   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4 (removed by precedence):   On SHIFTLEFT to state 18
+  5 (removed by precedence):   On SHIFTRIGHT to state 19
+  6 (removed by precedence):   On '&' to state 20
+  7 (removed by precedence):   On '|' to state 21
+  8 (removed by precedence):   On '=' to state 22
+  9 (removed by precedence):   On ADDIS to state 23
+  10 (removed by precedence):   On SUBIS to state 24
+  11 (removed by precedence):   On MULIS to state 25
+  12 (removed by precedence):   On DIVIS to state 26
+  Reduce by 16: expr -> expr SHIFTRIGHT expr  . 
+
+
+State 36:
+17: expr -> expr '&' expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 14
+  1:   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4:   On SHIFTLEFT to state 18
+  5:   On SHIFTRIGHT to state 19
+  6 (removed by precedence):   On '&' to state 20
+  7:   On '|' to state 21
+  8 (removed by precedence):   On '=' to state 22
+  9 (removed by precedence):   On ADDIS to state 23
+  10 (removed by precedence):   On SUBIS to state 24
+  11 (removed by precedence):   On MULIS to state 25
+  12 (removed by precedence):   On DIVIS to state 26
+  Reduce by 17: expr -> expr '&' expr  . 
+
+
+State 37:
+18: expr -> expr '|' expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 14
+  1:   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4:   On SHIFTLEFT to state 18
+  5:   On SHIFTRIGHT to state 19
+  6 (removed by precedence):   On '&' to state 20
+  7 (removed by precedence):   On '|' to state 21
+  8 (removed by precedence):   On '=' to state 22
+  9 (removed by precedence):   On ADDIS to state 23
+  10 (removed by precedence):   On SUBIS to state 24
+  11 (removed by precedence):   On MULIS to state 25
+  12 (removed by precedence):   On DIVIS to state 26
+  Reduce by 18: expr -> expr '|' expr  . 
+
+
+State 38:
+20: expr -> expr '=' expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 14
+  1:   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4:   On SHIFTLEFT to state 18
+  5:   On SHIFTRIGHT to state 19
+  6:   On '&' to state 20
+  7:   On '|' to state 21
+  8:   On '=' to state 22
+  9:   On ADDIS to state 23
+  10:   On SUBIS to state 24
+  11:   On MULIS to state 25
+  12:   On DIVIS to state 26
+  Reduce by 20: expr -> expr '=' expr  . 
+
+
+State 39:
+21: expr -> expr ADDIS expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 14
+  1:   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4:   On SHIFTLEFT to state 18
+  5:   On SHIFTRIGHT to state 19
+  6:   On '&' to state 20
+  7:   On '|' to state 21
+  8:   On '=' to state 22
+  9:   On ADDIS to state 23
+  10:   On SUBIS to state 24
+  11:   On MULIS to state 25
+  12:   On DIVIS to state 26
+  Reduce by 21: expr -> expr ADDIS expr  . 
+
+
+State 40:
+22: expr -> expr SUBIS expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 14
+  1:   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4:   On SHIFTLEFT to state 18
+  5:   On SHIFTRIGHT to state 19
+  6:   On '&' to state 20
+  7:   On '|' to state 21
+  8:   On '=' to state 22
+  9:   On ADDIS to state 23
+  10:   On SUBIS to state 24
+  11:   On MULIS to state 25
+  12:   On DIVIS to state 26
+  Reduce by 22: expr -> expr SUBIS expr  . 
+
+
+State 41:
+23: expr -> expr MULIS expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 14
+  1:   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4:   On SHIFTLEFT to state 18
+  5:   On SHIFTRIGHT to state 19
+  6:   On '&' to state 20
+  7:   On '|' to state 21
+  8:   On '=' to state 22
+  9:   On ADDIS to state 23
+  10:   On SUBIS to state 24
+  11:   On MULIS to state 25
+  12:   On DIVIS to state 26
+  Reduce by 23: expr -> expr MULIS expr  . 
+
+
+State 42:
+24: expr -> expr DIVIS expr  . 
+11: expr -> expr  . '+' expr 
+12: expr -> expr  . '-' expr 
+13: expr -> expr  . '*' expr 
+14: expr -> expr  . '/' expr 
+15: expr -> expr  . SHIFTLEFT expr 
+16: expr -> expr  . SHIFTRIGHT expr 
+17: expr -> expr  . '&' expr 
+18: expr -> expr  . '|' expr 
+20: expr -> expr  . '=' expr 
+21: expr -> expr  . ADDIS expr 
+22: expr -> expr  . SUBIS expr 
+23: expr -> expr  . MULIS expr 
+24: expr -> expr  . DIVIS expr 
+  0:   On '+' to state 14
+  1:   On '-' to state 15
+  2:   On '*' to state 16
+  3:   On '/' to state 17
+  4:   On SHIFTLEFT to state 18
+  5:   On SHIFTRIGHT to state 19
+  6:   On '&' to state 20
+  7:   On '|' to state 21
+  8:   On '=' to state 22
+  9:   On ADDIS to state 23
+  10:   On SUBIS to state 24
+  11:   On MULIS to state 25
+  12:   On DIVIS to state 26
+  Reduce by 24: expr -> expr DIVIS expr  . 
+
+
+State 43:
+19: expr -> '(' expr ')'  . 
+  Reduce by 19: expr -> '(' expr ')'  . 
+
+
+

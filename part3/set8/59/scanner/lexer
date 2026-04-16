@@ -1,0 +1,21 @@
+%filenames scanner
+%token-path = "tokens.h"
+
+%interactive
+
+digits      [0-9]+
+double      ({digits}\.[0-9]*)|([0-9]*\.{digits})
+
+%%
+
+[ \t]+                                  // ignore
+
+"quit"                                  return Tokens::QUIT;
+
+{digits}                                return Tokens::INT;
+
+{double}                                return Tokens::DOUBLE;
+
+[^ \t\n]+                               return Tokens::STRING;
+
+.|\n                                    return matched().front();

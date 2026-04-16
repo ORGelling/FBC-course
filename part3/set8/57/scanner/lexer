@@ -1,0 +1,29 @@
+%filenames scanner
+%interactive
+
+digits      [0-9]+
+optdigits   [0-9]*
+exp         [eE][-+]?{digits}
+
+%%
+
+[ \t]+
+
+{digits}                                |
+{digits}"."{optdigits}{exp}?            |
+{optdigits}"."{digits}{exp}?            return Tokens::NUMBER;
+
+"exit"|"quit"                           return Tokens::EXIT;
+
+"list"                                  return Tokens::LIST;
+
+"<<"                                    return Tokens::SHIFTLEFT;
+">>"                                    return Tokens::SHIFTRIGHT;
+"+="                                    return Tokens::ADDIS;
+"-="                                    return Tokens::SUBIS;
+"*="                                    return Tokens::MULIS;
+"/="                                    return Tokens::DIVIS;
+
+[[:alpha:]_][[:alnum:]_]*               return Tokens::IDENT;
+
+\n|.                                    return matched().front();

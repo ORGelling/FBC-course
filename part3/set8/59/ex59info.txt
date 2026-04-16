@@ -1,0 +1,17 @@
+Exercise 59: Convert a union-semantic value type to a semantic value defined 
+             as a polymorphic base class.
+
+We add the .get<TAG>() functions to the $1 parameters inside the action 
+blocks of our production rules, such that the polymorphic types can be used
+correctly, and keep the grammar structure the same.
+
+We note that the way this grammar is set up means it must parse a newline
+before it can parse any actual input. This is taken as-is. 
+
+We are not sure what the exercise expects of us wrt modifying the grammar so
+that the scanner's lexer file can be simplified. The scanner is already quite
+simple, needing to only really distinguish between ints and doubles, handing
+back a QUIT token or a STRING token for anything that is not a numerical
+value. We might simplify the scanner to hand back only a VALUE token for
+anything of more than one character, but that seems like a strange setup for a
+parser that processes values and has to recognise a QUIT command.

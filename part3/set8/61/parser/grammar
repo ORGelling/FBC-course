@@ -1,0 +1,100 @@
+%class-name Parser
+
+%filenames parser
+%parsefun-source parse.cc
+
+%scanner ../scanner/scanner.h
+%token-path ../scanner/tokens.h
+
+%stype std::string
+
+%token  NUMBER
+        IDENT
+        VAR
+        FUN
+        FUNCNAME
+        EXPR
+        PATH
+
+%right  '=' ADDIS SUBIS MULIS DIVIS
+%left   '+' '-'
+%left   '*' '/' '%'
+%right  uMinus
+
+%%
+
+lines:
+    lines line
+|
+    line
+;
+
+line:
+    VAR var '\n'
+|
+    FUN fun '\n'
+|
+    EXPR expr ';' '\n'
+|
+    IDENT PATH '\n'
+|
+    error
+|
+    '\n'
+;
+
+var:
+    ident '=' expr
+;
+
+ident:
+    IDENT
+    {
+        store();        // doing this here to keep variable @ matched()
+    }
+;
+
+fun:
+    FUNCNAME
+    {
+        store();
+    }
+;
+
+expr:
+    NUMBER
+|
+    IDENT
+    {
+        checkVar();
+    }
+|
+    FUNCNAME
+    {
+        checkFun();
+    }
+|
+    '-' expr %prec uMinus
+|
+    '+' expr %prec uMinus
+|
+    expr '+' expr
+|
+    expr '-' expr
+|
+    expr '*' expr
+|
+    expr '%' expr
+|
+    expr '/' expr
+|
+    '(' expr ')'
+|
+    expr ADDIS expr
+|
+    expr SUBIS expr
+|
+    expr MULIS expr
+|
+    expr DIVIS expr
+;

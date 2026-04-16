@@ -1,0 +1,135 @@
+[grammar (info)] Line 91: 
+Production Rules:
+   (precedences (shown between parentheses) were set by %prec;
+    are equal to the precedence of the rules' 1st terminal tokens;
+    or (if not shown) are equal to the default (max) precedence)
+1: rules ->  rules rule
+2: rules ->  <empty>
+3: rule (IDENT) ->  IDENT ':' alternatives ';'
+4: alternatives ->  alternative
+5: alternatives ('|') ->  alternatives '|' alternative
+6: alternative ->  symbols prec
+7: symbols ->  symbols symbol
+8: symbols ->  <empty>
+9: symbol (IDENT) ->  IDENT
+10: symbol (CHAR) ->  CHAR
+11: prec (PREC) ->  PREC IDENT
+12: prec ->  <empty>
+13: rules_$ ->  rules
+
+
+Symbolic Terminal tokens:
+       error
+       EOF
+   257: IDENT
+   258: CHAR
+   259: PREC
+    58: ':'
+    59: ';'
+   124: '|'
+
+
+Grammar States: 
+
+State 0:
+13: rules_$ ->  . rules 
+  0:   On rules to state 1
+  Reduce by 2: rules ->  . 
+
+
+State 1:
+13: rules_$ -> rules  . 
+1: rules -> rules  . rule 
+  0:   On rule to state 2
+  1:   On IDENT to state 3
+
+
+State 2:
+1: rules -> rules rule  . 
+  Reduce by 1: rules -> rules rule  . 
+
+
+State 3:
+3: rule -> IDENT  . ':' alternatives ';' 
+  0:   On ':' to state 4
+
+
+State 4:
+3: rule -> IDENT ':'  . alternatives ';' 
+  0:   On alternatives to state 5
+  1:   On alternative to state 6
+  2:   On symbols to state 7
+  Reduce by 8: symbols ->  . 
+
+
+State 5:
+3: rule -> IDENT ':' alternatives  . ';' 
+5: alternatives -> alternatives  . '|' alternative 
+  0:   On ';' to state 8
+  1:   On '|' to state 9
+
+
+State 6:
+4: alternatives -> alternative  . 
+  Reduce by 4: alternatives -> alternative  . 
+
+
+State 7:
+6: alternative -> symbols  . prec 
+7: symbols -> symbols  . symbol 
+  0:   On prec to state 10
+  1:   On symbol to state 11
+  2:   On PREC to state 12
+  3:   On IDENT to state 13
+  4:   On CHAR to state 14
+  Reduce by 12: prec ->  . 
+
+
+State 8:
+3: rule -> IDENT ':' alternatives ';'  . 
+  Reduce by 3: rule -> IDENT ':' alternatives ';'  . 
+
+
+State 9:
+5: alternatives -> alternatives '|'  . alternative 
+  0:   On alternative to state 15
+  1:   On symbols to state 7
+  Reduce by 8: symbols ->  . 
+
+
+State 10:
+6: alternative -> symbols prec  . 
+  Reduce by 6: alternative -> symbols prec  . 
+
+
+State 11:
+7: symbols -> symbols symbol  . 
+  Reduce by 7: symbols -> symbols symbol  . 
+
+
+State 12:
+11: prec -> PREC  . IDENT 
+  0:   On IDENT to state 16
+
+
+State 13:
+9: symbol -> IDENT  . 
+  Reduce by 9: symbol -> IDENT  . 
+
+
+State 14:
+10: symbol -> CHAR  . 
+  Reduce by 10: symbol -> CHAR  . 
+
+
+State 15:
+5: alternatives -> alternatives '|' alternative  . 
+  Reduce by 5: alternatives -> alternatives '|' alternative  . 
+
+
+State 16:
+11: prec -> PREC IDENT  . 
+  Reduce by 11: prec -> PREC IDENT  . 
+
+
+

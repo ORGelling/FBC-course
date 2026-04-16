@@ -1,0 +1,14 @@
+logname  /var/log/program.log
+socket   /var/run/program.sock
+pidfile  /var/run/program.pid
+database ~/program/data.db
+
+    # define the variable 'sum'
+var: sum = 0    
+    # a function 'sumFun()' can be called
+fun: sumFun()
+    # expr: is followed by a valid expression
+expr: sum += sumFun() + 12;
+expr: some -= someFun() - 3;
+
+fun: 5

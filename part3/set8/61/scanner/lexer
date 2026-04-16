@@ -1,0 +1,33 @@
+%filenames scanner
+%token-path = "tokens.h"
+
+%x parse
+
+digits      [0-9]+
+optdigits   [0-9]*
+exp         [eE][-+]?{digits}
+ws          [ \t]+
+
+%%
+
+{ws}                                // ignore
+^{ws}*#[^\n]*                       // comment
+
+^{ws}*"var:"                        return Tokens::VAR;
+^{ws}*"fun:"                        return Tokens::FUN;
+^{ws}*"expr:"                       return Tokens::EXPR;
+
+"+="                                return Tokens::ADDIS;
+"-="                                return Tokens::SUBIS;
+"*="                                return Tokens::MULIS;
+"/="                                return Tokens::DIVIS;
+
+{digits}                            |
+{digits}"."{optdigits}{exp}?        |
+{optdigits}"."{digits}{exp}?        return Tokens::NUMBER;
+
+[[:alpha:]_][[:alnum:]_]*\(\)       return Tokens::FUNCNAME;
+[[:alpha:]_][[:alnum:]_]*           return Tokens::IDENT;
+[[:alpha:]._/~][[:alnum:]._/~]*     return Tokens::PATH;
+
+.|\n                                return matched().front();

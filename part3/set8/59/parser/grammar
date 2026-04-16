@@ -1,0 +1,41 @@
+%filenames parser
+
+%scanner ../scanner/scanner.h
+%token-path ../scanner/tokens.h
+%baseclass-preinclude <string>
+
+%token INT STRING DOUBLE QUIT
+
+%polymorphic INT: int; STRING: std::string; DOUBLE: double;
+
+%%
+
+lines:
+    lines '\n' line
+|
+    // empty
+;
+
+line:
+    INT
+    {
+        showInt($1.get<Tag_::INT>());
+    }
+|
+    STRING
+    {
+        showString($1.get<Tag_::STRING>());
+    }
+|
+    DOUBLE 
+    {
+        showDouble($1.get<Tag_::DOUBLE>());
+    }
+|
+    QUIT
+    {
+        quit();
+    }
+|
+    '\n'
+;
