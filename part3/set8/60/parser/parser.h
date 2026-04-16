@@ -11,6 +11,7 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <cmath>
 
 class Parser: public ParserBase
 {

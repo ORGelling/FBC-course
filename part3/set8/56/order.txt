@@ -5,7 +5,6 @@ ex56info.txt
 
 -parser/parser.h
 -parser/parser.ih
--parser/parser.ih.gch
 -parser/add.cc
 -parser/assign.cc
 -parser/display.cc
@@ -25,15 +24,13 @@ ex56info.txt
 -parser/valueof.cc
 -parser/variable.cc
 
--scanner/lex.cc
+-scanner/tokens.h
 -scanner/scannerbase.h
 -scanner/scanner.h
 -scanner/scanner.ih
--scanner/scanner.ih.gch
--scanner/tokens.h
+-scanner/lex.cc
 
 -spch
 
 -main.ih
--main.ih.gch
 -main.cc

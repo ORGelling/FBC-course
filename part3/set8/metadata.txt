@@ -1,5 +1,5 @@
-Set: 
+Set: Set 8
 
-Authors: 
+Authors: Jakub janicek, Olivier Gelling
 
 Rater: 

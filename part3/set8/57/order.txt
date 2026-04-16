@@ -5,7 +5,6 @@ ex57info.txt
 
 -parser/parser.h
 -parser/parser.ih
--parser/parser.ih.gch
 -parser/add.cc
 -parser/assign.cc
 -parser/display.cc
@@ -17,6 +16,7 @@ ex57info.txt
 -parser/parser.cc
 -parser/prompt.cc
 -parser/README.FIRST
+-parser/grammar.output
 -parser/rulevalue.h
 -parser/showtable.cc
 -parser/sstruct.cc
@@ -25,15 +25,13 @@ ex57info.txt
 -parser/valueof.cc
 -parser/variable.cc
 
--scanner/lex.cc
 -scanner/scannerbase.h
 -scanner/scanner.h
 -scanner/scanner.ih
--scanner/scanner.ih.gch
+-scanner/lex.cc
 -scanner/tokens.h
 
 -spch
 
 -main.ih
--main.ih.gch
 -main.cc

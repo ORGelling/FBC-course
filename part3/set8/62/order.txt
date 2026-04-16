@@ -1,38 +1,37 @@
 ex62info.txt
 
-output.txt
+out.txt
 -test.txt
-
-+scanner/lexer
-+parser/grammar
 
 rules/rules.h
 rules/opinsert.cc
 
 rulevalue/rulevalue.h
+rulevalue/sstruct.cc
 
-scanner/scanner.h
-scanner/lex.cc
++scanner/lexer
+
 -scanner/scannerbase.h
+-scanner/scanner.h
 -scanner/scanner.ih
--scanner/scanner.ih.gch
+-scanner/lex.cc
 -scanner/tokens.h
 
++parser/grammar
+
+-parser/parserbase.h
+-parser/rulevalue.h
 parser/parser.h
--parser/parser.ih
+parser/parser.ih
 parser/error.cc
 parser/lex.cc
 parser/storerules.cc
--parser/rulevalue.h
 -parser/sstruct.cc
 -parser/parse.cc
--parser/parserbase.h
--parser/parser.ih.gch
 -parser/grammar.output
 -parser/README.FIRST
 
 -spch
 
 -main.ih
--main.ih.gch
 -main.cc

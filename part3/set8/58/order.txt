@@ -1,11 +1,10 @@
-ex57info.txt
+ex58info.txt
 
 +scanner/lexer
 +parser/grammar
 
 parser/parser.h
 parser/parser.ih
--parser/parser.ih.gch
 parser/parser.cc
 parser/error.cc
 parser/display.cc
@@ -20,15 +19,13 @@ parser/value.cc
 -parser/parse.cc
 -parser/parserbase.h
 
--scanner/lex.cc
--scanner/scannerbase.h
 -scanner/scanner.h
 -scanner/scanner.ih
--scanner/scanner.ih.gch
+-scanner/lex.cc
+-scanner/scannerbase.h
 -scanner/tokens.h
 
 -spch
 
 -main.ih
--main.ih.gch
 -main.cc
