@@ -1,5 +1,6 @@
 ex62info.txt
 
+output.txt
 -test.txt
 
 +scanner/lexer

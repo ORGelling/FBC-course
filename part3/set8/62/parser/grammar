@@ -37,8 +37,8 @@ alternatives:
 |
     alternatives '|' alternative
     {
-        $$ = $1;
-        $$.alternatives.push_back($3.symbols);
+        $$ = $1;                                // small and simple enough
+        $$.alternatives.push_back($3.symbols);  // so keeping these like so
     }
 ;
 

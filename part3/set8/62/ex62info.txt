@@ -1,1 +1,6 @@
 Exercise 62: Generate complex data structures while parsing. 
+
+We solve the exercise as requested, giving us a program that produces output
+from the example grammar from the exercise as follows:
+
+

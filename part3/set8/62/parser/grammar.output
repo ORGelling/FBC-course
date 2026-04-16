@@ -1,4 +1,4 @@
-[grammar (info)] Line 84: 
+[grammar (info)] Line 91: 
 Production Rules:
    (precedences (shown between parentheses) were set by %prec;
     are equal to the precedence of the rules' 1st terminal tokens;
@@ -6,9 +6,9 @@ Production Rules:
 1: rules ->  rules rule
 2: rules ->  <empty>
 3: rule (IDENT) ->  IDENT ':' alternatives ';'
-4: alternatives ->  alt
-5: alternatives ('|') ->  alternatives '|' alt
-6: alt ->  symbols prec
+4: alternatives ->  alternative
+5: alternatives ('|') ->  alternatives '|' alternative
+6: alternative ->  symbols prec
 7: symbols ->  symbols symbol
 8: symbols ->  <empty>
 9: symbol (IDENT) ->  IDENT
@@ -57,25 +57,25 @@ State 3:
 State 4:
 3: rule -> IDENT ':'  . alternatives ';' 
   0:   On alternatives to state 5
-  1:   On alt to state 6
+  1:   On alternative to state 6
   2:   On symbols to state 7
   Reduce by 8: symbols ->  . 
 
 
 State 5:
 3: rule -> IDENT ':' alternatives  . ';' 
-5: alternatives -> alternatives  . '|' alt 
+5: alternatives -> alternatives  . '|' alternative 
   0:   On ';' to state 8
   1:   On '|' to state 9
 
 
 State 6:
-4: alternatives -> alt  . 
-  Reduce by 4: alternatives -> alt  . 
+4: alternatives -> alternative  . 
+  Reduce by 4: alternatives -> alternative  . 
 
 
 State 7:
-6: alt -> symbols  . prec 
+6: alternative -> symbols  . prec 
 7: symbols -> symbols  . symbol 
   0:   On prec to state 10
   1:   On symbol to state 11
@@ -91,15 +91,15 @@ State 8:
 
 
 State 9:
-5: alternatives -> alternatives '|'  . alt 
-  0:   On alt to state 15
+5: alternatives -> alternatives '|'  . alternative 
+  0:   On alternative to state 15
   1:   On symbols to state 7
   Reduce by 8: symbols ->  . 
 
 
 State 10:
-6: alt -> symbols prec  . 
-  Reduce by 6: alt -> symbols prec  . 
+6: alternative -> symbols prec  . 
+  Reduce by 6: alternative -> symbols prec  . 
 
 
 State 11:
@@ -123,8 +123,8 @@ State 14:
 
 
 State 15:
-5: alternatives -> alternatives '|' alt  . 
-  Reduce by 5: alternatives -> alternatives '|' alt  . 
+5: alternatives -> alternatives '|' alternative  . 
+  Reduce by 5: alternatives -> alternatives '|' alternative  . 
 
 
 State 16:

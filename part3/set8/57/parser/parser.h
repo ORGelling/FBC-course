@@ -55,6 +55,7 @@ class Parser: public ParserBase
         
         RuleValue mul(RuleValue &lvalue, RuleValue &rvalue) const;
         RuleValue div(RuleValue &lvalue, RuleValue &rvalue) const;
+        RuleValue mod(RuleValue &lvalue, RuleValue &rvalue) const;
         
         RuleValue shiftleft(RuleValue &lvalue, RuleValue &rvalue) const;
         RuleValue shiftright(RuleValue &lvalue, RuleValue &rvalue) const;
