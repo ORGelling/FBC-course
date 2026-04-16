@@ -1,0 +1,43 @@
+Exercise 50: define the grammar of a simple calculator
+
+We write the scanner and parser to follow this grammar, using doubles de
+facto, as they will allow for accurate calculations involving square roots and
+divisions. We do not that when using direct cin input, rather than redirecting
+a file, gives us a somewhat strange single-line lag in output, which did not
+show up previous exercise. The output here shows like:
+
+
+1 + 1
+2 + 2
+        2
+3 + 3
+        4
+4 + 4
+        6
+5 + 5
+        8
+6 + 6
+        10
+7-8
+        12
+8-9
+        -1
+
+        -1
+
+This is likely due to the output only being generated once the expression is
+fully reduced, whereas in the previous exercise output is generated right as a
+NUMBER or IDENT token is parsed! We can see that this changes when we have the
+expression output be generated from something like
+
+    expr '='
+
+instead. Now it will return output directly after a line if we enter something
+like 
+    
+    3 + 5 * 12 =
+
+This is not an issue when redirecting a file like test.txt into the program.
+Doing so gives us output: output.txt. We keep the program as is, without
+adding the equals requigement, as it is likely outside of the scope of this
+exercise.

@@ -162,7 +162,8 @@ void ScannerBase::switchStream_(std::istream &in, size_t lineNr)
 }
 
 
-ScannerBase::ScannerBase(std::string const &infilename, std::string const &outfilename, bool keepCwd)
+ScannerBase::ScannerBase(std::string const &infilename, 
+                                std::string const &outfilename, bool keepCwd)
 :
     d_out(outfilename == "-"    ? new std::ostream(std::cout.rdbuf()) :
           outfilename == ""     ? new std::ostream(std::cerr.rdbuf()) :

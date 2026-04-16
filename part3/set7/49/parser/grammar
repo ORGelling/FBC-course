@@ -1,0 +1,43 @@
+%class-name Parser
+%filenames parser
+%scanner ../scanner/scanner.h
+
+%token-path ../tokens/tokens.h
+
+%token WRITE IDENT NUMBER
+
+%%
+
+input:
+    // empty
+|
+    input expr
+;
+
+expr:
+    WRITE '(' write_contents ')' ';'
+;
+
+write_contents:
+    // empty
+|
+    write_element_list 
+;
+
+write_element_list:
+    write_element
+|
+    write_element_list ',' write_element
+;
+
+write_element:
+    IDENT
+    {
+        std::cout << d_scanner.matched() << '\n';    // show matched
+    }
+|
+    NUMBER
+    {
+        std::cout << d_scanner.matched() << '\n';    // same
+    }
+;

@@ -1,0 +1,9 @@
+Exercise 54: repair a defective grammar
+
+We write a nice, readable form of the repared and unambiguous grammar, and
+test it out to make sure it works. We see that it does as it returns a Syntax
+error for test3.txt (which mixes csv's and non csv's), and returns nothing (we
+have not set up actions for the rules yet after all) for the other two!
+
+We have added a slightly different version of the grammar that has one rule
+less, abstracting the options one level less.

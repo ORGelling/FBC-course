@@ -1,0 +1,6 @@
+Exercise 53: provide a grammar with an index operator
+
+We have added precedence definitions for '[' and ']' such that they fall
+higher than '+'. We have placed them below (in precedence) the unary minus 
+operator precedence, but note that it would likely have a similar result to 
+place them above it even, at the very bottom of the list.
