@@ -1,4 +1,0 @@
-#include "main.ih"
-#include "scanner/scanner.ih"
-#include "functions/functions.ih"
-#include "parser/parser.ih"

@@ -6,14 +6,7 @@ ex60info.txt
 -parser/parserbase.h
 parser/parser.h
 parser/parser.ih
-parser/asin.cc
-parser/acos.cc
-parser/atan.cc
-parser/ln.cc
-parser/sqrt.cc
-parser/math_error.cc
-parser/to_radians.cc
-parser/from_radians.cc
+parser/function.cc
 
 -parser/add.cc
 -parser/assign.cc
@@ -39,7 +32,24 @@ parser/from_radians.cc
 -scanner/scanner.ih
 -scanner/lex.cc
 
--spch
+functions/functions.h
+functions/functions.ih
+functions/s_functions.cc
+functions/call_function.cc
+functions/sin.cc
+functions/asin.cc
+functions/cos.cc
+functions/acos.cc
+functions/tan.cc
+functions/atan.cc
+functions/abs.cc
+functions/exp.cc
+functions/ln.cc
+functions/sqrt.cc
+functions/to_radians.cc
+functions/from_radians.cc
+functions/argcount.cc
+functions/math_error.cc
 
 -main.ih
 -main.cc
