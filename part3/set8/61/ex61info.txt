@@ -8,3 +8,26 @@ that actually check their syntax and make sure variables and functions are
 was wrong on the line, this does mean we sometimes show multiple error 
 messages per line, if there were multiple errors. This only happens if there 
 was no syntax error, but an un-, or multiply, defined function/variable.
+
+The output from our program for a file test.txt:
+
+logname  /var/log/program.log
+socket   /var/run/program.sock
+pidfile  /var/run/program.pid
+database ~/program/data.db
+
+    # define the variable 'sum'
+var: sum = 0    
+    # a function 'sumFun()' can be called
+fun: sumFun()
+    # expr: is followed by a valid expression
+expr: sum += sumFun() + 12;
+expr: some -= someFun() - 3;
+
+fun: 5
+
+is the following:
+
+At line 12: Variable not declared: some
+At line 12: Function not declared: someFun()
+At line 14: Syntax error

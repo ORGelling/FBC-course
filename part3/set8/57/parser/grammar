@@ -15,8 +15,9 @@
         LIST
 
 %right  '=' MULIS DIVIS ADDIS SUBIS
-%left   '&'
 %left   '|'
+%left   '^'
+%left   '&'
 %left   SHIFTLEFT SHIFTRIGHT
 %left   '+' '-'
 %left   '*' '/' '%'
@@ -115,6 +116,11 @@ expr:
     expr '&' expr
     {
         $$ = bitAnd($1, $3);
+    }
+|
+    expr '^' expr
+    {
+        $$ = bitXor($1, $3);
     }
 |
     expr '|' expr
