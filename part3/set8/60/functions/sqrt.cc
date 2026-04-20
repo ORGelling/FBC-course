@@ -1,8 +1,10 @@
-#include "parser.ih"
+#include "functions.ih"
 
-RuleValue Parser::sqrt(RuleValue &expr)
+RuleValue Functions::sqrt(ArgVec const &args) const
 {
-    double value = valueOf(expr);
+    argCount(args, 1);
+
+    double value = args[0];
 
     if (value < 0)
     {
