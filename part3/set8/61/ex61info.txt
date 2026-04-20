@@ -21,13 +21,13 @@ var: sum = 0
     # a function 'sumFun()' can be called
 fun: sumFun()
     # expr: is followed by a valid expression
-expr: sum += sumFun() + 12;
-expr: some -= someFun() - 3;
+expr: sum += someFun() + 12;
+expr: some -= sumFun() - 3;
 
 fun: 5
 
 is the following:
 
+At line 11: Function not declared: someFun()
 At line 12: Variable not declared: some
-At line 12: Function not declared: someFun()
 At line 14: Syntax error
