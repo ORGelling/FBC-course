@@ -1,3 +1,0 @@
-#include "main.ih"
-#include "scanner/scanner.ih"
-#include "parser/parser.ih"

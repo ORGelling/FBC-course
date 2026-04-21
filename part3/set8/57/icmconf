@@ -3,7 +3,7 @@
 #define LIBRARY           "modules"
 
 #define MULTICOMP           "jobs -q"
-#define SPCH                "-q -o "
+//#define SPCH                "-q -o "
 
 #define MAIN                "main.cc"
 #define SOURCES             "*.cc"
