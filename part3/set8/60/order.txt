@@ -3,6 +3,11 @@ ex60info.txt
 +scanner/lexer
 +parser/grammar
 
+rulevalue/rulevalue.h
+rulevalue/rulevalue.ih
+rulevalue/ctors.cc
+rulevalue/arglist.cc
+
 -parser/parserbase.h
 parser/parser.h
 parser/parser.ih
@@ -19,8 +24,6 @@ parser/function.cc
 -parser/parser.cc
 -parser/prompt.cc
 -parser/README.FIRST
--parser/rulevalue.h
--parser/sstruct.cc
 -parser/sub.cc
 -parser/value.cc
 -parser/valueof.cc

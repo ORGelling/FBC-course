@@ -3,7 +3,7 @@
 %filenames parser
 %parsefun-source parse.cc
 
-%baseclass-preinclude rulevalue.h
+%baseclass-preinclude "../rulevalue/rulevalue.h"
 %stype RuleValue
 
 %scanner ../scanner/scanner.h

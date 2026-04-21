@@ -6,7 +6,7 @@
 #include <string>
 #include <cmath>        // for the inlines
 
-#include "../parser/rulevalue.h"
+#include "../rulevalue/rulevalue.h"
 
 class Functions
 {
