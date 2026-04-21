@@ -15,5 +15,5 @@ RuleValue Parser::variable()
         d_value.push_back(0);
     }
 
-    return RuleValue(idx);
+    return RuleValue{ idx };
 }

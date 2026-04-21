@@ -8,29 +8,22 @@
 // $insert scanner.h
 #include "../scanner/scanner.h"
 
+#include "../functions/functions.h"
+
 #include <vector>
 #include <unordered_map>
 #include <string>
-#include <cmath>
+
 
 class Parser: public ParserBase
 {
-    // angle mechanics:
-    enum class AngleMode
-    {
-        RAD,
-        DEG,
-        GRAD
-    };
-    
-    // currently used angle type, initialised as radians:
-    AngleMode d_angleMode = AngleMode::RAD;
-    
     // $insert scannerobject
     Scanner d_scanner;
 
     std::vector<double> d_value;
     std::unordered_map<std::string, unsigned> d_symtab;
+    
+    Functions d_functions;
 
     bool d_display;
         
@@ -58,6 +51,9 @@ class Parser: public ParserBase
         void display(RuleValue &expr);
         void done();
         void prompt();
+        
+        RuleValue callFunction(std::string const &name, 
+                                            Functions::ArgVec const &args);
 
         RuleValue add(RuleValue &lvalue, RuleValue &rvalue) const;
         RuleValue sub(RuleValue &lvalue, RuleValue &rvalue) const;
@@ -66,56 +62,13 @@ class Parser: public ParserBase
         
         RuleValue value();
         RuleValue variable();
-        
-        RuleValue sin(RuleValue &expr) const;
-        RuleValue asin(RuleValue &expr);
-        RuleValue cos(RuleValue &expr) const;
-        RuleValue acos(RuleValue &expr);
-        RuleValue tan(RuleValue &expr) const;
-        RuleValue atan(RuleValue &expr);
-        
-        RuleValue abs(RuleValue &expr) const;
-        RuleValue exp(RuleValue &expr) const;
-        RuleValue ln(RuleValue &expr);
-        RuleValue sqrt(RuleValue &expr);
-        
-        void math_error(char const *msg);
+        RuleValue function();
         
         RuleValue e_const() const;
         RuleValue pi_const() const;
 
         double valueOf(RuleValue const &expr) const;
-    
-    // support functions for angles
-        void set_angle_mode(AngleMode mode);
-        double to_radians(double value) const;
-        double from_radians(double value) const;
 };
-
-inline RuleValue Parser::exp(RuleValue &expr) const
-{
-    return RuleValue{ std::exp(valueOf(expr)) };
-}
-
-inline RuleValue Parser::sin(RuleValue &expr) const
-{
-    return RuleValue{ std::sin(to_radians(valueOf(expr))) };
-}
-
-inline RuleValue Parser::cos(RuleValue &expr) const
-{    
-    return RuleValue{ std::cos(to_radians(valueOf(expr))) };
-}
-
-inline RuleValue Parser::tan(RuleValue &expr) const
-{    
-    return RuleValue{ std::tan(to_radians(valueOf(expr))) };
-}
-
-inline RuleValue Parser::abs(RuleValue &expr) const
-{
-    return RuleValue{ std::fabs(valueOf(expr)) };
-}
 
 inline RuleValue Parser::e_const() const
 {
@@ -125,11 +78,6 @@ inline RuleValue Parser::e_const() const
 inline RuleValue Parser::pi_const() const
 {
     return RuleValue{3.14159};
-}
-
-inline void Parser::set_angle_mode(AngleMode mode)
-{
-    d_angleMode = mode;
 }
 
 #endif

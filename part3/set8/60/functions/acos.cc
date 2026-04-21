@@ -1,8 +1,10 @@
-#include "parser.ih"
+#include "functions.ih"
 
-RuleValue Parser::acos(RuleValue &expr)
+RuleValue Functions::acos(ArgVec const &args) const
 {
-    double value = valueOf(expr);
+    argCount(args, 1);
+    
+    double value = args[0];
 
     if (value < -1.0 || value > 1.0)
     {

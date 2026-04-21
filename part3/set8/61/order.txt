@@ -24,7 +24,5 @@ parser/checkfun.cc
 -parser/parse.cc
 -parser/README.FIRST
 
--spch
-
 -main.ih
 -main.cc

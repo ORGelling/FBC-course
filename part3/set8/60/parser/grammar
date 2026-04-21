@@ -3,7 +3,7 @@
 %filenames parser
 %parsefun-source parse.cc
 
-%baseclass-preinclude rulevalue.h
+%baseclass-preinclude "../rulevalue/rulevalue.h"
 %stype RuleValue
 
 %scanner ../scanner/scanner.h
@@ -11,16 +11,7 @@
 
 %token  NUMBER
         IDENT
-        EXP
-        SQRT
-        LN
-        ABS
-        SIN
-        ASIN
-        COS
-        ACOS
-        TAN
-        ATAN
+        FUN
         RAD
         DEG
         GRAD
@@ -42,7 +33,6 @@ lines:
     line
 ;
 
-
 line:
     expr '\n'
     {
@@ -61,19 +51,19 @@ line:
 |
     RAD '\n'
     {
-        set_angle_mode(AngleMode::RAD);
+        d_functions.set_angle_mode(Functions::AngleMode::RAD);
         prompt();
     }
 |
     DEG '\n'
     {
-        set_angle_mode(AngleMode::DEG);
+        d_functions.set_angle_mode(Functions::AngleMode::DEG);
         prompt();
     }
 |
     GRAD '\n'
     {
-        set_angle_mode(AngleMode::GRAD);
+        d_functions.set_angle_mode(Functions::AngleMode::GRAD);
         prompt();
     }
 |
@@ -85,16 +75,6 @@ line:
 
 
 expr:
-    NUMBER
-    {
-        $$ = value();
-    }
-|
-    IDENT
-    {
-        $$ = variable();
-    }
-|
     '-' expr            %prec uMinus
     {
         $$ = negate($2);
@@ -120,62 +100,6 @@ expr:
         $$ = assign($1, $3);
     }
 |
-    EXP '(' expr ')'
-    {
-        $$ = exp($3);
-    }
-|
-    SQRT '(' expr ')'
-    {
-        $$ = sqrt($3);
-    }
-|
-    LN '(' expr ')'
-    {
-        $$ = ln($3);
-    }
-|
-    SIN '(' expr ')'
-    {
-        $$ = sin($3);
-    }
-|
-    ASIN '(' expr ')'
-    {
-        $$ = asin($3);
-    }
-|
-    COS '(' expr ')'
-    {
-        $$ = cos($3);
-    }
-|
-    ACOS '(' expr ')'
-    {
-        $$ = acos($3);
-    }
-|
-    TAN '(' expr ')'
-    {
-        $$ = tan($3);
-    }
-|
-    ATAN '(' expr ')'
-    {
-        $$ = atan($3);
-    }
-|
-    '|' expr '|'
-    {
-        $$ = abs($2);
-    }
-|
-    ABS '(' expr ')'
-    {
-        $$ = abs($3);
-    }
-
-|
     E_CONST
     {
         $$ = e_const();
@@ -184,5 +108,46 @@ expr:
     PI_CONST
     {
         $$ = pi_const();
+    }
+|
+    NUMBER
+    {
+        $$ = value();
+    }
+|
+    IDENT
+    {
+        $$ = variable();
+    }
+|
+    funcname '(' arg_list ')'
+    {
+        $$ = callFunction($1.d_name, *$3.d_args);
+    }
+;
+
+funcname:
+    FUN
+    {
+        $$ = function();        // to properly store the function name
+    }
+;
+
+arg_list:
+    // empty
+    {
+        $$ = RuleValue::arglist();
+    }
+|
+    expr
+    {
+        $$ = RuleValue::arglist();
+        $$.d_args->push_back(valueOf($1));
+    }
+|
+    arg_list ',' expr
+    {
+        $1.d_args->push_back(valueOf($3));
+        $$ = $1;
     }
 ;

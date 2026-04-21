@@ -1,8 +1,10 @@
-#include "parser.ih"
+#include "functions.ih"
 
-RuleValue Parser::asin(RuleValue &expr)
+RuleValue Functions::asin(ArgVec const &args) const
 {
-    double value = valueOf(expr);
+    argCount(args, 1);
+    
+    double value = args[0];
 
     if (value < -1.0 || value > 1.0)
     {

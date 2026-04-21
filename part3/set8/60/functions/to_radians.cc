@@ -1,6 +1,6 @@
-#include "parser.ih"
+#include "functions.ih"
 
-double Parser::to_radians(double value) const
+double Functions::to_radians(double value) const
 {
     switch (d_angleMode)
     {

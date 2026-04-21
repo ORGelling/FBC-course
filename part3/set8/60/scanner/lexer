@@ -18,20 +18,11 @@ exp         [eE][-+]?{digits}
 "pi"                                    return Tokens::PI_CONST;
 "e"                                     return Tokens::E_CONST;
 
-"ln"                                    return Tokens::LN;
-"exp"                                   return Tokens::EXP;
-"sqrt"                                  return Tokens::SQRT;
-
-"asin"                                  return Tokens::ASIN;
-"sin"                                   return Tokens::SIN;
-"acos"                                  return Tokens::ACOS;
-"cos"                                   return Tokens::COS;
-"atan"                                  return Tokens::ATAN;
-"tan"                                   return Tokens::TAN;
-
 "rad"                                   return Tokens::RAD;
 "deg"                                   return Tokens::DEG;
 "grad"                                  return Tokens::GRAD;
+
+[A-Za-z_][A-Za-z0-9_]*/[ \t\n]*\(       return Tokens::FUN;
 
 "quit"|"exit"                           return Tokens::EXIT;
 

@@ -31,7 +31,5 @@ ex57info.txt
 -scanner/lex.cc
 -scanner/tokens.h
 
--spch
-
 -main.ih
 -main.cc

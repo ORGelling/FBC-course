@@ -61,6 +61,7 @@ class Parser: public ParserBase
         RuleValue shiftright(RuleValue &lvalue, RuleValue &rvalue) const;
         
         RuleValue bitAnd(RuleValue &lvalue, RuleValue &rvalue) const;
+        RuleValue bitXor(RuleValue &lvalue, RuleValue &rvalue) const;
         RuleValue bitOr(RuleValue &lvalue, RuleValue &rvalue) const;
         
         RuleValue add(RuleValue &lvalue, RuleValue &rvalue) const;
