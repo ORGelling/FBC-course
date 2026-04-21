@@ -22,7 +22,7 @@ exp         [eE][-+]?{digits}
 "deg"                                   return Tokens::DEG;
 "grad"                                  return Tokens::GRAD;
 
-[A-Za-z_][A-Za-z0-9_]*/[ \t\r\n]*\(     return Tokens::FUN;
+[A-Za-z_][A-Za-z0-9_]*/[ \t\n]*\(       return Tokens::FUN;
 
 "quit"|"exit"                           return Tokens::EXIT;
 
