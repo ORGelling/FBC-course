@@ -2,6 +2,7 @@ logname  /var/log/program.log
 socket   /var/run/program.sock
 pidfile  /var/run/program.pid
 database ~/program/data.db
+olivier  /een/heer/van/stand
 
     # define the variable 'sum'
 var: sum = 0    
