@@ -15,6 +15,7 @@ logname  /var/log/program.log
 socket   /var/run/program.sock
 pidfile  /var/run/program.pid
 database ~/program/data.db
+olivier  /een/heer/van/stand
 
     # define the variable 'sum'
 var: sum = 0    
@@ -28,6 +29,6 @@ fun: 5
 
 is the following:
 
-At line 11: Function not declared: someFun()
-At line 12: Variable not declared: some
-At line 14: Syntax error
+At line 12: Function not declared: someFun()
+At line 13: Variable not declared: some
+At line 15: Syntax error
